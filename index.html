@@ -46,7 +46,7 @@ html[data-lang=ru] [data-l=uk],html[data-lang=uk] [data-l=ru]{display:none!impor
 .btn-w{background:var(--paper);color:var(--ink)}.btn-w:hover{background:var(--accent);color:var(--ink)}
 
 /* shared paper bits */
-.tag{display:inline-block;font-family:var(--hand);font-size:27px;color:#3d4a3a;background:var(--tape);padding:3px 18px 5px;transform:rotate(-2deg);clip-path:polygon(2% 0,98% 4%,100% 96%,0 100%)}
+.tag{display:inline-block;font-family:var(--hand);font-size:27px;color:#3d4a3a;background:url(img/tape-1.webp) center/100% 100% no-repeat;padding:8px 34px 10px 40px;transform:rotate(-2deg)}
 .pm{position:absolute;width:118px;height:118px;color:var(--green-d);opacity:.5;mix-blend-mode:multiply;pointer-events:none;z-index:5}
 .pm svg{width:100%;height:100%}
 .sec-title{display:flex;align-items:center;gap:20px}
@@ -68,6 +68,8 @@ html[data-lang=ru] [data-l=uk],html[data-lang=uk] [data-l=ru]{display:none!impor
 .main-card.on{left:0;top:60px;width:100%;transform:rotate(-1deg)}
 .back-photo{transition:opacity .4s}.stage.wide .back-photo,.stage.wide .pm{opacity:0;pointer-events:none}
 .stage .pm{right:6%;bottom:4px;transform:rotate(-14deg)}
+.plane{position:absolute;left:-22%;top:-54px;width:230px;height:auto;opacity:.9;pointer-events:none}
+.why .head{display:flex;align-items:center;gap:18px;margin-bottom:40px}.why .head h2{margin:0}.why .globe{width:58px;height:auto;transform:rotate(-8deg)}
 
 /* instax card */
 .flip{perspective:1400px}
@@ -81,7 +83,7 @@ button.face{all:unset;box-sizing:border-box;display:block;width:100%;cursor:poin
 .face .cap{min-height:70px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:6px 4px 10px}
 .hand{font-family:var(--hand);color:#2f3b2d;line-height:1.05}
 .flip .face.back{position:absolute;inset:0;display:flex;flex-direction:column;padding:18px 16px;text-align:left}
-.tape{position:absolute;left:50%;top:-13px;width:88px;height:26px;margin-left:-44px;background:var(--tape);transform:rotate(-3deg);transform-origin:0 50%;z-index:4;clip-path:polygon(3% 0,97% 6%,100% 94%,0 100%);transition:transform .45s cubic-bezier(.3,.7,.3,1),opacity .35s .15s}
+.tape{position:absolute;left:50%;top:-14px;width:96px;height:28px;margin-left:-48px;background:url(img/tape-2.webp) center/100% 100% no-repeat;opacity:.92;transform:rotate(-3deg);transform-origin:0 50%;z-index:4;transition:transform .45s cubic-bezier(.3,.7,.3,1),opacity .35s .15s}
 .main-card.peel .tape{transform:translate(-14px,-30px) rotate(-38deg) scaleX(.9);opacity:0}
 .main-card .cap{flex-direction:row;justify-content:space-between;padding:0 6px;min-height:92px}
 .play{display:inline-flex;align-items:center;gap:10px;font-size:14px;color:#2f3b2d}
@@ -96,13 +98,13 @@ button.face{all:unset;box-sizing:border-box;display:block;width:100%;cursor:poin
 .pick h2{font-size:34px}
 .pickcard{position:relative;min-width:0;display:flex;align-items:center;gap:18px;padding:12px 18px 12px 12px;background:var(--paper);text-decoration:none;box-shadow:0 18px 30px -22px rgba(31,42,30,.45),0 1px 3px rgba(31,42,30,.1);transition:transform .25s}
 .pickcard:hover{transform:translateY(-3px) rotate(-.4deg)}
-.pickcard .art{flex:none;width:112px;height:96px;background:var(--bg2);display:flex;align-items:flex-end;justify-content:center;color:var(--green-d)}
-.pickcard .art svg{width:104px;height:86px}
+.pickcard .art{flex:none;width:112px;height:100px;display:flex;align-items:flex-end;justify-content:center}
+.pickcard .art img{width:100%;height:100%;object-fit:contain}
 .pickcard .txt{flex:1}
 .pickcard strong{display:block;font-family:var(--hand);font-weight:400;font-size:31px;line-height:1;color:var(--ink)}
 .pickcard small{display:block;font-size:14px;color:var(--ink2);margin-top:6px}
 .arrow{flex:none;display:inline-flex;width:42px;height:42px;border-radius:50%;background:var(--accent);align-items:center;justify-content:center;font-size:18px;color:var(--ink)}
-.pickcard .tape{top:-11px;width:64px;margin-left:-32px;height:20px}
+.pickcard .tape{top:-12px;width:74px;margin-left:-37px;height:22px;background-image:url(img/tape-3.webp)}
 
 /* why */
 .why .wrap{padding-top:88px;padding-bottom:88px}
@@ -122,8 +124,9 @@ button.face{all:unset;box-sizing:border-box;display:block;width:100%;cursor:poin
 .tabs button[aria-selected=true]{background:var(--green-d);color:#fff}
 .price-wrap{display:grid;grid-template-columns:1fr 240px;gap:56px;align-items:start}
 .rows{border-top:1px solid var(--line)}
-.row{display:grid;grid-template-columns:1fr auto;gap:32px;padding:24px 0;border-bottom:1px solid var(--line);align-items:center}
+.row{display:grid;grid-template-columns:64px 1fr auto;gap:32px;padding:24px 0;border-bottom:1px solid var(--line);align-items:center}
 .row h3{font-size:26px}
+.row .ic{width:64px;height:56px;object-fit:contain}
 .row .note{font-size:15px;color:var(--ink2);margin-top:4px}
 .plist{display:flex;flex-wrap:wrap;gap:10px;justify-content:flex-end}
 .plist>span{display:flex;flex-direction:column;align-items:center;min-width:118px;background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:8px 14px;font-size:13px;color:var(--ink2);white-space:nowrap}
@@ -142,12 +145,12 @@ button.face{all:unset;box-sizing:border-box;display:block;width:100%;cursor:poin
 .teachers{padding:88px 0 64px;overflow:visible;margin:24px 0}
 .teachers .sec-head h2{color:#fff}
 .teachers .hint{font-family:var(--hand);font-size:26px;color:var(--accent)}
-.line-box{position:relative;max-width:1440px;margin:0 auto;overflow:hidden;padding-bottom:12px}
-.thread{position:absolute;left:0;top:0;width:100%;height:150px}
+.line-box{--W:min(100vw,1440px);position:relative;max-width:1440px;margin:0 auto;overflow:hidden;padding-bottom:12px}
+.thread{position:absolute;left:0;top:0;width:100%;height:auto;pointer-events:none}
 .line{position:relative;display:flex;justify-content:space-around;padding:0 3% 24px}
 .hang{flex:0 0 14.5%;position:relative}
 .sw{transform-origin:50% 0;will-change:transform}
-.pin{position:absolute;left:50%;top:-14px;width:13px;height:36px;margin-left:-6.5px;background:#cfae84;border-radius:2px;z-index:3;box-shadow:inset -3px 0 0 #b38d61}
+.pin{position:absolute;left:50%;top:-34px;width:13px;height:62px;margin-left:-6.5px;background:url(img/pin.webp) center/contain no-repeat;z-index:3;filter:drop-shadow(0 3px 3px rgba(0,0,0,.25))}
 .hang .cap{min-height:66px}
 .hang .name{font-size:25px}
 .hang .lang{font-size:12.5px;color:var(--ink2);margin-top:4px}
@@ -234,13 +237,13 @@ details p{padding:0 0 20px;color:var(--ink2);max-width:60ch}
   .hero .facts>div{padding:0 16px}
   .hero .facts b{font-size:24px}
   .stage{min-height:0;height:auto;padding:8px 0 24px}
-  .back-photo{display:none}
+  .back-photo,.plane{display:none}
   .main-card{position:relative;left:auto;top:auto;width:82%;margin:0 auto}
   .main-card.on{width:100%;top:0}
   .stage .pm{width:86px;height:86px;right:-6px;top:-18px;bottom:auto}
   .pick .wrap{grid-template-columns:minmax(0,1fr);gap:18px}
   .pick h2{font-size:28px;text-align:center}
-  .pickcard .art{width:104px;height:84px}.pickcard .art svg{width:96px;height:78px}
+  .pickcard .art{width:96px;height:86px}
   .pickcard strong{font-size:28px}
   .why .wrap,.steps .wrap,.faq .wrap{padding-top:64px;padding-bottom:64px}
   .why ul{grid-template-columns:1fr;gap:26px}
@@ -249,14 +252,16 @@ details p{padding:0 0 20px;color:var(--ink2);max-width:60ch}
   .why h2,.sec-head h2,.steps h2,.faq h2{font-size:34px}
   .faq .wrap{grid-template-columns:1fr;gap:24px}
   .prices,.results{padding:64px 0}
-  .row{grid-template-columns:1fr;gap:12px}
+  .row{grid-template-columns:52px 1fr;gap:12px 14px}
+  .row .ic{width:52px;height:46px}
+  .row .plist{grid-column:1/-1}
   .row h3{font-size:23px}
   .plist{justify-content:flex-start;flex-wrap:nowrap}
   .plist>span{min-width:0;flex:1;padding:8px 6px}
   .plist>span b{font-size:18px}
   .teachers{padding:64px 0 40px}
   .thread{display:none}
-  .line{overflow-x:auto;justify-content:flex-start;gap:24px;padding:48px 20px 28px;scroll-snap-type:x mandatory;background:linear-gradient(#cfb48c,#cfb48c) 0 24px/100% 3px no-repeat}
+  .line{overflow-x:auto;justify-content:flex-start;gap:24px;padding:48px 20px 28px;scroll-snap-type:x mandatory;background:url(img/rope.webp) 0 20px/auto 12px repeat-x}
   .hang{flex:0 0 196px;scroll-snap-align:center;margin-top:0!important}
   .res-grid{grid-template-columns:1fr 1fr;gap:20px}
   .res-grid .hand{font-size:19px}
@@ -335,6 +340,7 @@ details p{padding:0 0 20px;color:var(--ink2);max-width:60ch}
       </div>
     </div>
     <div class="stage">
+      <img class="plane" src="img/plane.webp" alt="" width="560" height="133" aria-hidden="true">
       <div class="back-photo face" aria-hidden="true"><div class="ph"><img src="img/hero-daiana.jpg" alt="" width="800" height="1072"></div><div class="cap" style="min-height:44px"></div></div>
       <span class="pm" aria-hidden="true"><svg><use href="#pm"/></svg></span>
       <div class="main-card flip" id="heroCard">
@@ -357,14 +363,14 @@ details p{padding:0 0 20px;color:var(--ink2);max-width:60ch}
 <section class="pick" aria-labelledby="pick-h">
   <div class="wrap">
     <h2 id="pick-h"><span data-l="ru">Какой язык вы хотите изучать?</span><span data-l="uk">Яку мову ви хочете вивчати?</span></h2>
-    <a class="pickcard" href="#prices" data-go="en"><span class="tape" aria-hidden="true"></span><span class="art"><svg viewBox="0 0 120 96" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M4 92h112"/><path d="M52 92V34h16v58M50 34h20M52 34l8-22 8 22M60 12V5"/><circle cx="60" cy="44" r="5.5"/><path d="M60 41v3l2 1.5"/><path d="M55 56h10M55 66h10M55 76h10"/><path d="M8 92V70h40v22M8 70l6-6h28l6 6M14 76v8M22 76v8M30 76v8M38 76v8"/><path d="M72 92V66h42v26M72 66l5-5h32l5 5M78 72v10M86 72v10M94 72v10M102 72v10M108 72v10"/><path d="M82 30c3-3 6-3 9 0M90 24c2-2 4-2 6 0" stroke-width="1.1"/></svg></span><span class="txt"><strong><span data-l="ru">Английский</span><span data-l="uk">Англійська</span></strong><small><span data-l="ru">с нуля до C1</span><span data-l="uk">з нуля до C1</span></small></span><span class="arrow" aria-hidden="true">→</span></a>
-    <a class="pickcard" href="#prices" data-go="de"><span class="tape" aria-hidden="true"></span><span class="art"><svg viewBox="0 0 120 96" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M4 92h112"/><path d="M12 46h96v-8H12zM12 46v4h96v-4M34 38v-9h52v9"/><path d="M18 50v42M24 50v42M34 50v42M40 50v42M52 50v42M56 50v42M64 50v42M68 50v42M80 50v42M86 50v42M96 50v42M102 50v42"/><path d="M14 92v-4h12v4M32 92v-4h10v4M50 92v-4h20v4M78 92v-4h10v4M94 92v-4h12v4"/><path d="M50 29c1-6 5-9 10-9s9 3 10 9M60 20v-8M56 14h8M52 29l-4-6M68 29l4-6"/><path d="M16 42h88" stroke-width="1"/></svg></span><span class="txt"><strong><span data-l="ru">Немецкий</span><span data-l="uk">Німецька</span></strong><small><span data-l="ru">с нуля до C1</span><span data-l="uk">з нуля до C1</span></small></span><span class="arrow" aria-hidden="true">→</span></a>
+    <a class="pickcard" href="#prices" data-go="en"><span class="tape" aria-hidden="true"></span><span class="art"><img src="img/london.webp" alt="" width="520" height="801" loading="lazy"></span><span class="txt"><strong><span data-l="ru">Английский</span><span data-l="uk">Англійська</span></strong><small><span data-l="ru">с нуля до C1</span><span data-l="uk">з нуля до C1</span></small></span><span class="arrow" aria-hidden="true">→</span></a>
+    <a class="pickcard" href="#prices" data-go="de"><span class="tape" aria-hidden="true"></span><span class="art"><img src="img/berlin.webp" alt="" width="520" height="371" loading="lazy"></span><span class="txt"><strong><span data-l="ru">Немецкий</span><span data-l="uk">Німецька</span></strong><small><span data-l="ru">с нуля до C1</span><span data-l="uk">з нуля до C1</span></small></span><span class="arrow" aria-hidden="true">→</span></a>
   </div>
 </section>
 
 <section class="why" aria-labelledby="why-h">
   <div class="wrap">
-    <h2 id="why-h" class="rv"><span data-l="ru">Почему мы?</span><span data-l="uk">Чому ми?</span></h2>
+    <div class="head"><h2 id="why-h" class="rv"><span data-l="ru">Почему мы?</span><span data-l="uk">Чому ми?</span></h2><img class="globe" src="img/globe.webp" alt="" width="260" height="355" loading="lazy"></div>
     <ul>
       <li class="rv"><span class="num" aria-hidden="true">01</span><div><b><span data-l="ru">15 преподавателей</span><span data-l="uk">15 викладачів</span></b><p><span data-l="ru">Многие живут и работают в Германии и сами прошли путь, который проходите вы.</span><span data-l="uk">Багато хто живе й працює в Німеччині та сам пройшов шлях, який проходите ви.</span></p></div></li>
       <li class="rv"><span class="num" aria-hidden="true">02</span><div><b><span data-l="ru">С нуля до C1</span><span data-l="uk">З нуля до C1</span></b><p><span data-l="ru">Взрослые и дети, индивидуально, в паре или в группе.</span><span data-l="uk">Дорослі й діти, індивідуально, у парі або в групі.</span></p></div></li>
@@ -385,15 +391,15 @@ details p{padding:0 0 20px;color:var(--ink2);max-width:60ch}
     </div>
     <div class="price-wrap"><div>
     <div class="panel rows" id="p-en" role="tabpanel" aria-labelledby="tab-en">
-      <div class="row"><div><h3><span data-l="ru">С нуля до C1</span><span data-l="uk">З нуля до C1</span></h3><p class="note"><span data-l="ru">Для взрослых и подростков, от первых слов до свободного общения</span><span data-l="uk">Для дорослих і підлітків, від перших слів до вільного спілкування</span></p></div><div class="plist"><span><span data-l="ru">группа</span><span data-l="uk">група</span><b>от 12 €</b></span><span><span data-l="ru">пара</span><span data-l="uk">пара</span><b>от 15 €</b></span><span><span data-l="ru">индивидуально</span><span data-l="uk">індивідуально</span><b>от 18 €</b></span></div></div>
-      <div class="row"><div><h3>Speaking Club</h3><p class="note"><span data-l="ru">Разговорный клуб A1–C1</span><span data-l="uk">Розмовний клуб A1–C1</span></p></div><div class="plist"><span><span data-l="ru">занятие</span><span data-l="uk">заняття</span><b>15 €</b></span><span><span data-l="ru">4 занятия</span><span data-l="uk">4 заняття</span><b>50 €</b></span></div></div>
-      <div class="row"><div><h3><span data-l="ru">Подготовка к экзаменам</span><span data-l="uk">Підготовка до іспитів</span></h3><p class="note">IELTS, CAE, Duolingo Test, FCE, PET, НМТ</p></div><div class="plist"><span><span data-l="ru">индивидуально</span><span data-l="uk">індивідуально</span><b>от 20 €</b></span></div></div>
+      <div class="row"><img class="ic" src="img/ic-books.webp" alt="" loading="lazy"><div><h3><span data-l="ru">С нуля до C1</span><span data-l="uk">З нуля до C1</span></h3><p class="note"><span data-l="ru">Для взрослых и подростков, от первых слов до свободного общения</span><span data-l="uk">Для дорослих і підлітків, від перших слів до вільного спілкування</span></p></div><div class="plist"><span><span data-l="ru">группа</span><span data-l="uk">група</span><b>от 12 €</b></span><span><span data-l="ru">пара</span><span data-l="uk">пара</span><b>от 15 €</b></span><span><span data-l="ru">индивидуально</span><span data-l="uk">індивідуально</span><b>от 18 €</b></span></div></div>
+      <div class="row"><img class="ic" src="img/ic-cup.webp" alt="" loading="lazy"><div><h3>Speaking Club</h3><p class="note"><span data-l="ru">Разговорный клуб A1–C1</span><span data-l="uk">Розмовний клуб A1–C1</span></p></div><div class="plist"><span><span data-l="ru">занятие</span><span data-l="uk">заняття</span><b>15 €</b></span><span><span data-l="ru">4 занятия</span><span data-l="uk">4 заняття</span><b>50 €</b></span></div></div>
+      <div class="row"><img class="ic" src="img/ic-notes.webp" alt="" loading="lazy"><div><h3><span data-l="ru">Подготовка к экзаменам</span><span data-l="uk">Підготовка до іспитів</span></h3><p class="note">IELTS, CAE, Duolingo Test, FCE, PET, НМТ</p></div><div class="plist"><span><span data-l="ru">индивидуально</span><span data-l="uk">індивідуально</span><b>от 20 €</b></span></div></div>
     </div>
     <div class="panel rows" id="p-de" role="tabpanel" aria-labelledby="tab-de" hidden>
-      <div class="row"><div><h3><span data-l="ru">С нуля до C1</span><span data-l="uk">З нуля до C1</span></h3><p class="note"><span data-l="ru">Для взрослых и детей, индивидуально, в паре или в группе</span><span data-l="uk">Для дорослих і дітей, індивідуально, у парі або в групі</span></p></div><div class="plist"><span><span data-l="ru">группа</span><span data-l="uk">група</span><b>от 15 €</b></span><span><span data-l="ru">пара</span><span data-l="uk">пара</span><b>от 20 €</b></span><span><span data-l="ru">индивидуально</span><span data-l="uk">індивідуально</span><b>от 25 €</b></span></div></div>
-      <div class="row"><div><h3>Sprachclub</h3><p class="note"><span data-l="ru">Каждую неделю 1,5 часа только на немецком, A1–C1</span><span data-l="uk">Щотижня 1,5 години лише німецькою, A1–C1</span></p></div><div class="plist"><span><span data-l="ru">занятие</span><span data-l="uk">заняття</span><b>15 €</b></span><span><span data-l="ru">4 занятия</span><span data-l="uk">4 заняття</span><b>50 €</b></span></div></div>
-      <div class="row"><div><h3><span data-l="ru">Подготовка к экзаменам</span><span data-l="uk">Підготовка до іспитів</span></h3><p class="note">Goethe, TELC B1–C1, TELC Beruf, DTZ, DaF</p></div><div class="plist"><span><span data-l="ru">индивидуально</span><span data-l="uk">індивідуально</span><b>от 30 €</b></span></div></div>
-      <div class="row"><div><h3><span data-l="ru">Интенсив по грамматике</span><span data-l="uk">Інтенсив з граматики</span></h3><p class="note"><span data-l="ru">5 лекций в записи, для любого уровня</span><span data-l="uk">5 лекцій у записі, для будь-якого рівня</span></p></div><div class="plist"><span><span data-l="ru">курс</span><span data-l="uk">курс</span><b>39 €</b></span></div></div>
+      <div class="row"><img class="ic" src="img/ic-books.webp" alt="" loading="lazy"><div><h3><span data-l="ru">С нуля до C1</span><span data-l="uk">З нуля до C1</span></h3><p class="note"><span data-l="ru">Для взрослых и детей, индивидуально, в паре или в группе</span><span data-l="uk">Для дорослих і дітей, індивідуально, у парі або в групі</span></p></div><div class="plist"><span><span data-l="ru">группа</span><span data-l="uk">група</span><b>от 15 €</b></span><span><span data-l="ru">пара</span><span data-l="uk">пара</span><b>от 20 €</b></span><span><span data-l="ru">индивидуально</span><span data-l="uk">індивідуально</span><b>от 25 €</b></span></div></div>
+      <div class="row"><img class="ic" src="img/ic-cup.webp" alt="" loading="lazy"><div><h3>Sprachclub</h3><p class="note"><span data-l="ru">Каждую неделю 1,5 часа только на немецком, A1–C1</span><span data-l="uk">Щотижня 1,5 години лише німецькою, A1–C1</span></p></div><div class="plist"><span><span data-l="ru">занятие</span><span data-l="uk">заняття</span><b>15 €</b></span><span><span data-l="ru">4 занятия</span><span data-l="uk">4 заняття</span><b>50 €</b></span></div></div>
+      <div class="row"><img class="ic" src="img/ic-notes.webp" alt="" loading="lazy"><div><h3><span data-l="ru">Подготовка к экзаменам</span><span data-l="uk">Підготовка до іспитів</span></h3><p class="note">Goethe, TELC B1–C1, TELC Beruf, DTZ, DaF</p></div><div class="plist"><span><span data-l="ru">индивидуально</span><span data-l="uk">індивідуально</span><b>от 30 €</b></span></div></div>
+      <div class="row"><img class="ic" src="img/ic-books.webp" alt="" loading="lazy"><div><h3><span data-l="ru">Интенсив по грамматике</span><span data-l="uk">Інтенсив з граматики</span></h3><p class="note"><span data-l="ru">5 лекций в записи, для любого уровня</span><span data-l="uk">5 лекцій у записі, для будь-якого рівня</span></p></div><div class="plist"><span><span data-l="ru">курс</span><span data-l="uk">курс</span><b>39 €</b></span></div></div>
     </div>
 </div>
     <div class="stamp" aria-hidden="true"><div class="in"><small><span data-l="ru">Green Languages</span><span data-l="uk">Green Languages</span></small><span class="hand"><span data-l="ru">Первый урок бесплатно</span><span data-l="uk">Перший урок безкоштовно</span></span><small>0 €</small></div><span class="pm" aria-hidden="true"><svg><use href="#pm"/></svg></span></div>
@@ -407,7 +413,7 @@ details p{padding:0 0 20px;color:var(--ink2);max-width:60ch}
     <p class="hint"><span data-l="ru">нажмите на карточку ↺</span><span data-l="uk">натисніть на картку ↺</span></p>
   </div>
   <div class="line-box">
-    <svg class="thread" viewBox="0 0 1000 150" preserveAspectRatio="none" aria-hidden="true" fill="none"><path d="M-10 20 Q500 210 1010 20" stroke="#c4a67c" stroke-width="7" vector-effect="non-scaling-stroke"/><path d="M-10 20 Q500 210 1010 20" stroke="#e3cfaa" stroke-width="7" stroke-dasharray="4 6" vector-effect="non-scaling-stroke"/><path d="M-10 20 Q500 210 1010 20" stroke="#9c7d54" stroke-width="1.6" stroke-dasharray="3 7" stroke-dashoffset="5" vector-effect="non-scaling-stroke"/></svg>
+    <img class="thread" src="img/rope-arc.webp" alt="" width="1800" height="138" aria-hidden="true">
     <div class="line" id="line"></div>
   </div>
   <p class="wrap more"><span data-l="ru">Ещё в команде Алина, Ульяна, Елена, Кристина и София ведут английский, а Елизавета, Мария, Катерина и Карина ведут немецкий.</span><span data-l="uk">Також у команді Аліна, Уляна, Олена, Христина та Софія викладають англійську, а Єлизавета, Марія, Катерина й Карина викладають німецьку.</span></p>
@@ -499,8 +505,8 @@ details p{padding:0 0 20px;color:var(--ink2);max-width:60ch}
   ];
   function dual(a,cls){return '<span class="'+cls+'" data-l="ru">'+a[0]+'</span><span class="'+cls+'" data-l="uk">'+a[1]+'</span>'}
   var line=document.getElementById('line'),n=T.length,h='';
-  T.forEach(function(t,i){var u=(i+.5)/n,top=Math.round(8+170*u*(1-u)),tilt=i%2?2.5:-2;
-    h+='<div class="hang" style="margin-top:'+top+'px;transform:rotate('+tilt+'deg)"><div class="sw"><span class="pin" aria-hidden="true"></span><div class="flip"><div class="flip-in">'+
+  T.forEach(function(t,i){var u=(i+.5)/n,k=(4*u*(1-u)).toFixed(3),tilt=i%2?2.5:-2;
+    h+='<div class="hang" style="margin-top:calc(var(--W)*(0.006 + 0.0667*'+k+') - 2px);transform:rotate('+tilt+'deg)"><div class="sw"><span class="pin" aria-hidden="true"></span><div class="flip"><div class="flip-in">'+
     '<button class="face front" type="button" data-flip aria-label="'+t.n[0]+': перевернуть карточку"><div class="ph"><img src="img/'+t.img+'" alt="'+t.n[0]+'" width="900" height="960" loading="lazy"></div><div class="cap"><span class="hand name">'+dual(t.n,'')+'</span><span class="lang">'+dual(t.l,'')+'</span></div></button>'+
     '<button class="face back" type="button" data-flip aria-label="Перевернуть обратно"><span class="hand name" style="font-size:24px">'+dual(t.n,'')+'</span><span>'+dual(t.b,'')+'</span></button>'+
     '</div></div></div></div>'});
