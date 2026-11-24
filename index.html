@@ -430,6 +430,16 @@ main section{position:relative}
 .cta .polaroid{transform:rotate(-3deg)}
 @media (max-width:900px){.dc{display:none}.pc2{width:100%;margin:0 0 18px}.price-wrap>div:first-child{padding:6px 14px 16px}.steps .n{width:64px;height:64px;font-size:22px}.steps li:not(:last-child):after{display:none}.why li,.why li:first-child{text-align:left;padding-left:0}.main-card{left:4%;width:88%}}
 </style>
+<style id="modern">
+.pc2{filter:none;transform:none!important;background:var(--paper);border:1px solid var(--gold);padding:46px 24px 38px;transition:background .3s,border-color .3s}
+.pc2:hover{background:#fff;border-color:var(--green-d)}
+.pc2-city{display:block;font-family:var(--serif);font-style:italic;font-size:clamp(44px,5vw,72px);line-height:1;color:var(--green-d)}
+.pc2-t{margin-top:16px;font-family:var(--sans);font-size:12px;letter-spacing:.3em;color:var(--ink)}
+.story{transform:none;background:var(--paper);border:1px solid var(--gold);box-shadow:none}
+.story-tape{display:none}
+.story h3{font-family:var(--serif);font-style:italic;font-size:28px}
+.st-hero{width:96px}
+</style>
 </head>
 <body>
 <svg class="sprite" aria-hidden="true"><symbol id="g" viewBox="0 0 25 30"><path d="M12.5 26C18.8513 26 24 20.8513 24 14.5C24 8.14873 18.8513 3 12.5 3C6.14873 3 1 8.14873 1 14.5C1 20.8513 6.14873 26 12.5 26ZM12.5 27C19.4036 27 25 21.4036 25 14.5C25 7.59644 19.4036 2 12.5 2C5.59644 2 0 7.59644 0 14.5C0 21.4036 5.59644 27 12.5 27Z" fill="currentcolor" fill-rule="evenodd" clip-rule="evenodd"></path><path d="M7.51613 28.7604C5.87558 28.7604 5.0553 28.1889 5.0553 27.0461C5.0553 25.5714 5.98617 24.1705 7.84793 22.8433C8.86175 22.1429 9.92166 21.5806 11.0276 21.1567C12.1336 20.7327 13.3041 20.4654 14.5392 20.3548L15.1475 19.1659C14.4654 19.424 13.7926 19.6267 13.129 19.7742C12.4654 19.9032 11.8111 19.9677 11.1659 19.9677C9.30415 19.9677 7.81106 19.4516 6.68664 18.4194C5.56221 17.3502 5 15.8848 5 14.023C5 11.1659 6.16129 8.57604 8.48387 6.25346C7.48848 5.4424 6.99078 4.59447 6.99078 3.70968C6.99078 3.06452 7.24885 2.47465 7.76498 1.94009C8.33641 1.31336 9.43318 1 11.0553 1C12.0691 1 12.8894 1.17512 13.5161 1.52535C13.6267 1.52535 13.682 1.57143 13.682 1.66359C13.682 1.75576 13.6083 1.80184 13.4608 1.80184C13.3318 1.80184 13.1567 1.76498 12.9355 1.69124C12.3825 1.47005 11.7189 1.35945 10.9447 1.35945C9.45161 1.35945 8.51152 1.65438 8.12442 2.24424C7.79263 2.74194 7.62673 3.26728 7.62673 3.82028C7.62673 4.59447 7.99539 5.31336 8.73272 5.97696C11.424 3.39631 14.6221 2.10599 18.3272 2.10599C21.4424 2.10599 23 2.84332 23 4.31797C23 4.59447 22.9631 4.87097 22.8894 5.14746C22.7419 5.58986 22.4194 6.01382 21.9217 6.41935C20.4101 7.67281 18.2166 8.29954 15.341 8.29954C13.1659 8.29954 11.2857 7.88479 9.70046 7.0553C8.7235 8.16129 7.94009 9.42396 7.35023 10.8433C6.64977 12.447 6.29954 13.894 6.29954 15.1843C6.29954 18.023 7.92166 19.4424 11.1659 19.4424C12.659 19.4424 14.0783 19.1751 15.424 18.6406C16.0138 17.4608 16.5207 16.4747 16.9447 15.682C17.3687 14.871 17.7097 14.2627 17.9677 13.8571C19.4055 11.4424 20.53 10.235 21.341 10.235C21.9862 10.235 22.3088 10.5945 22.3088 11.3134C22.3088 12.2903 21.6544 13.6544 20.3456 15.4055C19.9585 15.9217 19.4885 16.4286 18.9355 16.9263C18.3825 17.4055 17.7281 17.8571 16.9723 18.2811L16.3088 20.3272C17.7097 20.4747 18.4101 20.8341 18.4101 21.4055C18.4101 21.5346 18.3641 21.5991 18.2719 21.5991C18.1982 21.5991 18.0691 21.5346 17.8848 21.4055C17.4424 21.0553 16.871 20.8341 16.1705 20.7419C15.47 22.8064 14.788 24.2903 14.1244 25.1935C12.3917 27.5714 10.1889 28.7604 7.51613 28.7604ZM15.3687 8.05069C15.8479 8.05069 16.3088 8.03226 16.7512 7.99539C17.212 7.94009 17.6452 7.86636 18.0507 7.77419C19.0092 7.58986 19.8756 7.28571 20.6498 6.86175C21.7373 6.27189 22.318 5.62673 22.3917 4.92627C22.4101 4.87097 22.4194 4.81567 22.4194 4.76037C22.4194 4.70507 22.4194 4.64977 22.4194 4.59447C22.4194 3.17511 21.47 2.46544 19.5714 2.46544C17.7465 2.46544 15.9862 2.85253 14.2903 3.62673C12.5945 4.38249 11.1382 5.45161 9.92166 6.8341C11.3963 7.64516 13.212 8.05069 15.3687 8.05069ZM17.1382 17.7558C17.6912 17.3871 18.2166 16.9816 18.7143 16.5392C19.212 16.0968 19.6728 15.6083 20.0968 15.0737C21.1659 13.7834 21.7005 12.6037 21.7005 11.5346C21.7005 11 21.5438 10.7327 21.2304 10.7327C21.1567 10.7327 21.0829 10.7512 21.0092 10.788C20.9355 10.8249 20.8525 10.871 20.7604 10.9263C19.5069 11.7926 18.2995 14.0691 17.1382 17.7558ZM7.35023 28.3456C8.89862 28.3456 10.5853 26.9816 12.4101 24.2535C12.6129 23.9401 12.871 23.4885 13.1843 22.8986C13.5161 22.3272 13.894 21.6267 14.318 20.7972C11.9401 21.1106 9.88479 21.9032 8.15207 23.1751C6.45622 24.4101 5.60829 25.6083 5.60829 26.7696C5.60829 27.2673 5.77419 27.6544 6.10599 27.9309C6.43779 28.2074 6.85253 28.3456 7.35023 28.3456Z" fill="currentcolor"></path></symbol><symbol id="pm" viewBox="0 0 120 120"><g fill="none" stroke="currentColor"><circle cx="60" cy="60" r="57" stroke-width="2.4"/><circle cx="60" cy="60" r="39" stroke-width="1.3"/></g><path id="pmArc" d="M60 60 m-48 0 a48 48 0 1 1 96 0 a48 48 0 1 1 -96 0" fill="none"/><text fill="currentColor" font-family="Inter,sans-serif" font-size="9.2" font-weight="600" letter-spacing="2"><textPath href="#pmArc" textLength="296" lengthAdjust="spacing">GREEN LANGUAGES ✦ ONLINE SCHOOL ✦ </textPath></text><use href="#g" x="45" y="41" width="30" height="36"/></symbol></svg>
@@ -459,7 +469,6 @@ main section{position:relative}
 
 <main id="main">
 <section class="hero" id="top">
-  <img class="dc letter-hero" src="img/letter.webp" alt="" aria-hidden="true">
   <div class="wrap">
     <div>
       <p class="tag"><span data-l="ru">Онлайн-школа Даяны</span><span data-l="uk">Онлайн-школа Даяни</span></p>
@@ -478,7 +487,6 @@ main section{position:relative}
       <img class="plane" src="img/plane.webp" alt="" width="560" height="133" aria-hidden="true">
       <div class="back-photo face" aria-hidden="true"><div class="ph"><img src="img/hero-daiana.jpg" alt="" width="800" height="1072"></div><div class="cap" style="min-height:44px"></div></div>
       <img class="dc st-hero" src="img/st-paris.webp" alt="" aria-hidden="true">
-      <img class="dc pm-hero" src="img/pm-koln.webp" alt="" aria-hidden="true">
       <img class="dc bow-hero" src="img/bow2.webp" alt="" aria-hidden="true">
       <div class="main-card flip" id="heroCard">
         <span class="tape" aria-hidden="true"></span>
@@ -500,8 +508,8 @@ main section{position:relative}
 <section class="pick" aria-labelledby="pick-h">
   <div class="wrap">
     <h2 id="pick-h"><span data-l="ru">Какой язык вы хотите изучать?</span><span data-l="uk">Яку мову ви хочете вивчати?</span></h2>
-    <a class="pc2" href="#prices" data-go="en"><img src="img/card-london.webp" alt="" width="760" height="498" loading="lazy"><span class="pc2-t"><span data-l="ru">Английский</span><span data-l="uk">Англійська</span></span></a>
-    <a class="pc2" href="#prices" data-go="de"><img src="img/card-berlin.webp" alt="" width="760" height="512" loading="lazy"><span class="pc2-t"><span data-l="ru">Немецкий</span><span data-l="uk">Німецька</span></span></a>
+    <a class="pc2" href="#prices" data-go="en"><span class="pc2-city">London</span><span class="pc2-t"><span data-l="ru">Английский</span><span data-l="uk">Англійська</span></span></a>
+    <a class="pc2" href="#prices" data-go="de"><span class="pc2-city">Berlin</span><span class="pc2-t"><span data-l="ru">Немецкий</span><span data-l="uk">Німецька</span></span></a>
   </div>
 </section>
 
@@ -518,7 +526,6 @@ main section{position:relative}
 </section>
 
 <section class="prices" id="prices" aria-labelledby="prices-h">
-  <img class="dc st-side" src="img/st-amsterdam.webp" alt="" aria-hidden="true">
   <div class="wrap">
     <div class="sec-head">
       <h2 id="prices-h" class="rv"><span data-l="ru">Форматы и цены</span><span data-l="uk">Формати і ціни</span></h2>
@@ -541,7 +548,7 @@ main section{position:relative}
     </div>
 <p class="fmt"><span data-l="ru">Индивидуально 60 или 90 минут, в паре 60 минут, в группе 90 минут (3–4 человека). Оплата за месяц, обычно 8 занятий.</span><span data-l="uk">Індивідуально 60 або 90 хвилин, у парі 60 хвилин, у групі 90 хвилин (3–4 людини). Оплата за місяць, зазвичай 8 занять.</span></p>
 </div>
-    <div class="gift" aria-hidden="true"><div class="gift-in"><span data-l="ru">Первый урок<br>в подарок</span><span data-l="uk">Перший урок<br>у подарунок</span></div><img class="pm-gift" src="img/pm-amsterdam.webp" alt=""></div>
+    <div class="gift" aria-hidden="true"><div class="gift-in"><span data-l="ru">Первый урок<br>в подарок</span><span data-l="uk">Перший урок<br>у подарунок</span></div></div>
     </div>
   </div>
 </section>
@@ -562,7 +569,7 @@ main section{position:relative}
   <div class="wrap">
     <div class="sec-head"><div class="sec-title"><h2 id="r-h" class="rv"><span data-l="ru">Результаты учеников</span><span data-l="uk">Результати учнів</span></h2></div><p class="res-hint"><span data-l="ru">нажмите на фото, чтобы прочитать историю ↺</span><span data-l="uk">натисніть на фото, щоб прочитати історію ↺</span></p></div>
     <div class="res-grid" id="resGrid"></div>
-    <img class="dc seal-res" src="img/seal.webp" alt="" aria-hidden="true"><img class="dc fl-res" src="img/flowers.webp" alt="" aria-hidden="true">
+    
     <div class="story rv"><img class="story-tape" src="img/tape-lin.webp" alt="" aria-hidden="true"><span class="hand story-n">2019 → 2026</span><div><h3><span data-l="ru">Пришла в 9 лет, знала только dog и cat</span><span data-l="uk">Прийшла в 9 років, знала тільки dog і cat</span></h3><p><span data-l="ru">Она плакала на первых уроках и не хотела учить английский. Сейчас ей 16, уровень почти C2, она говорит без акцента и готовится к IELTS. Всё это время с нами, хотя вживую мы так ни разу и не встретились.</span><span data-l="uk">Вона плакала на перших уроках і не хотіла вчити англійську. Зараз їй 16, рівень майже C2, вона говорить без акценту й готується до IELTS. Увесь цей час із нами, хоча наживо ми так жодного разу й не зустрілися.</span></p></div></div>
   </div>
 </section>
