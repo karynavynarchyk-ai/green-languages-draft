@@ -164,11 +164,15 @@ button.face{all:unset;box-sizing:border-box;display:block;width:100%;cursor:poin
 /* results */
 .results{padding:96px 0 88px}
 .results .sec-head{align-items:center}
-.res-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:32px}
+.res-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0 26px;padding:16px 0 56px}
+.res-grid .flip{position:relative;z-index:1;cursor:pointer;transform:translate(var(--x),var(--y)) rotate(var(--r));transition:transform .6s cubic-bezier(.2,.8,.2,1),z-index 0s .35s}
+.res-grid .flip.on{z-index:12}
+.res-hint{font-family:var(--hand);font-size:24px;color:var(--green-d)}
+@media (hover:hover) and (pointer:fine){.res-grid .flip:hover{z-index:11;transform:translate(var(--x),calc(var(--y) - 18px)) rotate(0deg) scale(1.18);transition:transform .6s cubic-bezier(.2,.8,.2,1),z-index 0s}}
 .res-grid .cap{min-height:96px}
 .res-grid .hand{font-size:24px}
 .res-grid .who{font-size:13px;color:var(--ink2);margin-top:6px}
-.res-grid .face.back{font-size:15px;gap:12px;color:var(--ink)}
+.res-grid .face.back{font-size:15px;line-height:1.5;gap:12px;color:var(--ink);justify-content:center}
 .res-grid .back b{font-weight:600}
 
 /* steps */
@@ -266,7 +270,9 @@ details p{padding:0 0 20px;color:var(--ink2);max-width:60ch}
   .thread{display:none}
   .line{overflow-x:auto;justify-content:flex-start;gap:24px;padding:48px 20px 28px;scroll-snap-type:x mandatory;background:url(img/rope.webp) 0 20px/auto 12px repeat-x}
   .hang{flex:0 0 196px;scroll-snap-align:center;margin-top:0!important}
-  .res-grid{grid-template-columns:1fr 1fr;gap:20px}
+  .res-grid{grid-template-columns:1fr 1fr;gap:26px 14px;padding:8px 6px 24px}
+  .res-grid .flip{--x:0px!important;--y:0px!important}
+  .res-grid .flip:nth-child(even){margin-top:22px}
   .res-grid .hand{font-size:19px}
   .results .sec-title .pm{width:64px;height:64px}
   .steps ol{grid-template-columns:repeat(3,1fr);gap:10px}
@@ -424,7 +430,7 @@ details p{padding:0 0 20px;color:var(--ink2);max-width:60ch}
 
 <section class="results" id="results" aria-labelledby="r-h">
   <div class="wrap">
-    <div class="sec-head"><div class="sec-title"><h2 id="r-h" class="rv"><span data-l="ru">Результаты учеников</span><span data-l="uk">Результати учнів</span></h2><span class="pm" aria-hidden="true"><svg><use href="#pm"/></svg></span></div></div>
+    <div class="sec-head"><div class="sec-title"><h2 id="r-h" class="rv"><span data-l="ru">Результаты учеников</span><span data-l="uk">Результати учнів</span></h2><span class="pm" aria-hidden="true"><svg><use href="#pm"/></svg></span></div><p class="res-hint"><span data-l="ru">нажмите на фото, чтобы прочитать историю ↺</span><span data-l="uk">натисніть на фото, щоб прочитати історію ↺</span></p></div>
     <div class="res-grid" id="resGrid"></div>
   </div>
 </section>
@@ -520,8 +526,8 @@ details p{padding:0 0 20px;color:var(--ink2);max-width:60ch}
     {img:'st-en1.jpg',t:['С A1 до A2 за три месяца','З A1 до A2 за три місяці'],w:['Ирина, английский','Ірина, англійська'],b:['узкий словарный запас, не понимала носителей.','вузький словниковий запас, не розуміла носіїв.'],a:['одна съездила в Венецию и говорила со всеми.','сама з’їздила до Венеції й говорила з усіма.']},
     {img:'st-exde2.jpg',t:['TestDaF за полтора месяца','TestDaF за півтора місяця'],w:['Алиса, немецкий','Аліса, німецька'],b:['сильная тревога и страх устной части.','сильна тривога й страх усної частини.'],a:['TDN4 во всех частях, включая устную.','TDN4 в усіх частинах, зокрема в усній.']},
     {img:'st-exen2.jpg',t:['Готовилась к B2, сдала на C1','Готувалася до B2, склала на C1'],w:['Катя, английский','Катя, англійська'],b:['уровень B1, цель IELTS 6.5.','рівень B1, мета IELTS 6.5.'],a:['IELTS 7.0 в феврале 2024 года.','IELTS 7.0 у лютому 2024 року.']}
-  ],tilts=[-2,1.5,-1,2],rh='';
-  R.forEach(function(r,i){rh+='<div class="flip rv" style="transform:rotate('+tilts[i]+'deg)"><div class="flip-in">'+
+  ],pos=[[-6,8,26],[5,-4,-2],[-3,6,42],[7,-8,10]],rh='';
+  R.forEach(function(r,i){var p=pos[i];rh+='<div class="flip" style="--r:'+p[0]+'deg;--x:'+p[1]+'px;--y:'+p[2]+'px"><div class="flip-in">'+
     '<button class="face front" type="button" data-flip aria-label="'+r.w[0]+': перевернуть"><div class="ph"><img src="img/'+r.img+'" alt="'+r.w[0]+'" loading="lazy"></div><div class="cap"><span class="hand">'+dual(r.t,'')+'</span><span class="who">'+dual(r.w,'')+'</span></div></button>'+
     '<button class="face back" type="button" data-flip aria-label="Перевернуть обратно"><span class="hand" style="font-size:24px">'+dual(r.w,'')+'</span><span><b>'+dual(['Было:','Було:'],'')+'</b> '+dual(r.b,'')+'</span><span><b>'+dual(['Стало:','Стало:'],'')+'</b> '+dual(r.a,'')+'</span></button>'+
     '</div></div>'});
@@ -537,13 +543,14 @@ details p{padding:0 0 20px;color:var(--ink2);max-width:60ch}
       setTimeout(function(){f._busy=false;if(done)done()},560)},300)}
   function sync(f){if(f._busy)return;var is=f.classList.contains('on');if(f._want===undefined||f._want===is)return;turn(f,function(){f.classList.toggle('on',f._want)},function(){sync(f)})}
   var canHover=window.matchMedia&&window.matchMedia('(hover:hover) and (pointer:fine)').matches;
-  if(canHover){document.querySelectorAll('.hang .flip,.res-grid .flip').forEach(function(f){var t;
+  if(canHover){document.querySelectorAll('.res-grid .flip').forEach(function(f){var t;f.addEventListener('pointerleave',function(){clearTimeout(t);t=setTimeout(function(){if(f.classList.contains('on')){f._want=false;sync(f)}},350)});f.addEventListener('pointerenter',function(){clearTimeout(t)})})}
+  if(canHover){document.querySelectorAll('.hang .flip').forEach(function(f){var t;
     f.addEventListener('pointerenter',function(){clearTimeout(t);t=setTimeout(function(){f._want=true;sync(f)},140);var sw=f.closest('.sw');if(sw&&sw._c)sw._c.w+=(Math.random()<.5?-1:1)*.006});
     f.addEventListener('pointerleave',function(){clearTimeout(t);t=setTimeout(function(){f._want=false;sync(f)},220)})})}
-  document.addEventListener('click',function(e){var b=e.target.closest('[data-flip]');if(!b)return;var f=b.closest('.flip');if(!f||f._busy)return;if(canHover&&f.closest('.hang,.res-grid'))return;
+  document.addEventListener('click',function(e){var b=e.target.closest('[data-flip]');if(!b)return;var f=b.closest('.flip');if(!f||f._busy)return;if(canHover&&f.closest('.hang'))return;
     var opening=!f.classList.contains('on'),v=f.querySelector('video'),stage=f.closest('.stage');
     if(f.id==='heroCard'){f.classList.toggle('peel',opening);if(opening&&v){var p=v.play();if(p&&p.catch)p.catch(function(){})}if(!opening&&v)v.pause()}
-    turn(f,function(){f.classList.toggle('on',opening);if(stage)stage.classList.toggle('wide',opening)});
+    f._want=opening;turn(f,function(){f.classList.toggle('on',opening);if(stage)stage.classList.toggle('wide',opening)});
     var sw=b.closest('.sw');if(sw&&sw._c)sw._c.w+=(Math.random()<.5?-1:1)*.012});
 
   var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
