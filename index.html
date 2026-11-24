@@ -310,6 +310,63 @@ details p{padding:0 0 20px;color:var(--ink2);max-width:60ch}
 @font-face{font-family:'Roboto';font-style:normal;font-weight:500;font-display:swap;src:url(fonts/roboto-latin-500-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
 @font-face{font-family:'Gogol';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/gogol-400-normal.woff2) format('woff2')}
 </style>
+<style id="lux">
+:root{--bg:#f5f0e8;--bg2:#ece4d7;--line:#e0d3bb;--gold:#c9b48a;--gold-d:#9a7b4f;--green-d:#5e1f24;--green:#9a7b4f;--band:#efe8dc;--dark:#5e1f24;--ink:#2b1d17;--ink2:#6b5850;--accent:#c9b48a;--paper:#fbf8f2;--logo:#2b1d17}
+body{background:var(--bg)}
+.hdr{background:rgba(245,240,232,.95);border-bottom:1px solid var(--gold)}
+.logo{flex-direction:row}.logo-g{color:#7d8a6a}
+.logo span{font-size:17px;font-weight:400;letter-spacing:.3em;text-transform:uppercase;line-height:1.1;display:flex;flex-direction:column}
+.hdr .logo span:after,.foot .logo span:after{content:"ONLINE SCHOOL";font-family:var(--sans);font-size:9px;letter-spacing:.42em;color:var(--gold-d);margin-top:3px}
+.foot .logo span{font-size:19px}
+.nav{font-size:12px;letter-spacing:.18em;text-transform:uppercase;font-weight:400;gap:26px}
+.langsw{font-size:12px;letter-spacing:.12em}
+.btn{border-radius:0;min-height:52px;padding:0 30px;font-size:12px;letter-spacing:.22em;text-transform:uppercase;font-weight:500;background:var(--ink)}
+.btn:hover{background:var(--green-d)}
+.hdr .btn{font-size:11px!important}
+.btn-w{background:var(--paper);color:var(--green-d)}.btn-w:hover{background:var(--gold);color:var(--ink)}
+.tag{background:none;font-family:var(--sans);font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:var(--green-d);padding:0;transform:none}
+.tag:after{content:"";display:inline-block;width:46px;height:1px;background:var(--gold);vertical-align:middle;margin-left:14px}
+.hero h1{font-weight:400;letter-spacing:-.02em}
+.hero h1 em{background:none;color:var(--green-d);padding:0}
+.hero .facts>div,.why li{border-color:var(--gold)}
+.hero .facts b{font-weight:400}
+.pm{color:var(--gold-d);opacity:.7}
+.face,button.face{border-radius:0;box-shadow:0 22px 34px -24px rgba(43,29,23,.45),0 0 0 1px rgba(201,180,138,.35)}
+.tape{opacity:.75}
+.pick .wrap,.prices,.steps,.faq{border-color:var(--gold)}
+.pickcard{box-shadow:none;border:1px solid var(--gold);background:var(--paper)}
+.pickcard strong{font-family:var(--serif);font-style:italic;font-size:30px}
+.pickcard small{font-size:11px;letter-spacing:.22em;text-transform:uppercase}
+.arrow{background:none;border:1px solid var(--gold-d);color:var(--green-d)}
+.why .num{font-family:var(--serif);font-style:italic;color:var(--gold-d);font-size:30px}
+.why b,.steps li b{font-size:13px;letter-spacing:.18em;text-transform:uppercase;font-weight:500}
+.tabs{background:none;border:1px solid var(--gold);border-radius:0;padding:4px}
+.tabs button{border-radius:0;font-size:12px;letter-spacing:.18em;text-transform:uppercase}
+.tabs button[aria-selected=true]{background:var(--ink)}
+.rows,.row{border-color:var(--gold)}
+.plist>span{border-radius:0;border-color:var(--gold);font-size:10px;letter-spacing:.18em;text-transform:uppercase}
+.plist>span b{font-weight:400;letter-spacing:0;text-transform:none;font-size:22px}
+.stamp{filter:drop-shadow(0 12px 16px rgba(43,29,23,.14))}
+.stamp .in{border-color:var(--gold)}
+.stamp .hand{font-family:var(--serif);font-style:italic;font-size:30px;color:var(--green-d)}
+.band:before,.band:after{display:none}
+.teachers{border-top:1px solid var(--gold);border-bottom:1px solid var(--gold);margin:0}
+.teachers .hint,.res-hint{font-family:var(--sans);font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold-d)}
+.story{transform:none;box-shadow:none;border-color:var(--gold)}
+.story-n{font-family:var(--serif);font-style:italic;color:var(--gold-d);font-size:34px}
+.steps li:not(:last-child):after{border-top:1px solid var(--gold)}
+.steps .n{background:none;border:1px solid var(--gold-d);color:var(--green-d);font-weight:400;font-style:italic}
+.steps svg{color:var(--gold-d)}
+details{border-radius:0;border-color:var(--gold);background:var(--paper)}
+summary{font-weight:400;font-size:17px}
+summary:after{border-color:var(--gold-d)}
+.cta{border:0}
+.cta p{color:#ecdcd8}
+.cta .pm{color:var(--gold);opacity:.6}
+.foot .legal{border-color:var(--gold)}
+.foot h4{font-size:11px;letter-spacing:.22em;text-transform:uppercase}
+:focus-visible{outline-color:var(--gold-d)}
+</style>
 </head>
 <body>
 <svg class="sprite" aria-hidden="true"><symbol id="g" viewBox="0 0 25 30"><path d="M12.5 26C18.8513 26 24 20.8513 24 14.5C24 8.14873 18.8513 3 12.5 3C6.14873 3 1 8.14873 1 14.5C1 20.8513 6.14873 26 12.5 26ZM12.5 27C19.4036 27 25 21.4036 25 14.5C25 7.59644 19.4036 2 12.5 2C5.59644 2 0 7.59644 0 14.5C0 21.4036 5.59644 27 12.5 27Z" fill="currentcolor" fill-rule="evenodd" clip-rule="evenodd"></path><path d="M7.51613 28.7604C5.87558 28.7604 5.0553 28.1889 5.0553 27.0461C5.0553 25.5714 5.98617 24.1705 7.84793 22.8433C8.86175 22.1429 9.92166 21.5806 11.0276 21.1567C12.1336 20.7327 13.3041 20.4654 14.5392 20.3548L15.1475 19.1659C14.4654 19.424 13.7926 19.6267 13.129 19.7742C12.4654 19.9032 11.8111 19.9677 11.1659 19.9677C9.30415 19.9677 7.81106 19.4516 6.68664 18.4194C5.56221 17.3502 5 15.8848 5 14.023C5 11.1659 6.16129 8.57604 8.48387 6.25346C7.48848 5.4424 6.99078 4.59447 6.99078 3.70968C6.99078 3.06452 7.24885 2.47465 7.76498 1.94009C8.33641 1.31336 9.43318 1 11.0553 1C12.0691 1 12.8894 1.17512 13.5161 1.52535C13.6267 1.52535 13.682 1.57143 13.682 1.66359C13.682 1.75576 13.6083 1.80184 13.4608 1.80184C13.3318 1.80184 13.1567 1.76498 12.9355 1.69124C12.3825 1.47005 11.7189 1.35945 10.9447 1.35945C9.45161 1.35945 8.51152 1.65438 8.12442 2.24424C7.79263 2.74194 7.62673 3.26728 7.62673 3.82028C7.62673 4.59447 7.99539 5.31336 8.73272 5.97696C11.424 3.39631 14.6221 2.10599 18.3272 2.10599C21.4424 2.10599 23 2.84332 23 4.31797C23 4.59447 22.9631 4.87097 22.8894 5.14746C22.7419 5.58986 22.4194 6.01382 21.9217 6.41935C20.4101 7.67281 18.2166 8.29954 15.341 8.29954C13.1659 8.29954 11.2857 7.88479 9.70046 7.0553C8.7235 8.16129 7.94009 9.42396 7.35023 10.8433C6.64977 12.447 6.29954 13.894 6.29954 15.1843C6.29954 18.023 7.92166 19.4424 11.1659 19.4424C12.659 19.4424 14.0783 19.1751 15.424 18.6406C16.0138 17.4608 16.5207 16.4747 16.9447 15.682C17.3687 14.871 17.7097 14.2627 17.9677 13.8571C19.4055 11.4424 20.53 10.235 21.341 10.235C21.9862 10.235 22.3088 10.5945 22.3088 11.3134C22.3088 12.2903 21.6544 13.6544 20.3456 15.4055C19.9585 15.9217 19.4885 16.4286 18.9355 16.9263C18.3825 17.4055 17.7281 17.8571 16.9723 18.2811L16.3088 20.3272C17.7097 20.4747 18.4101 20.8341 18.4101 21.4055C18.4101 21.5346 18.3641 21.5991 18.2719 21.5991C18.1982 21.5991 18.0691 21.5346 17.8848 21.4055C17.4424 21.0553 16.871 20.8341 16.1705 20.7419C15.47 22.8064 14.788 24.2903 14.1244 25.1935C12.3917 27.5714 10.1889 28.7604 7.51613 28.7604ZM15.3687 8.05069C15.8479 8.05069 16.3088 8.03226 16.7512 7.99539C17.212 7.94009 17.6452 7.86636 18.0507 7.77419C19.0092 7.58986 19.8756 7.28571 20.6498 6.86175C21.7373 6.27189 22.318 5.62673 22.3917 4.92627C22.4101 4.87097 22.4194 4.81567 22.4194 4.76037C22.4194 4.70507 22.4194 4.64977 22.4194 4.59447C22.4194 3.17511 21.47 2.46544 19.5714 2.46544C17.7465 2.46544 15.9862 2.85253 14.2903 3.62673C12.5945 4.38249 11.1382 5.45161 9.92166 6.8341C11.3963 7.64516 13.212 8.05069 15.3687 8.05069ZM17.1382 17.7558C17.6912 17.3871 18.2166 16.9816 18.7143 16.5392C19.212 16.0968 19.6728 15.6083 20.0968 15.0737C21.1659 13.7834 21.7005 12.6037 21.7005 11.5346C21.7005 11 21.5438 10.7327 21.2304 10.7327C21.1567 10.7327 21.0829 10.7512 21.0092 10.788C20.9355 10.8249 20.8525 10.871 20.7604 10.9263C19.5069 11.7926 18.2995 14.0691 17.1382 17.7558ZM7.35023 28.3456C8.89862 28.3456 10.5853 26.9816 12.4101 24.2535C12.6129 23.9401 12.871 23.4885 13.1843 22.8986C13.5161 22.3272 13.894 21.6267 14.318 20.7972C11.9401 21.1106 9.88479 21.9032 8.15207 23.1751C6.45622 24.4101 5.60829 25.6083 5.60829 26.7696C5.60829 27.2673 5.77419 27.6544 6.10599 27.9309C6.43779 28.2074 6.85253 28.3456 7.35023 28.3456Z" fill="currentcolor"></path></symbol><symbol id="pm" viewBox="0 0 120 120"><g fill="none" stroke="currentColor"><circle cx="60" cy="60" r="57" stroke-width="2.4"/><circle cx="60" cy="60" r="39" stroke-width="1.3"/></g><path id="pmArc" d="M60 60 m-48 0 a48 48 0 1 1 96 0 a48 48 0 1 1 -96 0" fill="none"/><text fill="currentColor" font-family="Inter,sans-serif" font-size="9.2" font-weight="600" letter-spacing="2"><textPath href="#pmArc" textLength="296" lengthAdjust="spacing">GREEN LANGUAGES ✦ ONLINE SCHOOL ✦ </textPath></text><use href="#g" x="45" y="41" width="30" height="36"/></symbol></svg>
@@ -417,7 +474,7 @@ details p{padding:0 0 20px;color:var(--ink2);max-width:60ch}
     </div>
 <p class="fmt"><span data-l="ru">Индивидуально 60 или 90 минут, в паре 60 минут, в группе 90 минут (3–4 человека). Оплата за месяц, обычно 8 занятий.</span><span data-l="uk">Індивідуально 60 або 90 хвилин, у парі 60 хвилин, у групі 90 хвилин (3–4 людини). Оплата за місяць, зазвичай 8 занять.</span></p>
 </div>
-    <div class="stamp" aria-hidden="true"><div class="in"><small><span data-l="ru">Green Languages</span><span data-l="uk">Green Languages</span></small><span class="hand"><span data-l="ru">Первый урок бесплатно</span><span data-l="uk">Перший урок безкоштовно</span></span><small>0 €</small></div><span class="pm" aria-hidden="true"><svg><use href="#pm"/></svg></span></div>
+    <div class="stamp" aria-hidden="true"><div class="in"><small><span data-l="ru">Green Languages</span><span data-l="uk">Green Languages</span></small><span class="hand"><span data-l="ru">Первый урок в подарок</span><span data-l="uk">Перший урок у подарунок</span></span><small>0 €</small></div><span class="pm" aria-hidden="true"><svg><use href="#pm"/></svg></span></div>
     </div>
   </div>
 </section>
@@ -474,7 +531,7 @@ details p{padding:0 0 20px;color:var(--ink2);max-width:60ch}
 <section class="cta band" aria-labelledby="c-h">
   <div class="wrap">
     <div>
-      <h2 id="c-h"><span data-l="ru">Ваш первый урок бесплатно</span><span data-l="uk">Ваш перший урок безкоштовно</span></h2>
+      <h2 id="c-h"><span data-l="ru">Первый урок в подарок</span><span data-l="uk">Перший урок у подарунок</span></h2>
       <p><span data-l="ru">Напишите, какой язык хотите изучать, и мы подберём преподавателя.</span><span data-l="uk">Напишіть, яку мову хочете вивчати, і ми підберемо викладача.</span></p>
       <div class="btns">
         <a class="btn btn-w" href="https://telegram.me/Green_Languages">Telegram →</a>
