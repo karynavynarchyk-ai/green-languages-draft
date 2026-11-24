@@ -151,6 +151,7 @@ button.face{all:unset;box-sizing:border-box;display:block;width:100%;cursor:poin
 .hang{flex:0 0 14.5%;position:relative}
 .sw{transform-origin:50% 0;will-change:transform}
 .pin{position:absolute;left:50%;top:-36px;width:15px;height:70px;margin-left:-7.5px;background:url(img/pin-back.webp) center/100% 100% no-repeat;border-radius:3px;z-index:3;filter:drop-shadow(0 3px 3px rgba(0,0,0,.25))}
+.pin.alt{background-image:url(img/pin.webp)}
 .hang .cap{min-height:66px}
 .hang .flip,.res-grid .flip{transition:transform .5s cubic-bezier(.2,.8,.2,1)}
 .hang .face,.res-grid .face{transition:box-shadow .5s}
@@ -534,12 +535,13 @@ details p{padding:0 0 20px;color:var(--ink2);max-width:60ch}
   document.getElementById('resGrid').innerHTML=rh;
 
   var still=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  function turn(f,after,done){var inn=f.querySelector('.flip-in');
-    if(still){after();if(done)done();return}
+  function turn(f,after,done){var inn=f.querySelector('.flip-in'),sw=f.closest('.sw'),pin=sw?sw.querySelector('.pin'):null;
+    function both(tr,tf){inn.style.transition=tr;inn.style.transform=tf;if(pin){pin.style.transition=tr;pin.style.transform=tf}}
+    if(still){after();if(pin)pin.classList.toggle('alt',f.classList.contains('on'));if(done)done();return}
     f._busy=true;
-    inn.style.transition='transform .3s cubic-bezier(.45,0,.85,.45)';inn.style.transform='rotateY(90deg)';
-    setTimeout(function(){after();inn.style.transition='none';inn.style.transform='rotateY(-90deg)';void inn.offsetWidth;
-      inn.style.transition='transform .55s cubic-bezier(.16,.84,.32,1.06)';inn.style.transform='rotateY(0deg)';
+    both('transform .3s cubic-bezier(.45,0,.85,.45)','rotateY(90deg)');
+    setTimeout(function(){after();if(pin)pin.classList.toggle('alt',f.classList.contains('on'));both('none','rotateY(-90deg)');void inn.offsetWidth;
+      both('transform .55s cubic-bezier(.16,.84,.32,1.06)','rotateY(0deg)');
       setTimeout(function(){f._busy=false;if(done)done()},560)},300)}
   function sync(f){if(f._busy)return;var is=f.classList.contains('on');if(f._want===undefined||f._want===is)return;turn(f,function(){f.classList.toggle('on',f._want)},function(){sync(f)})}
   var canHover=window.matchMedia&&window.matchMedia('(hover:hover) and (pointer:fine)').matches;
