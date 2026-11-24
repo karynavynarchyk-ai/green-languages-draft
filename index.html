@@ -367,6 +367,69 @@ summary:after{border-color:var(--gold-d)}
 .foot h4{font-size:11px;letter-spacing:.22em;text-transform:uppercase}
 :focus-visible{outline-color:var(--gold-d)}
 </style>
+<style id="post">
+body{background:#f6f0e6 url(img/paper.webp) 0 0/600px 600px}
+.hdr{background:rgba(246,240,230,.96)}
+main section{position:relative}
+.dc{position:absolute;pointer-events:none;height:auto;z-index:6;filter:drop-shadow(0 8px 10px rgba(43,29,23,.18))}
+/* hero */
+.hero{overflow:hidden}
+.st-hero{width:118px;right:-2%;top:-26px;transform:rotate(8deg);z-index:7}
+.pm-hero{width:230px;right:-8%;bottom:-6px;z-index:9;transform:rotate(-8deg);filter:none;opacity:.85;mix-blend-mode:multiply}
+.bow-hero{width:190px;right:-9%;top:46%;transform:rotate(-18deg);z-index:8}
+.letter-hero{width:220px;left:-70px;bottom:10px;transform:rotate(-10deg);opacity:.9;z-index:0}
+.stage .back-photo{display:none}
+.main-card{left:10%;width:72%;top:20px}
+/* centered titles */
+.why .head,.sec-head{justify-content:center;flex-direction:column;align-items:center;text-align:center;gap:16px}
+.why h2,.sec-head h2,.steps h2,.faq h2,.pick h2{display:flex;align-items:center;justify-content:center;gap:28px;text-align:center;font-size:44px;width:100%}
+.why h2:before,.why h2:after,.sec-head h2:before,.sec-head h2:after,.steps h2:before,.steps h2:after,.faq h2:before,.faq h2:after,.pick h2:before,.pick h2:after{content:"";flex:1;max-width:260px;height:1px;background:var(--gold)}
+.sec-title{justify-content:center;width:100%}
+.teachers .wrap.sec-head{margin-bottom:28px}
+/* pick */
+.pick .wrap{display:block;border:0;padding-top:24px}
+.pick h2{margin-bottom:30px}
+.pick .wrap>a{display:inline-block}
+.pick .wrap{text-align:center}
+.pc2{position:relative;display:inline-block;width:calc(50% - 22px);max-width:500px;margin:0 10px;text-decoration:none;transition:transform .35s cubic-bezier(.2,.8,.2,1);filter:drop-shadow(0 16px 18px rgba(43,29,23,.22))}
+.pc2:first-of-type{transform:rotate(-1.5deg)}.pc2:last-of-type{transform:rotate(1.2deg)}
+.pc2:hover{transform:translateY(-6px) rotate(0)}
+.pc2 img{width:100%;height:auto}
+.pc2-t{display:block;margin-top:14px;text-align:center;font-family:var(--serif);font-size:clamp(24px,2.6vw,36px);letter-spacing:.06em;text-transform:uppercase;color:var(--green-d);}
+/* why */
+.why .wrap{padding-top:72px;padding-bottom:64px}
+.why li{text-align:center}.why li:first-child{padding-left:26px}
+.why .num{color:var(--green-d);font-size:38px}
+/* prices */
+.prices{border:0;padding-top:56px}
+.price-wrap{grid-template-columns:1fr 250px;gap:40px}
+.price-wrap>div:first-child{background:var(--paper);border:1px solid var(--line);padding:8px 30px 22px;box-shadow:0 18px 30px -24px rgba(43,29,23,.4)}
+.tabs button[aria-selected=true]{background:var(--green-d)}
+.gift{position:relative;margin-top:10px;width:230px;padding:10px;background:radial-gradient(circle,transparent 5px,var(--green-d) 5.5px) -8px -8px/16px 16px;transform:rotate(-4deg);filter:drop-shadow(0 12px 14px rgba(43,29,23,.25))}
+.gift-in{background:var(--green-d);border:1px solid rgba(239,225,200,.6);outline:6px solid var(--green-d);color:#f5ead8;font-family:var(--serif);font-style:italic;font-size:30px;line-height:1.1;text-align:center;padding:30px 12px}
+.pm-gift{position:absolute;width:250px;left:-30px;bottom:-150px;transform:rotate(-6deg);mix-blend-mode:multiply;opacity:.85}
+.st-side{width:150px;left:-40px;top:220px;transform:rotate(-9deg)}
+/* teachers */
+.teachers{background:transparent;border:0}
+.pin{background-image:url(img/pin-front.webp);width:22px;height:64px;margin-left:-11px;top:-32px}
+/* results */
+.seal-res{width:120px;left:-20px;bottom:120px;transform:rotate(-12deg)}
+.fl-res{width:150px;right:-10px;bottom:40px;transform:rotate(14deg)}
+.story{position:relative;background:#f3e8d4 url(img/paper.webp);border:0;box-shadow:0 14px 24px -18px rgba(43,29,23,.4);transform:rotate(-1deg);max-width:640px;text-align:center;grid-template-columns:1fr;gap:6px;padding:40px 40px 32px}
+.story-tape{position:absolute;left:50%;top:-24px;width:170px;margin-left:-85px;height:auto;transform:rotate(-2deg);opacity:.92}
+.story-n{color:var(--green-d)}
+.story h3{font-family:var(--hand);font-size:30px;color:var(--ink)}
+/* steps, faq */
+.steps,.faq{border:0}
+.steps .n{width:110px;height:110px;border-color:var(--gold-d);font-size:30px}
+.steps li:not(:last-child):after{top:55px;left:calc(50% + 75px);right:calc(-50% + 75px)}
+.faq .wrap{grid-template-columns:1fr;max-width:860px;gap:28px;padding-top:56px}
+/* cta velvet */
+.cta{background:#4a1418 url(img/velvet.jpg) center/cover}
+.st-cta{width:120px;right:-50px;top:-36px;transform:rotate(10deg)}
+.cta .polaroid{transform:rotate(-3deg)}
+@media (max-width:900px){.dc{display:none}.pc2{width:100%;margin:0 0 18px}.price-wrap>div:first-child{padding:6px 14px 16px}.steps .n{width:64px;height:64px;font-size:22px}.steps li:not(:last-child):after{display:none}.why li,.why li:first-child{text-align:left;padding-left:0}.main-card{left:4%;width:88%}}
+</style>
 </head>
 <body>
 <svg class="sprite" aria-hidden="true"><symbol id="g" viewBox="0 0 25 30"><path d="M12.5 26C18.8513 26 24 20.8513 24 14.5C24 8.14873 18.8513 3 12.5 3C6.14873 3 1 8.14873 1 14.5C1 20.8513 6.14873 26 12.5 26ZM12.5 27C19.4036 27 25 21.4036 25 14.5C25 7.59644 19.4036 2 12.5 2C5.59644 2 0 7.59644 0 14.5C0 21.4036 5.59644 27 12.5 27Z" fill="currentcolor" fill-rule="evenodd" clip-rule="evenodd"></path><path d="M7.51613 28.7604C5.87558 28.7604 5.0553 28.1889 5.0553 27.0461C5.0553 25.5714 5.98617 24.1705 7.84793 22.8433C8.86175 22.1429 9.92166 21.5806 11.0276 21.1567C12.1336 20.7327 13.3041 20.4654 14.5392 20.3548L15.1475 19.1659C14.4654 19.424 13.7926 19.6267 13.129 19.7742C12.4654 19.9032 11.8111 19.9677 11.1659 19.9677C9.30415 19.9677 7.81106 19.4516 6.68664 18.4194C5.56221 17.3502 5 15.8848 5 14.023C5 11.1659 6.16129 8.57604 8.48387 6.25346C7.48848 5.4424 6.99078 4.59447 6.99078 3.70968C6.99078 3.06452 7.24885 2.47465 7.76498 1.94009C8.33641 1.31336 9.43318 1 11.0553 1C12.0691 1 12.8894 1.17512 13.5161 1.52535C13.6267 1.52535 13.682 1.57143 13.682 1.66359C13.682 1.75576 13.6083 1.80184 13.4608 1.80184C13.3318 1.80184 13.1567 1.76498 12.9355 1.69124C12.3825 1.47005 11.7189 1.35945 10.9447 1.35945C9.45161 1.35945 8.51152 1.65438 8.12442 2.24424C7.79263 2.74194 7.62673 3.26728 7.62673 3.82028C7.62673 4.59447 7.99539 5.31336 8.73272 5.97696C11.424 3.39631 14.6221 2.10599 18.3272 2.10599C21.4424 2.10599 23 2.84332 23 4.31797C23 4.59447 22.9631 4.87097 22.8894 5.14746C22.7419 5.58986 22.4194 6.01382 21.9217 6.41935C20.4101 7.67281 18.2166 8.29954 15.341 8.29954C13.1659 8.29954 11.2857 7.88479 9.70046 7.0553C8.7235 8.16129 7.94009 9.42396 7.35023 10.8433C6.64977 12.447 6.29954 13.894 6.29954 15.1843C6.29954 18.023 7.92166 19.4424 11.1659 19.4424C12.659 19.4424 14.0783 19.1751 15.424 18.6406C16.0138 17.4608 16.5207 16.4747 16.9447 15.682C17.3687 14.871 17.7097 14.2627 17.9677 13.8571C19.4055 11.4424 20.53 10.235 21.341 10.235C21.9862 10.235 22.3088 10.5945 22.3088 11.3134C22.3088 12.2903 21.6544 13.6544 20.3456 15.4055C19.9585 15.9217 19.4885 16.4286 18.9355 16.9263C18.3825 17.4055 17.7281 17.8571 16.9723 18.2811L16.3088 20.3272C17.7097 20.4747 18.4101 20.8341 18.4101 21.4055C18.4101 21.5346 18.3641 21.5991 18.2719 21.5991C18.1982 21.5991 18.0691 21.5346 17.8848 21.4055C17.4424 21.0553 16.871 20.8341 16.1705 20.7419C15.47 22.8064 14.788 24.2903 14.1244 25.1935C12.3917 27.5714 10.1889 28.7604 7.51613 28.7604ZM15.3687 8.05069C15.8479 8.05069 16.3088 8.03226 16.7512 7.99539C17.212 7.94009 17.6452 7.86636 18.0507 7.77419C19.0092 7.58986 19.8756 7.28571 20.6498 6.86175C21.7373 6.27189 22.318 5.62673 22.3917 4.92627C22.4101 4.87097 22.4194 4.81567 22.4194 4.76037C22.4194 4.70507 22.4194 4.64977 22.4194 4.59447C22.4194 3.17511 21.47 2.46544 19.5714 2.46544C17.7465 2.46544 15.9862 2.85253 14.2903 3.62673C12.5945 4.38249 11.1382 5.45161 9.92166 6.8341C11.3963 7.64516 13.212 8.05069 15.3687 8.05069ZM17.1382 17.7558C17.6912 17.3871 18.2166 16.9816 18.7143 16.5392C19.212 16.0968 19.6728 15.6083 20.0968 15.0737C21.1659 13.7834 21.7005 12.6037 21.7005 11.5346C21.7005 11 21.5438 10.7327 21.2304 10.7327C21.1567 10.7327 21.0829 10.7512 21.0092 10.788C20.9355 10.8249 20.8525 10.871 20.7604 10.9263C19.5069 11.7926 18.2995 14.0691 17.1382 17.7558ZM7.35023 28.3456C8.89862 28.3456 10.5853 26.9816 12.4101 24.2535C12.6129 23.9401 12.871 23.4885 13.1843 22.8986C13.5161 22.3272 13.894 21.6267 14.318 20.7972C11.9401 21.1106 9.88479 21.9032 8.15207 23.1751C6.45622 24.4101 5.60829 25.6083 5.60829 26.7696C5.60829 27.2673 5.77419 27.6544 6.10599 27.9309C6.43779 28.2074 6.85253 28.3456 7.35023 28.3456Z" fill="currentcolor"></path></symbol><symbol id="pm" viewBox="0 0 120 120"><g fill="none" stroke="currentColor"><circle cx="60" cy="60" r="57" stroke-width="2.4"/><circle cx="60" cy="60" r="39" stroke-width="1.3"/></g><path id="pmArc" d="M60 60 m-48 0 a48 48 0 1 1 96 0 a48 48 0 1 1 -96 0" fill="none"/><text fill="currentColor" font-family="Inter,sans-serif" font-size="9.2" font-weight="600" letter-spacing="2"><textPath href="#pmArc" textLength="296" lengthAdjust="spacing">GREEN LANGUAGES ✦ ONLINE SCHOOL ✦ </textPath></text><use href="#g" x="45" y="41" width="30" height="36"/></symbol></svg>
@@ -396,6 +459,7 @@ summary:after{border-color:var(--gold-d)}
 
 <main id="main">
 <section class="hero" id="top">
+  <img class="dc letter-hero" src="img/letter.webp" alt="" aria-hidden="true">
   <div class="wrap">
     <div>
       <p class="tag"><span data-l="ru">Онлайн-школа Даяны</span><span data-l="uk">Онлайн-школа Даяни</span></p>
@@ -413,7 +477,9 @@ summary:after{border-color:var(--gold-d)}
     <div class="stage">
       <img class="plane" src="img/plane.webp" alt="" width="560" height="133" aria-hidden="true">
       <div class="back-photo face" aria-hidden="true"><div class="ph"><img src="img/hero-daiana.jpg" alt="" width="800" height="1072"></div><div class="cap" style="min-height:44px"></div></div>
-      <span class="pm" aria-hidden="true"><svg><use href="#pm"/></svg></span>
+      <img class="dc st-hero" src="img/st-paris.webp" alt="" aria-hidden="true">
+      <img class="dc pm-hero" src="img/pm-koln.webp" alt="" aria-hidden="true">
+      <img class="dc bow-hero" src="img/bow2.webp" alt="" aria-hidden="true">
       <div class="main-card flip" id="heroCard">
         <span class="tape" aria-hidden="true"></span>
         <div class="flip-in">
@@ -434,14 +500,14 @@ summary:after{border-color:var(--gold-d)}
 <section class="pick" aria-labelledby="pick-h">
   <div class="wrap">
     <h2 id="pick-h"><span data-l="ru">Какой язык вы хотите изучать?</span><span data-l="uk">Яку мову ви хочете вивчати?</span></h2>
-    <a class="pickcard" href="#prices" data-go="en"><span class="tape" aria-hidden="true"></span><span class="art"><img src="img/london.webp" alt="" width="520" height="801" loading="lazy"></span><span class="txt"><strong><span data-l="ru">Английский</span><span data-l="uk">Англійська</span></strong><small><span data-l="ru">с нуля до C1</span><span data-l="uk">з нуля до C1</span></small></span><span class="arrow" aria-hidden="true">→</span></a>
-    <a class="pickcard" href="#prices" data-go="de"><span class="tape" aria-hidden="true"></span><span class="art"><img src="img/berlin.webp" alt="" width="520" height="371" loading="lazy"></span><span class="txt"><strong><span data-l="ru">Немецкий</span><span data-l="uk">Німецька</span></strong><small><span data-l="ru">с нуля до C1</span><span data-l="uk">з нуля до C1</span></small></span><span class="arrow" aria-hidden="true">→</span></a>
+    <a class="pc2" href="#prices" data-go="en"><img src="img/card-london.webp" alt="" width="760" height="498" loading="lazy"><span class="pc2-t"><span data-l="ru">Английский</span><span data-l="uk">Англійська</span></span></a>
+    <a class="pc2" href="#prices" data-go="de"><img src="img/card-berlin.webp" alt="" width="760" height="512" loading="lazy"><span class="pc2-t"><span data-l="ru">Немецкий</span><span data-l="uk">Німецька</span></span></a>
   </div>
 </section>
 
 <section class="why" aria-labelledby="why-h">
   <div class="wrap">
-    <div class="head"><h2 id="why-h" class="rv"><span data-l="ru">Почему мы?</span><span data-l="uk">Чому ми?</span></h2><img class="globe" src="img/globe.webp" alt="" width="260" height="355" loading="lazy"></div>
+    <div class="head"><h2 id="why-h" class="rv"><span data-l="ru">Почему мы?</span><span data-l="uk">Чому ми?</span></h2></div>
     <ul>
       <li class="rv"><span class="num" aria-hidden="true">01</span><div><b><span data-l="ru">Учим говорить</span><span data-l="uk">Вчимо говорити</span></b><p><span data-l="ru">Многие приходят со словами «грамматику знаю, а говорить не могу». На уроках и в разговорных клубах вы заговорите и перестанете бояться.</span><span data-l="uk">Багато хто приходить зі словами «граматику знаю, а говорити не можу». На уроках і в розмовних клубах ви заговорите й перестанете боятися.</span></p></div></li>
       <li class="rv"><span class="num" aria-hidden="true">02</span><div><b><span data-l="ru">Преподаватели с живым языком</span><span data-l="uk">Викладачі з живою мовою</span></b><p><span data-l="ru">Филологи и те, кто живёт за границей и говорит на языке каждый день. Каждый ищет подход к своему ученику.</span><span data-l="uk">Філологи й ті, хто живе за кордоном і щодня говорить мовою. Кожен шукає підхід до свого учня.</span></p></div></li>
@@ -452,6 +518,7 @@ summary:after{border-color:var(--gold-d)}
 </section>
 
 <section class="prices" id="prices" aria-labelledby="prices-h">
+  <img class="dc st-side" src="img/st-amsterdam.webp" alt="" aria-hidden="true">
   <div class="wrap">
     <div class="sec-head">
       <h2 id="prices-h" class="rv"><span data-l="ru">Форматы и цены</span><span data-l="uk">Формати і ціни</span></h2>
@@ -474,7 +541,7 @@ summary:after{border-color:var(--gold-d)}
     </div>
 <p class="fmt"><span data-l="ru">Индивидуально 60 или 90 минут, в паре 60 минут, в группе 90 минут (3–4 человека). Оплата за месяц, обычно 8 занятий.</span><span data-l="uk">Індивідуально 60 або 90 хвилин, у парі 60 хвилин, у групі 90 хвилин (3–4 людини). Оплата за місяць, зазвичай 8 занять.</span></p>
 </div>
-    <div class="stamp" aria-hidden="true"><div class="in"><small><span data-l="ru">Green Languages</span><span data-l="uk">Green Languages</span></small><span class="hand"><span data-l="ru">Первый урок в подарок</span><span data-l="uk">Перший урок у подарунок</span></span><small>0 €</small></div><span class="pm" aria-hidden="true"><svg><use href="#pm"/></svg></span></div>
+    <div class="gift" aria-hidden="true"><div class="gift-in"><span data-l="ru">Первый урок<br>в подарок</span><span data-l="uk">Перший урок<br>у подарунок</span></div><img class="pm-gift" src="img/pm-amsterdam.webp" alt=""></div>
     </div>
   </div>
 </section>
@@ -493,9 +560,10 @@ summary:after{border-color:var(--gold-d)}
 
 <section class="results" id="results" aria-labelledby="r-h">
   <div class="wrap">
-    <div class="sec-head"><div class="sec-title"><h2 id="r-h" class="rv"><span data-l="ru">Результаты учеников</span><span data-l="uk">Результати учнів</span></h2><span class="pm" aria-hidden="true"><svg><use href="#pm"/></svg></span></div><p class="res-hint"><span data-l="ru">нажмите на фото, чтобы прочитать историю ↺</span><span data-l="uk">натисніть на фото, щоб прочитати історію ↺</span></p></div>
+    <div class="sec-head"><div class="sec-title"><h2 id="r-h" class="rv"><span data-l="ru">Результаты учеников</span><span data-l="uk">Результати учнів</span></h2></div><p class="res-hint"><span data-l="ru">нажмите на фото, чтобы прочитать историю ↺</span><span data-l="uk">натисніть на фото, щоб прочитати історію ↺</span></p></div>
     <div class="res-grid" id="resGrid"></div>
-    <div class="story rv"><span class="hand story-n">2019 → 2026</span><div><h3><span data-l="ru">Пришла в 9 лет, знала только dog и cat</span><span data-l="uk">Прийшла в 9 років, знала тільки dog і cat</span></h3><p><span data-l="ru">Она плакала на первых уроках и не хотела учить английский. Сейчас ей 16, уровень почти C2, она говорит без акцента и готовится к IELTS. Всё это время с нами, хотя вживую мы так ни разу и не встретились.</span><span data-l="uk">Вона плакала на перших уроках і не хотіла вчити англійську. Зараз їй 16, рівень майже C2, вона говорить без акценту й готується до IELTS. Увесь цей час із нами, хоча наживо ми так жодного разу й не зустрілися.</span></p></div></div>
+    <img class="dc seal-res" src="img/seal.webp" alt="" aria-hidden="true"><img class="dc fl-res" src="img/flowers.webp" alt="" aria-hidden="true">
+    <div class="story rv"><img class="story-tape" src="img/tape-lin.webp" alt="" aria-hidden="true"><span class="hand story-n">2019 → 2026</span><div><h3><span data-l="ru">Пришла в 9 лет, знала только dog и cat</span><span data-l="uk">Прийшла в 9 років, знала тільки dog і cat</span></h3><p><span data-l="ru">Она плакала на первых уроках и не хотела учить английский. Сейчас ей 16, уровень почти C2, она говорит без акцента и готовится к IELTS. Всё это время с нами, хотя вживую мы так ни разу и не встретились.</span><span data-l="uk">Вона плакала на перших уроках і не хотіла вчити англійську. Зараз їй 16, рівень майже C2, вона говорить без акценту й готується до IELTS. Увесь цей час із нами, хоча наживо ми так жодного разу й не зустрілися.</span></p></div></div>
   </div>
 </section>
 
@@ -539,7 +607,7 @@ summary:after{border-color:var(--gold-d)}
         <a class="btn btn-w" href="https://www.instagram.com/green__languages/">Instagram →</a>
       </div>
     </div>
-    <div class="pc"><span class="pm" aria-hidden="true"><svg><use href="#pm"/></svg></span><div class="polaroid face" aria-hidden="true"><div class="ph" style="aspect-ratio:1/1.05"><img src="img/hero-daiana.jpg" alt="" width="800" height="1072" loading="lazy"></div><div class="cap"><span class="hand" style="font-size:28px">Даяна</span></div></div></div>
+    <div class="pc"><img class="dc st-cta" src="img/st-dublin.webp" alt="" aria-hidden="true"><div class="polaroid face" aria-hidden="true"><div class="ph" style="aspect-ratio:1/1.05"><img src="img/hero-daiana.jpg" alt="" width="800" height="1072" loading="lazy"></div><div class="cap"><span class="hand" style="font-size:28px">Даяна</span></div></div></div>
   </div>
 </section>
 </main>
