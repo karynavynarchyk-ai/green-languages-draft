@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Green Languages · онлайн-школа английского и немецкого</title>
+<meta name="description" content="Онлайн-школа Даяны. Английский и немецкий для учёбы, работы, путешествий и жизни в Европе. Пробное занятие бесплатно.">
+<meta property="og:title" content="Green Languages · английский и немецкий онлайн">
+<meta property="og:description" content="Для учёбы, работы, путешествий и жизни в Европе. Пробное занятие бесплатно.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="img/daiana.webp">
+<link rel="preload" href="fonts/noto-serif-display-cyrillic-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/manrope-cyrillic-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/marck-script-cyrillic-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:'GLSerif';src:url(fonts/noto-serif-display-cyrillic-400-normal.woff2) format('woff2');font-display:swap;unicode-range:U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'GLSerif';src:url(fonts/noto-serif-display-latin-400-normal.woff2) format('woff2');font-display:swap;unicode-range:U+0000-00FF,U+2000-206F,U+20AC,U+2190-2193}
+@font-face{font-family:'GLSerif';font-style:italic;src:url(fonts/noto-serif-display-cyrillic-400-italic.woff2) format('woff2');font-display:swap;unicode-range:U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'GLSerif';font-style:italic;src:url(fonts/noto-serif-display-latin-400-italic.woff2) format('woff2');font-display:swap;unicode-range:U+0000-00FF,U+2000-206F,U+20AC,U+2190-2193}
+@font-face{font-family:'Manrope';font-weight:400;src:url(fonts/manrope-cyrillic-400-normal.woff2) format('woff2');font-display:swap;unicode-range:U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'Manrope';font-weight:400;src:url(fonts/manrope-latin-400-normal.woff2) format('woff2');font-display:swap;unicode-range:U+0000-00FF,U+2000-206F,U+20AC,U+2190-2193}
+@font-face{font-family:'Manrope';font-weight:500;src:url(fonts/manrope-cyrillic-500-normal.woff2) format('woff2');font-display:swap;unicode-range:U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'Manrope';font-weight:500;src:url(fonts/manrope-latin-500-normal.woff2) format('woff2');font-display:swap;unicode-range:U+0000-00FF,U+2000-206F,U+20AC,U+2190-2193}
+@font-face{font-family:'Manrope';font-weight:600;src:url(fonts/manrope-cyrillic-600-normal.woff2) format('woff2');font-display:swap;unicode-range:U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'Manrope';font-weight:600;src:url(fonts/manrope-latin-600-normal.woff2) format('woff2');font-display:swap;unicode-range:U+0000-00FF,U+2000-206F,U+20AC,U+2190-2193}
+@font-face{font-family:'Hand';src:url(fonts/marck-script-cyrillic-400-normal.woff2) format('woff2');font-display:swap;unicode-range:U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'Hand';src:url(fonts/marck-script-latin-400-normal.woff2) format('woff2');font-display:swap;unicode-range:U+0000-00FF,U+2000-206F,U+20AC,U+2190-2193}
+:root{--sienna:#984216;--sienna2:#7E3410;--ivory:#E4D6C5;--milk:#F4ECE2;--sky:#78898F;--sage:#8D957E;--logo:#707D6C;--ink:#2A221D;--ink2:#5E5249;--bg:#EFE6DA;--fg:var(--ink);--fg2:var(--ink2)}
+*{box-sizing:border-box}
+html{background:var(--bg)}
+body{margin:0;background:var(--bg);color:var(--fg);font:400 17px/1.6 'Manrope',system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:clip}
+a{color:inherit}
+:focus-visible{outline:2.5px solid var(--sienna);outline-offset:4px;border-radius:4px}
+#gl{position:fixed;inset:0;width:100%;height:100%;z-index:0;display:block}
+.vh{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+/* header */
+header{position:fixed;left:0;right:0;top:0;z-index:20;padding:22px clamp(20px,4vw,56px);display:flex;align-items:center;gap:28px;pointer-events:none}
+header>*{pointer-events:auto}
+.brand{display:flex;align-items:center;gap:18px;text-decoration:none;color:var(--logo)}
+.logo-slot{width:clamp(70px,7.6vw,118px);aspect-ratio:404/449.42;flex:none}
+.logo-slot img{width:100%;height:100%;display:block;opacity:0}
+.nogl .logo-slot img,.small .logo-slot img{opacity:1}
+.wordmark{font:400 clamp(24px,2.4vw,38px)/.95 'GLSerif',serif;color:var(--logo);border-left:1.5px solid var(--logo);padding-left:18px;transition:opacity .4s}
+nav.main{margin-left:auto;display:flex;gap:30px}
+nav.main a{text-decoration:none;font-size:15.5px;font-weight:500;color:var(--fg);opacity:.85}
+nav.main a:hover{opacity:1;color:var(--sienna)}
+.btn{display:inline-flex;align-items:center;gap:12px;background:var(--sienna);color:#FBF3EA;text-decoration:none;font-weight:600;font-size:16px;padding:16px 28px;border-radius:99px;border:0;cursor:pointer;box-shadow:0 14px 30px -14px rgba(120,45,10,.8);transition:background .2s,transform .2s}
+.btn:hover{background:var(--sienna2);transform:translateY(-1px)}
+.btn svg{width:16px;height:16px}
+header .btn{padding:13px 22px;font-size:15px}
+header.scrolled .logo-slot img{opacity:1}
+header.scrolled .wordmark{opacity:1}
+/* scroll track */
+.track{position:relative;z-index:1}
+.panel{position:fixed;inset:0;z-index:5;display:flex;align-items:center;pointer-events:none;padding:clamp(120px,15vh,170px) clamp(20px,4vw,56px) 60px}
+.panel .in{pointer-events:auto;transition:opacity .45s,transform .45s,filter .45s}
+.panel[data-off] .in{opacity:0;transform:scale(.97);filter:blur(10px);pointer-events:none}
+.kick{font-size:13px;letter-spacing:.28em;text-transform:uppercase;font-weight:500;color:var(--fg2)}
+.kick::after{content:"";display:block;width:64px;height:2px;background:var(--logo);margin-top:22px}
+h1,h2,h3{font-family:'GLSerif',Georgia,serif;font-weight:400;margin:0;letter-spacing:-.01em}
+h1{font-size:clamp(46px,5.6vw,92px);line-height:1}
+h2{font-size:clamp(38px,4.4vw,70px);line-height:1.03}
+h2 em,h1 em{font-style:italic}
+.sub{font-size:clamp(18px,1.6vw,23px);line-height:1.4;margin:22px 0 38px;color:var(--fg)}
+/* hero */
+.p-hero .in{width:min(560px,46vw)}
+.p-hero h1{margin-top:28px}
+.card-slot{position:fixed;z-index:4;pointer-events:none}
+.card-hit{position:fixed;z-index:6;background:transparent;border:0;cursor:pointer;border-radius:12px}
+.card-hit span{position:absolute;left:50%;bottom:-46px;translate:-50% 0;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--fg2);white-space:nowrap;opacity:.8}
+.lane{position:fixed;height:0;width:0}
+/* directions */
+.p-dir .in{width:100%;text-align:center;align-self:flex-start;margin-top:-2vh}
+.p-dir .kick::after{margin:18px auto 0}
+.p-dir h2{margin-top:18px}
+.p-dir p{margin:14px auto 0;color:var(--fg2);font-size:16px;max-width:30em}
+.dir-hit span{bottom:-40px}
+/* about */
+.p-about .in{width:min(560px,46vw);align-self:center}
+.p-about h2{margin-top:22px}
+.p-about h2 em{color:var(--logo)}
+.lead2{font-size:17.5px;line-height:1.6;margin:20px 0 26px;max-width:32em;color:var(--fg2)}
+.pts{display:grid;grid-template-columns:1fr 1fr;gap:18px 30px}
+.pts div{border-top:1px solid rgba(42,34,29,.22);padding-top:12px}
+.pts b{display:block;font:400 21px/1.15 'GLSerif',serif;margin-bottom:6px}
+.pts p{margin:0;font-size:14.5px;line-height:1.45;color:var(--fg2)}
+/* sheet (card back for accessibility + mobile) */
+.sheet{position:fixed;z-index:30;inset:auto 0 0 0;max-height:80svh;overflow:auto;background:var(--milk);color:var(--ink);border-radius:22px 22px 0 0;box-shadow:0 -20px 60px -20px rgba(40,25,15,.45);padding:34px clamp(22px,5vw,56px) 40px;transform:translateY(105%);transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.sheet.open{transform:none}
+.sheet h3{font-size:34px}
+.sheet p{max-width:40em}
+.sheet .x{position:absolute;right:18px;top:16px;width:46px;height:46px;border-radius:50%;border:0;background:#E7DCCF;font-size:24px;cursor:pointer;color:var(--ink)}
+.sheet ul{padding-left:20px;margin:10px 0 0}
+.end{position:relative;z-index:6}
+.credits{transition:opacity .4s;opacity:0;position:fixed;right:14px;bottom:10px;z-index:7;font-size:11px;color:var(--fg2);opacity:.75;max-width:60vw;text-align:right}
+.credits a{text-decoration:underline}
+.hint{position:fixed;left:50%;bottom:22px;translate:-50% 0;z-index:7;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--fg2);display:flex;flex-direction:column;align-items:center;gap:10px;transition:opacity .4s}
+.hint i{width:1px;height:38px;background:currentColor;animation:hint 1.8s ease-in-out infinite;transform-origin:top}
+@keyframes hint{0%{transform:scaleY(0)}50%{transform:scaleY(1)}100%{transform:scaleY(0);transform-origin:bottom}}
+/* no webgl / static fallback */
+.static-card{display:none}
+.nogl .static-card{display:block;position:fixed;z-index:3;background:var(--milk);padding:14px 14px 0;box-shadow:0 30px 60px -30px rgba(40,25,15,.55);transform:rotate(3deg)}
+.nogl .static-card img{display:block;width:100%;aspect-ratio:1/1.05;object-fit:cover;object-position:50% 12%;background:radial-gradient(120% 90% at 50% 20%,#F3E6D6,#CDB59A)}
+.nogl .static-card b{display:block;font:400 34px/1.2 'Hand',cursive;text-align:center;padding:12px 0 4px;color:var(--logo)}
+@media (max-width:1100px){nav.main{display:none}}
+@media (max-width:760px){
+ header{padding:14px 18px;gap:12px}
+ .wordmark{font-size:22px;padding-left:12px}
+ header .btn{display:none}
+ .logo-slot{width:58px}
+ .panel{align-items:flex-start;padding:96px 20px 40px}
+ .p-hero .in{width:100%}
+ .p-hero h1{font-size:44px;margin-top:18px}
+ .sub{font-size:18px;margin:14px 0 22px}
+ .kick{font-size:11px}.kick::after{margin-top:14px;width:48px}
+ .p-about .in{width:100%}
+ .lead2{font-size:15.5px;margin:12px 0 14px}
+ .pts{gap:10px 16px}.pts b{font-size:17px}.pts p{font-size:13px}
+ .p-dir .in{margin-top:0}
+ .btn{padding:15px 24px}
+ .credits{font-size:10px;max-width:90vw}
+}
+@media (prefers-reduced-motion:reduce){.hint i{animation:none}}
+
+/* slots = where the 3D cards rest on screen */
+#slotDaiana{left:57%;top:max(15vh,120px);width:min(31vw,46vh);aspect-ratio:1/1.2}
+#slotEn{left:14%;top:40vh;width:min(23vw,40vh);aspect-ratio:1/1.2}
+#slotDe{left:63%;top:37vh;width:min(23vw,40vh);aspect-ratio:1/1.2}
+#slotCity{left:60%;top:22vh;width:min(28vw,46vh);aspect-ratio:1/1.2}
+.lane[data-lane="0"]{left:0;top:88vh}
+.lane[data-lane="1"]{left:0;top:66vh}
+.lane[data-lane="2"]{left:0;top:95vh}
+@media (max-width:760px){
+ #slotDaiana{left:23%;top:49svh;width:54vw}
+ .hint{display:none}
+ .card-hit span{bottom:-34px}
+ #slotEn{left:5%;top:38svh;width:46vw}
+ #slotDe{left:49%;top:52svh;width:46vw}
+ #slotCity{left:30%;top:56svh;width:42vw}
+ .p-about .pts{display:none}
+ .p-about .in{align-self:flex-start}
+ .p-hero.panel{padding-top:124px}
+ .lane[data-lane="0"]{top:58svh}
+ .lane[data-lane="1"]{top:60svh}
+ .lane[data-lane="2"]{top:97svh}
+}
+header.scrolled{background:rgba(244,236,226,.86);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);padding-top:10px;padding-bottom:10px}
+header{transition:background .4s,padding .4s}
+header.scrolled .logo-slot{width:clamp(48px,4vw,62px)}
+.logo-slot{transition:width .4s}
+header.scrolled nav.main a{color:var(--ink)}
+</style>
+</head>
+<body>
+<canvas id="gl" aria-hidden="true"></canvas>
+<header id="hdr">
+ <a class="brand" href="#top" aria-label="Green Languages, в начало"><span class="logo-slot" id="logoSlot"><img src="img/logo.svg" alt=""></span><span class="wordmark">Green<br>Languages</span></a>
+ <nav class="main" aria-label="Основное меню"><a href="#directions">Направления</a><a href="#about">О школе</a><a href="#team">Команда</a><a href="#results">Результаты</a><a href="#contacts">Контакты</a></nav>
+ <a class="btn" href="https://telegram.me/Green_Languages">Записаться на занятие <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 12L12 4M5.5 4H12v6.5"/></svg></a>
+</header>
+
+<main class="track" id="track">
+ <!-- anchors for menu, positioned by script at each calm camera position -->
+ <span id="top" class="anchor"></span><span id="directions" class="anchor"></span><span id="about" class="anchor"></span>
+
+ <section class="panel p-hero" data-i="0" aria-labelledby="h-hero">
+  <div class="in">
+   <div class="kick">Онлайн-школа иностранных языков</div>
+   <h1 id="h-hero">Английский и&nbsp;немецкий</h1>
+   <p class="sub">для учёбы, работы,<br>путешествий и жизни в Европе</p>
+   <a class="btn" href="https://telegram.me/Green_Languages">Записаться на пробное занятие <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 12L12 4M5.5 4H12v6.5"/></svg></a>
+  </div>
+  <i class="lane" data-lane="0"></i>
+ </section>
+
+ <section class="panel p-dir" data-i="1" data-off aria-labelledby="h-dir">
+  <div class="in">
+   <div class="kick">Направления обучения</div>
+   <h2 id="h-dir">Выберите<br>свой язык</h2>
+   <p>Нажмите на карточку, чтобы узнать, что входит в курс.</p>
+  </div>
+  <i class="lane" data-lane="1"></i>
+ </section>
+
+ <section class="panel p-about" data-i="2" data-off aria-labelledby="h-about">
+  <div class="in">
+   <div class="kick">О школе</div>
+   <h2 id="h-about">Больше, чем<br><em>уроки языков</em></h2>
+   <p class="lead2">Чаще всего к нам приходят со словами «грамматику знаю, а говорить не могу». Поэтому на уроках и в разговорных клубах больше всего говорите вы, спокойно и без страха ошибиться.</p>
+   <div class="pts">
+    <div><b>Живой язык</b><p>Преподаватели живут за границей и говорят на языке каждый день.</p></div>
+    <div><b>От A1 до C1</b><p>Английский и немецкий с нуля до свободного общения.</p></div>
+    <div><b>Экзамены</b><p>IELTS, CAE, Goethe, TELC, DTZ и другие.</p></div>
+    <div><b>Консультация</b><p>Даяна бесплатно поможет выбрать формат.</p></div>
+   </div>
+  </div>
+  <i class="lane" data-lane="2"></i>
+ </section>
+
+ <div class="card-slot" id="slotDaiana" data-s="0"></div>
+ <div class="card-slot" id="slotEn" data-s="1"></div>
+ <div class="card-slot" id="slotDe" data-s="1"></div>
+ <div class="card-slot" id="slotCity" data-s="2"></div>
+ <button class="card-hit" id="hitDaiana" data-s="0" aria-pressed="false" aria-label="Даяна, основательница Green Languages. Перевернуть карточку"><span>Нажмите на карточку</span><i class="vh">Живёт в Германии, путешествует по Европе, сдала Cambridge C1 и Goethe C1, училась в Ирландии.</i></button>
+ <button class="card-hit dir-hit" id="hitEn" data-s="1" aria-pressed="false" aria-label="Английский. Перевернуть карточку"><i class="vh">С нуля до C1, индивидуально, в паре или группе, Speaking Club, подготовка к IELTS, CAE, FCE, НМТ.</i></button>
+ <button class="card-hit dir-hit" id="hitDe" data-s="1" aria-pressed="false" aria-label="Немецкий. Перевернуть карточку"><i class="vh">С нуля до C1, индивидуально, в паре или группе, Sprachclub, подготовка к Goethe, TELC, DTZ, DaF.</i></button>
+ <figure class="static-card" id="staticDaiana" aria-hidden="true"><img src="img/daiana.webp" alt=""><b>Даяна</b></figure>
+</main>
+
+<div class="hint" id="hint" aria-hidden="true">Листайте<i></i></div>
+<p class="credits">Прототип. Фото: Лондон, Mick Lobb, <a href="https://commons.wikimedia.org/w/index.php?curid=18424821">CC BY-SA 2.0</a>; Кёльн, Sandeepdattaraju, <a href="https://commons.wikimedia.org/w/index.php?curid=199959778">CC BY-SA 4.0</a>; Мюнхен, Travolve, <a href="https://commons.wikimedia.org/w/index.php?curid=73811442">CC BY-SA 3.0</a></p>
+
+
+<script type="importmap">{"imports":{"three":"./js/three.module.js"}}</script>
+<script type="module" src="js/app.js"></script>
+</body>
+</html>
