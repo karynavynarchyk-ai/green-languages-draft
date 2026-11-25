@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Green Languages · структура сайта</title>
+<meta name="description" content="Онлайн-школа Даяны. Английский и немецкий с нуля до C1 для учёбы, работы, путешествий и жизни в Европе. Первое занятие бесплатно.">
+<meta property="og:title" content="Green Languages · английский и немецкий онлайн">
+<meta property="og:description" content="Для учёбы, работы, путешествий и жизни в Европе. Первое занятие бесплатно.">
+<meta property="og:image" content="img/daiana.webp">
+<link rel="icon" href="img/logo.svg">
+<style>
+@font-face{font-family:'GLSerif';src:url(fonts/noto-serif-display-cyrillic-400-normal.woff2) format('woff2');font-display:swap;unicode-range:U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'GLSerif';src:url(fonts/noto-serif-display-latin-400-normal.woff2) format('woff2');font-display:swap;unicode-range:U+0000-00FF,U+2000-206F,U+20AC,U+2190-2193}
+@font-face{font-family:'GLSerif';font-style:italic;src:url(fonts/noto-serif-display-cyrillic-400-italic.woff2) format('woff2');font-display:swap;unicode-range:U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'GLSerif';font-style:italic;src:url(fonts/noto-serif-display-latin-400-italic.woff2) format('woff2');font-display:swap;unicode-range:U+0000-00FF,U+2000-206F,U+20AC,U+2190-2193}
+@font-face{font-family:'Manrope';font-weight:400;src:url(fonts/manrope-cyrillic-400-normal.woff2) format('woff2');font-display:swap;unicode-range:U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'Manrope';font-weight:400;src:url(fonts/manrope-latin-400-normal.woff2) format('woff2');font-display:swap;unicode-range:U+0000-00FF,U+2000-206F,U+20AC,U+2190-2193}
+@font-face{font-family:'Manrope';font-weight:600;src:url(fonts/manrope-cyrillic-600-normal.woff2) format('woff2');font-display:swap;unicode-range:U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'Manrope';font-weight:600;src:url(fonts/manrope-latin-600-normal.woff2) format('woff2');font-display:swap;unicode-range:U+0000-00FF,U+2000-206F,U+20AC,U+2190-2193}
+@font-face{font-family:'Hand';src:url(fonts/marck-script-cyrillic-400-normal.woff2) format('woff2');font-display:swap;unicode-range:U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'Hand';src:url(fonts/marck-script-latin-400-normal.woff2) format('woff2');font-display:swap;unicode-range:U+0000-00FF,U+2000-206F,U+20AC,U+2190-2193}
+:root{--bg:#F1E9DE;--bg2:#E8DDCF;--milk:#F8F2EA;--ink:#2A221D;--ink2:#62564C;--logo:#707D6C;--sage:#AEB4A0;--sienna:#984216;--sienna2:#7C3410;--sky:#78898F;--line:rgba(42,34,29,.16);--sh:0 1px 1px rgba(60,35,20,.06),0 22px 40px -22px rgba(60,35,20,.45)}
+*{box-sizing:border-box;min-width:0}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.6 'Manrope',system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:clip}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.45;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .35 0 0 0 0 .25 0 0 0 0 .18 0 0 0 .06 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+a{color:inherit}img{display:block;max-width:100%}
+:focus-visible{outline:2.5px solid var(--sienna);outline-offset:4px;border-radius:4px}
+#rope{position:fixed;inset:0;width:100%;height:100%;z-index:1;pointer-events:none;filter:drop-shadow(0 10px 7px rgba(70,45,20,.22))}
+main,header,footer{position:relative;z-index:2}
+.wrap{max-width:1240px;margin:0 auto;padding:0 clamp(20px,4.5vw,60px);position:relative}
+h1,h2,h3{font-family:'GLSerif',Georgia,serif;font-weight:400;margin:0;letter-spacing:-.01em;text-wrap:balance}
+h1{font-size:clamp(46px,5.8vw,86px);line-height:1}
+h2{font-size:clamp(36px,4.2vw,60px);line-height:1.04}
+h2 em,h1 em{font-style:italic;color:var(--logo)}
+.kick{font-size:12.5px;letter-spacing:.26em;text-transform:uppercase;font-weight:600;color:var(--ink2)}
+.kick::after{content:"";display:block;width:56px;height:2px;background:var(--logo);margin-top:18px}
+.center .kick::after{margin-inline:auto}
+.lead{font-size:clamp(17px,1.4vw,20px);color:var(--ink2);max-width:34em}
+.btn{display:inline-flex;align-items:center;gap:12px;background:var(--sienna);color:#FBF3EA;text-decoration:none;font-weight:600;font-size:16px;padding:17px 30px;border-radius:99px;border:0;cursor:pointer;box-shadow:0 14px 28px -14px rgba(120,45,10,.8);transition:background .2s,transform .2s}
+.btn:hover{background:var(--sienna2);transform:translateY(-1px)}
+.btn svg{width:15px;height:15px}
+.btn.ghost{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--ink)}
+.btn.ghost:hover{background:var(--ink);color:#fff}
+section{padding:clamp(80px,10vw,140px) 0;position:relative}
+.rp{position:absolute;width:1px;height:1px;pointer-events:none}
+/* header */
+header{padding:22px 0}
+header .wrap{display:flex;align-items:center;gap:28px;max-width:1320px}
+.brand{display:flex;align-items:center;gap:16px;text-decoration:none;color:var(--logo)}
+.brand img{width:clamp(62px,6.4vw,96px);height:auto}
+.brand span{font:400 clamp(24px,2.3vw,36px)/.95 'GLSerif',serif;border-left:1.5px solid var(--logo);padding-left:16px}
+nav.main{margin-left:auto;display:flex;gap:28px}
+nav.main a{text-decoration:none;font-size:15px;font-weight:600;opacity:.82}
+nav.main a:hover{opacity:1;color:var(--sienna)}
+header .btn{padding:13px 22px;font-size:15px}
+.bar{display:none;position:fixed;left:0;right:0;top:0;z-index:20;background:rgba(244,237,228,.9);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);transform:translateY(-110%);transition:transform .4s;box-shadow:0 1px 0 var(--line)}
+.bar.on{transform:none}
+.bar .wrap{display:flex;align-items:center;gap:24px;height:66px;max-width:1320px}
+.bar .brand img{width:40px}.bar .brand span{font-size:21px;padding-left:12px}
+.bar .btn{margin-left:auto;padding:11px 20px;font-size:14.5px}
+.bar nav.main{margin-left:auto}.bar nav.main + .btn{margin-left:0}
+/* instax */
+.ix{background:var(--milk);padding:14px 14px 0;box-shadow:var(--sh);border-radius:7px;position:relative}
+.ix .ph{aspect-ratio:1/1.02;overflow:hidden;border-radius:3px;background:#D8C6AF}
+.ix .ph img{width:100%;height:100%;object-fit:cover}
+.ix .cap{font:400 clamp(26px,2.4vw,36px)/1 'Hand',cursive;color:var(--logo);text-align:center;padding:16px 4px 8px}
+.ix .sub{font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;text-align:center;color:var(--ink2);padding-bottom:18px;font-weight:600}
+.flip{perspective:1400px;cursor:pointer;background:none;border:0;padding:0;font:inherit;color:inherit;text-align:left;display:block;width:100%}
+.flip .in{position:relative;transition:transform .8s cubic-bezier(.2,.7,.2,1);transform-style:preserve-3d}
+.flip[aria-pressed=true] .in{transform:rotateY(180deg)}
+.flip .bk{position:absolute;inset:0;transform:rotateY(180deg);backface-visibility:hidden;-webkit-backface-visibility:hidden;padding:clamp(22px,2.6vw,38px);display:flex;flex-direction:column}
+.flip .fr{backface-visibility:hidden;-webkit-backface-visibility:hidden}
+.bk h3{font:400 clamp(34px,3vw,48px)/1 'Hand',cursive;color:var(--logo)}
+.bk ul{list-style:none;padding:0;margin:18px 0 0;font-family:'GLSerif',serif;font-size:clamp(17px,1.4vw,21px);line-height:1.35}
+.bk li{padding:9px 0;border-bottom:1px solid var(--line)}
+.bk small{margin-top:auto;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink2);font-weight:600}
+/* hero */
+.hero{padding:clamp(40px,7vw,96px) 0 clamp(90px,10vw,150px)}
+.hero .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,80px);align-items:center;max-width:1320px}
+.hero h1{margin:26px 0 22px}
+.hero .lead{margin:0 0 36px}
+.hero .cta{display:flex;flex-wrap:wrap;gap:14px}
+.facts{display:flex;gap:40px;margin-top:48px}
+.facts b{display:block;font:400 34px/1 'GLSerif',serif;white-space:nowrap}
+.facts span{font-size:13px;color:var(--ink2);display:block;margin-top:8px}
+.stage{position:relative;justify-self:center;width:min(440px,100%)}
+.stage .disc{position:absolute;left:-26%;top:-6%;width:86%;aspect-ratio:1;border-radius:50%;background:var(--sage)}
+.stage .flip{transform:rotate(3deg)}
+.stage .ph{background:radial-gradient(120% 90% at 50% 20%,#F2E6D7,#D9C3A8 60%,#BFA284)}
+.stage .ph img{object-fit:cover;object-position:50% 6%}
+.tapnote{text-align:center;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink2);margin-top:26px}
+/* directions */
+.center{text-align:center}
+.dir .lead{margin:16px auto 0}
+.langs{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,12vw,200px);max-width:900px;margin:70px auto 0}
+.langs .flip:first-child{transform:rotate(-3deg)}.langs .flip:last-child{transform:rotate(2.5deg);margin-top:50px}
+.langs .ph{aspect-ratio:1/.9}
+/* about */
+.about .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(40px,7vw,110px);align-items:center}
+.about h2{margin:22px 0}
+.pts{display:grid;grid-template-columns:1fr 1fr;gap:22px 32px;margin-top:34px}
+.pts div{border-top:1px solid var(--line);padding-top:14px}
+.pts b{display:block;font:400 22px/1.15 'GLSerif',serif;margin-bottom:6px}
+.pts p{margin:0;font-size:15px;color:var(--ink2);line-height:1.5}
+.about .ix{transform:rotate(-2.5deg);max-width:420px;justify-self:center;width:100%}
+.about .ph{aspect-ratio:1/1.1}
+.sig{font:400 34px/1 'Hand',cursive;color:var(--logo);margin-top:26px}
+/* team */
+.team .head{display:flex;justify-content:space-between;align-items:end;gap:30px;flex-wrap:wrap}
+.team .head p{max-width:24em;margin:0;color:var(--ink2)}
+.row{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:22px;margin-top:70px}
+.row .flip:nth-child(odd){transform:rotate(-2deg)}.row .flip:nth-child(even){transform:rotate(2deg);margin-top:26px}
+.row .ix{padding:9px 9px 0}
+.row .ph{aspect-ratio:1/1.12}
+.row .cap{font-size:26px;padding:10px 2px 4px}
+.row .sub{font-size:10px;padding-bottom:12px}
+.row .bk{padding:16px}
+.row .bk h3{font-size:30px}
+.row .bk p{font-size:13.5px;line-height:1.45;margin:10px 0 0;color:var(--ink2)}
+.more{margin-top:44px;color:var(--ink2);font-size:15.5px}
+/* formats */
+.fmt{background:var(--bg2)}
+.fmt .head{display:flex;justify-content:space-between;align-items:end;gap:30px;flex-wrap:wrap;margin-bottom:44px}
+.tabs{display:inline-flex;background:var(--milk);border-radius:99px;padding:5px;box-shadow:var(--sh)}
+.tabs button{border:0;background:none;font:600 15.5px 'Manrope';padding:12px 26px;border-radius:99px;cursor:pointer;color:var(--ink2)}
+.tabs button[aria-selected=true]{background:var(--logo);color:#fff}
+.cards{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:24px}
+.cards[hidden]{display:none}
+.pc{background:var(--milk);box-shadow:var(--sh);border-radius:10px;padding:30px}
+.pc h3{font-size:30px;line-height:1.1}
+.pc .d{color:var(--ink2);font-size:15.5px;margin:10px 0 20px}
+.pr{display:flex;justify-content:space-between;align-items:baseline;gap:14px;border-top:1px dashed rgba(42,34,29,.2);padding:12px 0;font-size:15.5px}
+.pr b{font:400 26px 'GLSerif',serif;color:var(--sienna);white-space:nowrap}
+.fmt .foot{display:flex;justify-content:space-between;gap:24px;align-items:center;margin-top:40px;flex-wrap:wrap}
+.fmt .foot p{margin:0;color:var(--ink2);max-width:42em;font-size:15.5px}
+/* results */
+.story{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,6vw,90px);align-items:center;margin:50px 0 80px}
+.story .yr{font:400 clamp(48px,6vw,78px)/1 'Hand',cursive;color:var(--logo)}
+.story h3{font-size:clamp(26px,2.8vw,38px);line-height:1.15;margin:14px 0 16px}
+.story p{color:var(--ink2);margin:0}
+.quote{background:var(--milk);box-shadow:var(--sh);border-radius:8px;padding:44px 42px;font:400 clamp(28px,2.6vw,38px)/1.2 'Hand',cursive;color:var(--ink);transform:rotate(1.5deg)}
+.quote span{display:block;font:600 12px 'Manrope';letter-spacing:.18em;text-transform:uppercase;color:var(--ink2);margin-top:20px}
+.studs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:26px}
+.studs .ix{padding:10px 10px 0}
+.studs article:nth-child(odd) .ix{transform:rotate(-2deg)}.studs article:nth-child(even) .ix{transform:rotate(2deg)}
+.studs .ph{aspect-ratio:1}
+.studs .cap{font-size:24px;padding:10px 2px 14px}
+.studs h4{font:400 21px/1.2 'GLSerif',serif;margin:22px 0 8px}
+.studs p{margin:0 0 6px;font-size:15px;color:var(--ink2)}
+.studs p b{color:var(--sienna);font-weight:600}
+/* steps */
+.st{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;margin-top:60px}
+.st .n{width:62px;height:62px;border-radius:50%;background:var(--milk);box-shadow:var(--sh);display:grid;place-items:center;font:400 26px 'GLSerif',serif;color:var(--logo);margin-bottom:22px}
+.st>div{position:relative}
+.st b{display:block;font:400 26px 'GLSerif',serif;margin-bottom:8px}
+.st p{margin:0;color:var(--ink2)}
+/* faq */
+.faq .wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(30px,6vw,90px)}
+details{border-top:1px solid var(--line)}
+details:last-child{border-bottom:1px solid var(--line)}
+summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:20px;padding:20px 0;font:400 21px/1.3 'GLSerif',serif}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-family:'Manrope';color:var(--sienna);font-size:26px;line-height:1;transition:transform .25s}
+details[open] summary::after{transform:rotate(45deg)}
+details p{margin:0 0 22px;color:var(--ink2)}
+/* cta */
+.final{text-align:center;padding-bottom:clamp(100px,12vw,170px)}
+.final h2{font-size:clamp(40px,5vw,72px)}
+.final .lead{margin:20px auto 34px}
+.final .btns{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+footer{background:#2B2420;color:#D8CCC2;padding:50px 0 34px;font-size:14.5px}
+footer .wrap{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:28px}
+footer b{color:#fff;display:block;margin-bottom:10px;font-weight:600}
+footer a{display:block;text-decoration:none;margin-bottom:6px}footer a:hover{color:#fff}
+footer .brand{color:#C9D0C0}footer .brand img{width:54px;filter:brightness(1.6) saturate(.6)}footer .brand span{font-size:24px;border-color:#C9D0C0}
+footer .small{grid-column:1/-1;border-top:1px solid #4a3f38;padding-top:20px;margin-top:16px;font-size:12px;color:#a2958b;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+footer .small a{display:inline}
+/* reveal */
+.rv{opacity:0;translate:0 26px;transition:opacity .9s ease,translate .9s ease}
+.rv.in{opacity:1;translate:0 0}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;translate:none;transition:none}html{scroll-behavior:auto}.flip .in{transition:none}}
+@media (max-width:1100px){nav.main{display:none}.row{grid-template-columns:repeat(3,minmax(0,1fr));row-gap:50px}}
+@media (max-width:860px){
+ .hero .wrap,.about .wrap,.story,.faq .wrap{grid-template-columns:1fr}
+ .stage{width:min(340px,82%);margin-top:20px}
+ .cards{grid-template-columns:1fr}
+ .studs{grid-template-columns:1fr 1fr}
+ .st{grid-template-columns:1fr;gap:34px}
+ footer .wrap{grid-template-columns:1fr 1fr}
+}
+@media (max-width:600px){
+ body{font-size:16.5px}
+ header .btn{display:none}
+ .brand img{width:56px}.brand span{font-size:22px;padding-left:12px}
+ .hero h1{font-size:46px}
+ .hero .cta .btn{width:100%;justify-content:center}
+ .facts{gap:22px}.facts b{font-size:26px}
+ .langs{grid-template-columns:1fr;gap:56px;padding:0 8%}
+ .langs .flip:last-child{margin-top:0}
+ .pts{grid-template-columns:1fr}
+ .row{grid-template-columns:1fr 1fr;gap:18px;row-gap:34px}
+ .row .flip:nth-child(even){margin-top:0}
+ .studs{gap:16px}.studs h4{font-size:18px}
+ .quote{padding:32px 26px}
+ footer .wrap{grid-template-columns:1fr}
+ .bar .brand span{display:none}
+}
+.lbl{position:absolute;left:16px;top:12px;font:600 11px Manrope,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#984216;background:#fff;border:1px dashed #984216;border-radius:4px;padding:4px 8px;z-index:5}
+section{border-top:1px dashed rgba(152,66,22,.35)}
+</style>
+</head>
+<body>
+
+<div class="bar" id="bar"><div class="wrap">
+ <a class="brand" href="#top" aria-label="Green Languages, в начало"><img src="img/logo.svg" alt=""><span>Green Languages</span></a>
+ <nav class="main" aria-label="Меню"><a href="#directions">Направления</a><a href="#about">О школе</a><a href="#team">Команда</a><a href="#prices">Цены</a><a href="#results">Результаты</a></nav>
+ <a class="btn" href="https://telegram.me/Green_Languages">Записаться</a>
+</div></div>
+
+<header id="top"><div class="wrap">
+ <a class="brand" href="#top" aria-label="Green Languages, в начало"><img id="logo" src="img/logo.svg" alt=""><span>Green<br>Languages</span></a>
+ <nav class="main" aria-label="Меню"><a href="#directions">Направления</a><a href="#about">О школе</a><a href="#team">Команда</a><a href="#prices">Цены</a><a href="#results">Результаты</a><a href="#contacts">Контакты</a></nav>
+ <a class="btn" href="https://telegram.me/Green_Languages">Записаться на занятие <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 12L12 4M5.5 4H12v6.5"/></svg></a>
+</div></header>
+
+<main>
+<section class="hero"><div class="lbl">01 · Главный экран</div><div class="wrap">
+ <div>
+  <div class="kick">Онлайн-школа иностранных языков</div>
+  <h1>Английский и&nbsp;немецкий</h1>
+  <p class="lead">Для учёбы, работы, путешествий и жизни в Европе. С нуля до C1, живые уроки с преподавателями, которые сами говорят на языке каждый день.</p>
+  <div class="cta"><a class="btn" href="https://telegram.me/Green_Languages">Записаться на пробное занятие <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 12L12 4M5.5 4H12v6.5"/></svg></a><a class="btn ghost" href="#directions">Выбрать язык</a></div>
+  <div class="facts"><div><b>600+</b><span>учеников</span></div><div><b>A1–C1</b><span>все уровни</span></div><div><b>15</b><span>преподавателей</span></div></div>
+ </div>
+ <div class="stage">
+  <div class="disc"></div>
+  <button class="flip" aria-pressed="false" aria-label="Даяна, основательница. Перевернуть карточку">
+   <div class="in">
+    <div class="ix fr"><div class="ph"><img src="img/daiana.webp" alt="Даяна, основательница Green Languages" fetchpriority="high"></div><div class="cap">Даяна</div><div class="sub">Основательница Green Languages</div></div>
+   </div>
+  </button>
+  
+  
+ </div>
+ 
+</div></section>
+
+<section class="dir" id="directions"><div class="lbl">02 · Направления</div><div class="wrap center">
+ 
+ <div class="kick">Направления обучения</div>
+ <h2 style="margin-top:18px">Выберите <em>свой язык</em></h2>
+ <p class="lead">Нажмите на карточку, чтобы узнать, что входит в курс.</p>
+ <div class="langs">
+  <button class="flip" aria-pressed="false" aria-label="Английский. Перевернуть карточку"><div class="in">
+   <div class="ix fr"><div class="ph"><img src="img/london.webp" alt="Лондон" loading="lazy"></div><div class="cap">English</div><div class="sub">Английский</div></div>
+  </div></button>
+  <button class="flip" aria-pressed="false" aria-label="Немецкий. Перевернуть карточку"><div class="in">
+   <div class="ix fr"><div class="ph"><img src="img/koeln.webp" alt="Кёльн" loading="lazy" style="object-position:30% 50%"></div><div class="cap">Deutsch</div><div class="sub">Немецкий</div></div>
+  </div></button>
+ </div>
+ 
+ 
+</div></section>
+
+<section class="about" id="about"><div class="lbl">03 · О школе</div><div class="wrap">
+ <div>
+  <div class="kick">О школе</div>
+  <h2>Больше, чем <em>уроки языков</em></h2>
+  <p class="lead">Чаще всего к нам приходят со словами «грамматику знаю, а говорить не могу». Поэтому на уроках и в разговорных клубах больше всего говорите вы, спокойно и без страха ошибиться.</p>
+  <div class="pts">
+   <div><b>Живой язык</b><p>Преподаватели живут за границей и говорят на языке каждый день.</p></div>
+   <div><b>От A1 до C1</b><p>Английский и немецкий с нуля до свободного общения.</p></div>
+   <div><b>Экзамены</b><p>IELTS, CAE, Goethe, TELC, DTZ и другие.</p></div>
+   <div><b>Консультация</b><p>Даяна бесплатно поможет выбрать формат и преподавателя.</p></div>
+  </div>
+  <div class="sig">Даяна</div>
+ </div>
+ <figure class="ix" style="margin:0"><div class="ph"><img src="img/berlin.webp" alt="Берлин, Бранденбургские ворота" loading="lazy"></div><figcaption class="cap">Berlin</figcaption><div class="sub">Германия</div></figure>
+ 
+</div></section>
+
+<section class="team" id="team"><div class="lbl">04 · Команда</div><div class="wrap">
+ <div class="head"><div><div class="kick">Команда</div><h2 style="margin-top:18px">Наши <em>преподаватели</em></h2></div><p>Сильная команда, которая поддерживает и помогает дойти до цели. Нажмите на фото, чтобы познакомиться.</p></div>
+ 
+ <div class="row">
+  <button class="flip" aria-pressed="false"><div class="in"><div class="ix fr"><div class="ph" style="background:radial-gradient(120% 90% at 50% 20%,#F2E6D7,#CDB59A)"><img src="img/daiana.webp" alt="Даяна" loading="lazy" style="object-position:50% 6%"></div><div class="cap">Даяна</div><div class="sub">Нем · Англ</div></div></div></button>
+  <button class="flip" aria-pressed="false"><div class="in"><div class="ix fr"><div class="ph"><img src="img/t-yana.webp" alt="Яна" loading="lazy"></div><div class="cap">Яна</div><div class="sub">Немецкий</div></div></div></button>
+  <button class="flip" aria-pressed="false"><div class="in"><div class="ix fr"><div class="ph"><img src="img/t-sofia.webp" alt="София" loading="lazy"></div><div class="cap">София</div><div class="sub">Английский</div></div></div></button>
+  <button class="flip" aria-pressed="false"><div class="in"><div class="ix fr"><div class="ph"><img src="img/t-liza.webp" alt="Лиза" loading="lazy"></div><div class="cap">Лиза</div><div class="sub">Немецкий</div></div></div></button>
+  <button class="flip" aria-pressed="false"><div class="in"><div class="ix fr"><div class="ph"><img src="img/t-alina.webp" alt="Алина" loading="lazy"></div><div class="cap">Алина</div><div class="sub">Немецкий</div></div></div></button>
+  <button class="flip" aria-pressed="false"><div class="in"><div class="ix fr"><div class="ph"><img src="img/t-daria.webp" alt="Дарья" loading="lazy"></div><div class="cap">Дарья</div><div class="sub">Немецкий</div></div></div></button>
+ </div>
+ 
+ <p class="more">Ещё в команде Ульяна, Елена и Кристина ведут английский, Елизавета, Мария и Катерина ведут немецкий.</p>
+ 
+</div></section>
+
+<section class="fmt" id="prices"><div class="lbl">05 · Форматы и цены</div><div class="wrap">
+ <div class="head"><div><div class="kick">Форматы и цены</div><h2 style="margin-top:18px">Учитесь <em>так, как удобно</em></h2></div>
+  <div class="tabs" role="tablist"><button role="tab" aria-selected="true" data-t="en">Английский</button><button role="tab" aria-selected="false" data-t="de">Немецкий</button></div></div>
+ <div class="cards" data-p="en">
+  <div class="pc"><h3>С нуля до C1</h3><p class="d">Для взрослых и подростков, от первых слов до свободного общения</p><div class="pr"><span>в группе</span><b>от 12 €</b></div><div class="pr"><span>в паре</span><b>от 15 €</b></div><div class="pr"><span>индивидуально</span><b>от 18 €</b></div></div>
+  <div class="pc"><h3>Speaking Club</h3><p class="d">Разговорный клуб, уровни A1–C1</p><div class="pr"><span>занятие</span><b>15 €</b></div><div class="pr"><span>4 занятия</span><b>50 €</b></div></div>
+  <div class="pc"><h3>Экзамены</h3><p class="d">IELTS, CAE, FCE, PET, Duolingo Test, НМТ</p><div class="pr"><span>индивидуально</span><b>от 20 €</b></div></div>
+ </div>
+ <div class="cards" data-p="de" hidden>
+  <div class="pc"><h3>С нуля до C1</h3><p class="d">Для взрослых и детей, индивидуально, в паре или в группе</p><div class="pr"><span>в группе</span><b>от 15 €</b></div><div class="pr"><span>в паре</span><b>от 20 €</b></div><div class="pr"><span>индивидуально</span><b>от 25 €</b></div></div>
+  <div class="pc"><h3>Sprachclub</h3><p class="d">Каждую неделю 1,5 часа только на немецком, A1–C1</p><div class="pr"><span>занятие</span><b>15 €</b></div><div class="pr"><span>4 занятия</span><b>50 €</b></div></div>
+  <div class="pc"><h3>Экзамены</h3><p class="d">Goethe, TELC B1–C1, TELC Beruf, DTZ, DaF</p><div class="pr"><span>индивидуально</span><b>от 30 €</b></div><div class="pr"><span>грамматика, 5 лекций</span><b>39 €</b></div></div>
+ </div>
+ <div class="foot"><p>Индивидуально 60 или 90 минут, в паре 60 минут, в группе 90 минут (3–4 человека). Оплата за месяц, обычно 8 занятий.</p><a class="btn" href="https://telegram.me/Green_Languages">Первое занятие бесплатно</a></div>
+ 
+</div></section>
+
+<section class="results" id="results"><div class="lbl">06 · Результаты учеников</div><div class="wrap">
+ <div class="kick">Результаты</div>
+ <h2 style="margin-top:18px">Истории <em>наших учеников</em></h2>
+ <div class="story">
+  <div><div class="yr">2019 → 2026</div><h3>Пришла в 9 лет и знала только dog и cat</h3><p>Плакала на первых уроках и не хотела учить английский. Сейчас ей 16, уровень почти C2, говорит без акцента и готовится к IELTS.</p></div>
+  <blockquote class="quote" style="margin:0">«Всё это время с нами, хотя вживую мы так ни разу и не встретились»<span>Даяна о своей ученице</span></blockquote>
+ </div>
+ 
+ <div class="studs">
+  <article><div class="ix"><div class="ph"><img src="img/st-de1.webp" alt="Оля" loading="lazy"></div><div class="cap">Оля</div></div><h4>Немецкий с нуля до A2 за полгода</h4><p><b>Было:</b> была уверена, что языки ей не даются.</p><p><b>Стало:</b> работает помощником стоматолога в Германии.</p></article>
+  <article><div class="ix"><div class="ph"><img src="img/st-en1.webp" alt="Ирина" loading="lazy"></div><div class="cap">Ирина</div></div><h4>Английский с A1 до A2 за три месяца</h4><p><b>Было:</b> не понимала носителей.</p><p><b>Стало:</b> одна съездила в Венецию и говорила со всеми.</p></article>
+  <article><div class="ix"><div class="ph"><img src="img/st-exde2.webp" alt="Алиса" loading="lazy"></div><div class="cap">Алиса</div></div><h4>TestDaF за полтора месяца</h4><p><b>Было:</b> сильный страх устной части.</p><p><b>Стало:</b> TDN4 во всех частях, включая устную.</p></article>
+  <article><div class="ix"><div class="ph"><img src="img/st-exen2.webp" alt="Катя" loading="lazy"></div><div class="cap">Катя</div></div><h4>Готовилась к B2, сдала на C1</h4><p><b>Было:</b> B1 и цель IELTS 6.5.</p><p><b>Стало:</b> IELTS 7.0 в феврале 2024 года.</p></article>
+ </div>
+ 
+</div></section>
+
+<section class="steps"><div class="lbl">07 · Как начать</div><div class="wrap">
+ <div class="kick">Как начать</div>
+ <h2 style="margin-top:18px">Три <em>простых шага</em></h2>
+ <div class="st" style="position:relative">
+  <div><div class="n">1</div><b>Напишите нам</b><p>В Telegram или WhatsApp, какой язык и для чего хотите учить.</p></div>
+  <div style="position:relative"><div class="n">2</div><b>Пробное занятие</b><p>Бесплатно. Познакомитесь с преподавателем и узнаете свой уровень.</p></div>
+  <div style="position:relative"><div class="n">3</div><b>Выберите формат</b><p>Индивидуально, в паре, в группе или в разговорном клубе.</p></div>
+ </div>
+ 
+</div></section>
+
+<section class="faq"><div class="lbl">08 · Частые вопросы</div><div class="wrap">
+ <div><div class="kick">Вопросы</div><h2 style="margin-top:18px">Частые <em>вопросы</em></h2></div>
+ <div>
+  <details><summary>Можно начать с нуля?</summary><p>Да. Курсы английского и немецкого идут с нуля до уровня C1.</p></details>
+  <details><summary>Грамматику знаю, а говорить не могу. Поможете?</summary><p>Да, с этим к нам приходят чаще всего. Для этого есть разговорные клубы и уроки, где больше всего говорите вы.</p></details>
+  <details><summary>Сколько длится урок?</summary><p>Индивидуально 60 или 90 минут, в паре 60 минут, в группе 90 минут. Пробное занятие 40–50 минут.</p></details>
+  <details><summary>Сколько человек в группе?</summary><p>Обычно 3–4 человека. Время группы выбираете вместе с преподавателем.</p></details>
+  <details><summary>Что, если я пропущу урок?</summary><p>Отменить урок можно не позже чем за 12 часов. Групповые уроки записываются, пропущенную тему можно посмотреть в записи.</p></details>
+  <details><summary>Можно учиться из любой страны?</summary><p>Да, все занятия проходят онлайн.</p></details>
+ </div>
+ 
+</div></section>
+
+<section class="final" id="contacts"><div class="lbl">09 · Запись и контакты</div><div class="wrap">
+ <h2>Начните свой <em>языковой путь</em> с нами</h2>
+ <p class="lead">Напишите, какой язык хотите учить, и мы подберём преподавателя. Первое занятие в подарок.</p>
+ <div class="btns"><a class="btn" href="https://telegram.me/Green_Languages">Telegram</a><a class="btn ghost" href="https://wa.me/4915161730335">WhatsApp</a><a class="btn ghost" href="https://www.instagram.com/green__languages/">Instagram</a></div>
+ 
+</div></section>
+</main>
+
+<footer><div class="wrap">
+ <div><a class="brand" href="#top"><img src="img/logo.svg" alt=""><span>Green<br>Languages</span></a></div>
+ <div><b>Английский</b><a href="#prices">С нуля до C1</a><a href="#prices">Speaking Club</a><a href="#prices">Экзамены</a></div>
+ <div><b>Немецкий</b><a href="#prices">С нуля до C1</a><a href="#prices">Sprachclub</a><a href="#prices">Экзамены</a></div>
+ <div><b>Связаться</b><a href="https://telegram.me/Green_Languages">Telegram</a><a href="https://wa.me/4915161730335">WhatsApp</a><a href="https://www.instagram.com/green__languages/">Instagram</a></div>
+ <div class="small"><span>© 2026 Green Languages · <a href="#">Impressum</a> · <a href="#">AGB</a> · <a href="#">Datenschutz</a></span><span>Фото: Лондон, Mick Lobb, <a href="https://commons.wikimedia.org/w/index.php?curid=18424821">CC BY-SA 2.0</a>; Кёльн, Sandeepdattaraju, <a href="https://commons.wikimedia.org/w/index.php?curid=199959778">CC BY-SA 4.0</a>; Берлин, KK nationsonline, <a href="https://commons.wikimedia.org/w/index.php?curid=62882965">CC BY-SA 4.0</a></span></div>
+</div></footer>
+
+<script>
+{
+ document.querySelectorAll('.flip').forEach(b=>b.addEventListener('click',()=>b.setAttribute('aria-pressed',b.getAttribute('aria-pressed')!=='true')));
+ const tabs=document.querySelectorAll('.tabs button');
+ tabs.forEach(t=>t.onclick=()=>{tabs.forEach(x=>x.setAttribute('aria-selected',x===t));document.querySelectorAll('.cards').forEach(c=>c.hidden=c.dataset.p!==t.dataset.t);dispatchEvent(new Event('layout'))});
+ const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{rootMargin:'0px 0px -8% 0px'});
+ document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+ const bar=document.getElementById('bar');addEventListener('scroll',()=>bar.classList.toggle('on',scrollY>innerHeight*.7),{passive:true});
+}
+</script>
+</body>
+</html>
