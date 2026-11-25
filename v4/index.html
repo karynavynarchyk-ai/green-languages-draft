@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="ru" data-theme="champagne"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<!DOCTYPE html><html lang="ru" data-theme="leather"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Green Languages · онлайн-школа Даяны</title>
 <style>
 @font-face{font-family:'Serif';src:url(fonts/noto-serif-display-cyrillic-400-normal.woff2) format('woff2');font-weight:400;font-display:swap;unicode-range:U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
@@ -10,11 +10,11 @@
 @font-face{font-family:'Sans';src:url(fonts/roboto-cyrillic-500-normal.woff2) format('woff2');font-weight:500;font-display:swap;unicode-range:U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
 @font-face{font-family:'Sans';src:url(fonts/roboto-latin-500-normal.woff2) format('woff2');font-weight:500;font-display:swap;unicode-range:U+0000-00FF,U+2000-206F,U+20AC,U+2190-2193}
 :root{--logo:#707D6C}
-[data-theme=champagne]{--bg:#F6F1E9;--bg2:#ECE3D5;--ink:#26231E;--ink2:#6A6155;--gold:#B08D57;--gold2:#D9BF8E;--btn:#2F3A33;--btnink:#F6F1E9;--med1:#F3EADC;--med2:#D9C7AC;--line:#D8CBB6}
-[data-theme=forest]{--bg:#1C2420;--bg2:#232D28;--ink:#F2ECE1;--ink2:#B9B3A6;--gold:#C9A96E;--gold2:#E6CF9E;--btn:#C9A96E;--btnink:#1C2420;--med1:#3A473F;--med2:#26302A;--line:#3C4741}
-[data-theme=powder]{--bg:#F4EAE5;--bg2:#EBDCD4;--ink:#33282A;--ink2:#7A6766;--gold:#A9806B;--gold2:#D8B6A2;--btn:#3B4A41;--btnink:#F7EFEA;--med1:#F6EBE5;--med2:#E1C9BE;--line:#DFCBC1}
+[data-theme=leather]{--bg:#E6DED2;--bg2:#DCD1C1;--ink:#2B211D;--ink2:#655850;--gold:#6E2A2E;--gold2:#C9A57A;--btn:#4A1F22;--btnink:#F3ECE2;--med1:#E9E1D5;--med2:#D2C4B0;--line:#CDBFAC;--panel:#5B5E3B;--badge:#5A3D2A;--badgeink:#F3ECE2;--btex:url(img/n-wood.webp);--ptex:url(img/n-leather.webp)}
+[data-theme=cocoa]{--bg:#EEE5D7;--bg2:#E3D5C0;--ink:#2E211C;--ink2:#6B5A4E;--gold:#5E2611;--gold2:#CDB89D;--btn:#5E2611;--btnink:#F6EEE2;--med1:#EFE6D8;--med2:#CDB89D;--line:#D6C6AE;--panel:#422F28;--badge:#CDB89D;--badgeink:#2E211C;--btex:url(img/n-leather.webp);--ptex:url(img/n-leather.webp)}
+[data-theme=sienna]{--bg:#E4D6C5;--bg2:#DACAB6;--ink:#2A2420;--ink2:#665a50;--gold:#984216;--gold2:#E4D6C5;--btn:#984216;--btnink:#F7EEE4;--med1:#EEE4D8;--med2:#D9CDBE;--line:#CDBCA7;--panel:#78898F;--badge:#8D957E;--badgeink:#F7F1E8;--btex:url(img/n-stone.webp);--ptex:url(img/n-stone.webp)}
 *{box-sizing:border-box}
-html,body{margin:0;background:var(--bg);color:var(--ink);transition:background .5s,color .5s}
+html,body{margin:0;background:var(--bg) url(img/n-stone.webp) 0 0/640px;background-blend-mode:overlay;color:var(--ink);transition:background-color .5s,color .5s}
 body{font:400 17px/1.6 'Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:clip}
 a{color:inherit}
 .wrap{max-width:1320px;margin:0 auto;padding:0 clamp(20px,4.5vw,64px)}
@@ -31,7 +31,7 @@ nav a:hover{color:var(--gold)}
 .lang button{border:0;background:none;color:var(--ink2);font:inherit;cursor:pointer;padding:6px}
 .lang button.on{color:var(--ink);border-bottom:1px solid var(--gold)}
 .hero{position:relative;min-height:calc(100svh - 92px);display:flex;align-items:center;overflow:hidden}
-.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(60% 70% at 72% 50%,var(--bg2),transparent 70%);pointer-events:none}
+
 .hero .wrap{position:relative;display:grid;grid-template-columns:1fr 1.1fr;gap:20px;align-items:center;width:100%;padding-bottom:40px}
 .kick{display:flex;align-items:center;gap:16px;font-size:12.5px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold)}
 .kick::before{content:"";width:46px;height:1px;background:var(--gold)}
@@ -42,7 +42,7 @@ h1 em{color:var(--gold);font-style:italic}
 .who p{margin:0;color:var(--ink2);font-size:17.5px}
 .who p b{color:var(--ink);font-weight:500}
 .cta{display:flex;flex-wrap:wrap;align-items:center;gap:28px}
-.btn{display:inline-flex;align-items:center;gap:14px;background:var(--btn);color:var(--btnink);text-decoration:none;padding:20px 34px;font-size:14px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;border-radius:0;position:relative;transition:transform .25s}
+.btn{display:inline-flex;align-items:center;gap:14px;background:var(--btn) url(img/n-leather.webp) 0 0/320px;background-blend-mode:overlay;color:var(--btnink);text-decoration:none;padding:20px 34px;font-size:14px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;border-radius:0;position:relative;transition:transform .25s}
 .btn::after{content:"";position:absolute;inset:5px;border:1px solid color-mix(in srgb,var(--gold2) 70%,transparent);pointer-events:none}
 .btn:hover{transform:translateY(-2px)}
 .link{font-size:14px;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;border-bottom:1px solid var(--gold);padding-bottom:6px}
@@ -50,9 +50,10 @@ h1 em{color:var(--gold);font-style:italic}
 .facts b{white-space:nowrap;display:block;font:400 34px/1 'Serif',serif}
 .facts span{display:block;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink2);margin-top:10px}
 .art{position:relative;height:min(86svh,860px);display:flex;justify-content:center;align-items:center}
-.art svg.big{height:100%;width:auto;overflow:visible}
-.badge{position:absolute;background:var(--bg);border:1px solid var(--line);padding:14px 20px;box-shadow:0 18px 40px -20px rgba(30,25,15,.35);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink2);line-height:1.5}
-.badge b{display:block;font:400 22px/1.15 'Serif',serif;letter-spacing:0;text-transform:none;color:var(--ink)}
+.art::before{content:"";position:absolute;left:12%;right:6%;top:4%;bottom:-60px;border-radius:999px 999px 0 0;background:var(--panel) var(--ptex) 0 0/520px;background-blend-mode:overlay;box-shadow:inset 0 0 0 1px rgba(255,255,255,.06),0 30px 60px -30px rgba(30,20,10,.5)}
+.art svg.big{position:relative;height:100%;width:auto;overflow:visible}
+.badge{position:absolute;background:var(--badge) var(--btex) 0 0/420px;background-blend-mode:overlay;color:var(--badgeink)!important;border:0;padding:14px 20px;box-shadow:0 18px 40px -20px rgba(30,25,15,.35);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink2);line-height:1.5}
+.badge{color:var(--badgeink)}.badge b{display:block;font:400 22px/1.15 'Serif',serif;letter-spacing:0;text-transform:none;color:var(--badgeink)}
 .b1{left:2%;top:20%}.b2{right:0;bottom:18%}
 .switch{position:fixed;left:50%;bottom:18px;translate:-50% 0;z-index:20;display:flex;gap:6px;background:rgba(20,20,20,.78);backdrop-filter:blur(8px);padding:6px;border-radius:99px;font-size:13px}
 .switch button{border:0;border-radius:99px;padding:9px 16px;background:none;color:#ddd;font:inherit;cursor:pointer;display:flex;gap:8px;align-items:center}
@@ -118,9 +119,9 @@ h1 em{color:var(--gold);font-style:italic}
 </div>
 </div></section>
 <div class="switch" role="group" aria-label="Палитра">
-<button class="on" data-t="champagne"><i style="background:#D9BF8E"></i>Шампань</button>
-<button data-t="forest"><i style="background:#1C2420;box-shadow:0 0 0 1px #888"></i>Ночной лес</button>
-<button data-t="powder"><i style="background:#E1C9BE"></i>Пудра</button>
+<button class="on" data-t="leather"><i style="background:#4A1F22"></i>Кожа и орех</button>
+<button data-t="cocoa"><i style="background:#5E2611"></i>Какао</button>
+<button data-t="sienna"><i style="background:#984216"></i>Сиена</button>
 </div>
 <script>
 document.querySelectorAll('.switch button').forEach(b=>b.onclick=()=>{document.documentElement.dataset.theme=b.dataset.t;document.querySelectorAll('.switch button').forEach(x=>x.classList.toggle('on',x===b))});
