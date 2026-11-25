@@ -1,0 +1,433 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Green Languages · онлайн-школа английского и немецкого</title>
+<meta name="description" content="Онлайн-школа Даяны. Английский и немецкий с нуля до C1 для жизни за границей, работы и экзаменов. Первый урок бесплатно.">
+<style>
+@font-face{font-family:'Serif';src:url(fonts/noto-serif-display-cyrillic-400-normal.woff2) format('woff2');font-weight:400;font-display:swap;unicode-range:U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'Serif';src:url(fonts/noto-serif-display-latin-400-normal.woff2) format('woff2');font-weight:400;font-display:swap;unicode-range:U+0000-00FF,U+2000-206F,U+20AC,U+2190-2193}
+@font-face{font-family:'Serif';src:url(fonts/noto-serif-display-cyrillic-400-italic.woff2) format('woff2');font-weight:400;font-style:italic;font-display:swap;unicode-range:U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'Serif';src:url(fonts/noto-serif-display-latin-400-italic.woff2) format('woff2');font-weight:400;font-style:italic;font-display:swap;unicode-range:U+0000-00FF,U+2000-206F,U+20AC,U+2190-2193}
+@font-face{font-family:'Serif';src:url(fonts/noto-serif-display-cyrillic-500-normal.woff2) format('woff2');font-weight:500;font-display:swap;unicode-range:U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'Serif';src:url(fonts/noto-serif-display-latin-500-normal.woff2) format('woff2');font-weight:500;font-display:swap;unicode-range:U+0000-00FF,U+2000-206F,U+20AC,U+2190-2193}
+@font-face{font-family:'Sans';src:url(fonts/roboto-cyrillic-400-normal.woff2) format('woff2');font-weight:400;font-display:swap;unicode-range:U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'Sans';src:url(fonts/roboto-latin-400-normal.woff2) format('woff2');font-weight:400;font-display:swap;unicode-range:U+0000-00FF,U+2000-206F,U+20AC,U+2190-2193}
+@font-face{font-family:'Sans';src:url(fonts/roboto-cyrillic-500-normal.woff2) format('woff2');font-weight:500;font-display:swap;unicode-range:U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'Sans';src:url(fonts/roboto-latin-500-normal.woff2) format('woff2');font-weight:500;font-display:swap;unicode-range:U+0000-00FF,U+2000-206F,U+20AC,U+2190-2193}
+@font-face{font-family:'Hand';src:url(fonts/marck-script-cyrillic-400-normal.woff2) format('woff2');font-display:swap;unicode-range:U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'Hand';src:url(fonts/marck-script-latin-400-normal.woff2) format('woff2');font-display:swap;unicode-range:U+0000-00FF,U+2000-206F,U+20AC,U+2190-2193}
+:root{--bg:#F4EDE4;--bg2:#EAE0D3;--paper:#FBF7F0;--ink:#2A1E1A;--ink2:#5B4A42;--red:#A8201E;--red2:#7E1518;--thread:#B3261E;--line:#D9CBBA;--shadow:0 1px 1px rgba(60,35,20,.08),0 10px 24px -8px rgba(60,35,20,.28)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.55 'Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.5;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .35 0 0 0 0 .25 0 0 0 0 .18 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+a{color:inherit}img{display:block;max-width:100%}
+.page{position:relative;z-index:1;overflow-x:clip}
+html{overflow-x:clip}
+.wrap{max-width:1200px;margin:0 auto;padding:0 clamp(20px,5vw,56px);position:relative}
+h1,h2,h3{font-family:'Serif',Georgia,serif;font-weight:400;margin:0;letter-spacing:-.01em}
+h1{font-size:clamp(40px,4.9vw,70px);line-height:1.04}
+h2{font-size:clamp(36px,4.6vw,60px);line-height:1.05}
+h1 em,h2 em{font-style:italic;color:var(--red)}
+.hand{font-family:'Hand',cursive;font-weight:400}
+.lead{font-size:clamp(18px,1.6vw,21px);color:var(--ink2);max-width:34em}
+.btn{display:inline-flex;align-items:center;gap:12px;background:var(--red);color:#fff;text-decoration:none;font-weight:500;padding:17px 30px;border-radius:99px;font-size:17px;transition:background .2s,transform .2s;box-shadow:0 8px 20px -10px rgba(126,21,24,.7)}
+.btn:hover{background:var(--red2);transform:translateY(-1px)}
+.btn.ghost{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--ink)}
+.btn.ghost:hover{background:var(--ink);color:#fff}
+.btn.light{background:var(--paper);color:var(--red2)}
+.btn .ar{transition:transform .2s}.btn:hover .ar{transform:translateX(4px)}
+:focus-visible{outline:2.5px solid var(--red);outline-offset:3px}
+/* thread */
+#thread{position:absolute;left:0;top:0;width:100%;pointer-events:none;z-index:2;overflow:visible}
+.wp{position:absolute;width:1px;height:1px}
+#thread path{fill:none;stroke:var(--thread);stroke-width:2;stroke-linecap:round;filter:drop-shadow(0 2px 1.5px rgba(80,20,10,.25))}
+.pin{position:absolute;width:20px;height:20px;border-radius:50%;z-index:6;background:radial-gradient(circle at 35% 30%,#F06A5E 0 18%,#C3302A 45%,#7C1210 100%);box-shadow:0 3px 4px rgba(60,10,5,.35),inset 0 -2px 3px rgba(0,0,0,.25);transform:translate(-50%,-50%)}
+/* polaroid */
+.pola{position:relative;background:var(--paper);padding:14px 14px 0;box-shadow:var(--shadow);z-index:3}
+.pola .ph{position:relative;overflow:hidden;background:#d8c8b4}
+.pola .ph img{width:100%;height:100%;object-fit:cover}
+.pola .cap{font-family:'Hand',cursive;font-size:30px;line-height:1;padding:14px 4px 18px;color:var(--ink);display:flex;align-items:center;justify-content:space-between;gap:10px}
+.pola .cap small{display:block;font-size:19px;color:var(--ink2);margin-top:4px}
+.note{position:relative;background:var(--paper);box-shadow:var(--shadow);padding:28px 30px 36px;z-index:3}
+/* header */
+header{position:relative;z-index:5;padding:22px 0}
+header .wrap{display:flex;align-items:center;gap:32px}
+.brand{display:flex;align-items:center;gap:14px;text-decoration:none;color:var(--ink)}
+.brand svg{width:46px;height:55px;flex:none}
+.brand b{font-family:'Serif',serif;font-weight:400;font-size:20px;letter-spacing:.14em;line-height:1.05;display:block}
+.brand span{display:block;font-size:11px;letter-spacing:.28em;color:var(--ink2);margin-top:4px}
+nav.main{display:flex;gap:28px;margin-left:auto}
+nav.main a{text-decoration:none;font-size:16px;color:var(--ink2)}nav.main a:hover{color:var(--red)}
+header .btn{padding:12px 22px;font-size:15px}
+/* hero */
+.hero{padding:clamp(24px,4vw,56px) 0 40px}
+.hero .wrap{display:grid;grid-template-columns:1fr 1.02fr;gap:40px;align-items:start}
+.hero .txt{padding-top:clamp(20px,5vw,72px)}
+.kick{font-family:'Hand',cursive;font-size:28px;color:var(--red);margin-bottom:14px}
+.hero .lead{margin:26px 0 34px}
+.hero .cta{display:flex;flex-wrap:wrap;gap:14px}
+.facts{display:flex;gap:36px;margin-top:44px;padding-top:26px;border-top:1px solid var(--line)}
+.facts b{font-family:'Serif',serif;font-weight:400;font-size:40px;line-height:1;display:block}
+.facts span{font-size:15px;color:var(--ink2);line-height:1.35;display:block;margin-top:6px}
+.board{position:relative;height:640px}
+.board .daiana{position:absolute;left:4%;top:18px;width:min(380px,62%);transform:rotate(-3deg)}
+.daiana .ph{aspect-ratio:4/4.8;background:radial-gradient(120% 90% at 50% 20%,#F3E6D6 0,#DCC6AD 60%,#C9AF92 100%)}
+.daiana .ph img{object-fit:cover;object-position:50% 10%}
+.clip{position:absolute;right:30px;top:-34px;width:34px;height:92px;z-index:3;transform:rotate(8deg)}
+.seal{position:absolute;right:-22px;bottom:70px;width:78px;height:78px;border-radius:50%;background:var(--paper);box-shadow:var(--shadow);display:grid;place-items:center;z-index:2;transform:rotate(10deg)}
+.seal svg{width:44px;height:53px}
+.board .card{position:absolute;right:0;top:150px;width:min(330px,52%);transform:rotate(2.5deg);clip-path:polygon(0% 0%,100% 0%,100.0% 99.3%,96.2% 99.7%,92.3% 98.9%,88.5% 99.6%,84.6% 99.8%,80.8% 98.8%,76.9% 97.4%,73.1% 97.7%,69.2% 97.8%,65.4% 99.4%,61.5% 98.5%,57.7% 99.2%,53.8% 99.5%,50.0% 99.7%,46.2% 99.4%,42.3% 97.3%,38.5% 97.6%,34.6% 97.7%,30.8% 97.7%,26.9% 99.4%,23.1% 99.1%,19.2% 98.2%,15.4% 97.9%,11.5% 97.5%,7.7% 97.5%,3.8% 99.8%,0.0% 98.3%);padding:30px 28px 44px}
+.card ul{list-style:none;margin:0;padding:0;font-family:'Hand',cursive;font-size:25px;line-height:1.2}
+.card li{display:flex;gap:12px;align-items:flex-start;margin-bottom:16px}
+.card li svg{flex:none;width:26px;height:26px;margin-top:2px}
+.card .heart{position:absolute;right:28px;bottom:26px;width:30px;height:28px}
+.board .lang{position:absolute;right:2%;bottom:0;width:min(250px,40%);transform:rotate(-1.5deg)}
+/* languages */
+.langs{padding:70px 0 40px}
+.langs .head{margin-bottom:56px;max-width:620px}
+.langs .head p{max-width:30em;color:var(--ink2);margin:18px 0 0}
+.langs .row{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,6vw,90px);max-width:980px;margin:0 auto}
+.lp{display:block;text-decoration:none;transition:transform .3s}
+.lp:nth-child(1){transform:rotate(-2.5deg)}.lp:nth-child(2){transform:rotate(2deg);margin-top:60px}
+.lp:hover{transform:rotate(0) translateY(-6px)}
+.lp .ph{aspect-ratio:1/.95}.lp:nth-child(2) .ph img{object-position:28% 50%}
+.lp .cap{font-size:38px}
+.lp .cap .ar{font-family:'Sans';font-size:26px;color:var(--red)}
+.lp .what{font-family:'Sans';font-size:16px;color:var(--ink2);padding:0 4px 20px;margin-top:-6px}
+.stamp{position:absolute;width:96px;z-index:3;filter:drop-shadow(0 3px 4px rgba(60,35,20,.3))}
+.stamp-svg{display:block;width:100%;height:auto}
+.lp:nth-child(1) .stamp{left:-30px;top:-26px;transform:rotate(-9deg)}
+.lp:nth-child(2) .stamp{right:-28px;top:-28px;transform:rotate(8deg)}
+.lp .pin{left:50%;top:0}
+/* why */
+.why{padding:90px 0 70px}
+.why .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(30px,6vw,80px);align-items:start}
+.why .note{transform:rotate(-1.2deg);clip-path:polygon(0% 0%,100% 0%,100.0% 98.5%,97.1% 98.9%,94.1% 99.6%,91.2% 99.0%,88.2% 99.8%,85.3% 98.0%,82.4% 98.1%,79.4% 98.8%,76.5% 99.4%,73.5% 98.0%,70.6% 98.8%,67.6% 98.1%,64.7% 98.2%,61.8% 98.9%,58.8% 99.1%,55.9% 98.7%,52.9% 99.1%,50.0% 99.7%,47.1% 99.3%,44.1% 98.2%,41.2% 99.9%,38.2% 99.9%,35.3% 98.6%,32.4% 99.4%,29.4% 98.8%,26.5% 99.0%,23.5% 99.3%,20.6% 97.8%,17.6% 99.6%,14.7% 99.1%,11.8% 99.6%,8.8% 98.6%,5.9% 99.4%,2.9% 99.2%,0.0% 98.4%);padding:40px 40px 52px}
+.why .note .pin{left:50%;top:14px}
+.why .note p{font-size:18px;margin:20px 0 0}
+.why .note .sig{font-family:'Hand',cursive;font-size:34px;color:var(--red);margin-top:18px}
+.pts{display:grid;grid-template-columns:1fr 1fr;gap:34px 40px;padding-top:10px}
+.pts div{border-top:1.5px solid var(--ink);padding-top:16px}
+.pts b{display:block;font-family:'Serif',serif;font-weight:400;font-size:25px;line-height:1.15;margin-bottom:10px}
+.pts p{margin:0;color:var(--ink2);font-size:16.5px}
+.pts .n{font-family:'Hand',cursive;color:var(--red);font-size:24px;display:block;margin-bottom:4px}
+/* teachers */
+.team{padding:80px 0 90px}
+.team .head{display:flex;justify-content:space-between;align-items:end;gap:30px}
+.team .head p{max-width:26em;color:var(--ink2);margin:0}
+.line{display:grid;grid-template-columns:repeat(6,1fr);gap:22px;margin-top:84px}
+.tp{position:relative}
+.tp .pola{padding:10px 10px 0}
+.tp .ph{aspect-ratio:4/4.6}
+.tp .cap{font-size:27px;padding:10px 2px 6px}
+.tp .lg{font-size:14px;color:var(--red);padding:0 2px 14px;letter-spacing:.04em}
+.tp p{font-size:15.5px;color:var(--ink2);margin:16px 2px 0;line-height:1.45}
+.peg{position:absolute;left:50%;top:-24px;width:14px;height:40px;transform:translateX(-50%);z-index:4;background:linear-gradient(90deg,#C9A47A,#E2C29B 45%,#B98F63);border-radius:3px;box-shadow:0 2px 3px rgba(60,35,20,.35)}
+.peg::after{content:"";position:absolute;left:2px;right:2px;top:15px;height:3px;background:#9C7650;border-radius:2px}
+.tp:nth-child(odd) .pola{transform:rotate(-2deg)}.tp:nth-child(even) .pola{transform:rotate(1.8deg)}
+.tp.dai .ph{background:radial-gradient(120% 90% at 50% 20%,#F3E6D6 0,#DCC6AD 60%,#C9AF92 100%)}
+.tp.dai .ph img{object-position:50% 8%}
+.more{margin-top:40px;color:var(--ink2);font-size:16px;max-width:52em}
+/* formats */
+.fmt{padding:90px 0;background:var(--bg2);position:relative}
+.fmt .head{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:40px;flex-wrap:wrap}
+.tabs{display:inline-flex;background:var(--paper);border-radius:99px;padding:5px;box-shadow:var(--shadow)}
+.tabs button{border:0;background:none;font:500 16px 'Sans';padding:12px 26px;border-radius:99px;cursor:pointer;color:var(--ink2)}
+.tabs button[aria-selected=true]{background:var(--red);color:#fff}
+.cards{display:grid;grid-template-columns:1.25fr 1fr 1fr;gap:26px}
+.cards[hidden]{display:none}
+.pc{background:var(--paper);box-shadow:var(--shadow);padding:30px 30px 30px;position:relative;z-index:3}
+.pc h3{font-size:30px;line-height:1.1}
+.pc .d{color:var(--ink2);font-size:16px;margin:10px 0 22px}
+.pr{display:flex;justify-content:space-between;align-items:baseline;border-top:1px dashed var(--line);padding:12px 0;font-size:16px}
+.pr b{font-family:'Serif',serif;font-weight:400;font-size:28px;color:var(--red)}
+.pc.main{transform:rotate(-1deg)}.pc.ex{transform:rotate(1deg)}
+.pc .pin{left:50%;top:0}
+.fmt .foot{display:flex;justify-content:space-between;gap:30px;align-items:center;margin-top:44px;flex-wrap:wrap}
+.fmt .foot p{margin:0;color:var(--ink2);max-width:40em;font-size:16px}
+/* results */
+.res{padding:100px 0 70px}
+.story{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,6vw,80px);align-items:center;margin:56px 0 90px}
+.story .yr{font-family:'Hand',cursive;font-size:clamp(46px,6vw,76px);color:var(--red);line-height:1}
+.story h3{font-size:clamp(28px,3vw,40px);line-height:1.15;margin:14px 0 18px}
+.story p{color:var(--ink2);font-size:18px;margin:0}
+.q{position:relative;z-index:3;margin:0;background:var(--paper);box-shadow:var(--shadow);padding:54px 44px 40px;font-family:'Hand',cursive;font-size:clamp(30px,3vw,40px);line-height:1.2;transform:rotate(1.5deg);clip-path:polygon(0% 0%,100% 0%,100.0% 98.5%,97.1% 98.9%,94.1% 99.6%,91.2% 99.0%,88.2% 99.8%,85.3% 98.0%,82.4% 98.1%,79.4% 98.8%,76.5% 99.4%,73.5% 98.0%,70.6% 98.8%,67.6% 98.1%,64.7% 98.2%,61.8% 98.9%,58.8% 99.1%,55.9% 98.7%,52.9% 99.1%,50.0% 99.7%,47.1% 99.3%,44.1% 98.2%,41.2% 99.9%,38.2% 99.9%,35.3% 98.6%,32.4% 99.4%,29.4% 98.8%,26.5% 99.0%,23.5% 99.3%,20.6% 97.8%,17.6% 99.6%,14.7% 99.1%,11.8% 99.6%,8.8% 98.6%,5.9% 99.4%,2.9% 99.2%,0.0% 98.4%)}
+.q .pin{left:50%;top:18px}
+.q span{display:block;font-family:'Sans';font-size:15px;color:var(--ink2);margin-top:18px}
+.studs{display:grid;grid-template-columns:repeat(4,1fr);gap:28px}
+.sc .pola{padding:10px 10px 0}
+.sc .ph{aspect-ratio:1}
+.sc:nth-child(odd) .pola{transform:rotate(-2deg)}.sc:nth-child(even) .pola{transform:rotate(2deg)}
+.sc .cap{font-size:24px;padding:10px 2px 14px}
+.sc h4{font-family:'Serif',serif;font-weight:400;font-size:22px;line-height:1.2;margin:20px 0 10px}
+.sc p{margin:0 0 6px;font-size:15.5px;color:var(--ink2)}
+.sc p span{color:var(--red);font-weight:500}
+/* steps */
+.steps{padding:80px 0 90px}
+.st{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;margin-top:70px}
+.st div{position:relative;padding-top:46px}
+.st .num{position:absolute;left:0;top:0;width:52px;height:52px;border-radius:50%;background:var(--paper);box-shadow:var(--shadow);display:grid;place-items:center;font-family:'Serif',serif;font-size:24px;color:var(--red);transform:translateY(-50%);z-index:3}
+.st .pin{left:26px;top:0;opacity:0}
+.st .num{left:0}
+.st b{display:block;font-family:'Serif',serif;font-weight:400;font-size:28px;margin:18px 0 10px}
+.st p{margin:0;color:var(--ink2)}
+/* faq */
+.faq{padding:40px 0 100px}.faq .wrap{position:relative}
+.faq .wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(30px,6vw,80px)}
+.faq h2{position:sticky;top:30px}
+details{border-top:1px solid var(--line);padding:4px 0}
+details:last-child{border-bottom:1px solid var(--line)}
+summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:20px;padding:18px 0;font-family:'Serif',serif;font-size:22px;line-height:1.3}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-family:'Sans';color:var(--red);font-size:26px;line-height:1;transition:transform .25s}
+details[open] summary::after{transform:rotate(45deg)}
+details p{margin:0 0 20px;color:var(--ink2);max-width:40em}
+/* cta */
+.cta-b{background:var(--red2);color:#F7EDE4;padding:100px 0 110px;position:relative;overflow:hidden}
+.cta-b .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:center}
+.cta-b h2{color:#fff}.cta-b h2 em{color:#F3C9A8}
+.cta-b p{font-size:19px;color:#EBD5C8;margin:22px 0 34px;max-width:28em}
+.cta-b .btns{display:flex;flex-wrap:wrap;gap:12px}
+.cta-b .btn.ghost{color:#fff;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.7)}
+.cta-b .btn.ghost:hover{background:#fff;color:var(--red2)}
+.cta-b .pola{transform:rotate(3deg);max-width:440px;justify-self:center;width:100%}
+.cta-b .pola .ph{aspect-ratio:4/3.2}
+.cta-b .pola .cap{color:var(--ink)}
+.cta-b .pin{left:50%;top:0}
+footer{background:#24181A;color:#CDBAB0;padding:60px 0 40px;font-size:15px;position:relative;z-index:1}
+footer .wrap{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:30px}
+footer b{color:#fff;font-weight:500;display:block;margin-bottom:12px}
+footer a{display:block;text-decoration:none;margin-bottom:8px}footer a:hover{color:#fff}
+footer .brand{color:#fff}footer .brand span{color:#CDBAB0}
+footer .small{grid-column:1/-1;border-top:1px solid #3d2c2c;padding-top:22px;margin-top:20px;font-size:13px;color:#9b8780;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+footer .small a{display:inline;margin:0}
+/* reveal */
+.rv{opacity:0;translate:0 24px;transition:opacity .8s ease,translate .8s ease}
+.rv.in{opacity:1;translate:0 0}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;translate:none;transition:none}html{scroll-behavior:auto}}
+@media (max-width:1000px){
+ .wp{display:none}
+ nav.main{display:none}
+ .hero .wrap{grid-template-columns:1fr}
+ .hero .txt{padding-top:10px}
+ .board{height:560px;max-width:620px;width:100%;margin:0 auto}
+ .why .wrap,.faq .wrap,.story,.cta-b .wrap{grid-template-columns:1fr}
+ .line{grid-template-columns:repeat(3,1fr);row-gap:70px}
+ .line .tp .peg{display:none}
+ .cards{grid-template-columns:1fr}
+ .studs{grid-template-columns:repeat(2,1fr)}
+ .faq h2{position:static}
+ footer .wrap{grid-template-columns:1fr 1fr}
+}
+@media (max-width:640px){
+ body{font-size:16.5px}
+ header .btn{display:none}
+ header .wrap{justify-content:space-between}
+ .brand svg{width:38px;height:46px}.brand b{font-size:17px}
+ .board{height:auto;display:flex;flex-direction:column;align-items:center;gap:0;padding-bottom:10px}
+ .board .daiana{position:relative;left:auto;top:auto;width:82%;margin-top:30px}
+ .board .card{position:relative;right:auto;top:auto;width:88%;margin-top:-26px;align-self:flex-end;z-index:2}
+ .board .lang{display:none}
+ .facts{gap:22px}.facts b{font-size:32px}
+ .langs .head,.team .head{display:block}.langs .head p,.team .head p{margin-top:14px}
+ .langs .row{grid-template-columns:1fr;gap:56px;padding:0 10px}
+ .lp:nth-child(2){margin-top:0}
+ .stamp{width:76px}.lp:nth-child(1) .stamp{left:-8px}.lp:nth-child(2) .stamp{right:-8px}
+ .pts{grid-template-columns:1fr}
+ .line{grid-template-columns:1fr 1fr;gap:20px;row-gap:46px}
+ .tp p{font-size:15px}
+ .st{grid-template-columns:1fr;gap:34px}
+ .st div{padding-left:76px;padding-top:0}.st .num{top:26px}.st .pin{top:26px}
+ .st b{margin-top:0}
+ .studs{gap:18px}
+ .sc h4{font-size:19px}
+ footer .wrap{grid-template-columns:1fr}
+ .hero .cta .btn{width:100%;justify-content:center}
+}
+</style></head><body>
+<div class="page" id="page">
+<svg id="thread" aria-hidden="true"><path id="tp" pathLength="1"/></svg>
+<header><div class="wrap">
+<a class="brand" href="#" aria-label="Green Languages, на главную"><svg viewBox="0 0 25 30" aria-hidden="true"><path d="M12.5 26C18.8513 26 24 20.8513 24 14.5C24 8.14873 18.8513 3 12.5 3C6.14873 3 1 8.14873 1 14.5C1 20.8513 6.14873 26 12.5 26ZM12.5 27C19.4036 27 25 21.4036 25 14.5C25 7.59644 19.4036 2 12.5 2C5.59644 2 0 7.59644 0 14.5C0 21.4036 5.59644 27 12.5 27Z" fill="#B3261E" fill-rule="evenodd"/><path d="M7.5161 28.7604C5.8756 28.7604 5.0553 28.1889 5.0553 27.0461C5.0553 25.5714 5.9862 24.1705 7.8479 22.8433C8.8618 22.1429 9.9217 21.5806 11.0276 21.1567C12.1336 20.7327 13.3041 20.4654 14.5392 20.3548L15.1475 19.1659C14.4654 19.4240 13.7926 19.6267 13.1290 19.7742C12.4654 19.9032 11.8111 19.9677 11.1659 19.9677C9.3041 19.9677 7.8111 19.4516 6.6866 18.4194C5.5622 17.3502 5.0000 15.8848 5.0000 14.0230C5.0000 11.1659 6.1613 8.5760 8.4839 6.2535C8.0419 6.0109 7.6761 5.6223 7.4196 5.1724C7.1631 4.7225 7.0159 4.2112 7.0112 3.7233C7.0065 3.2353 7.1586 2.7807 7.4327 2.3959C7.7068 2.0111 8.0952 1.6905 8.5350 1.4506C8.9748 1.2107 9.4601 1.0561 9.9582 0.9803C10.4564 0.9045 10.9704 0.9050 11.4784 0.9671C11.9865 1.0292 12.4885 1.1529 12.9627 1.3233C13.4370 1.4938 13.8833 1.7109 14.2800 1.9600C13.8791 1.8586 13.4607 1.7407 13.0289 1.6333C12.5971 1.5260 12.1519 1.4291 11.6975 1.3697C11.2430 1.3103 10.7749 1.2895 10.3139 1.3299C9.8530 1.3703 9.4046 1.4704 9.0133 1.6466C8.6220 1.8228 8.2884 2.0764 8.0547 2.4195C7.8210 2.7627 7.6835 3.1871 7.6490 3.6289C7.6145 4.0707 7.6829 4.5299 7.8613 4.9425C8.0396 5.3552 8.3278 5.7213 8.7327 5.9770C11.4240 3.3963 14.6221 2.1060 18.3272 2.1060C21.4424 2.1060 23.0000 2.8433 23.0000 4.3180C23.0000 4.5945 22.9631 4.8710 22.8894 5.1475C22.7419 5.5899 22.4194 6.0138 21.9217 6.4193C20.4101 7.6728 18.2166 8.2995 15.3410 8.2995C13.1659 8.2995 11.2857 7.8848 9.7005 7.0553C8.7235 8.1613 7.9401 9.4240 7.3502 10.8433C6.6498 12.4470 6.2995 13.8940 6.2995 15.1843C6.2995 18.0230 7.9217 19.4424 11.1659 19.4424C12.6590 19.4424 14.0783 19.1751 15.4240 18.6406C16.0138 17.4608 16.5207 16.4747 16.9447 15.6820C17.3687 14.8710 17.7097 14.2627 17.9677 13.8571C19.4055 11.4424 20.5300 10.2350 21.3410 10.2350C21.9862 10.2350 22.3088 10.5945 22.3088 11.3134C22.3088 12.2903 21.6544 13.6544 20.3456 15.4055C19.9585 15.9217 19.4885 16.4286 18.9355 16.9263C18.3825 17.4055 17.7281 17.8571 16.9723 18.2811L16.3088 20.3272C17.7097 20.4747 18.4101 20.8341 18.4101 21.4055C18.4101 21.5346 18.3641 21.5991 18.2719 21.5991C18.1982 21.5991 18.0691 21.5346 17.8848 21.4055C17.4424 21.0553 16.8710 20.8341 16.1705 20.7419C15.4700 22.8064 14.7880 24.2903 14.1244 25.1935C12.3917 27.5714 10.1889 28.7604 7.5161 28.7604ZM15.3687 8.0507C15.8479 8.0507 16.3088 8.0323 16.7512 7.9954C17.2120 7.9401 17.6452 7.8664 18.0507 7.7742C19.0092 7.5899 19.8756 7.2857 20.6498 6.8617C21.7373 6.2719 22.3180 5.6267 22.3917 4.9263C22.4101 4.8710 22.4194 4.8157 22.4194 4.7604C22.4194 4.7051 22.4194 4.6498 22.4194 4.5945C22.4194 3.1751 21.4700 2.4654 19.5714 2.4654C17.7465 2.4654 15.9862 2.8525 14.2903 3.6267C12.5945 4.3825 11.1382 5.4516 9.9217 6.8341C11.3963 7.6452 13.2120 8.0507 15.3687 8.0507ZM17.1382 17.7558C17.6912 17.3871 18.2166 16.9816 18.7143 16.5392C19.2120 16.0968 19.6728 15.6083 20.0968 15.0737C21.1659 13.7834 21.7005 12.6037 21.7005 11.5346C21.7005 11.0000 21.5438 10.7327 21.2304 10.7327C21.1567 10.7327 21.0829 10.7512 21.0092 10.7880C20.9355 10.8249 20.8525 10.8710 20.7604 10.9263C19.5069 11.7926 18.2995 14.0691 17.1382 17.7558ZM7.3502 28.3456C8.8986 28.3456 10.5853 26.9816 12.4101 24.2535C12.6129 23.9401 12.8710 23.4885 13.1843 22.8986C13.5161 22.3272 13.8940 21.6267 14.3180 20.7972C11.9401 21.1106 9.8848 21.9032 8.1521 23.1751C6.4562 24.4101 5.6083 25.6083 5.6083 26.7696C5.6083 27.2673 5.7742 27.6544 6.1060 27.9309C6.4378 28.2074 6.8525 28.3456 7.3502 28.3456Z" fill="#B3261E"/></svg><span style="display:block"><b>GREEN<br>LANGUAGES</b><span>ONLINE SCHOOL</span></span></a>
+<nav class="main"><a href="#langs">Языки</a><a href="#team">Преподаватели</a><a href="#fmt">Форматы и цены</a><a href="#res">Результаты</a><a href="#faq">Вопросы</a></nav>
+<a class="btn" href="https://telegram.me/Green_Languages">Пробный урок <span class="ar">→</span></a>
+</div></header>
+
+<section class="hero"><div class="wrap">
+<div class="txt">
+<div class="kick rv">Онлайн-школа Даяны</div>
+<h1 class="rv">Заговорите на английском и немецком <em>без страха</em></h1>
+<p class="lead rv">С нуля до C1 для жизни в Европе, работы и экзаменов. Живые уроки с преподавателями, которые сами говорят на языке каждый день.</p>
+<div class="cta rv"><a class="btn" href="https://telegram.me/Green_Languages">Первый урок бесплатно <span class="ar">→</span></a><a class="btn ghost" href="#langs">Выбрать язык</a></div>
+<div class="facts rv"><div><b>600+</b><span>учеников<br>заговорили</span></div><div><b>A1–C1</b><span>английский<br>и немецкий</span></div><div><b>15</b><span>преподавателей<br>в команде</span></div></div>
+</div>
+<div class="board">
+<figure class="pola daiana" style="margin:0">
+<svg class="clip" viewBox="0 0 34 92" aria-hidden="true"><path d="M10 70V16a7 7 0 0 1 14 0v58a10 10 0 0 1-20 0V22" fill="none" stroke="#8E8A86" stroke-width="3" stroke-linecap="round"/><path d="M10 70V16a7 7 0 0 1 14 0v58a10 10 0 0 1-20 0V22" fill="none" stroke="#DCD8D2" stroke-width="1.2" stroke-linecap="round" transform="translate(-.6 -.6)"/></svg>
+<div class="ph"><img src="img/daiana.webp" alt="Даяна, основательница Green Languages" width="1000" height="1249" fetchpriority="high"></div>
+<figcaption class="cap"><span>Даяна<small>основательница школы</small></span></figcaption>
+<div class="seal" aria-hidden="true"><svg viewBox="0 0 25 30" aria-hidden="true"><path d="M12.5 26C18.8513 26 24 20.8513 24 14.5C24 8.14873 18.8513 3 12.5 3C6.14873 3 1 8.14873 1 14.5C1 20.8513 6.14873 26 12.5 26ZM12.5 27C19.4036 27 25 21.4036 25 14.5C25 7.59644 19.4036 2 12.5 2C5.59644 2 0 7.59644 0 14.5C0 21.4036 5.59644 27 12.5 27Z" fill="#B3261E" fill-rule="evenodd"/><path d="M7.5161 28.7604C5.8756 28.7604 5.0553 28.1889 5.0553 27.0461C5.0553 25.5714 5.9862 24.1705 7.8479 22.8433C8.8618 22.1429 9.9217 21.5806 11.0276 21.1567C12.1336 20.7327 13.3041 20.4654 14.5392 20.3548L15.1475 19.1659C14.4654 19.4240 13.7926 19.6267 13.1290 19.7742C12.4654 19.9032 11.8111 19.9677 11.1659 19.9677C9.3041 19.9677 7.8111 19.4516 6.6866 18.4194C5.5622 17.3502 5.0000 15.8848 5.0000 14.0230C5.0000 11.1659 6.1613 8.5760 8.4839 6.2535C8.0419 6.0109 7.6761 5.6223 7.4196 5.1724C7.1631 4.7225 7.0159 4.2112 7.0112 3.7233C7.0065 3.2353 7.1586 2.7807 7.4327 2.3959C7.7068 2.0111 8.0952 1.6905 8.5350 1.4506C8.9748 1.2107 9.4601 1.0561 9.9582 0.9803C10.4564 0.9045 10.9704 0.9050 11.4784 0.9671C11.9865 1.0292 12.4885 1.1529 12.9627 1.3233C13.4370 1.4938 13.8833 1.7109 14.2800 1.9600C13.8791 1.8586 13.4607 1.7407 13.0289 1.6333C12.5971 1.5260 12.1519 1.4291 11.6975 1.3697C11.2430 1.3103 10.7749 1.2895 10.3139 1.3299C9.8530 1.3703 9.4046 1.4704 9.0133 1.6466C8.6220 1.8228 8.2884 2.0764 8.0547 2.4195C7.8210 2.7627 7.6835 3.1871 7.6490 3.6289C7.6145 4.0707 7.6829 4.5299 7.8613 4.9425C8.0396 5.3552 8.3278 5.7213 8.7327 5.9770C11.4240 3.3963 14.6221 2.1060 18.3272 2.1060C21.4424 2.1060 23.0000 2.8433 23.0000 4.3180C23.0000 4.5945 22.9631 4.8710 22.8894 5.1475C22.7419 5.5899 22.4194 6.0138 21.9217 6.4193C20.4101 7.6728 18.2166 8.2995 15.3410 8.2995C13.1659 8.2995 11.2857 7.8848 9.7005 7.0553C8.7235 8.1613 7.9401 9.4240 7.3502 10.8433C6.6498 12.4470 6.2995 13.8940 6.2995 15.1843C6.2995 18.0230 7.9217 19.4424 11.1659 19.4424C12.6590 19.4424 14.0783 19.1751 15.4240 18.6406C16.0138 17.4608 16.5207 16.4747 16.9447 15.6820C17.3687 14.8710 17.7097 14.2627 17.9677 13.8571C19.4055 11.4424 20.5300 10.2350 21.3410 10.2350C21.9862 10.2350 22.3088 10.5945 22.3088 11.3134C22.3088 12.2903 21.6544 13.6544 20.3456 15.4055C19.9585 15.9217 19.4885 16.4286 18.9355 16.9263C18.3825 17.4055 17.7281 17.8571 16.9723 18.2811L16.3088 20.3272C17.7097 20.4747 18.4101 20.8341 18.4101 21.4055C18.4101 21.5346 18.3641 21.5991 18.2719 21.5991C18.1982 21.5991 18.0691 21.5346 17.8848 21.4055C17.4424 21.0553 16.8710 20.8341 16.1705 20.7419C15.4700 22.8064 14.7880 24.2903 14.1244 25.1935C12.3917 27.5714 10.1889 28.7604 7.5161 28.7604ZM15.3687 8.0507C15.8479 8.0507 16.3088 8.0323 16.7512 7.9954C17.2120 7.9401 17.6452 7.8664 18.0507 7.7742C19.0092 7.5899 19.8756 7.2857 20.6498 6.8617C21.7373 6.2719 22.3180 5.6267 22.3917 4.9263C22.4101 4.8710 22.4194 4.8157 22.4194 4.7604C22.4194 4.7051 22.4194 4.6498 22.4194 4.5945C22.4194 3.1751 21.4700 2.4654 19.5714 2.4654C17.7465 2.4654 15.9862 2.8525 14.2903 3.6267C12.5945 4.3825 11.1382 5.4516 9.9217 6.8341C11.3963 7.6452 13.2120 8.0507 15.3687 8.0507ZM17.1382 17.7558C17.6912 17.3871 18.2166 16.9816 18.7143 16.5392C19.2120 16.0968 19.6728 15.6083 20.0968 15.0737C21.1659 13.7834 21.7005 12.6037 21.7005 11.5346C21.7005 11.0000 21.5438 10.7327 21.2304 10.7327C21.1567 10.7327 21.0829 10.7512 21.0092 10.7880C20.9355 10.8249 20.8525 10.8710 20.7604 10.9263C19.5069 11.7926 18.2995 14.0691 17.1382 17.7558ZM7.3502 28.3456C8.8986 28.3456 10.5853 26.9816 12.4101 24.2535C12.6129 23.9401 12.8710 23.4885 13.1843 22.8986C13.5161 22.3272 13.8940 21.6267 14.3180 20.7972C11.9401 21.1106 9.8848 21.9032 8.1521 23.1751C6.4562 24.4101 5.6083 25.6083 5.6083 26.7696C5.6083 27.2673 5.7742 27.6544 6.1060 27.9309C6.4378 28.2074 6.8525 28.3456 7.3502 28.3456Z" fill="#B3261E"/></svg></div>
+<i class="pin" data-pin data-o="1" style="left:50%;top:100%"></i>
+</figure>
+<div class="note card">
+<ul>
+<li><svg viewBox="0 0 26 26" aria-hidden="true"><circle cx="13" cy="13" r="11" fill="none" stroke="#A8201E" stroke-width="1.5"/><path d="M8 13.5l3.5 3.5L19 9" fill="none" stroke="#A8201E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Сдала Cambridge C1 и Goethe C1</span></li>
+<li><svg viewBox="0 0 26 26" aria-hidden="true"><circle cx="13" cy="13" r="11" fill="none" stroke="#A8201E" stroke-width="1.5"/><path d="M8 13.5l3.5 3.5L19 9" fill="none" stroke="#A8201E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Живу в Германии</span></li>
+<li><svg viewBox="0 0 26 26" aria-hidden="true"><circle cx="13" cy="13" r="11" fill="none" stroke="#A8201E" stroke-width="1.5"/><path d="M8 13.5l3.5 3.5L19 9" fill="none" stroke="#A8201E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Сама прошла путь от первых слов до работы на языке</span></li>
+</ul>
+<svg class="heart" viewBox="0 0 30 28" aria-hidden="true"><path d="M15 25C6 18 2 13 3 8c1-5 7-6 10-2l2 3 2-3c3-4 9-3 10 2 1 5-3 10-12 17" fill="none" stroke="#A8201E" stroke-width="1.6" stroke-linecap="round"/></svg>
+</div>
+</div>
+</div></section>
+
+<section class="langs" id="langs"><div class="wrap">
+<div class="head rv"><h2>Какой язык <em>вы</em> выберете?</h2><p>Английский для путешествий, работы и IELTS. Немецкий для жизни в Германии, интеграции и Goethe.</p></div>
+<div class="row">
+<a class="lp pola" href="#fmt" data-tab="en"><span class="stamp"><svg class="stamp-svg" viewBox="-1 -1 76 58" aria-hidden="true"><defs><mask id="m2190"><rect x="-1" y="-1" width="76" height="58" fill="#fff"/><g fill="#000"><circle cx="0.0" cy="0.0" r="2.6"/><circle cx="0.0" cy="56.0" r="2.6"/><circle cx="7.4" cy="0.0" r="2.6"/><circle cx="7.4" cy="56.0" r="2.6"/><circle cx="14.8" cy="0.0" r="2.6"/><circle cx="14.8" cy="56.0" r="2.6"/><circle cx="22.2" cy="0.0" r="2.6"/><circle cx="22.2" cy="56.0" r="2.6"/><circle cx="29.6" cy="0.0" r="2.6"/><circle cx="29.6" cy="56.0" r="2.6"/><circle cx="37.0" cy="0.0" r="2.6"/><circle cx="37.0" cy="56.0" r="2.6"/><circle cx="44.4" cy="0.0" r="2.6"/><circle cx="44.4" cy="56.0" r="2.6"/><circle cx="51.8" cy="0.0" r="2.6"/><circle cx="51.8" cy="56.0" r="2.6"/><circle cx="59.2" cy="0.0" r="2.6"/><circle cx="59.2" cy="56.0" r="2.6"/><circle cx="66.6" cy="0.0" r="2.6"/><circle cx="66.6" cy="56.0" r="2.6"/><circle cx="74.0" cy="0.0" r="2.6"/><circle cx="74.0" cy="56.0" r="2.6"/><circle cx="0.0" cy="8.0" r="2.6"/><circle cx="74.0" cy="8.0" r="2.6"/><circle cx="0.0" cy="16.0" r="2.6"/><circle cx="74.0" cy="16.0" r="2.6"/><circle cx="0.0" cy="24.0" r="2.6"/><circle cx="74.0" cy="24.0" r="2.6"/><circle cx="0.0" cy="32.0" r="2.6"/><circle cx="74.0" cy="32.0" r="2.6"/><circle cx="0.0" cy="40.0" r="2.6"/><circle cx="74.0" cy="40.0" r="2.6"/><circle cx="0.0" cy="48.0" r="2.6"/><circle cx="74.0" cy="48.0" r="2.6"/></g></mask></defs><g mask="url(#m2190)"><rect width="74" height="56" fill="#FBF7F0"/></g><svg x="7" y="7" width="60" height="42" viewBox="0 0 60 36" preserveAspectRatio="none"><clipPath id="ujc"><path d="M30,18h30v18zv18h-30zh-30v-18zv-18h30z"/></clipPath><rect width="60" height="36" fill="#012169"/><path d="M0,0L60,36M60,0L0,36" stroke="#fff" stroke-width="7"/><path d="M0,0L60,36M60,0L0,36" clip-path="url(#ujc)" stroke="#C8102E" stroke-width="4"/><path d="M30,0v36M0,18h60" stroke="#fff" stroke-width="11"/><path d="M30,0v36M0,18h60" stroke="#C8102E" stroke-width="6.5"/></svg></svg></span><i class="pin" data-pin data-o="3" data-m="a"></i><div class="ph"><img src="img/london.webp" alt="Лондон, Биг-Бен и красный автобус" loading="lazy" width="900" height="722"></div><div class="cap">Английский <span class="ar">→</span></div><div class="what">С нуля до C1, Speaking Club, IELTS, CAE, НМТ</div></a>
+<a class="lp pola" href="#fmt" data-tab="de"><span class="stamp"><svg class="stamp-svg" viewBox="-1 -1 76 58" aria-hidden="true"><defs><mask id="m3347"><rect x="-1" y="-1" width="76" height="58" fill="#fff"/><g fill="#000"><circle cx="0.0" cy="0.0" r="2.6"/><circle cx="0.0" cy="56.0" r="2.6"/><circle cx="7.4" cy="0.0" r="2.6"/><circle cx="7.4" cy="56.0" r="2.6"/><circle cx="14.8" cy="0.0" r="2.6"/><circle cx="14.8" cy="56.0" r="2.6"/><circle cx="22.2" cy="0.0" r="2.6"/><circle cx="22.2" cy="56.0" r="2.6"/><circle cx="29.6" cy="0.0" r="2.6"/><circle cx="29.6" cy="56.0" r="2.6"/><circle cx="37.0" cy="0.0" r="2.6"/><circle cx="37.0" cy="56.0" r="2.6"/><circle cx="44.4" cy="0.0" r="2.6"/><circle cx="44.4" cy="56.0" r="2.6"/><circle cx="51.8" cy="0.0" r="2.6"/><circle cx="51.8" cy="56.0" r="2.6"/><circle cx="59.2" cy="0.0" r="2.6"/><circle cx="59.2" cy="56.0" r="2.6"/><circle cx="66.6" cy="0.0" r="2.6"/><circle cx="66.6" cy="56.0" r="2.6"/><circle cx="74.0" cy="0.0" r="2.6"/><circle cx="74.0" cy="56.0" r="2.6"/><circle cx="0.0" cy="8.0" r="2.6"/><circle cx="74.0" cy="8.0" r="2.6"/><circle cx="0.0" cy="16.0" r="2.6"/><circle cx="74.0" cy="16.0" r="2.6"/><circle cx="0.0" cy="24.0" r="2.6"/><circle cx="74.0" cy="24.0" r="2.6"/><circle cx="0.0" cy="32.0" r="2.6"/><circle cx="74.0" cy="32.0" r="2.6"/><circle cx="0.0" cy="40.0" r="2.6"/><circle cx="74.0" cy="40.0" r="2.6"/><circle cx="0.0" cy="48.0" r="2.6"/><circle cx="74.0" cy="48.0" r="2.6"/></g></mask></defs><g mask="url(#m3347)"><rect width="74" height="56" fill="#FBF7F0"/></g><svg x="7" y="7" width="60" height="42" viewBox="0 0 60 36" preserveAspectRatio="none"><rect width="60" height="12" fill="#1a1a1a"/><rect y="12" width="60" height="12" fill="#DD0000"/><rect y="24" width="60" height="12" fill="#FFCE00"/></svg></svg></span><i class="pin" data-pin data-o="2" data-m="a"></i><div class="ph"><img src="img/koeln.webp" alt="Кёльнский собор и мост Гогенцоллернов вечером" loading="lazy" width="1100" height="733"></div><div class="cap">Немецкий <span class="ar">→</span></div><div class="what">С нуля до C1, Sprachclub, Goethe, TELC, DTZ</div></a>
+</div>
+</div></section>
+
+<section class="why"><div class="wrap">
+<div class="note rv"><i class="pin" data-pin></i>
+<h2>Почему <em>к нам</em></h2>
+<p>Чаще всего к нам приходят со словами «грамматику знаю, а говорить не могу». Мы учим именно говорить, спокойно и без стыда за ошибки.</p>
+<div class="sig">Даяна</div>
+</div>
+<div class="pts">
+<div class="rv"><span class="n">01</span><b>Учим говорить</b><p>На уроках и в разговорных клубах большую часть времени говорите вы. Страх уходит быстрее, чем кажется.</p></div>
+<div class="rv"><span class="n">02</span><b>Живой язык</b><p>Филологи и те, кто живёт за границей и говорит на языке каждый день. Каждый ищет подход к своему ученику.</p></div>
+<div class="rv"><span class="n">03</span><b>Консультация с Даяной</b><p>Не знаете, что выбрать? Даяна бесплатно поговорит с вами 30–50 минут и подскажет формат.</p></div>
+<div class="rv"><span class="n">04</span><b>Первый урок бесплатно</b><p>40–50 минут с преподавателем. Познакомитесь и узнаете свой уровень.</p></div>
+</div>
+<i class="wp" data-pin data-desk style="left:18px;bottom:-40px"></i></div></section>
+
+<section class="team" id="team"><div class="wrap">
+<div class="head rv"><h2>Наши <em>преподаватели</em></h2><p>Сильная команда, которая поддерживает и помогает дойти до цели. Вот некоторые из нас.</p></div>
+<div class="line" style="position:relative"><i class="wp" data-pin data-desk style="left:-80px;top:-20px"></i>
+<div class="tp dai"><i class="peg" data-pin data-desk></i><div class="pola"><div class="ph"><img src="img/daiana.webp" alt="Даяна" loading="lazy"></div><div class="cap">Даяна</div><div class="lg">НЕМЕЦКИЙ · АНГЛИЙСКИЙ</div></div><p>Основательница школы. Cambridge C1 и Goethe C1, живёт в Германии.</p></div>
+<div class="tp"><i class="peg" data-pin data-desk></i><div class="pola"><div class="ph"><img src="img/t-yana.webp" alt="Яна" loading="lazy"></div><div class="cap">Яна</div><div class="lg">НЕМЕЦКИЙ</div></div><p>Больше 3 лет опыта. Живёт в Германии и преподаёт в аккредитованных школах.</p></div>
+<div class="tp"><i class="peg" data-pin data-desk></i><div class="pola"><div class="ph"><img src="img/t-sofia.webp" alt="София" loading="lazy"></div><div class="cap">София</div><div class="lg">АНГЛИЙСКИЙ</div></div><p>Больше 3 лет опыта, C1 по IELTS. Учит от 6 до 65 лет.</p></div>
+<div class="tp"><i class="peg" data-pin data-desk></i><div class="pola"><div class="ph"><img src="img/t-liza.webp" alt="Лиза" loading="lazy"></div><div class="cap">Лиза</div><div class="lg">НЕМЕЦКИЙ</div></div><p>Живёт в Германии и работает в немецкой фирме. Готовит к B2 Beruf.</p></div>
+<div class="tp"><i class="peg" data-pin data-desk></i><div class="pola"><div class="ph"><img src="img/t-alina.webp" alt="Алина" loading="lazy"></div><div class="cap">Алина</div><div class="lg">НЕМЕЦКИЙ</div></div><p>4 года опыта. Сама прошла интеграцию и знает, где сложно.</p></div>
+<div class="tp"><i class="peg" data-pin data-desk></i><div class="pola"><div class="ph"><img src="img/t-daria.webp" alt="Дарья" loading="lazy"></div><div class="cap">Дарья</div><div class="lg">НЕМЕЦКИЙ</div></div><p>Все её ученики сдали DTZ B1 в Германии с первого раза.</p></div>
+<i class="wp" data-pin data-desk style="right:-70px;top:-20px"></i></div>
+<p class="more rv">Ещё в команде Ульяна, Елена, Кристина ведут английский, а Елизавета, Мария и Катерина ведут немецкий.</p>
+</div></section>
+
+<section class="fmt" id="fmt"><div class="wrap"><i class="wp" data-pin data-desk style="right:18px;top:150px"></i>
+<div class="head rv"><h2>Форматы <em>и цены</em></h2>
+<div class="tabs" role="tablist"><button role="tab" aria-selected="true" data-t="en">Английский</button><button role="tab" aria-selected="false" data-t="de">Немецкий</button></div></div>
+<div class="cards" data-p="en">
+<div class="pc main"><h3>С нуля до C1</h3><p class="d">Для взрослых и подростков, от первых слов до свободного общения</p><div class="pr"><span>в группе</span><b>от 12 €</b></div><div class="pr"><span>в паре</span><b>от 15 €</b></div><div class="pr"><span>индивидуально</span><b>от 18 €</b></div></div>
+<div class="pc"><h3>Speaking Club</h3><p class="d">Разговорный клуб, уровни A1–C1</p><div class="pr"><span>занятие</span><b>15 €</b></div><div class="pr"><span>4 занятия</span><b>50 €</b></div></div>
+<div class="pc ex"><i class="pin" data-pin></i><h3>Экзамены</h3><p class="d">IELTS, CAE, FCE, PET, Duolingo Test, НМТ</p><div class="pr"><span>индивидуально</span><b>от 20 €</b></div></div>
+</div>
+<div class="cards" data-p="de" hidden>
+<div class="pc main"><h3>С нуля до C1</h3><p class="d">Для взрослых и детей, индивидуально, в паре или в группе</p><div class="pr"><span>в группе</span><b>от 15 €</b></div><div class="pr"><span>в паре</span><b>от 20 €</b></div><div class="pr"><span>индивидуально</span><b>от 25 €</b></div></div>
+<div class="pc"><h3>Sprachclub</h3><p class="d">Каждую неделю 1,5 часа только на немецком, A1–C1</p><div class="pr"><span>занятие</span><b>15 €</b></div><div class="pr"><span>4 занятия</span><b>50 €</b></div></div>
+<div class="pc ex"><i class="pin" data-pin></i><h3>Экзамены</h3><p class="d">Goethe, TELC B1–C1, TELC Beruf, DTZ, DaF</p><div class="pr"><span>индивидуально</span><b>от 30 €</b></div><div class="pr"><span>интенсив по грамматике, 5 лекций</span><b>39 €</b></div></div>
+</div>
+<div class="foot rv" style="position:relative"><i class="wp" data-pin data-desk style="right:-30px;top:50%"></i><p>Индивидуально 60 или 90 минут, в паре 60 минут, в группе 90 минут (3–4 человека). Оплата за месяц, обычно 8 занятий.</p><a class="btn" href="https://telegram.me/Green_Languages">Первый урок в подарок <span class="ar">→</span></a></div>
+</div></section>
+
+<section class="res" id="res"><div class="wrap">
+<h2 class="rv">Результаты <em>учеников</em></h2>
+<div class="story" style="position:relative"><i class="wp" data-pin data-desk style="right:-30px;bottom:-40px"></i>
+<div class="rv"><div class="yr">2019 → 2026</div><h3>Пришла в 9 лет и знала только dog и cat</h3><p>Она плакала на первых уроках и не хотела учить английский. Сейчас ей 16, уровень почти C2, она говорит без акцента и готовится к IELTS.</p></div>
+<blockquote class="q rv"><i class="pin" data-pin></i>«Всё это время с нами, хотя вживую мы так ни разу и не встретились»<span>Даяна о своей ученице</span></blockquote>
+</div>
+<div class="studs" style="position:relative"><i class="wp" data-pin data-desk style="right:-30px;bottom:-80px"></i>
+<div class="sc rv"><div class="pola"><div class="ph"><img src="img/st-de1.webp" alt="Оля" loading="lazy"></div><div class="cap">Оля, немецкий</div></div><h4>С нуля до A2 за полгода</h4><p><span>Было:</span> была уверена, что языки ей не даются.</p><p><span>Стало:</span> работает помощником стоматолога в Германии.</p></div>
+<div class="sc rv"><div class="pola"><div class="ph"><img src="img/st-en1.webp" alt="Ирина" loading="lazy"></div><div class="cap">Ирина, английский</div></div><h4>С A1 до A2 за три месяца</h4><p><span>Было:</span> не понимала носителей.</p><p><span>Стало:</span> одна съездила в Венецию и говорила со всеми.</p></div>
+<div class="sc rv"><div class="pola"><div class="ph"><img src="img/st-exde2.webp" alt="Алиса" loading="lazy"></div><div class="cap">Алиса, немецкий</div></div><h4>TestDaF за полтора месяца</h4><p><span>Было:</span> сильный страх устной части.</p><p><span>Стало:</span> TDN4 во всех частях, включая устную.</p></div>
+<div class="sc rv"><div class="pola"><div class="ph"><img src="img/st-exen2.webp" alt="Катя" loading="lazy"></div><div class="cap">Катя, английский</div></div><h4>Готовилась к B2, сдала на C1</h4><p><span>Было:</span> B1 и цель IELTS 6.5.</p><p><span>Стало:</span> IELTS 7.0 в феврале 2024 года.</p></div>
+</div>
+</div></section>
+
+<section class="steps"><div class="wrap" style="position:relative">
+<h2 class="rv">Как <em>начать</em></h2>
+<div class="st">
+<div class="rv"><span class="num">1</span><i class="pin" data-pin data-o="3" data-m="b"></i><b>Напишите нам</b><p>В Telegram или WhatsApp, какой язык и для чего хотите учить.</p></div>
+<div class="rv"><span class="num">2</span><i class="pin" data-pin data-o="2" data-m="b"></i><b>Пробный урок</b><p>Бесплатно. Познакомитесь с преподавателем и узнаете свой уровень.</p></div>
+<div class="rv"><span class="num">3</span><i class="pin" data-pin data-o="1" data-m="b"></i><b>Выберите формат</b><p>Индивидуально, в паре, в группе или в разговорном клубе.</p></div>
+</div>
+<i class="wp" data-pin data-desk style="left:18px;bottom:-60px"></i></div></section>
+
+<section class="faq" id="faq"><div class="wrap">
+<div style="position:relative"><h2>Частые <em>вопросы</em></h2></div>
+<div>
+<details><summary>Можно начать с нуля?</summary><p>Да. Курсы английского и немецкого идут с нуля до уровня C1.</p></details>
+<details><summary>Грамматику знаю, а говорить не могу. Поможете?</summary><p>Да, с этим к нам приходят чаще всего. Для этого есть разговорные клубы и уроки, где большую часть времени вы говорите сами.</p></details>
+<details><summary>Сколько длится урок?</summary><p>Индивидуально 60 или 90 минут, в паре 60 минут, в группе 90 минут. Пробный урок длится 40–50 минут.</p></details>
+<details><summary>Сколько человек в группе?</summary><p>Обычно 3–4 человека. Время группы выбираете вместе с преподавателем.</p></details>
+<details><summary>Что, если я пропущу урок?</summary><p>Отменить урок можно не позже чем за 12 часов, иначе он считается проведённым. Групповые уроки записываются, пропущенную тему можно посмотреть в записи.</p></details>
+<details><summary>Готовите к экзаменам?</summary><p>Да. Английский: IELTS, CAE, FCE, PET, Duolingo Test, НМТ. Немецкий: Goethe, TELC, TELC Beruf, DTZ, DaF.</p></details>
+<details><summary>Можно учиться из любой страны?</summary><p>Да, все занятия проходят онлайн.</p></details>
+</div>
+<i class="wp" data-pin data-desk style="left:18px;bottom:-50px"></i><i class="wp" data-pin data-desk style="right:200px;bottom:-50px"></i>
+</div></section>
+
+<section class="cta-b"><div class="wrap">
+<div><h2>Начните свой <em>языковой путь</em> с нами</h2><p>Напишите, какой язык хотите учить, и мы подберём преподавателя. Первый урок в подарок.</p>
+<div class="btns"><a class="btn light" href="https://telegram.me/Green_Languages">Telegram <span class="ar">→</span></a><a class="btn ghost" href="https://wa.me/4915161730335">WhatsApp</a><a class="btn ghost" href="https://www.instagram.com/green__languages/">Instagram</a></div></div>
+<figure class="pola" style="margin:0"><i class="pin" data-pin></i><div class="ph"><img src="img/berlin.webp" alt="Бранденбургские ворота, Берлин" loading="lazy"></div><figcaption class="cap">До встречи на уроке!</figcaption></figure>
+</div></section>
+</div>
+<footer><div class="wrap">
+<div><a class="brand" href="#"><svg viewBox="0 0 25 30" aria-hidden="true"><path d="M12.5 26C18.8513 26 24 20.8513 24 14.5C24 8.14873 18.8513 3 12.5 3C6.14873 3 1 8.14873 1 14.5C1 20.8513 6.14873 26 12.5 26ZM12.5 27C19.4036 27 25 21.4036 25 14.5C25 7.59644 19.4036 2 12.5 2C5.59644 2 0 7.59644 0 14.5C0 21.4036 5.59644 27 12.5 27Z" fill="#E9B9A6" fill-rule="evenodd"/><path d="M7.5161 28.7604C5.8756 28.7604 5.0553 28.1889 5.0553 27.0461C5.0553 25.5714 5.9862 24.1705 7.8479 22.8433C8.8618 22.1429 9.9217 21.5806 11.0276 21.1567C12.1336 20.7327 13.3041 20.4654 14.5392 20.3548L15.1475 19.1659C14.4654 19.4240 13.7926 19.6267 13.1290 19.7742C12.4654 19.9032 11.8111 19.9677 11.1659 19.9677C9.3041 19.9677 7.8111 19.4516 6.6866 18.4194C5.5622 17.3502 5.0000 15.8848 5.0000 14.0230C5.0000 11.1659 6.1613 8.5760 8.4839 6.2535C8.0419 6.0109 7.6761 5.6223 7.4196 5.1724C7.1631 4.7225 7.0159 4.2112 7.0112 3.7233C7.0065 3.2353 7.1586 2.7807 7.4327 2.3959C7.7068 2.0111 8.0952 1.6905 8.5350 1.4506C8.9748 1.2107 9.4601 1.0561 9.9582 0.9803C10.4564 0.9045 10.9704 0.9050 11.4784 0.9671C11.9865 1.0292 12.4885 1.1529 12.9627 1.3233C13.4370 1.4938 13.8833 1.7109 14.2800 1.9600C13.8791 1.8586 13.4607 1.7407 13.0289 1.6333C12.5971 1.5260 12.1519 1.4291 11.6975 1.3697C11.2430 1.3103 10.7749 1.2895 10.3139 1.3299C9.8530 1.3703 9.4046 1.4704 9.0133 1.6466C8.6220 1.8228 8.2884 2.0764 8.0547 2.4195C7.8210 2.7627 7.6835 3.1871 7.6490 3.6289C7.6145 4.0707 7.6829 4.5299 7.8613 4.9425C8.0396 5.3552 8.3278 5.7213 8.7327 5.9770C11.4240 3.3963 14.6221 2.1060 18.3272 2.1060C21.4424 2.1060 23.0000 2.8433 23.0000 4.3180C23.0000 4.5945 22.9631 4.8710 22.8894 5.1475C22.7419 5.5899 22.4194 6.0138 21.9217 6.4193C20.4101 7.6728 18.2166 8.2995 15.3410 8.2995C13.1659 8.2995 11.2857 7.8848 9.7005 7.0553C8.7235 8.1613 7.9401 9.4240 7.3502 10.8433C6.6498 12.4470 6.2995 13.8940 6.2995 15.1843C6.2995 18.0230 7.9217 19.4424 11.1659 19.4424C12.6590 19.4424 14.0783 19.1751 15.4240 18.6406C16.0138 17.4608 16.5207 16.4747 16.9447 15.6820C17.3687 14.8710 17.7097 14.2627 17.9677 13.8571C19.4055 11.4424 20.5300 10.2350 21.3410 10.2350C21.9862 10.2350 22.3088 10.5945 22.3088 11.3134C22.3088 12.2903 21.6544 13.6544 20.3456 15.4055C19.9585 15.9217 19.4885 16.4286 18.9355 16.9263C18.3825 17.4055 17.7281 17.8571 16.9723 18.2811L16.3088 20.3272C17.7097 20.4747 18.4101 20.8341 18.4101 21.4055C18.4101 21.5346 18.3641 21.5991 18.2719 21.5991C18.1982 21.5991 18.0691 21.5346 17.8848 21.4055C17.4424 21.0553 16.8710 20.8341 16.1705 20.7419C15.4700 22.8064 14.7880 24.2903 14.1244 25.1935C12.3917 27.5714 10.1889 28.7604 7.5161 28.7604ZM15.3687 8.0507C15.8479 8.0507 16.3088 8.0323 16.7512 7.9954C17.2120 7.9401 17.6452 7.8664 18.0507 7.7742C19.0092 7.5899 19.8756 7.2857 20.6498 6.8617C21.7373 6.2719 22.3180 5.6267 22.3917 4.9263C22.4101 4.8710 22.4194 4.8157 22.4194 4.7604C22.4194 4.7051 22.4194 4.6498 22.4194 4.5945C22.4194 3.1751 21.4700 2.4654 19.5714 2.4654C17.7465 2.4654 15.9862 2.8525 14.2903 3.6267C12.5945 4.3825 11.1382 5.4516 9.9217 6.8341C11.3963 7.6452 13.2120 8.0507 15.3687 8.0507ZM17.1382 17.7558C17.6912 17.3871 18.2166 16.9816 18.7143 16.5392C19.2120 16.0968 19.6728 15.6083 20.0968 15.0737C21.1659 13.7834 21.7005 12.6037 21.7005 11.5346C21.7005 11.0000 21.5438 10.7327 21.2304 10.7327C21.1567 10.7327 21.0829 10.7512 21.0092 10.7880C20.9355 10.8249 20.8525 10.8710 20.7604 10.9263C19.5069 11.7926 18.2995 14.0691 17.1382 17.7558ZM7.3502 28.3456C8.8986 28.3456 10.5853 26.9816 12.4101 24.2535C12.6129 23.9401 12.8710 23.4885 13.1843 22.8986C13.5161 22.3272 13.8940 21.6267 14.3180 20.7972C11.9401 21.1106 9.8848 21.9032 8.1521 23.1751C6.4562 24.4101 5.6083 25.6083 5.6083 26.7696C5.6083 27.2673 5.7742 27.6544 6.1060 27.9309C6.4378 28.2074 6.8525 28.3456 7.3502 28.3456Z" fill="#E9B9A6"/></svg><span style="display:block"><b>GREEN<br>LANGUAGES</b><span>ONLINE SCHOOL</span></span></a></div>
+<div><b>Английский</b><a href="#fmt">С нуля до C1</a><a href="#fmt">Speaking Club</a><a href="#fmt">Экзамены</a></div>
+<div><b>Немецкий</b><a href="#fmt">С нуля до C1</a><a href="#fmt">Sprachclub</a><a href="#fmt">Экзамены</a></div>
+<div><b>Связаться</b><a href="https://telegram.me/Green_Languages">Telegram</a><a href="https://wa.me/4915161730335">WhatsApp</a><a href="https://www.instagram.com/green__languages/">Instagram</a></div>
+<div class="small"><span>© 2026 Green Languages · <a href="#">Impressum</a> · <a href="#">AGB</a> · <a href="#">Datenschutz</a></span><span>Фото городов: Кёльн: Sandeepdattaraju, <a href="https://commons.wikimedia.org/w/index.php?curid=199959778">CC BY-SA 4.0</a>; Берлин: KK nationsonline, <a href="https://commons.wikimedia.org/w/index.php?curid=62882965">CC BY-SA 4.0</a>; Лондон: Mick Lobb, <a href="https://commons.wikimedia.org/w/index.php?curid=18424821">CC BY-SA 2.0</a></span></div>
+</div></footer>
+<script>
+(()=>{
+const page=document.getElementById('page'),svg=document.getElementById('thread'),path=document.getElementById('tp');
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+function pts(){
+ const pr=page.getBoundingClientRect(),mob=innerWidth<1000,out=[];
+ document.querySelectorAll('[data-pin]').forEach(p=>{
+  if(mob&&!p.dataset.m)return;
+  if(p.closest('[hidden]')||!p.offsetParent)return;
+  const r=p.getBoundingClientRect();const g=p.closest('.row,.st,.hero');out.push({x:r.left+r.width/2-pr.left,y:r.top+r.height/2-pr.top,g,o:+(p.dataset.o||0),m:mob?p.dataset.m:''});
+ });
+ // reorder inside groups by data-o
+ const res=[];let i=0;while(i<out.length){let j=i;while(j<out.length&&out[j].g&&out[j].g===out[i].g)j++;if(j===i){res.push(out[i]);i++;continue}res.push(...out.slice(i,j).sort((a,b)=>a.o-b.o));i=j}
+ return res.map(p=>{const a=[p.x,p.y];a.m=p.m;return a})}
+function build(){
+ const P=pts();svg.setAttribute('height',page.offsetHeight);svg.setAttribute('viewBox',`0 0 ${page.offsetWidth} ${page.offsetHeight}`);
+ if(P.length<2)return;
+ const groups=[];P.forEach(p=>{const l=groups[groups.length-1];if(l&&l[0].m===p.m)l.push(p);else groups.push([p])});
+ let D='';for(const G of groups){if(G.length<2)continue;D+=sp(G)}
+ path.setAttribute('d',D);path.style.strokeDasharray='1 1';draw();}
+function sp(P){
+ const Q=[P[0]];
+ for(let i=1;i<P.length;i++){const [x0,y0]=P[i-1],[x1,y1]=P[i],dx=x1-x0,dy=y1-y0;
+  if(Math.abs(dx)>Math.abs(dy)*.8&&Math.abs(dx)>60){Q.push([(x0+x1)/2,(y0+y1)/2+Math.min(70,Math.abs(dx)*.1+10)])}
+  Q.push(P[i])}
+ let d=`M${Q[0][0]},${Q[0][1]}`;
+ for(let i=0;i<Q.length-1;i++){const p0=Q[i-1]||Q[i],p1=Q[i],p2=Q[i+1],p3=Q[i+2]||p2,t=.32/3;
+  d+=` C${(p1[0]+(p2[0]-p0[0])*t).toFixed(1)},${(p1[1]+(p2[1]-p0[1])*t).toFixed(1)} ${(p2[0]-(p3[0]-p1[0])*t).toFixed(1)},${(p2[1]-(p3[1]-p1[1])*t).toFixed(1)} ${p2[0].toFixed(1)},${p2[1].toFixed(1)}`}
+ return d+' ';
+}
+let L=0,samp=[];
+function draw(){
+ if(reduce){path.style.strokeDashoffset=0;return}
+ const line=scrollY+innerHeight*.78-page.getBoundingClientRect().top-scrollY;
+ if(!samp.length||samp.d!==path.getAttribute('d')){L=path.getTotalLength();samp=[];for(let i=0;i<=400;i++){samp.push(path.getPointAtLength(L*i/400).y)}samp.d=path.getAttribute('d')}
+ let k=0;for(let i=0;i<samp.length;i++){if(samp[i]<=line)k=i}
+ path.style.strokeDashoffset=1-k/400;
+}
+addEventListener('scroll',()=>requestAnimationFrame(draw),{passive:true});
+addEventListener('resize',()=>{samp=[];build()});
+addEventListener('load',build);document.fonts&&document.fonts.ready.then(build);build();
+// tabs
+const tabs=document.querySelectorAll('.tabs button');
+function show(t){tabs.forEach(b=>b.setAttribute('aria-selected',b.dataset.t===t));document.querySelectorAll('.cards').forEach(c=>c.hidden=c.dataset.p!==t);samp=[];build()}
+tabs.forEach(b=>b.onclick=()=>show(b.dataset.t));
+document.querySelectorAll('.lp').forEach(a=>a.addEventListener('click',()=>show(a.dataset.tab)));
+// reveal
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{rootMargin:'0px 0px -8% 0px'});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+})();
+</script>
+</body></html>
