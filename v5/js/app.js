@@ -6,6 +6,7 @@ const BG = ['#EADFD1', '#7E8F95', '#E3CFB8'];          // Ivory Sand → Stormy 
 const LIGHT = ['#fff6ec', '#e3edf2', '#ffeadb'];       // warm white → cool → sienna glow
 const LOGO_VB = { x: 66, y: 80.75, w: 404, h: 449.42 };
 const TIP = { x: 362.56, y: 410.37 };                  // end of the G's lower flick (from the PDF vector)
+const CAP = location.search.includes('cap');
 const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const $ = (s, r = document) => r.querySelector(s);
 const $$ = (s, r = document) => [...r.querySelectorAll(s)];
@@ -290,9 +291,9 @@ async function start3D() {
         V(h0.l - .6, C.b - 1.1, .35));
     }
     p.push(F0);
-    if (!mob) p.push(V(h1.l - .3, y1 + .9, S[1].z + .4), V(h1.l + (h1.r - h1.l) * .15, y1, S[1].z + .05),
+    if (false) p.push(V(h1.l - .3, y1 + .9, S[1].z + .4), V(h1.l + (h1.r - h1.l) * .15, y1, S[1].z + .05),
       V(h1.l + (h1.r - h1.l) * .55, y1 - .08, S[1].z + .1), V(h1.r - .3, y1 + .05, S[1].z + .05), V(h1.r + .7, y1 - .9, S[1].z + .5));
-    else p.push(V(h1.r + 1.4, h1.b - 1.6, S[1].z + .6), V(h1.r + .2, y1 - .1, S[1].z + .1), V((h1.l + h1.r) / 2, y1 + .05, S[1].z + .05),
+    else p.push(V(h1.r + 1.6, h1.t + .2, S[1].z + .8), V(h1.r + 1.0, h1.b - 1.0, S[1].z + .5), V(h1.r + .2, y1 - .1, S[1].z + .1), V((h1.l + h1.r) / 2, y1 + .05, S[1].z + .05),
       V(h1.l - .2, y1 - .15, S[1].z + .1), V(h1.l - .6, h1.b - 1.8, S[1].z + .5), V((h1.l + h1.r) / 2 + 1, h1.b - 2.6, S[1].z + 1));
     p.push(F1);
     p.push(V(h2.l - .2, y2 + .9, S[2].z + .5), V(E.l - E.w * .25, y2 + .15, S[2].z + .1),
@@ -346,7 +347,7 @@ async function start3D() {
   function frame() {
     clock.update(); const dt = Math.min(clock.getDelta(), .05), time = clock.getElapsed();
     cur += (scrollY - cur) * (1 - Math.exp(-dt * (reduce ? 30 : 5.5)));
-    if (Math.abs(scrollY - cur) < .05) cur = scrollY;
+    if (Math.abs(scrollY - cur) < .05 || CAP) cur = scrollY;
     const ph = phaseAt(cur);
     updatePanels(ph);
     hdr.classList.toggle('scrolled', ph.f > .04);
