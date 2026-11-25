@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Green Languages · онлайн-школа английского и немецкого</title>
+<link rel="icon" href="img/logo.svg">
+<style>
+@font-face{font-family:'GLSerif';src:url(fonts/noto-serif-display-cyrillic-400-normal.woff2) format('woff2');font-display:swap;unicode-range:U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'GLSerif';src:url(fonts/noto-serif-display-latin-400-normal.woff2) format('woff2');font-display:swap;unicode-range:U+0000-00FF,U+2000-206F,U+20AC,U+2190-2193}
+@font-face{font-family:'GLSerif';font-style:italic;src:url(fonts/noto-serif-display-cyrillic-400-italic.woff2) format('woff2');font-display:swap;unicode-range:U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'GLSerif';font-style:italic;src:url(fonts/noto-serif-display-latin-400-italic.woff2) format('woff2');font-display:swap;unicode-range:U+0000-00FF,U+2000-206F,U+20AC,U+2190-2193}
+@font-face{font-family:'Manrope';font-weight:400;src:url(fonts/manrope-cyrillic-400-normal.woff2) format('woff2');font-display:swap;unicode-range:U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'Manrope';font-weight:400;src:url(fonts/manrope-latin-400-normal.woff2) format('woff2');font-display:swap;unicode-range:U+0000-00FF,U+2000-206F,U+20AC,U+2190-2193}
+@font-face{font-family:'Manrope';font-weight:600;src:url(fonts/manrope-cyrillic-600-normal.woff2) format('woff2');font-display:swap;unicode-range:U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'Manrope';font-weight:600;src:url(fonts/manrope-latin-600-normal.woff2) format('woff2');font-display:swap;unicode-range:U+0000-00FF,U+2000-206F,U+20AC,U+2190-2193}
+@font-face{font-family:'Hand';src:url(fonts/marck-script-cyrillic-400-normal.woff2) format('woff2');font-display:swap;unicode-range:U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'Hand';src:url(fonts/marck-script-latin-400-normal.woff2) format('woff2');font-display:swap;unicode-range:U+0000-00FF,U+2000-206F,U+20AC,U+2190-2193}
+
+:root{--wine:#4A1018;--wine2:#6B1A25;--cream:#F4ECE1;--sand:#E3D4C2;--ink:#2B1A1B;--ink2:#6E5A55;--sage:#707D6C;--sage2:#A9B39E;--line:rgba(43,26,27,.15)}
+*{box-sizing:border-box;min-width:0}
+html{scroll-behavior:smooth;scroll-padding-top:64px}
+body{margin:0;background:#1d1012;color:var(--ink);font:400 16px/1.55 'Manrope',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+.page{max-width:430px;margin:0 auto;background:var(--cream);overflow:hidden;position:relative}
+a{color:inherit}img{display:block;max-width:100%}
+h1,h2,h3{font-family:'GLSerif',Georgia,serif;font-weight:400;margin:0;letter-spacing:-.01em}
+.hand{font-family:'Hand',cursive}
+.wine{background:var(--wine) url(img/n-leather.webp) 0 0/360px;background-blend-mode:soft-light;color:var(--cream)}
+.sand{background:var(--sand)}
+.pad{padding:56px 22px}
+.eyebrow{font:400 26px/1 'Hand',cursive;color:var(--wine2)}
+.wine .eyebrow{color:var(--sage2)}
+.btn{display:inline-flex;justify-content:center;align-items:center;gap:10px;background:var(--wine);color:var(--cream);text-decoration:none;font-weight:600;font-size:15px;padding:16px 26px;border-radius:99px}
+.wine .btn{background:var(--cream);color:var(--wine)}
+.btn.full{display:flex;width:100%}
+.btn.line{background:none;color:inherit;box-shadow:inset 0 0 0 1.3px currentColor}
+/* header */
+.top{position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;height:60px;padding:0 18px;background:rgba(244,236,225,.9);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
+.top img{width:36px}
+.top .menu{width:42px;height:42px;border-radius:50%;border:0;background:var(--wine);display:grid;place-items:center}
+.top .menu i,.top .menu i::before,.top .menu i::after{display:block;width:16px;height:1.5px;background:var(--cream);position:relative}
+.top .menu i::before,.top .menu i::after{content:"";position:absolute;left:0}.top .menu i::before{top:-5px}.top .menu i::after{top:5px}
+/* hero */
+.hero{position:relative;padding:18px 22px 0}
+.hero .chip{display:inline-flex;align-items:center;gap:8px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink2)}
+.hero .chip i{width:7px;height:7px;border-radius:50%;background:var(--sage)}
+.hero h1{font-size:50px;line-height:.98;margin:16px 0 0;color:var(--wine)}
+.hero h1 em{font-style:normal;font-family:'Hand',cursive;font-size:56px;color:var(--wine2);display:block;margin-top:4px}
+.photo{position:relative;margin:26px -22px 0;height:430px;background:radial-gradient(90% 70% at 50% 35%,#EBD9C6,#CDB197 70%,#B8977A)}
+.photo img{position:absolute;left:50%;bottom:0;width:100%;height:100%;object-fit:cover;object-position:50% 8%;transform:translateX(-50%)}
+.note{position:absolute;font-size:13px;line-height:1.3;color:var(--ink);background:var(--cream);padding:10px 12px;border-radius:4px;box-shadow:0 10px 24px -12px rgba(40,10,10,.5)}
+.note b{display:block;font:400 22px/1 'GLSerif',serif;color:var(--wine)}
+.n1{left:14px;top:22px;transform:rotate(-4deg)}.n2{right:14px;top:150px;transform:rotate(3deg)}
+.sign{position:absolute;left:18px;bottom:22px;font:400 40px/1 'Hand',cursive;color:var(--cream);text-shadow:0 2px 12px rgba(40,10,10,.4)}
+.hero-cta{background:var(--wine);padding:22px;margin:0 -22px}
+.hero-cta p{color:#E9D9CC;margin:0 0 16px;font-size:15px}
+.stats{display:flex;justify-content:space-between;margin-top:20px;padding-top:16px;border-top:1px solid rgba(244,236,225,.2)}
+.stats b{display:block;font:400 26px/1 'GLSerif',serif;color:var(--cream)}.stats span{font-size:11.5px;color:#D8C3B8}
+/* langs */
+.langs{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:22px}
+.lc{position:relative;border-radius:6px;overflow:hidden;aspect-ratio:3/4.3;text-decoration:none;color:var(--cream)}
+.lc img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.lc::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(50,8,14,.85))}
+.lc span{position:absolute;left:14px;bottom:14px;z-index:2}
+.lc b{display:block;font:400 34px/1 'Hand',cursive}
+.lc small{font-size:11px;letter-spacing:.16em;text-transform:uppercase}
+h2{font-size:38px;line-height:1.02;margin-top:6px}
+.wine h2{color:var(--cream)}
+.sub{color:var(--ink2);margin:12px 0 0}
+.wine .sub{color:#E2D0C6}
+/* goals: tiles */
+.tiles{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:24px}
+.tile{border-radius:6px;padding:18px 16px;min-height:150px;display:flex;flex-direction:column;justify-content:space-between}
+.tile b{font:400 21px/1.1 'GLSerif',serif}
+.tile p{margin:0;font-size:13px;line-height:1.4}
+.tile.c{background:var(--cream);color:var(--ink)}.tile.w{background:var(--wine2);color:var(--cream)}.tile.s{background:var(--sage);color:#F4F2EC}
+.tile.big{grid-column:1/-1;min-height:120px}
+/* prices */
+.tabs{display:flex;background:var(--sand);border-radius:99px;padding:4px;margin-top:22px}
+.tabs button{flex:1;border:0;background:none;font:600 14px 'Manrope';padding:11px;border-radius:99px;color:var(--ink2)}
+.tabs button[aria-selected=true]{background:var(--wine);color:var(--cream)}
+.price{border-radius:6px;padding:20px;margin-top:12px;background:#fff8f0;box-shadow:0 1px 0 var(--line)}
+.price.hl{background:var(--wine);color:var(--cream)}
+.price h3{font-size:24px}
+.price .d{font-size:13.5px;color:var(--ink2);margin:4px 0 12px}.price.hl .d{color:#E2D0C6}
+.pr{display:flex;justify-content:space-between;align-items:baseline;border-top:1px dashed var(--line);padding:9px 0;font-size:14px}
+.price.hl .pr{border-color:rgba(244,236,225,.25)}
+.pr b{font:400 22px 'GLSerif',serif;color:var(--wine2)}.price.hl .pr b{color:var(--cream)}
+.cards[hidden]{display:none}
+.fine{font-size:12.5px;color:var(--ink2);margin-top:14px}
+/* about Daiana */
+.dai{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:24px}
+.dai .ph{border-radius:6px;overflow:hidden;aspect-ratio:3/4;background:radial-gradient(90% 70% at 50% 35%,#EBD9C6,#CDB197 70%,#B8977A)}
+.dai .ph img{width:100%;height:100%;object-fit:cover;object-position:50% 6%}
+.dai .q{background:var(--cream);color:var(--ink);border-radius:6px;padding:16px;font:400 22px/1.2 'Hand',cursive;display:flex;align-items:flex-end}
+.facts{list-style:none;padding:0;margin:22px 0 22px}
+.facts li{display:flex;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid rgba(244,236,225,.2);font-size:14.5px}
+.facts li b{font-weight:600}
+/* team / reviews: horizontal swipe */
+.swipe{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;margin:22px -22px 0;padding:0 22px 8px;scrollbar-width:none}
+.swipe::-webkit-scrollbar{display:none}
+.ix{flex:none;width:62%;scroll-snap-align:start;background:#fff8f0;padding:10px 10px 0;border-radius:6px;box-shadow:0 18px 30px -20px rgba(60,15,15,.55)}
+.ix:nth-child(odd){transform:rotate(-1.5deg)}.ix:nth-child(even){transform:rotate(1.5deg)}
+.ix .ph{aspect-ratio:1/1.1;overflow:hidden;border-radius:3px;background:#D7C2AC}
+.ix .ph img{width:100%;height:100%;object-fit:cover}
+.ix .cap{font:400 28px/1 'Hand',cursive;color:var(--wine2);text-align:center;padding:10px 0 4px}
+.ix .sub2{font-size:12.5px;color:var(--ink2);text-align:center;padding:0 6px 14px;line-height:1.4}
+.swipehint{font-size:12px;color:var(--ink2);margin-top:12px;display:flex;align-items:center;gap:8px}
+.swipehint i{display:block;width:30px;height:1px;background:currentColor}
+.rv{flex:none;width:78%;scroll-snap-align:start;background:var(--cream);color:var(--ink);border-radius:6px;padding:18px}
+.rv .top2{display:flex;gap:12px;align-items:center}
+.rv .top2 img{width:54px;height:54px;border-radius:50%;object-fit:cover}
+.rv .top2 b{font:400 24px/1 'Hand',cursive;color:var(--wine2)}
+.rv .top2 span{display:block;font-size:11.5px;color:var(--ink2);letter-spacing:.06em}
+.rv h4{font:400 20px/1.2 'GLSerif',serif;margin:14px 0 10px}
+.rv p{margin:0 0 6px;font-size:13.5px;color:var(--ink2)}.rv p b{color:var(--wine2)}
+/* steps */
+.steps{counter-reset:s;margin-top:22px}
+.step{display:grid;grid-template-columns:52px 1fr;gap:14px;padding:14px 0;border-bottom:1px solid var(--line)}
+.step .n{width:52px;height:52px;border-radius:50%;background:var(--wine);color:var(--cream);display:grid;place-items:center;font:400 22px 'GLSerif',serif}
+.step b{font:400 21px 'GLSerif',serif;display:block;margin-top:4px}.step p{margin:2px 0 0;font-size:14px;color:var(--ink2)}
+/* faq */
+details{border-bottom:1px solid var(--line)}
+summary{list-style:none;display:flex;justify-content:space-between;gap:14px;padding:16px 0;font:400 18px/1.3 'GLSerif',serif;cursor:pointer}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--wine2);font:400 24px/1 'Manrope';transition:transform .25s}
+details[open] summary::after{transform:rotate(45deg)}
+details p{margin:0 0 16px;font-size:14.5px;color:var(--ink2)}
+/* final + giant wordmark */
+.final{padding:64px 22px 0;text-align:center}
+.final h2{font-size:40px}
+.final .sub{margin:14px auto 24px;max-width:22em}
+.socials{display:grid;gap:10px}
+.wm{display:block;width:100%;margin:48px 0 6px;opacity:.95}
+.legal{display:flex;justify-content:center;gap:14px;font-size:11.5px;color:#D3BEB3;padding:10px 0 96px}
+/* sticky cta */
+.sticky{position:fixed;left:50%;bottom:14px;transform:translateX(-50%);width:min(400px,calc(100% - 28px));z-index:30;box-shadow:0 18px 30px -12px rgba(40,8,12,.6)}
+.sticky .btn{display:flex}
+</style>
+</head>
+<body>
+<div class="page">
+<header class="top"><img src="img/logo.svg" alt="Green Languages"><button class="menu" aria-label="Меню"><i></i></button></header>
+
+<!-- 1. Знакомство -->
+<section class="hero">
+ <div class="chip"><i></i>Онлайн-школа Даяны</div>
+ <h1>Английский и немецкий <em>без страха</em></h1>
+ <div class="photo">
+  <img src="img/daiana.webp" alt="Даяна">
+  <div class="note n1"><b>C1</b>Cambridge и Goethe</div>
+  <div class="note n2"><b>Германия</b>живу и учу онлайн</div>
+  <div class="sign">Даяна</div>
+ </div>
+ <div class="hero-cta wine">
+  <p>Для учёбы, работы, переезда и жизни в Европе. Первый урок бесплатно.</p>
+  <a class="btn full" href="https://telegram.me/Green_Languages">Записаться на бесплатный урок</a>
+  <div class="stats"><div><b>600+</b><span>учеников</span></div><div><b>A1–C1</b><span>все уровни</span></div><div><b>15</b><span>преподавателей</span></div></div>
+ </div>
+</section>
+
+<!-- 2. Выбор языка -->
+<section class="pad">
+ <div class="eyebrow">с чего начнём?</div>
+ <h2>Какой язык вам нужен?</h2>
+ <div class="langs">
+  <a class="lc" href="#prices"><img src="img/london.webp" alt=""><span><b>English</b><small>английский</small></span></a>
+  <a class="lc" href="#prices"><img src="img/koeln.webp" alt="" style="object-position:30% 50%"><span><b>Deutsch</b><small>немецкий</small></span></a>
+ </div>
+</section>
+
+<!-- 3. Цели -->
+<section class="pad sand">
+ <div class="eyebrow">ваша цель</div>
+ <h2>Зачем вы учите язык?</h2>
+ <div class="tiles">
+  <div class="tile w"><b>Переезд и интеграция</b><p>DTZ, B1, жизнь в Германии</p></div>
+  <div class="tile c"><b>Работа</b><p>Собеседования, B2 Beruf</p></div>
+  <div class="tile c"><b>Экзамены</b><p>IELTS, CAE, Goethe, TELC</p></div>
+  <div class="tile s"><b>Заговорить</b><p>Разговорные клубы</p></div>
+  <div class="tile w big"><b>Для ребёнка</b><p>Учим с 6 лет, спокойно и без слёз</p></div>
+ </div>
+</section>
+
+<!-- 4. Цены -->
+<section class="pad" id="prices">
+ <div class="eyebrow">форматы и цены</div>
+ <h2>Учитесь так, как удобно</h2>
+ <div class="tabs" role="tablist"><button role="tab" aria-selected="true" data-t="en">Английский</button><button role="tab" aria-selected="false" data-t="de">Немецкий</button></div>
+ <div class="cards" data-p="en">
+  <div class="price hl"><h3>С нуля до C1</h3><p class="d">60 или 90 минут, оплата за месяц</p><div class="pr"><span>в группе</span><b>от 12 €</b></div><div class="pr"><span>в паре</span><b>от 15 €</b></div><div class="pr"><span>индивидуально</span><b>от 18 €</b></div></div>
+  <div class="price"><h3>Speaking Club</h3><p class="d">Разговорный клуб A1–C1</p><div class="pr"><span>занятие</span><b>15 €</b></div><div class="pr"><span>4 занятия</span><b>50 €</b></div></div>
+  <div class="price"><h3>Экзамены</h3><p class="d">IELTS, CAE, FCE, НМТ</p><div class="pr"><span>индивидуально</span><b>от 20 €</b></div></div>
+ </div>
+ <div class="cards" data-p="de" hidden>
+  <div class="price hl"><h3>С нуля до C1</h3><p class="d">60 или 90 минут, оплата за месяц</p><div class="pr"><span>в группе</span><b>от 15 €</b></div><div class="pr"><span>в паре</span><b>от 20 €</b></div><div class="pr"><span>индивидуально</span><b>от 25 €</b></div></div>
+  <div class="price"><h3>Sprachclub</h3><p class="d">Каждую неделю, A1–C1</p><div class="pr"><span>занятие</span><b>15 €</b></div><div class="pr"><span>4 занятия</span><b>50 €</b></div></div>
+  <div class="price"><h3>Экзамены</h3><p class="d">Goethe, TELC, DTZ, DaF</p><div class="pr"><span>индивидуально</span><b>от 30 €</b></div></div>
+ </div>
+ <p class="fine">Первый урок бесплатно. В группе 3–4 человека.</p>
+</section>
+
+<!-- 5. Даяна -->
+<section class="pad wine">
+ <div class="eyebrow">основательница</div>
+ <h2>Привет, я Даяна</h2>
+ <div class="dai">
+  <div class="ph"><img src="img/daiana.webp" alt="Даяна"></div>
+  <div class="q">«Я учу говорить, а не зубрить. Ошибаться у нас можно»</div>
+ </div>
+ <ul class="facts">
+  <li><span>Живу</span><b>в Германии</b></li>
+  <li><span>Сертификаты</span><b>Cambridge C1, Goethe C1</b></li>
+  <li><span>Училась</span><b>в Ирландии</b></li>
+  <li><span>Учеников</span><b>600+</b></li>
+ </ul>
+ <a class="btn full" href="https://telegram.me/Green_Languages">Бесплатная консультация со мной</a>
+</section>
+
+<!-- 6. Преподаватели -->
+<section class="pad">
+ <div class="eyebrow">команда</div>
+ <h2>Наши преподаватели</h2>
+ <div class="swipe">
+  <article class="ix"><div class="ph"><img src="img/t-yana.webp" alt=""></div><div class="cap">Яна</div><div class="sub2">Немецкий · живёт в Германии</div></article>
+  <article class="ix"><div class="ph"><img src="img/t-sofia.webp" alt=""></div><div class="cap">София</div><div class="sub2">Английский · C1 по IELTS</div></article>
+  <article class="ix"><div class="ph"><img src="img/t-liza.webp" alt=""></div><div class="cap">Лиза</div><div class="sub2">Немецкий · B2 Beruf</div></article>
+  <article class="ix"><div class="ph"><img src="img/t-alina.webp" alt=""></div><div class="cap">Алина</div><div class="sub2">Немецкий · интеграция</div></article>
+  <article class="ix"><div class="ph"><img src="img/t-daria.webp" alt=""></div><div class="cap">Дарья</div><div class="sub2">Немецкий · DTZ B1</div></article>
+ </div>
+ <div class="swipehint"><i></i>листайте вбок</div>
+</section>
+
+<!-- 7. Результаты -->
+<section class="pad wine">
+ <div class="eyebrow">результаты</div>
+ <h2>Было и стало</h2>
+ <div class="swipe">
+  <article class="rv"><div class="top2"><img src="img/st-de1.webp" alt=""><div><b>Оля</b><span>НЕМЕЦКИЙ</span></div></div><h4>С нуля до A2 за полгода</h4><p><b>Было:</b> думала, что языки не даются.</p><p><b>Стало:</b> работает помощником стоматолога в Германии.</p></article>
+  <article class="rv"><div class="top2"><img src="img/st-en1.webp" alt=""><div><b>Ирина</b><span>АНГЛИЙСКИЙ</span></div></div><h4>С A1 до A2 за три месяца</h4><p><b>Было:</b> не понимала носителей.</p><p><b>Стало:</b> одна съездила в Венецию.</p></article>
+  <article class="rv"><div class="top2"><img src="img/st-exde2.webp" alt=""><div><b>Алиса</b><span>НЕМЕЦКИЙ</span></div></div><h4>TestDaF за полтора месяца</h4><p><b>Было:</b> страх устной части.</p><p><b>Стало:</b> TDN4 во всех частях.</p></article>
+  <article class="rv"><div class="top2"><img src="img/st-exen2.webp" alt=""><div><b>Катя</b><span>АНГЛИЙСКИЙ</span></div></div><h4>Готовилась к B2, сдала на C1</h4><p><b>Было:</b> B1, цель IELTS 6.5.</p><p><b>Стало:</b> IELTS 7.0.</p></article>
+ </div>
+</section>
+
+<!-- 8. Как начать -->
+<section class="pad">
+ <div class="eyebrow">всё просто</div>
+ <h2>Как начать</h2>
+ <div class="steps">
+  <div class="step"><div class="n">1</div><div><b>Напишите нам</b><p>В Telegram или WhatsApp, какой язык и для чего.</p></div></div>
+  <div class="step"><div class="n">2</div><div><b>Бесплатный урок</b><p>Знакомство с преподавателем и ваш уровень.</p></div></div>
+  <div class="step"><div class="n">3</div><div><b>Выберите формат</b><p>Индивидуально, в паре, в группе или в клубе.</p></div></div>
+ </div>
+</section>
+
+<!-- 9. Вопросы -->
+<section class="pad sand">
+ <div class="eyebrow">вопросы</div>
+ <h2>Частые вопросы</h2>
+ <div style="margin-top:14px">
+  <details><summary>Можно начать с нуля?</summary><p>Да, курсы идут с нуля до C1.</p></details>
+  <details><summary>Знаю грамматику, но не говорю</summary><p>С этим приходят чаще всего. На уроках и в клубах больше всего говорите вы.</p></details>
+  <details><summary>Сколько длится урок?</summary><p>60 или 90 минут. Пробный урок 40–50 минут.</p></details>
+  <details><summary>Что, если пропущу урок?</summary><p>Отменить можно за 12 часов. Групповые уроки записываются.</p></details>
+  <details><summary>Можно учиться из любой страны?</summary><p>Да, все занятия онлайн.</p></details>
+ </div>
+</section>
+
+<!-- 10. Запись -->
+<section class="final wine">
+ <div class="eyebrow">ваш первый урок</div>
+ <h2>Начните свой языковой путь</h2>
+ <p class="sub">Напишите, какой язык хотите учить, и мы подберём преподавателя.</p>
+ <div class="socials"><a class="btn full" href="https://telegram.me/Green_Languages">Telegram</a><a class="btn full line" href="https://wa.me/4915161730335">WhatsApp</a><a class="btn full line" href="https://www.instagram.com/green__languages/">Instagram</a></div>
+ <img class="wm" src="img/wordmark.svg" alt="Green languages">
+ <div class="legal"><a href="#">Impressum</a><a href="#">AGB</a><a href="#">Datenschutz</a></div>
+</section>
+</div>
+<div class="sticky" id="sticky"><a class="btn" href="https://telegram.me/Green_Languages">Бесплатный урок</a></div>
+<script>
+{
+ const t=document.querySelectorAll('.tabs button');
+ t.forEach(b=>b.onclick=()=>{t.forEach(x=>x.setAttribute('aria-selected',x===b));document.querySelectorAll('.cards').forEach(c=>c.hidden=c.dataset.p!==b.dataset.t)});
+ const s=document.getElementById('sticky'),f=document.querySelector('.final');
+ const upd=()=>{const r=f.getBoundingClientRect();s.style.opacity=(scrollY>innerHeight*.8&&r.top>innerHeight*.6)?1:0;s.style.pointerEvents=s.style.opacity==1?'auto':'none'};
+ s.style.transition='opacity .3s';addEventListener('scroll',upd,{passive:true});upd();
+}
+</script>
+</body>
+</html>
