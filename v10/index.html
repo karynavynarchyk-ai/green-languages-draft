@@ -133,6 +133,26 @@ details p{margin:0 0 16px;font-size:14.5px;color:var(--ink2)}
 .socials{display:grid;gap:10px}
 .wm{display:block;width:100%;margin:48px 0 6px;opacity:.95}
 .legal{display:flex;justify-content:center;gap:14px;font-size:11.5px;color:#D3BEB3;padding:10px 0 96px}
+
+.stagecard{position:relative;display:block;width:calc(100% + 44px);margin:18px -22px 0;height:520px;border:0;padding:0;background:none;cursor:pointer;overflow:hidden}
+.stagecard .glow{position:absolute;left:50%;top:40px;width:120%;aspect-ratio:1;transform:translateX(-50%);border-radius:50%;background:radial-gradient(closest-side,#E6D3BF,rgba(230,211,191,0))}
+.stagecard .cut{position:absolute;left:50%;bottom:0;height:100%;width:auto;max-width:none;transform:translateX(-50%)}
+.stagecard .bigwm{position:absolute;left:4%;right:4%;bottom:10px;width:92%;z-index:2;filter:drop-shadow(0 2px 0 rgba(244,236,225,.6))}
+.play{position:absolute;right:20px;top:34%;z-index:3;display:flex;flex-direction:column;align-items:center;gap:6px;font:400 20px/1 'Hand',cursive;color:var(--wine)}
+.play i{width:64px;height:64px;border-radius:50%;background:var(--wine);box-shadow:0 10px 24px -8px rgba(74,16,24,.6);position:relative}
+.play i::after{content:"";position:absolute;left:26px;top:21px;border:11px solid transparent;border-left:17px solid var(--cream);border-right:0}
+.hero-cta{margin-top:0}
+.sheet{position:fixed;inset:0;z-index:50;background:rgba(30,8,12,.55);display:flex;align-items:flex-end;justify-content:center}
+.sheet[hidden]{display:none}
+.sh-in{position:relative;width:100%;max-width:430px;max-height:92vh;overflow:auto;background:var(--cream);border-radius:22px 22px 0 0;padding:22px 22px 30px;animation:up .4s cubic-bezier(.2,.8,.2,1)}
+@keyframes up{from{transform:translateY(100%)}}
+.close{position:absolute;right:14px;top:14px;z-index:2;width:42px;height:42px;border-radius:50%;border:0;background:var(--wine);color:var(--cream);font-size:24px}
+.video{position:relative;aspect-ratio:4/5;border-radius:10px;overflow:hidden;background:radial-gradient(90% 70% at 50% 35%,#EBD9C6,#CDB197 70%,#B8977A);margin-bottom:20px}
+.video img{width:100%;height:100%;object-fit:cover;object-position:50% 8%}
+.vplay{position:absolute;left:50%;top:50%;width:74px;height:74px;margin:-37px 0 0 -37px;border-radius:50%;background:rgba(244,236,225,.9)}
+.vplay::after{content:"";position:absolute;left:30px;top:24px;border:13px solid transparent;border-left:20px solid var(--wine);border-right:0}
+.video small{position:absolute;left:14px;bottom:12px;font:400 24px 'Hand',cursive;color:var(--cream)}
+.facts.dark li{border-color:var(--line)}
 /* sticky cta */
 .sticky{position:fixed;left:50%;bottom:14px;transform:translateX(-50%);width:min(400px,calc(100% - 28px));z-index:30;box-shadow:0 18px 30px -12px rgba(40,8,12,.6)}
 .sticky .btn{display:flex}
@@ -146,18 +166,30 @@ details p{margin:0 0 16px;font-size:14.5px;color:var(--ink2)}
 <section class="hero">
  <div class="chip"><i></i>Онлайн-школа Даяны</div>
  <h1>Английский и немецкий <em>без страха</em></h1>
- <div class="photo">
-  <img src="img/daiana.webp" alt="Даяна">
-  <div class="note n1"><b>C1</b>Cambridge и Goethe</div>
-  <div class="note n2"><b>Германия</b>живу и учу онлайн</div>
-  <div class="sign">Даяна</div>
- </div>
+ <button class="stagecard" id="openDai" aria-label="Познакомиться с Даяной, открыть видео">
+  <span class="glow"></span>
+  <img class="cut" src="img/daiana.webp" alt="Даяна, основательница Green Languages">
+  <span class="play"><i></i>знакомство</span>
+  <img class="bigwm" src="img/wordmark-wine.svg" alt="Green languages">
+ </button>
  <div class="hero-cta wine">
   <p>Для учёбы, работы, переезда и жизни в Европе. Первый урок бесплатно.</p>
   <a class="btn full" href="https://telegram.me/Green_Languages">Записаться на бесплатный урок</a>
   <div class="stats"><div><b>600+</b><span>учеников</span></div><div><b>A1–C1</b><span>все уровни</span></div><div><b>15</b><span>преподавателей</span></div></div>
  </div>
 </section>
+
+<div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sh-h" hidden>
+ <div class="sh-in">
+  <button class="close" id="closeDai" aria-label="Закрыть">×</button>
+  <div class="video"><img src="img/daiana.webp" alt=""><span class="vplay"></span><small>Видео-знакомство</small></div>
+  <div class="eyebrow">основательница</div>
+  <h2 id="sh-h">Привет, я Даяна</h2>
+  <p class="sub" style="color:var(--ink2)">Я живу в Германии и учу говорить, а не зубрить. У нас можно ошибаться.</p>
+  <ul class="facts dark"><li><span>Живу</span><b>в Германии</b></li><li><span>Сертификаты</span><b>Cambridge C1, Goethe C1</b></li><li><span>Училась</span><b>в Ирландии</b></li><li><span>Учеников</span><b>600+</b></li></ul>
+  <a class="btn full" href="https://telegram.me/Green_Languages">Бесплатная консультация</a>
+ </div>
+</div>
 
 <!-- 2. Выбор языка -->
 <section class="pad">
@@ -284,6 +316,7 @@ details p{margin:0 0 16px;font-size:14.5px;color:var(--ink2)}
  t.forEach(b=>b.onclick=()=>{t.forEach(x=>x.setAttribute('aria-selected',x===b));document.querySelectorAll('.cards').forEach(c=>c.hidden=c.dataset.p!==b.dataset.t)});
  const s=document.getElementById('sticky'),f=document.querySelector('.final');
  const upd=()=>{const r=f.getBoundingClientRect();s.style.opacity=(scrollY>innerHeight*.8&&r.top>innerHeight*.6)?1:0;s.style.pointerEvents=s.style.opacity==1?'auto':'none'};
+ const sh=document.getElementById('sheet');document.getElementById('openDai').onclick=()=>{sh.hidden=false};document.getElementById('closeDai').onclick=()=>{sh.hidden=true};sh.onclick=e=>{if(e.target===sh)sh.hidden=true};addEventListener('keydown',e=>{if(e.key==='Escape')sh.hidden=true});
  s.style.transition='opacity .3s';addEventListener('scroll',upd,{passive:true});upd();
 }
 </script>
