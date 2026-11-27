@@ -903,6 +903,15 @@ html[data-theme=warm] body{background-color:#ECEAE5}
 .hcord{opacity:0;transition:opacity .7s var(--ease)}
 .thread.landed .hcord{opacity:1}
 @media (prefers-reduced-motion:reduce){.hcord{transition:none}}
+
+/* the paper images (polaroid frames, notes, tags, tape, card backs) are cream: in this theme they are drained to a neutral paper */
+html[data-theme=warm] .pc img.pc-fr{filter:saturate(.22) brightness(1.03) drop-shadow(0 2px 2px rgba(40,40,38,.2)) drop-shadow(0 16px 20px rgba(40,40,38,.18))}
+html[data-theme=warm] .dframe{filter:saturate(.22) brightness(1.03) drop-shadow(0 2px 2px rgba(40,40,38,.2)) drop-shadow(0 22px 26px rgba(40,40,38,.2))}
+html[data-theme=warm] .rnote img{filter:saturate(.22) brightness(1.03) drop-shadow(0 2px 2px rgba(40,40,38,.13)) drop-shadow(0 14px 18px rgba(40,40,38,.13))}
+html[data-theme=warm] .lvl-t img{filter:saturate(.22) brightness(1.03) drop-shadow(0 2px 2px rgba(40,40,38,.2))}
+html[data-theme=warm] .pc img.tape,html[data-theme=warm] .rq .tape{filter:saturate(.22) brightness(1.04) drop-shadow(0 1px 1px rgba(40,40,38,.15))}
+html[data-theme=warm] .rq,html[data-theme=warm] .zoom-back,html[data-theme=warm] .tcard .back{background-color:#F3F2EF;background-blend-mode:luminosity}
+html[data-theme=warm] .rq{background:#F3F2EF url(img/kit/back.png) center/cover;background-blend-mode:luminosity}
 </style>
 </head>
 <body>
