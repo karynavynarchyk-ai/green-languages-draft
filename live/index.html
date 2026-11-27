@@ -1269,7 +1269,7 @@ function drawHero(th){
   /* keep both drawings; the reveal shows them from the top of the page down, before the main thread */
   const keep=(c,pts,ring)=>{const k=document.createElement('canvas');k.width=c.width;k.height=c.height;k.getContext('2d').drawImage(c,0,0);
     const cum=[0];for(let i=1;i<pts.length;i++)cum.push(cum[i-1]+Math.hypot(pts[i][0]-pts[i-1][0],pts[i][1]-pts[i-1][1]));return{cv:c,cache:k,pts,cum,len:cum[cum.length-1],dpr,ring,state:''}};
-  HSEG=[keep(hb,bp,null),keep(hf,fp2,{E,r:document.querySelector('.deye').getBoundingClientRect().width*.7})];HLEN=HSEG[0].len+HSEG[1].len;revealTo(REV,true)}
+  HSEG=[keep(hb,bp,null),keep(hf,fp2,{E,r:document.querySelector('.deye').getBoundingClientRect().width*.7})];HLEN=HSEG[0].len+HSEG[1].len;/* the cord around Dayana's card is there whole, fading in with the card; the drawing starts at the eyelet */if(REV<HLEN)REV=HLEN;revealTo(REV,true)}
 
 /* ---- the main thread: drawn into one canvas per section, each behind that section's content ---- */
 const SECS=[...document.querySelectorAll('section')].map(sec=>{const cv=document.createElement('canvas');cv.className='gcord';cv.setAttribute('aria-hidden','true');sec.prepend(cv);return{sec,cv}});
