@@ -1366,7 +1366,7 @@ function drawThread(th){
   const fromSec=q=>{const s=secById(q[0]);if(!s)return null;const r=anchorRect(s);return[r.l+q[1]*r.w,r.t+q[2]*r.h]};
   EYE=[er.left+er.width/2+scrollX,er.top+er.height/2+scrollY];const kb=document.getElementById('knot').getBoundingClientRect(),bo=document.getElementById('bow');BOW=[kb.left+scrollX+bo.offsetLeft+bo.offsetWidth*.492,kb.top+scrollY+bo.offsetTop+bo.offsetHeight*.544];   /* the knot */
   const E=RB.start&&fromSec(RB.start)||EYE,Z=RB.end&&fromSec(RB.end)||BOW;ENDS=[E,Z];
-  collectObstacles();AUTOKN=RB.path?null:autoRoute(E,Z);KN=knots();if(RB.path){const T0=nz([-Math.sin(a),Math.cos(a)]),guide=spline([E,...KN,Z],T0,[0,1]);AUTOKN=autoRoute(E,Z,guide);KN=AUTOKN}PATH=spline([E,...KN,Z],nz([-Math.sin(a),Math.cos(a)]),[0,1]);
+  collectObstacles();AUTOKN=RB.path?null:autoRoute(E,Z);KN=knots();PATH=spline([E,...KN,Z],nz([-Math.sin(a),Math.cos(a)]),[0,1]);
   CUM=[0];for(let i=1;i<PATH.length;i++)CUM.push(CUM[i-1]+Math.hypot(PATH[i][0]-PATH[i-1][0],PATH[i][1]-PATH[i-1][1]));
   AUTOLV=autoLevels();
   for(const {sec,cv} of SECS){const r0=docRect(sec),EX=64,r={l:r0.l,t:r0.t-EX,w:r0.w,h:r0.h+2*EX},W=Math.round(r.w),H=Math.round(r.h),dpr=Math.min(devicePixelRatio||1,2,Math.sqrt(8e6/Math.max(1,W*H)));
@@ -1414,7 +1414,7 @@ const LV=LEVELS.map((t,i)=>{const d=document.createElement('div');d.className='l
 function atLen(f){const L=CUM[CUM.length-1]*f;let i=1;while(i<CUM.length-1&&CUM[i]<L)i++;return PATH[i]}
 const LVBLOCK='.pc,.rq,.pbox,.pick,h1,h2,.sub,.hint,.btn,.eyebrow,.qa,.more,.pnote,.contacts,.ltoggle,.knot,.dcard,.rnote,.sig,.vseal';
 function placeLevels(){LVBOX.style.height=document.documentElement.scrollHeight+'px';const tot=CUM[CUM.length-1]||0;if(!PATH.length){LV.forEach(d=>d.style.display='none');return}
-  const own=AUTOLV||ROUTE[bucket()].lv,blocks=[...document.querySelectorAll(LVBLOCK)].map(e=>{const r=e.getBoundingClientRect();return[r.left+scrollX-8,r.top+scrollY-8,r.right+scrollX+8,r.bottom+scrollY+8]}).filter(b=>b[2]>b[0]);
+  const own=ROUTE[bucket()].lv||AUTOLV,blocks=[...document.querySelectorAll(LVBLOCK)].map(e=>{const r=e.getBoundingClientRect();return[r.left+scrollX-8,r.top+scrollY-8,r.right+scrollX+8,r.bottom+scrollY+8]}).filter(b=>b[2]>b[0]);
   /* how badly a tag at p would cover things (0 = free spot) */
   const cost=(p,placed)=>{const t=[p[0]-40,p[1]-28,p[0]+40,p[1]+100];let c=0;if(t[0]<4||t[2]>innerWidth-4)c+=1e7;
     for(const b of blocks){const w=Math.min(t[2],b[2])-Math.max(t[0],b[0]),h=Math.min(t[3],b[3])-Math.max(t[1],b[1]);if(w>0&&h>0)c+=w*h}
@@ -1500,13 +1500,15 @@ document.querySelectorAll('#rline .rcard').forEach(c=>{c.setAttribute('role','bu
 
 /* ---- ?edit: move everything, then copy the numbers and send them over ---- */
 if(EDITING()){
+  thr.classList.add('landed');   /* editor: the loop around Dayana's photo and its points are there at once */
   document.body.style.webkitUserSelect=document.body.style.userSelect='none';
   const st=document.createElement('style');st.textContent='.ehov{outline:1px dashed rgba(201,162,75,.9);outline-offset:2px}.bow{pointer-events:auto!important;cursor:pointer}.esel{outline:2px dashed #C9A24B;outline-offset:4px}.dcard{pointer-events:auto;cursor:move}.hang,.tcard,.rcard,.dcard{touch-action:none;cursor:move}.lvl,.lvl *{pointer-events:auto;cursor:grab;touch-action:none}';document.head.appendChild(st);
   const ov=document.createElement('div');ov.style.cssText='position:absolute;left:0;top:0;width:0;height:0;z-index:9999';document.body.appendChild(ov);
   const panel=document.createElement('div');panel.className='ep';panel.style.cssText='position:fixed;left:12px;bottom:12px;z-index:10000;background:#fff;color:#707D6C;border-radius:12px;padding:8px 10px;font:13px/1.35 system-ui;box-shadow:0 6px 20px rgba(0,0,0,.25);display:flex;gap:6px 10px;align-items:center;flex-wrap:wrap;max-width:min(760px,calc(100vw - 24px))';
-  panel.innerHTML='<button class="ef" type="button" aria-label="Свернуть">▾</button><b class="eb"></b><span class="eh" style="opacity:.75">кликните и тяните что угодно: текст, кнопки, карточки, бирки, бантики · бирки уровней тянутся вдоль нити · клик по точке: ручки дуги · Shift + клик: убрать изгиб · двойной клик: добавить точку · ⌥ + клик: удалить · ⌥ + колесо: поворот · ⌥ + Shift + колесо: размер · сетка 8 px: всё прилипает</span>'
+  panel.innerHTML='<button class="ef" type="button" aria-label="Свернуть">▾</button><b class="eb"></b><span class="eh" style="opacity:.75">кликните и тяните что угодно: текст, кнопки, карточки, бирки, бантики · бирки уровней тянутся вдоль нити · клик по точке: ручки дуги · Shift + клик: убрать изгиб · «＋ добавить» и тап по нити в нужном месте: новый кружок (и у фото Даяны) · «− удалить» и тап по кружку: убрать · ⌥ + колесо: поворот · ⌥ + Shift + колесо: размер · сетка 8 px: всё прилипает</span>'
     +'<span>Выбрано: <i class="es">кликните карточку или бант</i></span>'
     +'<span>размер <button data-a="s-">−</button><button data-a="s+">+</button></span><span>поворот <button data-a="r-">⟲</button><button data-a="r+">⟳</button></span>'
+    +'<span>кружки <button class="eadd" type="button">＋ добавить</button><button class="edel" type="button">− удалить</button></span>'
     +'<span>точка нити <button data-a="p+">+ точка</button><button data-a="p-">− точка</button><button data-a="p0">убрать изгиб</button></span>'
     +'<span>все бирки <button data-a="L-">меньше</button><button data-a="L+">больше</button></span>'
     +'<span>вся нить <button data-a="t-">тоньше</button><button data-a="t+">толще</button></span><span><button data-a="up">выше ↑</button><button data-a="x0">сбросить элемент</button></span><button class="em" type="button">✋ листать</button><button class="eg" type="button">сетка 8 px ✓</button><button class="ec" type="button">Скопировать</button><button class="er" type="button">Сбросить всё</button>';document.body.appendChild(panel);
@@ -1533,7 +1535,7 @@ if(EDITING()){
     ENDS.forEach((p,j)=>{const key=j?'end':'start',home=()=>j?BOW:EYE,d=dot(p[0],p[1],'#C9A24B',j?'конец нити (к банту)':'начало нити (из люверса)',22);
       d.addEventListener('pointerdown',e=>drag(e,ev=>{const h=home();if(h&&Math.hypot(ev.pageX-h[0],ev.pageY-h[1])<28)delete R()[key];else R()[key]=toSec(g(ev.pageX),g(ev.pageY));redraw()}))});
     KN.forEach((p,j)=>{const d=dot(p[0],p[1],mine?'#7C8463':'#9AA083','точка нити',20);
-      d.addEventListener('pointerdown',e=>{if(e.altKey){e.preventDefault();ownPath().splice(j,1);selPt=-1;redraw();return}
+      d.addEventListener('pointerdown',e=>{if(e.altKey||MODE==='del'){e.preventDefault();e.stopPropagation();ownPath().splice(j,1);selPt=-1;redraw();return}
         if(e.shiftKey){e.preventDefault();const q=ownPath()[j];q.length=3;selPt=j;redraw();return}
         selPt=j;redraw();drag(e,ev=>{const q=ownPath()[j],t=q.slice(3);ownPath()[j]=toSec(g(ev.pageX),g(ev.pageY)).concat(t);redraw()})});
       d.addEventListener('dblclick',e=>{e.preventDefault();const a=KN[j],b=KN[j+1]||a;ownPath().splice(j+1,0,toSec((a[0]+b[0])/2+(b===a?40:0),(a[1]+b[1])/2+(b===a?80:0)));redraw()})});
@@ -1544,7 +1546,7 @@ if(EDITING()){
     for(const k of ['hero-back','hero-front']){const s=SEG[k];if(!s)continue;
       if(k==='hero-back'){const d=dot(s.K[0][0]+s.ox,s.K[0][1]+s.oy,'#C9A24B','начало нити',20);d.addEventListener('pointerdown',e=>drag(e,ev=>{own(k,SEG[k]).p0=[(ev.pageX-SEG[k].ox)/w,(ev.pageY-SEG[k].oy)/w];redraw()}))}
       s.K.slice(1,-1).forEach((p,j)=>{const d=dot(p[0]+s.ox,p[1]+s.oy,s.own?'#7C8463':'#9AA083','точка нити у Даяны',16);
-        d.addEventListener('pointerdown',e=>{if(e.altKey){e.preventDefault();const o=own(k,SEG[k]);o.w.splice(j,1);if(!o.w.length)delete o.w;redraw();return}
+        d.addEventListener('pointerdown',e=>{if(e.altKey||MODE==='del'){e.preventDefault();e.stopPropagation();const o=own(k,SEG[k]);o.w.splice(j,1);if(!o.w.length)delete o.w;redraw();return}
           drag(e,ev=>{const S=SEG[k],o=own(k,S);o.w[j]=[(ev.pageX-S.ox)/w,(ev.pageY-S.oy)/w];redraw()})});
         d.addEventListener('dblclick',e=>{e.preventDefault();const S=SEG[k],o=own(k,S),a=S.K[j+1],b=S.K[j+2];o.w.splice(j+1,0,[(a[0]+b[0])/2/w,(a[1]+b[1])/2/w]);redraw()})})}}
   /* level tags slide along the thread */
@@ -1577,6 +1579,18 @@ if(EDITING()){
       if(a[0]==='s')save(el,{w:(C[k]&&C[k].w||el.offsetWidth/P.offsetWidth*100)*f});
       if(a[0]==='r'){const r=C[k]&&C[k].r!=null?C[k].r:(parseFloat(cs.getPropertyValue(k==='dcard'?'--drot':'--rot'))||(k==='dcard'?-12:0));save(el,{r:r+(a[1]==='+'?1:-1)})}}
     redraw()};
+  /* add / remove mode: tap the thread where a new point should go (main thread or the loop around Dayana's photo) */
+  let MODE=null;const mb={add:panel.querySelector('.eadd'),del:panel.querySelector('.edel')};
+  const setMode=m=>{MODE=MODE===m?null:m;for(const k in mb){const on=MODE===k;mb[k].style.background=on?'#302D29':'';mb[k].style.color=on?'#fff':''}};
+  mb.add.addEventListener('click',()=>setMode('add'));mb.del.addEventListener('click',()=>setMode('del'));
+  const segD=(p,a,b)=>{const dx=b[0]-a[0],dy=b[1]-a[1],L=dx*dx+dy*dy||1,t=Math.max(0,Math.min(1,((p[0]-a[0])*dx+(p[1]-a[1])*dy)/L));return Math.hypot(p[0]-a[0]-t*dx,p[1]-a[1]-t*dy)};
+  document.addEventListener('pointerdown',e=>{if(MODE!=='add'||e.button||inUI(e.target))return;e.preventDefault();e.stopImmediatePropagation();
+    const p=[e.pageX,e.pageY],w=innerWidth;let best={d:1e18};
+    const all=[ENDS[0],...KN,ENDS[1]];for(let i=0;i<all.length-1;i++){const d=segD(p,all[i],all[i+1]);if(d<best.d)best={d,k:'main',j:i}}
+    for(const k of ['hero-back','hero-front']){const S=SEG[k];if(!S)continue;const P=S.K.map(q=>[q[0]+S.ox,q[1]+S.oy]);for(let i=0;i<P.length-1;i++){const d=segD(p,P[i],P[i+1]);if(d<best.d)best={d,k,j:i}}}
+    if(best.k==='main'){ownPath().splice(best.j,0,toSec(g(p[0]),g(p[1])));selPt=best.j}
+    else if(best.k){const S=SEG[best.k],o=own(best.k,S);o.w.splice(best.j,0,[(p[0]-S.ox)/w,(p[1]-S.oy)/w])}
+    redraw()},true);
   panel.addEventListener('click',e=>{const b=e.target.closest('button[data-a]');if(b)act(b.dataset.a,sel)});
   document.addEventListener('pointerdown',e=>{if(e.target.closest&&e.target.closest('.bow')&&!e.target.closest('.btn')){e.preventDefault();select('bow')}},true);
   document.addEventListener('pointerdown',e=>{if(e.target.closest&&e.target.closest('.ec,.er,[data-a]'))return;const el=cardOf(e.target);if(!el||e.button)return;select(el);
