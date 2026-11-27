@@ -912,6 +912,12 @@ html[data-theme=warm] .lvl-t img{filter:saturate(.22) brightness(1.03) drop-shad
 html[data-theme=warm] .pc img.tape,html[data-theme=warm] .rq .tape{filter:saturate(.22) brightness(1.04) drop-shadow(0 1px 1px rgba(40,40,38,.15))}
 html[data-theme=warm] .rq,html[data-theme=warm] .zoom-back,html[data-theme=warm] .tcard .back{background-color:#F3F2EF;background-blend-mode:luminosity}
 html[data-theme=warm] .rq{background:#F3F2EF url(img/kit/back.png) center/cover;background-blend-mode:luminosity}
+
+/* each section's piece of thread fades in softly when the section comes into view */
+.gcord{opacity:0;transition:opacity 1.1s var(--ease)}
+section.cord-on .gcord{opacity:1}
+html[data-edit="1"] .gcord{opacity:1;transition:none}
+@media (prefers-reduced-motion:reduce){.gcord{opacity:1;transition:none}}
 </style>
 </head>
 <body>
@@ -1299,7 +1305,7 @@ function drawThread(th){
   TH0=th;revealTo(REV,true)}
 
 /* ---- the thread draws itself: on opening it runs down from the eyelet, then its tip stays a little ahead of the reader ---- */
-const NOANIM=matchMedia('(prefers-reduced-motion: reduce)').matches||EDITING();
+const NOANIM=true;   /* frame-by-frame reveal stuttered on long pages; the thread is drawn whole and each section's part fades in instead */
 let REV=NOANIM?1e12:0,revRaf=0,revLast=0,TH0=4;
 let HSEG=[],HLEN=0;
 function maskTo(o,pts,cum,L,w){o.lineWidth=w;o.lineCap='round';o.lineJoin='round';o.beginPath();o.moveTo(pts[0][0],pts[0][1]);let k=1;
@@ -1596,6 +1602,10 @@ document.querySelectorAll('.hang[data-back],.pick[data-for]').forEach(el=>el.add
 const RMQ2=matchMedia('(prefers-reduced-motion: reduce)').matches;document.querySelector('.zoom').addEventListener('click',e=>{const b=e.target.closest&&e.target.closest('[data-pick-lang]');if(!b)return;e.stopPropagation();const lang=b.dataset.pickLang;closeZoom();
   const r=document.querySelector('#aform input[name=lang][value='+lang+']');if(r)r.checked=true;
   setTimeout(()=>{const f=document.getElementById('aform');f.scrollIntoView({behavior:RMQ2?'auto':'smooth',block:'center'});setTimeout(()=>f.name&&f.name.focus({preventScroll:true}),600)},RMQ2?0:540)},true);
+
+/* show each section's thread when the section is on screen (once) */
+(()=>{const ss=document.querySelectorAll('main section');if(!('IntersectionObserver' in window)){ss.forEach(x=>x.classList.add('cord-on'));return}
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('cord-on');io.unobserve(e.target)}}),{rootMargin:'0px 0px -15% 0px'});ss.forEach(x=>io.observe(x))})();
 </script>
 </body>
 </html>
