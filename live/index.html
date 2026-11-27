@@ -945,6 +945,18 @@ html[data-edit="1"] .ep .em.on{background:#302D29;color:#fff;border-color:#302D2
   text-shadow:0 .012em .006em var(--hi),0 -.008em .01em rgba(60,52,44,.16)}
 /* «Проведём за ниточку…» back to gold in every version (the cooled theme had turned it khaki-green) */
 html #hero .sub{color:#9E7C45}
+/* gold foil: warm metallic gradient with a fine grain, a slow glint passes over it */
+@supports ((-webkit-background-clip:text) or (background-clip:text)){
+  html #hero .sub{color:transparent;-webkit-background-clip:text;background-clip:text;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.1' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .3 0 0 0 0 .22 0 0 0 0 .1 0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"),linear-gradient(100deg,#86662F 0%,#B8914E 18%,#E9D29A 30%,#C29A55 40%,#8C6B33 55%,#B48C4A 70%,#E2C68A 82%,#9E7C45 100%);
+    background-size:160px 160px,220% 100%;background-position:0 0,0% 0;filter:drop-shadow(0 1px 0 rgba(255,255,255,.55));animation:foil 9s ease-in-out infinite alternate}
+}
+@keyframes foil{to{background-position:0 0,100% 0}}
+@media (prefers-reduced-motion:reduce){html #hero .sub{animation:none}}
+/* paper: the background gets a visible tooth (fine grain) and soft cotton mottling, like the cards */
+.top::before{opacity:.9;background-image:
+  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .42 0 0 0 0 .37 0 0 0 0 .33 0 0 0 .38 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"),
+  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='600'%3E%3Cfilter id='m'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.012 .02' numOctaves='4' seed='7' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .5 0 0 0 0 .45 0 0 0 0 .4 0 0 0 .4 -.06'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23m)'/%3E%3C/svg%3E")}
 @media (max-width:767px){.bigmark-foot{font-size:14.4vw;margin-top:24px;line-height:1}.final{padding-bottom:24px!important}}
 </style>
 </head>
