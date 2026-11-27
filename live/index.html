@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ru" data-lang="ru">
+<html data-theme="warm" lang="ru" data-lang="ru" data-btn="d">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Английский и немецкий онлайн | Green Languages</title>
+<title>Тёплая версия · Green Languages</title>
 <meta name="description" content="Онлайн-школа Даяны: английский и немецкий в Zoom с нуля до C1. Для учёбы, работы и жизни в Европе. Первое занятие бесплатно.">
 <meta name="theme-color" content="#E6D8CF">
 <link rel="icon" href="img/logo-g.svg" type="image/svg+xml">
@@ -155,7 +155,7 @@ h1{font-family:var(--serif);font-weight:400;font-size:42px;line-height:1.04;lett
 .dcard .play:hover{transform:scale(1.05)}
 .da{position:absolute;width:2px;height:2px;margin:-1px 0 0 -1px}.da-r{left:100%;top:40%}.da-b{left:30%;top:100%}
 .dcard{z-index:1}
-.hcord{position:absolute;left:0;top:0;width:100%;height:100%;pointer-events:none;z-index:0}
+.hcord{position:absolute;left:-240px;top:-240px;width:calc(100% + 480px);height:calc(100% + 480px);pointer-events:none;z-index:0}
 .hfront{z-index:2}
 .deye{position:absolute;left:87%;top:89.5%;width:7.5%;aspect-ratio:1;transform:translate(-50%,-50%)}
 /* phone: Dayana's card first, the thread comes in from the top, text below */
@@ -548,7 +548,12 @@ h1{line-height:calc(1em + 4px)}
 .rq-by b{font-family:var(--script);font-weight:400;font-size:24px;line-height:1;color:var(--olive)}
 .rq-by i{font-style:normal;font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2)}
 .rq-see{align-self:flex-end;margin-top:12px;font-size:12px;line-height:16px;color:var(--ink-2);border-bottom:1px solid currentColor}
-.rq-more{margin-top:8px}
+.rq-more{margin-top:8px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.rq-nav{display:none;gap:8px}
+.rq-nav button{width:48px;height:48px;border-radius:50%;border:1px solid var(--line,rgba(48,45,41,.25));background:transparent;color:var(--ink);display:grid;place-items:center;cursor:pointer;transition:background .2s,opacity .2s}
+.rq-nav button:hover{background:rgba(48,45,41,.06)}.rq-nav button:disabled{opacity:.3;cursor:default}
+.rq-nav svg{width:18px;height:18px}
+@media (min-width:768px){.rq-nav{display:flex}}
 .rq-src{position:absolute;inset:0;opacity:0;pointer-events:none;margin:0}
 .rq-src .shot{width:100%;height:100%;object-fit:contain}
 .btn-ghost{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1px var(--taupe)}
@@ -564,14 +569,340 @@ h1{line-height:calc(1em + 4px)}
 .gl .shot{display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover}
 @media (min-width:768px){.reviews{padding:80px 0}.reviews h2{font-size:48px}}
 @media (min-width:1024px){.reviews{padding:96px 0}.reviews h2{font-size:60px}
-  .rq-grid{grid-auto-flow:row;grid-template-columns:repeat(4,1fr);grid-auto-columns:auto;overflow:visible;max-width:var(--wrap);margin:16px auto 0;padding:40px var(--pad) 24px;gap:40px 28px}
-  .rq:nth-child(4n+2),.rq:nth-child(4n){margin-top:24px}}
+  .rq-grid{grid-auto-columns:320px;gap:32px;margin-top:16px;padding:40px 0 32px;padding-inline:max(var(--pad),calc((100% - var(--wrap)) / 2 + var(--pad)));scroll-padding-inline:max(var(--pad),calc((100% - var(--wrap)) / 2 + var(--pad)))}}
 .rv-print{cursor:zoom-in}
-.zoom.shot .zoom-card{width:min(520px,88vw,calc((100svh - 120px) * .8))}
+.zoom.shot .zoom-card{width:min(520px,88vw,calc((100svh - 120px) * .8));opacity:0;transition:transform .45s var(--ease),opacity .3s ease}
+.zoom.shot.on .zoom-card{opacity:1}
 .zoom.shot .zoom-front .shot{display:block;width:100%;height:auto;border:10px solid #FBF9F6;box-shadow:0 30px 40px rgba(20,12,20,.35)}
 .zoom.shot .zoom-hint{display:none}
 .lvl{opacity:0;transition:opacity .6s var(--ease)}.lvl.shown{opacity:1}
 @media (prefers-reduced-motion:reduce){.lvl{opacity:1}}
+
+/* ---- teachers and students: one even row that scrolls sideways, like the reviews ---- */
+#team,#results{--cw:min(68vw,260px);--rowpad:var(--pad)}
+@media (min-width:1024px){#team,#results{--cw:280px;--rowpad:max(var(--pad),calc((100% - var(--wrap)) / 2 + var(--pad)))}}
+#results .rwrap{max-width:none!important;width:auto!important;margin:0 calc(50% - 50vw)!important}
+#tscroll,#rline{display:flex!important;align-items:flex-start;gap:32px;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scrollbar-width:none;
+  width:auto!important;max-width:none!important;aspect-ratio:auto!important;margin:var(--s6) 0 0!important;padding:40px var(--rowpad) 72px;scroll-padding-inline:var(--rowpad)}
+#tscroll::-webkit-scrollbar,#rline::-webkit-scrollbar{display:none}
+#tline{display:contents}
+#tline>.cordimg,#tline>.snap,#rline>.cordimg,#tline>.cordcv,#rline>.cordcv{display:none!important}
+#tline .tcard,#rline .rcard{position:relative!important;left:auto!important;top:auto!important;width:var(--cw)!important;flex:0 0 var(--cw);scroll-snap-align:start;animation:none!important}
+#tline .tcard:nth-of-type(odd),#rline .rcard:nth-of-type(odd){--rot:-1.2deg}
+#tline .tcard:nth-of-type(even),#rline .rcard:nth-of-type(even){--rot:1deg}
+#rline .rcard{margin-bottom:56px}
+.row-foot{display:flex;align-items:center;justify-content:space-between;gap:24px}
+.row-foot .more{margin:0}
+#results .row-foot{justify-content:flex-end;margin-top:-16px}
+
+/* ---- soft relief: raised and pressed surfaces, in the brand palette (sage, milk, cashmere, taupe, chocolate) ---- */
+:root{--sf:#EDE8E1;--sf-hi:#F6F2EC;--hi:rgba(255,255,255,.9);--lo:rgba(136,122,106,.34);
+  --raise:-8px -8px 20px var(--hi),10px 12px 28px var(--lo);
+  --raise-sm:-4px -4px 10px var(--hi),5px 6px 14px var(--lo);
+  --press:inset 3px 3px 7px var(--lo),inset -3px -3px 7px var(--hi);
+  --sage-grad:linear-gradient(90deg,#8C9887,#707D6C 55%,#5A6656)}
+/* buttons: chocolate relief for the main action, milk relief for the rest; a press sinks them */
+.btn{background:linear-gradient(135deg,#46413B,#302D29 60%,#24211E);box-shadow:-4px -4px 12px var(--hi),8px 10px 22px rgba(48,45,41,.38),inset 0 1px 0 rgba(255,255,255,.14)}
+.btn:hover{background:linear-gradient(135deg,#524B44,#3A3631 60%,#2A2723);box-shadow:-5px -5px 14px var(--hi),10px 14px 28px rgba(48,45,41,.42),inset 0 1px 0 rgba(255,255,255,.16)}
+.btn:active{transform:translateY(1px);box-shadow:inset 3px 3px 8px rgba(0,0,0,.45),inset -2px -2px 6px rgba(255,255,255,.08)}
+.btn-ghost{background:var(--sf);color:var(--ink);box-shadow:var(--raise-sm)}
+.btn-ghost:hover{background:var(--sf-hi);color:var(--ink);box-shadow:-6px -6px 14px var(--hi),8px 10px 20px var(--lo)}
+.btn-ghost:active{background:var(--sf);box-shadow:var(--press)}
+/* header: the nav and the language switch sit in pressed tracks, the active choice is raised */
+.pill{background:var(--sf);border:0;box-shadow:var(--raise-sm);-webkit-backdrop-filter:none;backdrop-filter:none}
+.pill a.lnk{border-radius:9999px;transition:color .3s var(--ease),box-shadow .3s var(--ease)}
+.pill a.lnk:hover{color:var(--olive-dark);box-shadow:var(--press)}
+.lang,.ltoggle{background:var(--sf);border:0;box-shadow:var(--press)}
+.lang button[aria-pressed=true],.ltoggle button[aria-pressed=true]{background:var(--sf-hi);color:var(--olive-dark);box-shadow:-3px -3px 8px var(--hi),4px 5px 10px var(--lo)}
+/* section labels become raised pills with a sage dot */
+.eyebrow{display:inline-flex;align-items:center;gap:10px;padding:10px 20px 10px 16px;border-radius:9999px;background:var(--sf);box-shadow:var(--raise-sm);color:var(--ink-2)}
+.eyebrow::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--olive);box-shadow:0 0 0 3px rgba(112,125,108,.18)}
+.eyebrow::after{display:none}
+.eyebrow{width:max-content;max-width:100%}
+/* language picks: raised cards with a sage strip on top */
+.pick{position:relative;overflow:hidden;border:0;border-radius:24px;background:var(--sf);box-shadow:var(--raise);-webkit-backdrop-filter:none;backdrop-filter:none;padding:var(--s5)}
+.pick::before{content:"";position:absolute;left:0;right:0;top:0;height:4px;background:var(--sage-grad)}
+.pick:hover,.pick.hot{background:var(--sf-hi);transform:translateY(-2px);box-shadow:-10px -10px 24px var(--hi),12px 16px 32px var(--lo)}
+.pick:active{box-shadow:var(--press);transform:none}
+.pick b svg{color:var(--olive)}
+/* FAQ: each question is a raised card; open, its arrow sinks into a pressed circle */
+.qa{border-top:0;display:grid;gap:var(--s4)}
+.qa details{border:0;border-radius:24px;background:var(--sf);box-shadow:var(--raise);padding:0 var(--s5)}
+.qa summary{padding:var(--s5) 0}
+.qa summary i{width:40px;height:40px;border:0;background:var(--sf);box-shadow:var(--raise-sm)}
+.qa summary i::before{border-color:var(--olive)}
+.qa details[open] summary i{background:var(--sf);box-shadow:var(--press)}
+.qa details[open]{background:var(--sf-hi)}
+/* round controls: arrows, close, play, contacts */
+.rq-nav button,.zoom-x,.gallery-x{border:0;background:var(--sf);color:var(--ink);box-shadow:var(--raise-sm)}
+.rq-nav button:hover{background:var(--sf-hi)}
+.rq-nav button:active{box-shadow:var(--press)}
+.rq-nav button:disabled{opacity:.45;box-shadow:var(--press)}
+.contacts a{border:0;background:var(--sf);box-shadow:var(--raise-sm)}
+.contacts a svg{color:var(--olive)}
+.contacts a:hover{background:var(--sf-hi)}
+.contacts a:active{box-shadow:var(--press)}
+.play{background:var(--sf);-webkit-backdrop-filter:none;backdrop-filter:none;box-shadow:var(--raise-sm)}
+
+/* prices: one raised card with a sage strip; each price sits in a pressed well */
+.pbox{background:var(--sf);border-radius:28px;overflow:hidden;transform:none;box-shadow:var(--raise)}
+.pbox::before{content:"";position:absolute;left:0;right:0;top:0;height:4px;background:var(--sage-grad);z-index:1}
+.pbox .tape{display:none}
+.pitem{padding:48px 20px 36px;transition:background-color .3s var(--ease)}
+.pitem+.pitem{border-left:0;box-shadow:inset 1px 0 0 rgba(136,122,106,.2),inset 2px 0 0 rgba(255,255,255,.75)}
+.pitem:hover{background:var(--sf-hi)}
+.pitem .sum{display:inline-block;margin-top:24px;padding:14px 22px;border-radius:9999px;box-shadow:var(--press);color:var(--olive-dark)}
+@media (max-width:1023px){.pbox-wrap{padding:24px var(--pad,16px) 48px}}
+
+/* ---- eucalyptus sprigs (transparent PNGs, shadows kept) ---- */
+.deco{display:none!important;position:absolute;z-index:0;pointer-events:none;user-select:none;height:auto;max-width:none}
+.euc-c{right:0;top:-24px;width:min(520px,52vw)}
+/* the crop cuts through the soft shadow: fade the cut edges so no rectangle shows */
+.euc-c{-webkit-mask-image:linear-gradient(to right,transparent,#000 30%),linear-gradient(to bottom,transparent,#000 22%,#000 72%,transparent);-webkit-mask-composite:source-in;mask-image:linear-gradient(to right,transparent,#000 30%),linear-gradient(to bottom,transparent,#000 22%,#000 72%,transparent);mask-composite:intersect}
+.euc-b{-webkit-mask-image:linear-gradient(to right,transparent,#000 12%,#000 88%,transparent),linear-gradient(to top,transparent,#000 14%,#000 86%,transparent);-webkit-mask-composite:source-in;mask-image:linear-gradient(to right,transparent,#000 12%,#000 88%,transparent),linear-gradient(to top,transparent,#000 14%,#000 86%,transparent);mask-composite:intersect}
+.euc-b{right:-40px;top:24px;width:min(560px,46vw);transform:rotate(-6deg)}
+.faq .wrap,.prices .wrap{position:relative;z-index:1}
+@media (max-width:767px){.euc-c{width:56vw;top:-8px}.euc-b{display:none}}
+/* ---- main button, A «шоколад»: a chocolate pill set in a milk rim ---- */
+.btn:not(.btn-ghost){font-family:var(--serif);font-weight:400;letter-spacing:.01em;color:#F3EEE6;
+  background:linear-gradient(180deg,#4B453F 0%,#3A3530 55%,#2E2A26 100%);
+  box-shadow:0 0 0 5px #F4F0EA,0 0 0 6px rgba(136,122,106,.28),-6px -6px 16px var(--hi),9px 12px 26px rgba(98,86,74,.38),inset 0 2px 2px rgba(255,255,255,.14),inset 0 -4px 8px rgba(0,0,0,.35)}
+.btn:not(.btn-ghost):hover{background:linear-gradient(180deg,#575049 0%,#433D37 55%,#35302B 100%);transform:translateY(-1px)}
+.btn:not(.btn-ghost):active{transform:translateY(1px);box-shadow:0 0 0 5px #F4F0EA,0 0 0 6px rgba(136,122,106,.28),-3px -3px 8px var(--hi),4px 5px 12px rgba(98,86,74,.3),inset 0 3px 8px rgba(0,0,0,.5)}
+.btn-lg:not(.btn-ghost){font-size:20px}
+.btn:not(.btn-ghost) svg{box-sizing:content-box;padding-left:16px;margin-left:8px;border-left:1px solid rgba(243,238,230,.22)}
+/* ---- main button, B «молочная»: a milk tray with a raised rim and engraved letters ---- */
+html[data-btn=b] .btn:not(.btn-ghost){color:#5E554C;background:linear-gradient(180deg,#EAE4DC,#EFEAE3);
+  box-shadow:0 0 0 6px #F3EEE8,0 0 0 7px rgba(136,122,106,.22),-7px -7px 16px var(--hi),9px 12px 24px var(--lo),inset 4px 4px 9px rgba(136,122,106,.32),inset -4px -4px 9px rgba(255,255,255,.85);
+  text-shadow:0 1px 0 rgba(255,255,255,.85),0 -1px 0 rgba(48,45,41,.18)}
+html[data-btn=b] .btn:not(.btn-ghost):hover{background:linear-gradient(180deg,#ECE6DF,#F2EDE7);color:#4A433C}
+html[data-btn=b] .btn:not(.btn-ghost):active{box-shadow:0 0 0 6px #F3EEE8,0 0 0 7px rgba(136,122,106,.22),-3px -3px 8px var(--hi),4px 5px 12px var(--lo),inset 6px 6px 12px rgba(136,122,106,.42),inset -3px -3px 7px rgba(255,255,255,.8)}
+html[data-btn=b] .btn:not(.btn-ghost) svg{border-left-color:rgba(94,85,76,.22)}
+/* the comparison switch itself (temporary) */
+.btnpick{position:fixed;left:16px;bottom:16px;z-index:40;display:flex;align-items:center;gap:4px;padding:4px 4px 4px 14px;border-radius:9999px;background:var(--sf);box-shadow:var(--raise-sm);font-size:12px;line-height:16px;color:var(--ink-2)}
+.btnpick span{margin-right:4px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;font-size:11px}
+.btnpick button{border:0;padding:8px 12px;border-radius:9999px;background:transparent;color:var(--ink-2);font:inherit;cursor:pointer}
+.btnpick button[aria-pressed=true]{background:var(--sf-hi);color:var(--olive-dark);box-shadow:-3px -3px 8px var(--hi),4px 5px 10px var(--lo)}
+@media (max-width:767px){.btnpick{bottom:calc(96px + env(safe-area-inset-bottom))}
+  .btn-lg:not(.btn-ghost){font-size:17px;padding:16px 24px;white-space:nowrap}.btn:not(.btn-ghost) svg{padding-left:12px;margin-left:4px}}
+html[data-edit="1"] .btnpick{bottom:auto;top:16px;left:16px}
+
+/* ---- main button, C «шоколад-лоток»: the milk tray's shape in chocolate — raised rim, sunken tray, engraved letters ---- */
+html[data-btn=c] .btn:not(.btn-ghost){color:#EDE6DC;background:linear-gradient(180deg,#2C2925,#36322D);
+  box-shadow:0 0 0 6px #4A443E,0 0 0 7px rgba(30,27,24,.55),0 -1px 0 6px rgba(255,255,255,.10),-7px -7px 16px var(--hi),10px 13px 26px rgba(70,60,50,.45),inset 4px 4px 10px rgba(0,0,0,.55),inset -3px -3px 8px rgba(255,255,255,.07);
+  text-shadow:0 -1px 0 rgba(0,0,0,.6),0 1px 0 rgba(255,255,255,.10)}
+html[data-btn=c] .btn:not(.btn-ghost):hover{background:linear-gradient(180deg,#322E2A,#3D3832);color:#F6F1EA}
+html[data-btn=c] .btn:not(.btn-ghost):active{box-shadow:0 0 0 6px #4A443E,0 0 0 7px rgba(30,27,24,.55),-3px -3px 8px var(--hi),5px 6px 14px rgba(70,60,50,.4),inset 6px 6px 14px rgba(0,0,0,.65),inset -2px -2px 6px rgba(255,255,255,.06)}
+html[data-btn=c] .btn:not(.btn-ghost) svg{border-left-color:rgba(237,230,220,.2)}
+
+/* header: «Записаться» is a pressed well at the end of the raised nav pill (same in every button variant) */
+html .pill .btn.btn-sm,html[data-btn] .pill .btn.btn-sm{font-family:var(--serif);font-size:17px;color:var(--ink);text-shadow:0 1px 0 rgba(255,255,255,.8);
+  background:linear-gradient(180deg,#E6E0D8,#ECE7E0);box-shadow:inset 3px 3px 7px rgba(136,122,106,.38),inset -3px -3px 7px rgba(255,255,255,.9);padding:12px 18px 12px 22px}
+html .pill .btn.btn-sm:hover,html[data-btn] .pill .btn.btn-sm:hover{background:linear-gradient(180deg,#E3DDD4,#EAE4DC);color:var(--olive-dark);transform:none}
+html .pill .btn.btn-sm:active,html[data-btn] .pill .btn.btn-sm:active{box-shadow:inset 5px 5px 10px rgba(136,122,106,.45),inset -2px -2px 6px rgba(255,255,255,.85);transform:none}
+html .pill .btn.btn-sm svg,html[data-btn] .pill .btn.btn-sm svg{border-left-color:rgba(48,45,41,.16);color:var(--ink)}
+
+/* ---- the video: a small round seal pressed into the polaroid's bottom margin, opposite the eyelet ---- */
+.vseal{position:absolute;left:14%;top:90%;z-index:3;transform:translate(-50%,-50%);display:flex;flex-direction:column;align-items:center;gap:1cqw;padding:0;border:0;background:none;cursor:pointer;pointer-events:auto;-webkit-tap-highlight-color:transparent;animation:fade 1s 1.1s var(--ease) both}
+.vseal i{width:7.6cqw;height:7.6cqw;min-width:34px;min-height:34px;border-radius:50%;display:grid;place-items:center;color:var(--olive-dark);
+  background:radial-gradient(circle at 35% 30%,#EAE4DB,#F3EFE8 70%);
+  box-shadow:inset 2px 2px 4px rgba(120,106,92,.42),inset -2px -2px 4px rgba(255,255,255,.95),0 0 0 1px rgba(120,106,92,.10);transition:box-shadow .3s var(--ease),color .3s var(--ease)}
+.vseal i svg{width:34%;height:34%;margin-left:8%;filter:drop-shadow(0 1px 0 rgba(255,255,255,.8))}
+.vseal small{font-family:var(--sans);font-size:max(1.75cqw,9px);line-height:1;font-weight:600;letter-spacing:.2em;color:var(--ink-2);text-shadow:0 1px 0 rgba(255,255,255,.8)}
+.vseal:hover i,.vseal:focus-visible i{color:var(--ink);box-shadow:inset 3px 3px 6px rgba(120,106,92,.5),inset -2px -2px 4px rgba(255,255,255,.95),0 0 0 1px rgba(120,106,92,.14)}
+.vseal:active i{box-shadow:inset 4px 4px 8px rgba(120,106,92,.6),inset -1px -1px 3px rgba(255,255,255,.9)}
+
+/* ---- raised boxes as soft pillows: light falls from the top left, the face swells, no white glow, no strip ---- */
+:root{--hi:rgba(255,255,255,.55);
+  --dome:radial-gradient(130% 150% at 18% 0%,#F8F5F0 0%,#EFEAE3 45%,#E4DDD3 100%);
+  --pillow:inset 1.5px 1.5px 0 rgba(255,255,255,.85),inset -3px -4px 10px rgba(120,106,92,.16),inset 6px 8px 18px rgba(255,255,255,.35),
+           -3px -3px 8px rgba(255,255,255,.45),3px 4px 6px rgba(120,106,92,.16),14px 20px 36px -6px rgba(120,106,92,.32)}
+.pick::before,.pbox::before{display:none}
+.pick,.pbox,.qa details{background:var(--dome);box-shadow:var(--pillow)}
+.pick:hover,.pick.hot{background:var(--dome);transform:translateY(-3px);
+  box-shadow:inset 1.5px 1.5px 0 rgba(255,255,255,.9),inset -3px -4px 10px rgba(120,106,92,.14),inset 6px 8px 18px rgba(255,255,255,.4),-3px -3px 8px rgba(255,255,255,.45),4px 6px 8px rgba(120,106,92,.16),18px 28px 44px -6px rgba(120,106,92,.36)}
+.pick:active{transform:translateY(0);box-shadow:inset 3px 4px 10px rgba(120,106,92,.3),inset -3px -3px 8px rgba(255,255,255,.7)}
+.qa details[open]{background:radial-gradient(130% 150% at 18% 0%,#FAF7F3 0%,#F1ECE6 45%,#E7E0D7 100%)}
+.pitem:hover{background:rgba(255,255,255,.25)}
+
+/* ---- main button, D «шалфей-лоток»: the same tray in the logo's sage (#707D6C) ---- */
+html[data-btn=d] .btn:not(.btn-ghost){color:#F4F1EA;background:linear-gradient(180deg,#5F6B5B,#6B7867);
+  box-shadow:0 0 0 6px #8A9685,0 0 0 7px rgba(70,80,66,.45),0 -1px 0 6px rgba(255,255,255,.18),-7px -7px 16px var(--hi),10px 13px 26px rgba(80,90,74,.38),inset 4px 4px 10px rgba(40,48,38,.45),inset -3px -3px 8px rgba(255,255,255,.12);
+  text-shadow:0 -1px 0 rgba(40,48,38,.5),0 1px 0 rgba(255,255,255,.14)}
+html[data-btn=d] .btn:not(.btn-ghost):hover{background:linear-gradient(180deg,#65725F,#72806E);color:#FBF9F6}
+html[data-btn=d] .btn:not(.btn-ghost):active{box-shadow:0 0 0 6px #8A9685,0 0 0 7px rgba(70,80,66,.45),-3px -3px 8px var(--hi),5px 6px 14px rgba(80,90,74,.34),inset 6px 6px 14px rgba(40,48,38,.55),inset -2px -2px 6px rgba(255,255,255,.1)}
+html[data-btn=d] .btn:not(.btn-ghost) svg{border-left-color:rgba(244,241,234,.25)}
+
+/* the bow is tied ON the button: the knot sits on its face, the loops above, the tails go round behind it */
+.knot .bow{top:-280px}
+/* «Все 76 отзывов»: a proper raised milk pill with room around the words */
+.btn-ghost{font-family:var(--serif);font-weight:400;font-size:18px;line-height:24px;letter-spacing:.01em;padding:14px 28px;min-height:52px;
+  background:var(--dome);box-shadow:inset 1.5px 1.5px 0 rgba(255,255,255,.85),inset -2px -3px 8px rgba(120,106,92,.16),-3px -3px 8px rgba(255,255,255,.45),3px 4px 6px rgba(120,106,92,.16),10px 14px 26px -6px rgba(120,106,92,.3)}
+.btn-ghost:hover{background:var(--dome);transform:translateY(-2px)}
+.btn-ghost:active{transform:none;box-shadow:inset 3px 4px 10px rgba(120,106,92,.3),inset -3px -3px 8px rgba(255,255,255,.7)}
+
+/* main buttons wear a 7px rim outside their box: keep that rim clear of the lines above and below */
+.btn-lg:not(.btn-ghost){margin-block:8px}
+#book-top+.note{margin-top:16px}
+.lvl-p{transform-origin:50% 8.6px}
+
+/* ---- application form: a raised card with pressed fields, same relief as the rest ---- */
+.apply{position:relative;z-index:3;padding:var(--s9) 0 var(--s10)}
+.apply h2{font-family:var(--serif);font-weight:400;font-size:36px;line-height:1.08;letter-spacing:-.01em;margin:var(--s5) 0 0;color:var(--ink)}
+.apply .sub{margin:var(--s4) 0 0;max-width:560px;color:var(--ink-2);font-size:17px;line-height:26px}
+.aform{margin-top:var(--s6);max-width:880px;display:grid;grid-template-columns:1fr;gap:var(--s5);padding:var(--s6) var(--s5);border-radius:28px;background:var(--dome);box-shadow:var(--pillow)}
+.af{display:flex;flex-direction:column;gap:var(--s2);min-width:0}
+.af-l{font-size:12px;line-height:16px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2)}
+.aform input[type=text],.aform select,.aform textarea{width:100%;font:inherit;font-size:16px;line-height:24px;color:var(--ink);border:0;border-radius:16px;padding:14px 18px;min-height:52px;
+  background:var(--sf);box-shadow:inset 3px 3px 7px rgba(120,106,92,.32),inset -3px -3px 7px rgba(255,255,255,.9);outline:none;transition:box-shadow .25s var(--ease);-webkit-appearance:none;appearance:none}
+.aform textarea{resize:vertical;min-height:112px}
+.aform select{padding-right:44px;cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 6l4 4 4-4' fill='none' stroke='%235A6656' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center;background-size:16px}
+.aform input:focus,.aform select:focus,.aform textarea:focus{box-shadow:inset 3px 3px 7px rgba(120,106,92,.32),inset -3px -3px 7px rgba(255,255,255,.9),0 0 0 2px rgba(112,125,108,.45)}
+.aform .bad{box-shadow:inset 3px 3px 7px rgba(120,106,92,.32),inset -3px -3px 7px rgba(255,255,255,.9),0 0 0 2px rgba(168,90,70,.55)!important}
+.seg{display:flex;padding:4px;border-radius:9999px;background:var(--sf);box-shadow:var(--press);width:max-content;max-width:100%}
+.seg label{position:relative;cursor:pointer}
+.seg input{position:absolute;opacity:0;pointer-events:none}
+.seg label>span{display:block;padding:12px 20px;border-radius:9999px;font-size:15px;line-height:20px;font-weight:600;color:var(--ink-2);transition:background-color .3s var(--ease),color .3s var(--ease),box-shadow .3s var(--ease)}
+.seg input:checked+span{background:var(--sf-hi);color:var(--olive-dark);box-shadow:-3px -3px 8px var(--hi),4px 5px 10px var(--lo)}
+.seg input:focus-visible+span{outline:2px solid var(--olive);outline-offset:2px}
+.af-msg{margin:0;min-height:20px;font-size:14px;line-height:20px;color:var(--olive-dark)}
+.af-msg:empty{display:none}
+.af-send{display:flex;flex-wrap:wrap;align-items:center;gap:var(--s5)}
+@media (min-width:768px){.apply h2{font-size:48px}.aform{grid-template-columns:1fr 1fr;padding:var(--s7) var(--s7)}.af-wide,.af-msg{grid-column:1/-1}}
+@media (min-width:1024px){.apply h2{font-size:60px}}
+@media (max-width:767px){.af-send .btn{width:100%}}
+
+/* ---- main button, E «тауп-лоток»: the tray in the palette's dark beige #B2A79B, chocolate letters (contrast ~6:1) ---- */
+html[data-btn=e] .btn:not(.btn-ghost){color:#302D29;background:linear-gradient(180deg,#A69A8D,#B2A79B);
+  box-shadow:0 0 0 6px #C9C0B5,0 0 0 7px rgba(110,98,86,.4),0 -1px 0 6px rgba(255,255,255,.35),-7px -7px 16px var(--hi),10px 13px 26px rgba(110,98,86,.36),inset 4px 4px 10px rgba(90,78,66,.42),inset -3px -3px 8px rgba(255,255,255,.22);
+  text-shadow:0 1px 0 rgba(255,255,255,.35),0 -1px 0 rgba(48,45,41,.12)}
+html[data-btn=e] .btn:not(.btn-ghost):hover{background:linear-gradient(180deg,#ACA093,#B9AEA2);color:#24211E}
+html[data-btn=e] .btn:not(.btn-ghost):active{box-shadow:0 0 0 6px #C9C0B5,0 0 0 7px rgba(110,98,86,.4),-3px -3px 8px var(--hi),5px 6px 14px rgba(110,98,86,.32),inset 6px 6px 14px rgba(90,78,66,.52),inset -2px -2px 6px rgba(255,255,255,.2)}
+html[data-btn=e] .btn:not(.btn-ghost) svg{border-left-color:rgba(48,45,41,.22)}
+
+/* ---- the form lives inside «Возьмитесь за ниточку»: fields on the left, the bow button on the right sends it ---- */
+.final .aform{text-align:left;margin-top:var(--s6);max-width:none;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));padding:var(--s6) var(--s5)}
+.final .aform .af-wide,.final .aform .af-msg{grid-column:1/-1}
+.final .contacts{margin-top:var(--s5)}
+.af-alt{margin:0;font-size:14px;line-height:20px;color:var(--ink-2)}
+.af-tg{border:0;background:none;padding:0;font:inherit;font-weight:600;color:var(--olive-dark);border-bottom:1px solid currentColor;cursor:pointer}
+.af-tg:hover{color:var(--ink)}
+button.btn{border:0;cursor:pointer;font-family:var(--serif)}
+@media (min-width:1024px){.final .wrap{grid-template-columns:minmax(0,1fr) auto}.final .knot{grid-row:1 / span 5;margin:0 var(--s8) 112px 0}.final .aform{padding:var(--s7)}}
+@media (max-width:1023px){.final .aform{width:100%}.final .knot{margin-top:176px;margin-bottom:96px}}
+
+/* ---- FAQ: the heading stays on the left while the questions scroll by on the right, all in one raised card ---- */
+.faq-ask{margin:var(--s4) 0 var(--s5);max-width:420px;color:var(--ink-2);font-size:16px;line-height:24px}
+.qa{display:block;max-width:none;margin-top:var(--s6);padding:var(--s2) var(--s5);border-radius:28px;background:var(--dome);box-shadow:var(--pillow)}
+.qa details,.qa details[open]{border:0;border-radius:0;background:none!important;box-shadow:none!important;padding:0}
+.qa details+details{box-shadow:inset 0 1px 0 rgba(120,106,92,.18),inset 0 2px 0 rgba(255,255,255,.7)!important}
+.qa summary{padding:var(--s5) 0}
+.qa details p{margin:0 0 var(--s5);padding:var(--s4) var(--s5);border-radius:16px;background:var(--sf);box-shadow:inset 3px 3px 7px rgba(120,106,92,.26),inset -3px -3px 7px rgba(255,255,255,.85);max-width:none}
+@media (min-width:768px){.qa{padding:var(--s2) var(--s7)}}
+@media (min-width:1024px){
+  .faq .wrap{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);column-gap:var(--s8);align-items:start}
+  .faq-head{position:sticky;top:var(--s9)}
+  .qa{margin-top:0}}
+/* shadows never get clipped by the sideways rows: room under and around the cards, taken back with negative margins */
+.rq-grid{padding-bottom:64px;margin-bottom:-32px}
+#tscroll,#rline{padding-top:48px;padding-bottom:88px}
+
+/* ==== warm theme (moodboard): ivory base, sand surfaces, matte gold details; sage only for the main button, logo and thread ==== */
+html[data-theme=warm]{--ivory:#F4EEE4;--sand:#DCCBAE;--sand-2:#E9DECB;--gold:#B8955A;--gold-d:#9A7A45;
+  --peach:#F4EEE4;--peach-light:#F4EEE4;--paper:#FBF7F0;--line:rgba(120,92,52,.16);
+  --sf:#F2EBDF;--sf-hi:#FAF5EC;--hi:rgba(255,253,248,.7);--lo:rgba(150,118,74,.3);
+  --raise:-8px -8px 20px var(--hi),10px 12px 28px var(--lo);--raise-sm:-4px -4px 10px var(--hi),5px 6px 14px var(--lo);
+  --press:inset 3px 3px 7px rgba(150,118,74,.3),inset -3px -3px 7px rgba(255,253,248,.9);
+  --dome:radial-gradient(130% 150% at 18% 0%,#FCF8F1 0%,#F3ECE0 45%,#E8DDCB 100%);
+  --pillow:inset 1.5px 1.5px 0 rgba(255,253,248,.9),inset -3px -4px 10px rgba(150,118,74,.16),inset 6px 8px 18px rgba(255,253,248,.35),-3px -3px 8px rgba(255,253,248,.5),3px 4px 6px rgba(150,118,74,.16),14px 20px 36px -6px rgba(150,118,74,.3)}
+html[data-theme=warm] body{background-color:#F4EEE4;background-blend-mode:multiply}
+/* gold details */
+html[data-theme=warm] .eyebrow::before{background:var(--gold);box-shadow:0 0 0 3px rgba(184,149,90,.2)}
+html[data-theme=warm] .qa summary i::before{border-color:var(--gold)}
+html[data-theme=warm] .rq-nav button{color:var(--gold-d)}
+html[data-theme=warm] .pick b svg,html[data-theme=warm] .contacts a svg{color:var(--gold)}
+html[data-theme=warm] .rq-mark{color:var(--gold)}
+html[data-theme=warm] .rq-by b{color:var(--gold-d)}
+html[data-theme=warm] #hero .sub{color:var(--gold-d)}
+html[data-theme=warm] .pill a.lnk:hover{color:var(--gold-d)}
+html[data-theme=warm] .qa details+details{box-shadow:inset 0 1px 0 rgba(184,149,90,.32),inset 0 2px 0 rgba(255,253,248,.8)!important}
+html[data-theme=warm] .pitem+.pitem{box-shadow:inset 1px 0 0 rgba(184,149,90,.32),inset 2px 0 0 rgba(255,253,248,.8)}
+html[data-theme=warm] .aform input:focus,html[data-theme=warm] .aform select:focus,html[data-theme=warm] .aform textarea:focus{box-shadow:inset 3px 3px 7px rgba(150,118,74,.3),inset -3px -3px 7px rgba(255,253,248,.9),0 0 0 2px rgba(184,149,90,.6)}
+/* green text becomes chocolate or warm brown */
+html[data-theme=warm] .pitem .sum,html[data-theme=warm] .lvl b{color:var(--ink)}
+html[data-theme=warm] .pc-nm,html[data-theme=warm] .sig{color:#5E5143}
+html[data-theme=warm] .lang button[aria-pressed=true],html[data-theme=warm] .ltoggle button[aria-pressed=true],html[data-theme=warm] .seg input:checked+span{color:var(--ink)}
+html[data-theme=warm] .af-tg,html[data-theme=warm] .pnote b{color:var(--gold-d)}
+/* sand: tracks of the switches and the rim of the main button */
+html[data-theme=warm] .lang,html[data-theme=warm] .ltoggle,html[data-theme=warm] .seg{background:var(--sand-2)}
+html[data-theme=warm][data-btn=d] .btn:not(.btn-ghost):not(.btn-sm){box-shadow:0 0 0 6px var(--sand),0 0 0 7px rgba(150,118,74,.35),0 -1px 0 6px rgba(255,253,248,.4),-7px -7px 16px var(--hi),10px 13px 26px rgba(110,100,74,.34),inset 4px 4px 10px rgba(40,48,38,.45),inset -3px -3px 8px rgba(255,255,255,.12)}
+
+/* back of a language card: same paper as the student stories, with a call to action */
+.zoom-text.lzt{display:flex;flex-direction:column;align-items:center;gap:var(--s3);text-align:center}
+.zoom-text.lzt h3{margin:0}
+/* only the side that faces you takes clicks, so the button on the back is reachable */
+.zoom-card.flipped .zoom-front,.zoom-card:not(.flipped) .zoom-back{pointer-events:none}
+.zoom-text.lzt p{margin:0}
+.zoom-text.lzt p b{display:inline;font-family:var(--sans);font-size:inherit;font-weight:600;color:var(--ink);margin:0}
+.zoom-text.lzt .lb-go{margin-top:var(--s4);font-size:17px;padding:14px 26px;min-height:52px}
+
+/* language block: the raised notes are gone, a paper note peeks out under each polaroid instead */
+#line .picks{display:none!important}
+.hang .swing{position:relative}
+.hang .pc{position:relative;z-index:1}
+.hang .rnote{--nx:6%;--nr:4deg}
+.hang.de .rnote{--nx:-5%;--nr:-4deg}
+.hang:hover .rnote,.hang:focus-visible .rnote{transform:translate(var(--nx),7%) rotate(calc(var(--nr) * 1.5))}
+html[data-theme=warm] .rnote-t{color:var(--gold-d)}
+
+/* hero title in capitals */
+#hero-h{text-transform:uppercase;letter-spacing:.02em}
+#hero-h{font-size:36px}@media (min-width:768px){#hero-h{font-size:48px}}@media (min-width:1024px){#hero-h{font-size:52px}}@media (min-width:1280px){#hero-h{font-size:60px}}
+
+/* warm theme, a shade deeper: tones lean towards the chocolate #302D29, shadows are chocolate instead of light brown */
+html[data-theme=warm]{--ivory:#EEE6D8;--peach:#EEE6D8;--peach-light:#EEE6D8;--sand:#D2BF9E;--sand-2:#E2D5BE;--gold:#AA8549;--gold-d:#8A6A36;
+  --sf:#EBE2D3;--sf-hi:#F4EDE1;--hi:rgba(255,251,243,.55);--lo:rgba(48,45,41,.26);
+  --raise:-7px -7px 18px var(--hi),11px 14px 30px var(--lo);--raise-sm:-4px -4px 10px var(--hi),6px 7px 15px var(--lo);
+  --press:inset 3px 3px 8px rgba(48,45,41,.24),inset -3px -3px 7px rgba(255,251,243,.8);
+  --dome:radial-gradient(130% 150% at 18% 0%,#F7F1E7 0%,#EBE2D3 45%,#DDD0BB 100%);
+  --pillow:inset 1.5px 1.5px 0 rgba(255,251,243,.85),inset -3px -4px 10px rgba(48,45,41,.12),inset 6px 8px 18px rgba(255,251,243,.3),-3px -3px 8px rgba(255,251,243,.4),3px 4px 7px rgba(48,45,41,.14),16px 22px 40px -6px rgba(48,45,41,.3)}
+html[data-theme=warm] body{background-color:#EEE6D8}
+html[data-theme=warm] .rq{box-shadow:0 2px 3px rgba(48,45,41,.12),0 18px 30px rgba(48,45,41,.18)}
+
+/* teacher note sits under the polaroid like the students' */
+.tcard .swing{position:relative}
+.tcard .front{position:relative;z-index:1}
+.tcard .rnote{--nx:5%;--nr:4deg;z-index:0}
+.tcard:nth-of-type(even) .rnote{--nx:-5%;--nr:-4deg}
+.tcard:hover .rnote,.tcard:focus-visible .rnote{transform:translate(var(--nx),7%) rotate(calc(var(--nr) * 1.5))}
+#tline .tcard{margin-bottom:56px}
+
+/* ---- phone and tablet: one even rhythm between blocks, no empty bands ---- */
+@media (max-width:1023px){
+  .langs,.team,.revs,.reviews,.prices,.faq,.final{padding-top:56px!important;padding-bottom:56px!important}
+  .langs{padding-bottom:24px!important}
+  #tscroll,#rline{padding-top:40px;padding-bottom:64px}
+  .rq-grid{padding-bottom:48px;margin-bottom:-16px}
+  .team .row-foot{margin-top:8px}}
+@media (max-width:767px){
+  .langs,.team,.revs,.reviews,.prices,.faq,.final{padding-top:48px!important;padding-bottom:48px!important}
+  .langs{padding-bottom:16px!important}
+  .hang .rnote-t{font-size:clamp(11px,3.1vw,16px);white-space:nowrap;bottom:10%}}
+
+/* warm theme, cooled down: neutral greige (closer to the first «кашемир»), gold kept but muted, shadows neutral graphite */
+html[data-theme=warm]{--ivory:#ECEAE5;--peach:#ECEAE5;--peach-light:#ECEAE5;--sand:#D3CFC7;--sand-2:#DFDCD6;--gold:#A8946E;--gold-d:#857250;
+  --sf:#E8E6E1;--sf-hi:#F2F0EC;--hi:rgba(255,255,255,.6);--lo:rgba(40,40,38,.24);--line:rgba(40,40,38,.14);
+  --press:inset 3px 3px 8px rgba(40,40,38,.22),inset -3px -3px 7px rgba(255,255,255,.85);
+  --dome:radial-gradient(130% 150% at 18% 0%,#F6F5F2 0%,#E8E6E1 45%,#D9D6CF 100%);
+  --pillow:inset 1.5px 1.5px 0 rgba(255,255,255,.85),inset -3px -4px 10px rgba(40,40,38,.11),inset 6px 8px 18px rgba(255,255,255,.3),-3px -3px 8px rgba(255,255,255,.45),3px 4px 7px rgba(40,40,38,.13),16px 22px 40px -6px rgba(40,40,38,.28)}
+html[data-theme=warm] body{background-color:#ECEAE5}
+/* phone: level tags stay off until the phone route of the thread is laid out (they covered text) */
+@media (max-width:767px){.lvls{display:none}}
+
+/* the hero cord (and the eyelet ring on it) fades in once the card has landed, no pop */
+.hcord{opacity:0;transition:opacity .7s var(--ease)}
+.thread.landed .hcord{opacity:1}
+@media (prefers-reduced-motion:reduce){.hcord{transition:none}}
 </style>
 </head>
 <body>
@@ -636,9 +967,9 @@ h1{line-height:calc(1em + 4px)}
           <img class="dframe" src="img/kit/frame.png" alt="" aria-hidden="true" width="1184" height="1436">
           <span class="deye" aria-hidden="true"></span><span class="da da-r" aria-hidden="true"></span><span class="da da-b" aria-hidden="true"></span>
           <span class="sig"><span data-l="ru">Даяна</span><span data-l="uk">Даяна</span><small><span data-l="ru">основательница</span><span data-l="uk">засновниця</span></small></span>
-          <button class="play" type="button" id="playBtn" aria-haspopup="dialog" aria-label="Видео-знакомство с Даяной, 1:34">
-          <i><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M2 1.2v11.6a.6.6 0 0 0 .9.5l9.6-5.8a.6.6 0 0 0 0-1L2.9.7a.6.6 0 0 0-.9.5Z" fill="#FBF9F6"/></svg></i>
-          <span data-l="ru">Знакомство · 1:34</span><span data-l="uk">Знайомство · 1:34</span>
+          <button class="vseal" type="button" id="playBtn" aria-haspopup="dialog" aria-label="Видео-знакомство с Даяной, 1:34">
+          <i><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M2 1.2v11.6a.6.6 0 0 0 .9.5l9.6-5.8a.6.6 0 0 0 0-1L2.9.7a.6.6 0 0 0-.9.5Z" fill="currentColor"/></svg></i>
+          <small>1:34</small>
         </button>
         </div>
       </figure>
@@ -656,12 +987,20 @@ h1{line-height:calc(1em + 4px)}
     <canvas class="conn" id="conn" aria-hidden="true"></canvas>
     <div class="line" id="line">
       <img class="cordimg" src="img/line2-cord.webp" alt="" width="1920" height="1072" loading="lazy">
-      <a class="hang en" href="#english" data-pick="en" aria-label="Английский"><span class="swing"><span class="pc"><img class="pc-ph" src="img/city-london.jpg" alt="Лондон, Биг-Бен" loading="lazy"><img class="pc-fr" src="img/kit/frame.png" alt="" aria-hidden="true" loading="lazy"><span class="pc-nm">English</span></span></span></a>
-      <a class="hang de" href="#german" data-pick="de" aria-label="Немецкий"><span class="swing"><span class="pc"><img class="pc-ph" src="img/city-berlin.jpg" alt="Берлин, Бранденбургские ворота" loading="lazy"><img class="pc-fr" src="img/kit/frame.png" alt="" aria-hidden="true" loading="lazy"><span class="pc-nm">Deutsch</span></span></span></a>
+      <a class="hang en" href="#english" data-pick="en" data-back="lb-en" aria-label="Английский"><span class="swing"><span class="pc"><img class="pc-ph" src="img/city-london.jpg" alt="Лондон, Биг-Бен" loading="lazy"><img class="pc-fr" src="img/kit/frame.png" alt="" aria-hidden="true" loading="lazy"><span class="pc-nm">English</span></span></span></a>
+      <a class="hang de" href="#german" data-pick="de" data-back="lb-de" aria-label="Немецкий"><span class="swing"><span class="pc"><img class="pc-ph" src="img/city-berlin.jpg" alt="Берлин, Бранденбургские ворота" loading="lazy"><img class="pc-fr" src="img/kit/frame.png" alt="" aria-hidden="true" loading="lazy"><span class="pc-nm">Deutsch</span></span></span></a>
       <div class="picks">
         <a class="pick" href="#english" data-for="en"><b><span data-l="ru">Английский</span><span data-l="uk">Англійська</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></b><span data-l="ru">С нуля до C1, IELTS · от 12&nbsp;€ за урок</span><span data-l="uk">З нуля до C1, IELTS · від 12&nbsp;€ за урок</span></a>
         <a class="pick" href="#german" data-for="de"><b><span data-l="ru">Немецкий</span><span data-l="uk">Німецька</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></b><span data-l="ru">С нуля до C1, Goethe, DTZ · от 15&nbsp;€ за урок</span><span data-l="uk">З нуля до C1, Goethe, DTZ · від 15&nbsp;€ за урок</span></a>
       </div>
+      <div class="lback" id="lb-en" hidden><h3><span data-l="ru">Английский</span><span data-l="uk">Англійська</span></h3><span class="who"><span data-l="ru">С нуля до C1 · дети и взрослые</span><span data-l="uk">З нуля до C1 · діти й дорослі</span></span>
+        <p><span data-l="ru">Группа, пара, индивидуально или разговорный клуб. Подготовка к IELTS и Cambridge.</span><span data-l="uk">Група, пара, індивідуально або розмовний клуб. Підготовка до IELTS і Cambridge.</span></p>
+        <p><b><span data-l="ru">от 12 € за урок</span><span data-l="uk">від 12 € за урок</span></b> · <span data-l="ru">первое занятие бесплатно</span><span data-l="uk">перше заняття безкоштовне</span></p>
+        <button type="button" class="btn btn-lg lb-go" data-pick-lang="en"><span data-l="ru">Выбрать английский</span><span data-l="uk">Обрати англійську</span></button></div>
+      <div class="lback" id="lb-de" hidden><h3><span data-l="ru">Немецкий</span><span data-l="uk">Німецька</span></h3><span class="who"><span data-l="ru">С нуля до C1 · для жизни и работы в Германии</span><span data-l="uk">З нуля до C1 · для життя й роботи в Німеччині</span></span>
+        <p><span data-l="ru">Группа, пара, индивидуально или разговорный клуб. Goethe, TestDaF, DTZ и B2 Beruf.</span><span data-l="uk">Група, пара, індивідуально або розмовний клуб. Goethe, TestDaF, DTZ і B2 Beruf.</span></p>
+        <p><b><span data-l="ru">от 15 € за урок</span><span data-l="uk">від 15 € за урок</span></b> · <span data-l="ru">первое занятие бесплатно</span><span data-l="uk">перше заняття безкоштовне</span></p>
+        <button type="button" class="btn btn-lg lb-go" data-pick-lang="de"><span data-l="ru">Выбрать немецкий</span><span data-l="uk">Обрати німецьку</span></button></div>
     </div>
   </section>
 
@@ -683,7 +1022,7 @@ h1{line-height:calc(1em + 4px)}
         <button class="tcard t4" type="button" aria-pressed="false"><span class="swing"><span class="flip"><span class="front"><span class="pc"><img class="pc-ph" src="img/p-daria.jpg" alt="Дарья, преподаватель: немецкий" loading="lazy"><img class="pc-fr" src="img/kit/frame.png" alt="" aria-hidden="true" loading="lazy"><span class="pc-nm"><span data-l="ru">Дарья</span><span data-l="uk">Дар'я</span></span></span></span><span class="back"><span><b><span data-l="ru">Дарья</span><span data-l="uk">Дар'я</span></b><i><span data-l="ru">Немецкий</span><span data-l="uk">Німецька</span></i><span data-l="ru">Её ученики сдали DTZ B1 с первого раза</span><span data-l="uk">Її учні склали DTZ B1 з першого разу</span></span></span></span></span></button>
       </div>
     </div>
-    <div class="wrap"><p class="more"><span data-l="ru"><b>Ещё в команде:</b> Ульяна, Елена, Кристина и София ведут английский, Елизавета, Мария и Катерина ведут немецкий.</span><span data-l="uk"><b>Ще в команді:</b> Уляна, Олена, Христина і Софія викладають англійську, Єлизавета, Марія і Катерина викладають німецьку.</span></p></div>
+    <div class="wrap row-foot"><p class="more"><span data-l="ru"><b>Ещё в команде:</b> Ульяна, Елена, Кристина и София ведут английский, Елизавета, Мария и Катерина ведут немецкий.</span><span data-l="uk"><b>Ще в команді:</b> Уляна, Олена, Христина і Софія викладають англійську, Єлизавета, Марія і Катерина викладають німецьку.</span></p><div class="rq-nav" data-row="#tscroll"><button type="button" class="rq-prev" aria-label="Назад"><svg viewBox="0 0 18 18" aria-hidden="true"><path d="M11 4L6 9l5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button><button type="button" class="rq-next" aria-label="Вперёд"><svg viewBox="0 0 18 18" aria-hidden="true"><path d="M7 4l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button></div></div>
   </section>
 
   <section class="revs" id="results" aria-labelledby="revs-h">
@@ -709,6 +1048,7 @@ h1{line-height:calc(1em + 4px)}
     </div>
     </div>
     </div>
+    <div class="wrap row-foot"><div class="rq-nav" data-row="#rline"><button type="button" class="rq-prev" aria-label="Назад"><svg viewBox="0 0 18 18" aria-hidden="true"><path d="M11 4L6 9l5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button><button type="button" class="rq-next" aria-label="Вперёд"><svg viewBox="0 0 18 18" aria-hidden="true"><path d="M7 4l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button></div></div>
   </section>
 
   <section class="reviews" id="reviews" aria-labelledby="reviews-h">
@@ -718,11 +1058,12 @@ h1{line-height:calc(1em + 4px)}
       <p class="hint"><span data-l="ru">Слова учеников и родителей из наших чатов. Нажмите на отзыв, чтобы увидеть оригинал переписки</span><span data-l="uk">Слова учнів і батьків з наших чатів. Натисніть на відгук, щоб побачити оригінал листування</span></p>
     </div>
     <div class="rq-grid"><button class="rq" type="button" data-shot="img/reviews/r52.jpg" data-alt="Отзыв о занятиях по английскому с Даяной"><img class="tape" src="img/kit/tape-2.png" alt="" aria-hidden="true"><span class="rq-mark" aria-hidden="true">“</span><span class="rq-q">Only after our lessons have I really been able to understand and use English. And that’s after 11 years of daily English classes at school!!!</span><span class="rq-by"><i><span data-l="ru">ученица Даяны · английский</span><span data-l="uk">учениця Даяни · англійська</span></i></span><span class="rq-see"><span data-l="ru">переписка ↗</span><span data-l="uk">листування ↗</span></span></button><button class="rq" type="button" data-shot="img/reviews/r23.jpg" data-alt="Отзыв о занятии английским"><img class="tape" src="img/kit/tape-1.png" alt="" aria-hidden="true"><span class="rq-mark" aria-hidden="true">“</span><span class="rq-q">Нет чувства стыда за незнание, как это ранее встречалось с другими преподавателями. Даже когда я уставшая, выхожу с урока заряженная на продолжение изучения языка.</span><span class="rq-by"><i><span data-l="ru">английский</span><span data-l="uk">англійська</span></i></span><span class="rq-see"><span data-l="ru">переписка ↗</span><span data-l="uk">листування ↗</span></span></button><button class="rq" type="button" data-shot="img/reviews/r20.jpg" data-alt="Отзыв о занятии немецким"><img class="tape" src="img/kit/tape-2.png" alt="" aria-hidden="true"><span class="rq-mark" aria-hidden="true">“</span><span class="rq-q">Елизавета грамотно выстраивает как структуру каждого урока, так и общий план обучения, благодаря чему прогресс становится заметен на практике.</span><span class="rq-by"><i><span data-l="ru">немецкий</span><span data-l="uk">німецька</span></i></span><span class="rq-see"><span data-l="ru">переписка ↗</span><span data-l="uk">листування ↗</span></span></button><button class="rq" type="button" data-shot="img/reviews/r05.jpg" data-alt="Отзыв о занятиях по подготовке к экзамену по немецкому"><img class="tape" src="img/kit/tape-1.png" alt="" aria-hidden="true"><span class="rq-mark" aria-hidden="true">“</span><span class="rq-q">Я правда хочу, чтобы мой пример мотивировал других учеников! Что всё возможно, главное — брать в свои руки и идти к цели!</span><span class="rq-by"><i><span data-l="ru">экзамен · немецкий</span><span data-l="uk">іспит · німецька</span></i></span><span class="rq-see"><span data-l="ru">переписка ↗</span><span data-l="uk">листування ↗</span></span></button><button class="rq" type="button" data-shot="img/reviews/r21.jpg" data-alt="Отзыв о занятии английским"><img class="tape" src="img/kit/tape-2.png" alt="" aria-hidden="true"><span class="rq-mark" aria-hidden="true">“</span><span class="rq-q">Огромный плюс, что мы с Леной будто на одной волне. Очень приятно, что всегда идёте навстречу и подбираете удобное время. Рада, что выбрала вашу школу!</span><span class="rq-by"><i><span data-l="ru">английский</span><span data-l="uk">англійська</span></i></span><span class="rq-see"><span data-l="ru">переписка ↗</span><span data-l="uk">листування ↗</span></span></button><button class="rq" type="button" data-shot="img/reviews/r46.jpg" data-alt="Отзыв студента группы B2 Beruf о подготовке к экзамену"><img class="tape" src="img/kit/tape-1.png" alt="" aria-hidden="true"><span class="rq-mark" aria-hidden="true">“</span><span class="rq-q">Урок был не только полезным, но и интересным. Я уверена, что с такой подачей материала результат точно будет!</span><span class="rq-by"><i><span data-l="ru">B2 Beruf · немецкий</span><span data-l="uk">B2 Beruf · німецька</span></i></span><span class="rq-see"><span data-l="ru">переписка ↗</span><span data-l="uk">листування ↗</span></span></button><button class="rq" type="button" data-shot="img/reviews/r10.jpg" data-alt="Отзыв о групповых занятиях немецким"><img class="tape" src="img/kit/tape-2.png" alt="" aria-hidden="true"><span class="rq-mark" aria-hidden="true">“</span><span class="rq-q">Урок прошёл отлично, преподаватель очень хорошо и доступно объясняет. Рад, что выбрал именно вашу школу — уже с первого урока есть результат!</span><span class="rq-by"><b>Вадим</b><i><span data-l="ru">группа · немецкий</span><span data-l="uk">група · німецька</span></i></span><span class="rq-see"><span data-l="ru">переписка ↗</span><span data-l="uk">листування ↗</span></span></button><button class="rq" type="button" data-shot="img/reviews/r16.jpg" data-alt="Отзыв о пробном занятии немецким"><img class="tape" src="img/kit/tape-1.png" alt="" aria-hidden="true"><span class="rq-mark" aria-hidden="true">“</span><span class="rq-q">Пробное занятие очень понравилось, честно говоря, в разы лучше, чем в других онлайн-школах. Точно у вас буду заниматься)</span><span class="rq-by"><i><span data-l="ru">пробное занятие</span><span data-l="uk">пробне заняття</span></i></span><span class="rq-see"><span data-l="ru">переписка ↗</span><span data-l="uk">листування ↗</span></span></button><button class="rq" type="button" data-shot="img/reviews/r08.jpg" data-alt="Отзыв о занятиях английским"><img class="tape" src="img/kit/tape-2.png" alt="" aria-hidden="true"><span class="rq-mark" aria-hidden="true">“</span><span class="rq-q">Если я что-то забыла или не понимаю, то спокойно и понятно объясняет. У меня улучшились оценки по английскому.</span><span class="rq-by"><b>Марго</b><i><span data-l="ru">английский</span><span data-l="uk">англійська</span></i></span><span class="rq-see"><span data-l="ru">переписка ↗</span><span data-l="uk">листування ↗</span></span></button><button class="rq" type="button" data-shot="img/reviews/r19.jpg" data-alt="Отзыв о разговорном клубе по немецкому с преподавателем Кариной"><img class="tape" src="img/kit/tape-1.png" alt="" aria-hidden="true"><span class="rq-mark" aria-hidden="true">“</span><span class="rq-q">Вчерашний разговорный клуб прошёл очень хорошо — было интересно, приятная атмосфера и живое общение.</span><span class="rq-by"><i><span data-l="ru">разговорный клуб</span><span data-l="uk">розмовний клуб</span></i></span><span class="rq-see"><span data-l="ru">переписка ↗</span><span data-l="uk">листування ↗</span></span></button><button class="rq" type="button" data-shot="img/reviews/r18.jpg" data-alt="Отзыв об индивидуальном занятии немецким"><img class="tape" src="img/kit/tape-2.png" alt="" aria-hidden="true"><span class="rq-mark" aria-hidden="true">“</span><span class="rq-q">Огромная благодарность Дарье за замечательное обучение немецкому моей дочки Алисы. Мы очень довольны прогрессом.</span><span class="rq-by"><i><span data-l="ru">мама Алисы · немецкий</span><span data-l="uk">мама Аліси · німецька</span></i></span><span class="rq-see"><span data-l="ru">переписка ↗</span><span data-l="uk">листування ↗</span></span></button><button class="rq" type="button" data-shot="img/reviews/r02.jpg" data-alt="Отзыв о разговорном клубе по немецкому"><img class="tape" src="img/kit/tape-1.png" alt="" aria-hidden="true"><span class="rq-mark" aria-hidden="true">“</span><span class="rq-q">Здорово модерировала группу, объясняла выражения, корректировала ошибки. У вас классные преподаватели!</span><span class="rq-by"><b>Анастасия</b><i><span data-l="ru">разговорный клуб · немецкий</span><span data-l="uk">розмовний клуб · німецька</span></i></span><span class="rq-see"><span data-l="ru">переписка ↗</span><span data-l="uk">листування ↗</span></span></button></div>
-    <div class="wrap rq-more"><button class="btn btn-ghost" type="button" id="allrev"><span data-l="ru">Все 76 отзывов</span><span data-l="uk">Усі 76 відгуків</span></button></div>
+    <div class="wrap rq-more"><button class="btn btn-ghost" type="button" id="allrev"><span data-l="ru">Все 76 отзывов</span><span data-l="uk">Усі 76 відгуків</span></button><div class="rq-nav" data-row=".rq-grid"><button type="button" class="rq-prev" aria-label="Назад"><svg viewBox="0 0 18 18" aria-hidden="true"><path d="M11 4L6 9l5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button><button type="button" class="rq-next" aria-label="Вперёд"><svg viewBox="0 0 18 18" aria-hidden="true"><path d="M7 4l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button></div></div>
     <div class="gallery" id="gallery" hidden role="dialog" aria-modal="true" aria-label="Все отзывы"><div class="gallery-bar"><b><span data-l="ru">Все отзывы</span><span data-l="uk">Усі відгуки</span></b><button class="gallery-x" type="button" aria-label="Закрыть"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 3l10 10M13 3L3 13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button></div><div class="gallery-grid"><figure class="rv-print gl"><img class="shot" src="img/reviews/r01.jpg" alt="Отзыв о занятиях немецким по подготовке к экзамену" loading="lazy" width="512" height="640"></figure><figure class="rv-print gl"><img class="shot" src="img/reviews/r02.jpg" alt="Отзыв о разговорном клубе по немецкому" loading="lazy" width="512" height="640"></figure><figure class="rv-print gl"><img class="shot" src="img/reviews/r03.jpg" alt="Отзыв о разговорном клубе по немецкому" loading="lazy" width="512" height="640"></figure><figure class="rv-print gl"><img class="shot" src="img/reviews/r04.jpg" alt="Отзыв о разговорном клубе по английскому" loading="lazy" width="512" height="640"></figure><figure class="rv-print gl"><img class="shot" src="img/reviews/r05.jpg" alt="Отзыв о занятиях по подготовке к экзамену по немецкому" loading="lazy" width="512" height="640"></figure><figure class="rv-print gl"><img class="shot" src="img/reviews/r06.jpg" alt="Отзыв о занятиях по подготовке к экзамену по немецкому" loading="lazy" width="512" height="640"></figure><figure class="rv-print gl"><img class="shot" src="img/reviews/r07.jpg" alt="Отзыв о занятиях по подготовке к экзамену по немецкому" loading="lazy" width="512" height="640"></figure><figure class="rv-print gl"><img class="shot" src="img/reviews/r08.jpg" alt="Отзыв о занятиях английским" loading="lazy" width="512" height="640"></figure><figure class="rv-print gl"><img class="shot" src="img/reviews/r09.jpg" alt="Отзыв о занятиях английским" loading="lazy" width="512" height="640"></figure><figure class="rv-print gl"><img class="shot" src="img/reviews/r10.jpg" alt="Отзыв о групповых занятиях немецким" loading="lazy" width="512" height="640"></figure><figure class="rv-print gl"><img class="shot" src="img/reviews/r11.jpg" alt="Отзыв о групповых занятиях немецким" loading="lazy" width="512" height="640"></figure><figure class="rv-print gl"><img class="shot" src="img/reviews/r12.jpg" alt="Отзыв о групповых занятиях немецким" loading="lazy" width="512" height="640"></figure><figure class="rv-print gl"><img class="shot" src="img/reviews/r13.jpg" alt="Отзыв о групповых занятиях немецким" loading="lazy" width="512" height="640"></figure><figure class="rv-print gl"><img class="shot" src="img/reviews/r14.jpg" alt="Отзыв о групповых занятиях немецким" loading="lazy" width="512" height="640"></figure><figure class="rv-print gl"><img class="shot" src="img/reviews/r15.jpg" alt="Отзыв о занятии немецким" loading="lazy" width="512" height="640"></figure><figure class="rv-print gl"><img class="shot" src="img/reviews/r16.jpg" alt="Отзыв о пробном занятии немецким" loading="lazy" width="512" height="640"></figure><figure class="rv-print gl"><img class="shot" src="img/reviews/r17.jpg" alt="Отзыв о занятии немецким" loading="lazy" width="512" height="640"></figure><figure class="rv-print gl"><img class="shot" src="img/reviews/r18.jpg" alt="Отзыв об индивидуальном занятии немецким" loading="lazy" width="512" height="640"></figure><figure class="rv-print gl"><img class="shot" src="img/reviews/r19.jpg" alt="Отзыв о разговорном клубе по немецкому с преподавателем Кариной" loading="lazy" width="512" height="640"></figure><figure class="rv-print gl"><img class="shot" src="img/reviews/r20.jpg" alt="Отзыв о занятии немецким" loading="lazy" width="512" height="640"></figure><figure class="rv-print gl"><img class="shot" src="img/reviews/r21.jpg" alt="Отзыв о занятии английским" loading="lazy" width="512" height="640"></figure><figure class="rv-print gl"><img class="shot" src="img/reviews/r22.jpg" alt="Отзыв о занятии немецким" loading="lazy" width="512" height="640"></figure><figure class="rv-print gl"><img class="shot" src="img/reviews/r23.jpg" alt="Отзыв о занятии английским" loading="lazy" width="512" height="640"></figure><figure class="rv-print gl"><img class="shot" src="img/reviews/r24.jpg" alt="Отзыв об индивидуальных занятиях" loading="lazy" width="512" height="640"></figure><figure class="rv-print gl"><img class="shot" src="img/reviews/r25.jpg" alt="Отзыв об индивидуальных занятиях по немецкому" loading="lazy" width="512" height="640"></figure><figure class="rv-print gl"><img class="shot" src="img/reviews/r26.jpg" alt="Отзыв об интенсиве по немецкому" loading="lazy" width="512" height="640"></figure><figure class="rv-print gl"><img class="shot" src="img/reviews/r27.jpg" alt="Отзыв об интенсиве по немецкому" loading="lazy" width="512" height="640"></figure><figure class="rv-print gl"><img class="shot" src="img/reviews/r28.jpg" alt="Отзыв об интенсиве по немецкому" loading="lazy" width="512" height="640"></figure><figure class="rv-print gl"><img class="shot" src="img/reviews/r29.jpg" alt="Отзыв об интенсиве по немецкому" loading="lazy" width="512" height="640"></figure><figure class="rv-print gl"><img class="shot" src="img/reviews/r30.jpg" alt="Отзыв об интенсиве по немецкому" loading="lazy" width="512" height="640"></figure><figure class="rv-print gl"><img class="shot" src="img/reviews/r31.jpg" alt="Отзыв об интенсиве по немецкому" loading="lazy" width="512" height="640"></figure><figure class="rv-print gl"><img class="shot" src="img/reviews/r32.jpg" alt="Отзывы о занятиях по немецкому" loading="lazy" width="512" height="640"></figure><figure class="rv-print gl"><img class="shot" src="img/reviews/r33.jpg" alt="Отзывы о занятиях по немецкому" loading="lazy" width="512" height="640"></figure><figure class="rv-print gl"><img class="shot" src="img/reviews/r34.jpg" alt="Отзывы о занятиях по немецкому" loading="lazy" width="512" height="640"></figure><figure class="rv-print gl"><img class="shot" src="img/reviews/r35.jpg" alt="Отзывы о занятиях по немецкому" loading="lazy" width="512" height="640"></figure><figure class="rv-print gl"><img class="shot" src="img/reviews/r36.jpg" alt="Отзывы о занятиях по немецкому" loading="lazy" width="512" height="640"></figure><figure class="rv-print gl"><img class="shot" src="img/reviews/r37.jpg" alt="Отзывы о занятиях по немецкому" loading="lazy" width="512" height="640"></figure><figure class="rv-print gl"><img class="shot" src="img/reviews/r38.jpg" alt="Отзывы о занятиях по немецкому" loading="lazy" width="512" height="640"></figure><figure class="rv-print gl"><img class="shot" src="img/reviews/r39.jpg" alt="Отзывы о занятиях по немецкому" loading="lazy" width="512" height="640"></figure><figure class="rv-print gl"><img class="shot" src="img/reviews/r40.jpg" alt="Отзывы о занятиях по немецкому" loading="lazy" width="512" height="640"></figure><figure class="rv-print gl"><img class="shot" src="img/reviews/r41.jpg" alt="Отзывы о занятиях по немецкому" loading="lazy" width="512" height="640"></figure><figure class="rv-print gl"><img class="shot" src="img/reviews/r42.jpg" alt="Отзыв о разговорном клубе с носителем языка" loading="lazy" width="512" height="640"></figure><figure class="rv-print gl"><img class="shot" src="img/reviews/r43.jpg" alt="Отзыв о разговорном клубе с носителем языка" loading="lazy" width="512" height="640"></figure><figure class="rv-print gl"><img class="shot" src="img/reviews/r44.jpg" alt="Отзыв о разговорном клубе А2 по английскому с носителем языка" loading="lazy" width="512" height="640"></figure><figure class="rv-print gl"><img class="shot" src="img/reviews/r45.jpg" alt="Отзывы о занятиях по немецкому" loading="lazy" width="512" height="640"></figure><figure class="rv-print gl"><img class="shot" src="img/reviews/r46.jpg" alt="Отзыв студента группы B2 Beruf о подготовке к экзамену" loading="lazy" width="512" height="640"></figure><figure class="rv-print gl"><img class="shot" src="img/reviews/r47.jpg" alt="Отзыв об уроках подготовки к экзамену В2 Beruf" loading="lazy" width="512" height="640"></figure><figure class="rv-print gl"><img class="shot" src="img/reviews/r48.jpg" alt="Отзывы о занятиях по немецкому" loading="lazy" width="512" height="640"></figure><figure class="rv-print gl"><img class="shot" src="img/reviews/r49.jpg" alt="Отзыв студента группы B2 Beruf о подготовке к экзамену" loading="lazy" width="512" height="640"></figure><figure class="rv-print gl"><img class="shot" src="img/reviews/r50.jpg" alt="Отзывы студента группы B2 Beruf о подготовке к экзамену" loading="lazy" width="512" height="640"></figure><figure class="rv-print gl"><img class="shot" src="img/reviews/r51.jpg" alt="Отзыв об уроках подготовки к экзамену В2 Beruf" loading="lazy" width="512" height="640"></figure><figure class="rv-print gl"><img class="shot" src="img/reviews/r52.jpg" alt="Отзыв о занятиях по английскому с Даяной" loading="lazy" width="512" height="640"></figure><figure class="rv-print gl"><img class="shot" src="img/reviews/r53.jpg" alt="Отзыв о занятиях по немецкому с Асмик" loading="lazy" width="512" height="640"></figure><figure class="rv-print gl"><img class="shot" src="img/reviews/r54.jpg" alt="Отзыв о занятиях по немецкому" loading="lazy" width="512" height="640"></figure><figure class="rv-print gl"><img class="shot" src="img/reviews/r55.jpg" alt="Отзыв о занятиях по немецкому с Дарьей" loading="lazy" width="512" height="640"></figure><figure class="rv-print gl"><img class="shot" src="img/reviews/r56.jpg" alt="Отзыв о занятиях по немецкому" loading="lazy" width="512" height="640"></figure><figure class="rv-print gl"><img class="shot" src="img/reviews/r57.jpg" alt="Отзыв о занятиях по немецкому" loading="lazy" width="512" height="640"></figure><figure class="rv-print gl"><img class="shot" src="img/reviews/r58.jpg" alt="Отзыв о занятиях по немецкому" loading="lazy" width="512" height="640"></figure><figure class="rv-print gl"><img class="shot" src="img/reviews/r59.jpg" alt="Отзыв о занятии немецким" loading="lazy" width="512" height="640"></figure><figure class="rv-print gl"><img class="shot" src="img/reviews/r60.jpg" alt="Отзыв о занятии немецким" loading="lazy" width="512" height="640"></figure><figure class="rv-print gl"><img class="shot" src="img/reviews/r61.jpg" alt="Отзыв о занятии немецким" loading="lazy" width="512" height="640"></figure><figure class="rv-print gl"><img class="shot" src="img/reviews/r62.jpg" alt="Отзыв о занятии немецким" loading="lazy" width="512" height="640"></figure><figure class="rv-print gl"><img class="shot" src="img/reviews/r63.jpg" alt="Отзыв о занятии немецким" loading="lazy" width="512" height="640"></figure><figure class="rv-print gl"><img class="shot" src="img/reviews/r64.jpg" alt="Отзыв о занятии немецким" loading="lazy" width="512" height="640"></figure><figure class="rv-print gl"><img class="shot" src="img/reviews/r65.jpg" alt="Отзыв о занятии немецким" loading="lazy" width="512" height="640"></figure><figure class="rv-print gl"><img class="shot" src="img/reviews/r66.jpg" alt="Отзыв о занятии английским" loading="lazy" width="512" height="640"></figure><figure class="rv-print gl"><img class="shot" src="img/reviews/r67.jpg" alt="Отзыв о занятии немецким" loading="lazy" width="512" height="640"></figure><figure class="rv-print gl"><img class="shot" src="img/reviews/r68.jpg" alt="Отзыв о занятии немецким" loading="lazy" width="512" height="640"></figure><figure class="rv-print gl"><img class="shot" src="img/reviews/r69.jpg" alt="Отзыв о занятии английским" loading="lazy" width="512" height="640"></figure><figure class="rv-print gl"><img class="shot" src="img/reviews/r70.jpg" alt="Отзыв о занятии английским" loading="lazy" width="512" height="640"></figure><figure class="rv-print gl"><img class="shot" src="img/reviews/r71.jpg" alt="Отзыв о занятии английским" loading="lazy" width="512" height="640"></figure><figure class="rv-print gl"><img class="shot" src="img/reviews/r72.jpg" alt="Отзыв о занятии английским" loading="lazy" width="512" height="640"></figure><figure class="rv-print gl"><img class="shot" src="img/reviews/r73.jpg" alt="Отзыв о занятии английским" loading="lazy" width="512" height="640"></figure><figure class="rv-print gl"><img class="shot" src="img/reviews/r74.jpg" alt="Отзыв о занятии английским" loading="lazy" width="512" height="640"></figure><figure class="rv-print gl"><img class="shot" src="img/reviews/r75.jpg" alt="Отзыв о занятии английским" loading="lazy" width="512" height="640"></figure><figure class="rv-print gl"><img class="shot" src="img/reviews/r76.jpg" alt="Отзыв о занятии английским" loading="lazy" width="512" height="640"></figure></div></div>
   </section>
 
   <section class="prices" id="prices" data-plang="en" aria-labelledby="prices-h">
+    <img class="deco euc-b" src="img/deco/euc-branch.png" alt="" aria-hidden="true" loading="lazy" width="820" height="561">
     <canvas class="conn" id="conn4" aria-hidden="true"></canvas>
     <div class="wrap">
       <p class="eyebrow"><span data-l="ru">Форматы и цены</span><span data-l="uk">Формати і ціни</span></p>
@@ -737,9 +1078,14 @@ h1{line-height:calc(1em + 4px)}
   </section>
 
   <section class="faq" id="faq" aria-labelledby="faq-h">
+    <img class="deco euc-c" src="img/deco/euc-corner.png" alt="" aria-hidden="true" loading="lazy" width="720" height="665">
     <div class="wrap">
+      <div class="faq-head">
       <p class="eyebrow"><span data-l="ru">Вопросы</span><span data-l="uk">Питання</span></p>
       <h2 id="faq-h"><span data-l="ru">Что обычно спрашивают</span><span data-l="uk">Що зазвичай питають</span></h2>
+      <p class="faq-ask"><span data-l="ru">Не нашли ответ? Напишите Даяне, она ответит лично.</span><span data-l="uk">Не знайшли відповідь? Напишіть Даяні, вона відповість особисто.</span></p>
+      <a class="btn btn-ghost" href="https://wa.me/4915161730335" target="_blank" rel="noopener"><span data-l="ru">Спросить в WhatsApp</span><span data-l="uk">Запитати у WhatsApp</span></a>
+      </div>
       <div class="qa">
         <details><summary><span><span data-l="ru">Как проходит бесплатное первое занятие?</span><span data-l="uk">Як проходить безкоштовне перше заняття?</span></span><i aria-hidden="true"></i></summary><p><span data-l="ru">Знакомимся, определяем ваш уровень и цель, подбираем формат и преподавателя. Занятие в Zoom, ни к чему не обязывает.</span><span data-l="uk">Знайомимося, визначаємо ваш рівень і мету, добираємо формат і викладача. Заняття в Zoom, ні до чого не зобов’язує.</span></p></details>
         <details><summary><span><span data-l="ru">Можно начать с нуля?</span><span data-l="uk">Можна почати з нуля?</span></span><i aria-hidden="true"></i></summary><p><span data-l="ru">Да. Учим английскому и немецкому с нуля до C1, в своём темпе.</span><span data-l="uk">Так. Навчаємо англійської та німецької з нуля до C1, у вашому темпі.</span></p></details>
@@ -757,9 +1103,23 @@ h1{line-height:calc(1em + 4px)}
       <p class="eyebrow"><span data-l="ru">Первый шаг</span><span data-l="uk">Перший крок</span></p>
       <h2 id="final-h"><span data-l="ru">Возьмитесь за&nbsp;ниточку</span><span data-l="uk">Візьміться за&nbsp;ниточку</span></h2>
       <p class="sub"><span data-l="ru">Бесплатное пробное занятие в&nbsp;Zoom. Определим уровень, цель и&nbsp;подберём преподавателя.</span><span data-l="uk">Безкоштовне пробне заняття в&nbsp;Zoom. Визначимо рівень, мету й&nbsp;доберемо викладача.</span></p>
+      <form class="aform" id="aform" novalidate>
+        <label class="af"><span class="af-l"><span data-l="ru">Имя</span><span data-l="uk">Ім’я</span></span><input name="name" type="text" autocomplete="given-name" required></label>
+        <label class="af"><span class="af-l"><span data-l="ru">Телефон или ник в Telegram</span><span data-l="uk">Телефон або нік у Telegram</span></span><input name="contact" type="text" autocomplete="tel"></label>
+        <div class="af af-wide"><span class="af-l"><span data-l="ru">Язык</span><span data-l="uk">Мова</span></span>
+          <div class="seg" role="radiogroup">
+            <label><input type="radio" name="lang" value="en" checked><span><span data-l="ru">Английский</span><span data-l="uk">Англійська</span></span></label>
+            <label><input type="radio" name="lang" value="de"><span><span data-l="ru">Немецкий</span><span data-l="uk">Німецька</span></span></label>
+          </div></div>
+        <label class="af"><span class="af-l"><span data-l="ru">Формат</span><span data-l="uk">Формат</span></span><select name="format" data-opts="fmt"></select></label>
+        <label class="af"><span class="af-l"><span data-l="ru">Уровень</span><span data-l="uk">Рівень</span></span><select name="level" data-opts="lvl"></select></label>
+        <label class="af af-wide"><span class="af-l"><span data-l="ru">Комментарий или вопрос</span><span data-l="uk">Коментар або питання</span></span><textarea name="note" rows="4"></textarea></label>
+        <p class="af-msg" id="afmsg" role="status" aria-live="polite"></p>
+        <p class="af-alt af-wide"><span data-l="ru">Заявка уйдёт в WhatsApp Даяны. Удобнее Telegram?</span><span data-l="uk">Заявка піде у WhatsApp Даяни. Зручніше Telegram?</span> <button type="submit" class="af-tg" data-via="tg"><span data-l="ru">Отправить в Telegram</span><span data-l="uk">Надіслати у Telegram</span></button></p>
+      </form>
       <div class="knot" id="knot">
         <img class="bow bow-top" id="bow" src="img/bow.webp" alt="" aria-hidden="true"><img class="bow bow-tails" src="img/bow.webp" alt="" aria-hidden="true">
-        <a class="btn btn-lg" href="https://wa.me/4915161730335?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%D1%81%D1%8F%20%D0%BD%D0%B0%20%D0%BF%D1%80%D0%BE%D0%B1%D0%BD%D0%BE%D0%B5%20%D0%B7%D0%B0%D0%BD%D1%8F%D1%82%D0%B8%D0%B5" target="_blank" rel="noopener"><span data-l="ru">Записаться на пробное занятие</span><span data-l="uk">Записатися на пробне заняття</span></a>
+        <button class="btn btn-lg" type="submit" form="aform" data-via="wa"><span data-l="ru">Записаться на пробное занятие</span><span data-l="uk">Записатися на пробне заняття</span></button>
       </div>
       <div class="contacts">
         <a href="https://wa.me/4915161730335" target="_blank" rel="noopener">WhatsApp</a>
@@ -845,7 +1205,7 @@ function lay(o,pts,th){
    path: points the cord passes through, [section id, x and y as fractions of that section]; lv: where each level tag sits along the cord (0..1);
    cards: left/top/width % and tilt; th: cord thickness factor */
 /* desktop layout set by Karyna in ?edit, 26 Nov (third pass) */
-const ROUTE={"m":{},"t":{},"d":{"cards":{"dcard":{"l":28.2063,"t":53.8585,"r":-15,"w":90.8893},"line:1":{"l":53.5443,"t":21.0181},"line:0":{"l":25.8759,"t":21.3226,"r":-6},"tline:1":{"l":24.9357,"t":24.0936,"r":-10},"tline:4":{"l":80.3611,"t":47.0187,"r":13},"rline:1":{"l":-6.9134,"t":21.4373,"r":-13},"rline:3":{"l":-0.9677,"t":66.8999,"r":-12},"rline:2":{"l":62.723,"t":49.2472,"r":4},"rline:0":{"l":61.4541,"t":7.3857,"r":5},"tline:0":{"l":5.0526,"t":6.0797,"r":3},"tline:2":{"l":44.1704,"t":35.7353,"r":-5},"tline:3":{"l":62.1601,"t":28.9928,"r":9}},"path":[["hero",0.4767,0.9552,-0.1543,0.2845],["langs",0.5628,0.3295,-0.3053,0.3904],["langs",0.1473,0.6127,-0.1073,0.7125],["langs",0.5801,0.9721,0.2839,0.461],["team",0.4829,0.415,0.2501,0.4622],["team",0.8657,0.8105,-0.282,0.66],["results",0.0581,0.0818,-0.2461,0.5972],["results",0.507,0.4353,0.1644,0.6888],["results",0.2756,0.7411,0.0364,0.3315],["results",0.6309,0.8813,0.0888,0.3803],["prices",0.3771,0.4183,0.1659,0.4155],["prices",0.8072,0.6548,0.2674,0.5841],["faq",0.6856,0.5436,0.5332,0.5323]],"free":{},"start":["hero",0.6068,0.7218],"hero-back":{"w":[[0.2353,0.0787],[0.0957,0.0651],[0.065,0.1306],[0.1717,0.2116]]},"hero-front":{"w":[[0.2603,0.271],[0.2768,0.3264],[0.2479,0.3784]]}}};
+const ROUTE={"m":{},"t":{},"d":{"cards":{"dcard":{"l":28.2063,"t":53.8585,"r":-15,"w":90.8893},"line:1":{"l":53.5443,"t":21.0181,"r":2},"line:0":{"l":25.8759,"t":21.3226,"r":-6},"tline:1":{"l":24.7034,"t":5.3065,"r":-10},"tline:4":{"l":83.3541,"t":5.6296,"r":13},"rline:1":{"l":-27.8773,"t":3.3131,"r":-5},"rline:3":{"l":120.5242,"t":2.0386,"r":1},"rline:2":{"l":72.3393,"t":1.6185,"r":-3},"rline:0":{"l":27.1946,"t":2.9969,"r":5},"tline:0":{"l":5.0526,"t":6.0797,"r":3},"tline:2":{"l":44.0327,"t":4.3097,"r":-3},"tline:3":{"l":64.2599,"t":4.0752,"r":9}},"path":[["hero",0.4761,0.739,-0.0446,0.3359],["langs",0.6285,0.1397,-0.0975,0.3614],["langs",0.1715,0.4454,0.0766,0.6298],["langs",0.8374,0.6037,0.1659,0.4535],["team",0.6323,0.2361,-0.0948,0.358],["team",0.7218,0.6983,-0.3149,0.4415],["team",0.0589,0.7883,-0.0958,0.8527],["results",0.5878,0.1721,0.0635,0.5535],["results",0.0505,0.6264,-0.0431,0.7882],["reviews",0.7075,0.2351,0.1702,0.5949],["prices",0.5278,0.0879,0.088,0.4193],["prices",0.9469,0.7161,-0.0811,0.8171],["faq",0.3959,0.2283,0.0941,0.7757],["faq",0.5278,0.9675,0.6487,-0.0296]],"free":{"#langs>div:nth-child(2)":{"x":0,"y":0.0107},"#langs-h":{"x":0,"y":0.0002},"#hero>div:nth-child(2)>div:nth-child(1)":{"x":0,"y":0},"#tline":{"x":0,"y":0},"#team>div:nth-child(5)>p:nth-child(1)":{"x":0,"y":0.0001},"#revs-h":{"x":0,"y":0.0043},"#hero>div:nth-child(2)":{"x":0,"y":-0.0217},"#langs":{"x":0,"y":-0.0844},"#team>div:nth-child(3)":{"x":0,"y":-0.0024},"#team":{"x":0,"y":-0.2702},"#reviews":{"x":0,"y":-0.4614},"#results>div:nth-child(3)":{"x":0,"y":-0.0109},"#rline":{"x":0,"y":-0.0002},"#results":{"x":0,"y":-0.2967},"#prices":{"x":0,"y":-0.501},"#main":{"x":0,"y":0.098},"#faq":{"x":0,"y":-0.5496},"#faq>div:nth-child(3)":{"x":0,"y":0},"#contacts":{"x":0,"y":-0.1224},"#book":{"x":0,"y":-0.536},"#knot>a:nth-child(3)":{"x":0,"y":0.0129},"body>footer:nth-child(13)":{"x":0,"y":0.01},"#prices>div:nth-child(5)":{"x":0,"y":0},"#prices>div:nth-child(4)":{"x":0,"y":0},"#line":{"x":0,"y":0},"#top>header:nth-child(4)>div:nth-child(1)>a:nth-child(1)>img:nth-child(1)":{"x":0.0471,"y":0.0069,"s":1.216},"#hero>div:nth-child(2)>div:nth-child(1)>div:nth-child(1)":{"x":0,"y":0},"#hero":{"x":0,"y":-0.0817},"#contacts>div:nth-child(5)":{"x":0,"y":0},"body>footer:nth-child(13)>div:nth-child(1)":{"x":0,"y":0.0008},"body>footer:nth-child(13)>div:nth-child(1)>img:nth-child(1)":{"x":0,"y":0,"s":1.408},"#prices-h":{"x":0,"y":0},"#top":{"x":0,"y":0},"#tscroll":{"x":0,"y":-0.0078},"#reviews>div:nth-child(3)":{"x":0,"y":-0.001},"#knot>button:nth-child(3)":{"x":0,"y":0.0272},"#hero>div:nth-child(2)>div:nth-child(1)>div:nth-child(1)>p:nth-child(3)":{"x":0,"y":0},"#hero-h":{"x":0,"y":0},"#tline>button:nth-child(10)>span:nth-child(1)>span:nth-child(1)>span:nth-child(1)>span:nth-child(1)>img:nth-child(2)":{"x":0,"y":-0.0002},"#reviews-h":{"x":0,"y":-0.0002},"#aform":{"x":0,"y":-0.0001},"#faq>div:nth-child(3)>div:nth-child(2)>details:nth-child(1)>summary:nth-child(1)":{"x":0,"y":0},"#faq>div:nth-child(3)>div:nth-child(2)>details:nth-child(2)>summary:nth-child(1)":{"x":0,"y":0},"#faq-h":{"x":0,"y":0},"#faq>div:nth-child(3)>div:nth-child(1)":{"x":0,"y":0}},"hero-back":{"w":[[0.2166,0.0788],[0.0918,0.0791],[0.065,0.1306],[0.1569,0.1979]]},"hero-front":{"w":[[0.2647,0.2683],[0.2865,0.3289],[0.2565,0.3711]]},"lv":[0.076,0.254,0.474,0.735,0.892,0.968],"start":["hero",0.6501,0.5269]}};
 const bucket=()=>innerWidth<768?'m':innerWidth<1024?'t':'d';
 const DEFPATH=[['langs',.93,.12],['langs',.55,.33],['langs',.05,.6],['team',.04,.2],['team',.5,.33],['team',.96,.55],['results',.96,.12],['results',.5,.5],['results',.04,.9],
   ['prices',.04,.2],['prices',.5,.3],['prices',.96,.6],['faq',.96,.5]];
@@ -882,10 +1242,12 @@ function eyelet(o,P,T){const a=dAng(),r=document.querySelector('.deye').getBound
   o.rotate(-a);const ang=Math.atan2(T[1],T[0]);o.rotate(ang);o.beginPath();o.rect(d*.02,-d,d,2*d);o.clip();o.rotate(-ang);o.rotate(a);
   o.drawImage(eye,-d/2,-d/2,d,d);o.restore()}
 const TH=()=>{const b=document.getElementById('bow'),w=b&&b.getBoundingClientRect().width;return(w?w*12.5/640:clamp(innerWidth*.0045,3.2,7))*(ROUTE[bucket()].th||1)};
+const HM=240;
+function EDITING(){return /[?&]edit\b/.test(location.search)||document.documentElement.dataset.edit==='1'}
 function drawHero(th){
   const R=thr.getBoundingClientRect(),W=thr.offsetWidth,H=thr.offsetHeight,dpr=Math.min(2,devicePixelRatio||1);
-  [hb,hf].forEach(c=>{const bw=Math.round(W*dpr),bh=Math.round(H*dpr);if(c.width!==bw||c.height!==bh){c.width=bw;c.height=bh}
-    const o=c.getContext('2d');o.setTransform(1,0,0,1,0,0);o.clearRect(0,0,c.width,c.height);o.setTransform(dpr,0,0,dpr,0,0)});
+  [hb,hf].forEach(c=>{const bw=Math.round((W+2*HM)*dpr),bh=Math.round((H+2*HM)*dpr);if(c.width!==bw||c.height!==bh){c.width=bw;c.height=bh}
+    const o=c.getContext('2d');o.setTransform(1,0,0,1,0,0);o.clearRect(0,0,c.width,c.height);o.setTransform(dpr,0,0,dpr,dpr*HM,dpr*HM)});
   if(!thr.classList.contains('landed')){delete SEG['hero-back'];delete SEG['hero-front'];return}
   const a=dAng(),TA=nz([Math.cos(a)-.25*Math.sin(a),Math.sin(a)+.25*Math.cos(a)]);
   const ho=ROUTE[bucket()]['hero-back'],E=hpt('.deye',R),A=hpt('.da-r',R);
@@ -904,19 +1266,22 @@ function drawHero(th){
 const SECS=[...document.querySelectorAll('section')].map(sec=>{const cv=document.createElement('canvas');cv.className='gcord';cv.setAttribute('aria-hidden','true');sec.prepend(cv);return{sec,cv}});
 const secById=id=>document.getElementById(id);
 const docRect=el=>{const r=el.getBoundingClientRect();return{l:r.left+scrollX,t:r.top+scrollY,w:r.width,h:r.height}};
+/* thread points sit at fractions of their section; an opened FAQ answer must not stretch the section and drag the thread,
+   so points use the section's height with every answer closed (remembered per screen width) */
+const BASEH=new Map(),anchorRect=sec=>{const r=docRect(sec),k=sec.id+'|'+innerWidth;if(!sec.querySelector('details[open]')||!BASEH.has(k))BASEH.set(k,r.h);return{l:r.l,t:r.t,w:r.w,h:BASEH.get(k)}};
 let PATH=[],KN=[],CUM=[],EYE=null,BOW=null,ENDS=[];
 function knots(){const b=ROUTE[bucket()],P=b.path||DEFPATH;
-  const w=innerWidth;return P.map(([id,fx,fy,tx,ty])=>{const s=secById(id);if(!s)return null;const r=docRect(s),k=[r.l+fx*r.w,r.t+fy*r.h];if(tx!=null)k.push([tx*w,ty*w]);return k}).filter(Boolean)}
+  const w=innerWidth;return P.map(([id,fx,fy,tx,ty])=>{const s=secById(id);if(!s)return null;const r=anchorRect(s),k=[r.l+fx*r.w,r.t+fy*r.h];if(tx!=null)k.push([tx*w,ty*w]);return k}).filter(Boolean)}
 function drawThread(th){
   const er=document.querySelector('.deye').getBoundingClientRect(),bw=document.getElementById('bow').getBoundingClientRect(),a=dAng(),RB=ROUTE[bucket()];
   /* start and end sit on the eyelet and the bow unless moved in ?edit */
-  const fromSec=q=>{const s=secById(q[0]);if(!s)return null;const r=docRect(s);return[r.l+q[1]*r.w,r.t+q[2]*r.h]};
-  EYE=[er.left+er.width/2+scrollX,er.top+er.height/2+scrollY];BOW=[bw.left+bw.width*.502+scrollX,bw.top+bw.height*.535+scrollY];   /* the knot */
+  const fromSec=q=>{const s=secById(q[0]);if(!s)return null;const r=anchorRect(s);return[r.l+q[1]*r.w,r.t+q[2]*r.h]};
+  EYE=[er.left+er.width/2+scrollX,er.top+er.height/2+scrollY];const kb=document.getElementById('knot').getBoundingClientRect(),bo=document.getElementById('bow');BOW=[kb.left+scrollX+bo.offsetLeft+bo.offsetWidth*.492,kb.top+scrollY+bo.offsetTop+bo.offsetHeight*.544];   /* the knot */
   const E=RB.start&&fromSec(RB.start)||EYE,Z=RB.end&&fromSec(RB.end)||BOW;ENDS=[E,Z];
   KN=knots();PATH=spline([E,...KN,Z],nz([-Math.sin(a),Math.cos(a)]),[0,1]);
   CUM=[0];for(let i=1;i<PATH.length;i++)CUM.push(CUM[i-1]+Math.hypot(PATH[i][0]-PATH[i-1][0],PATH[i][1]-PATH[i-1][1]));
-  for(const {sec,cv} of SECS){const r=docRect(sec),W=Math.round(r.w),H=Math.round(r.h),dpr=Math.min(devicePixelRatio||1,2,Math.sqrt(8e6/Math.max(1,W*H)));
-    cv.style.width=W+'px';cv.style.height=H+'px';const bwid=Math.round(W*dpr),bh=Math.round(H*dpr);if(cv.width!==bwid||cv.height!==bh){cv.width=bwid;cv.height=bh}
+  for(const {sec,cv} of SECS){const r0=docRect(sec),EX=64,r={l:r0.l,t:r0.t-EX,w:r0.w,h:r0.h+2*EX},W=Math.round(r.w),H=Math.round(r.h),dpr=Math.min(devicePixelRatio||1,2,Math.sqrt(8e6/Math.max(1,W*H)));
+    cv.style.width=W+'px';cv.style.height=H+'px';cv.style.top=-EX+'px';const bwid=Math.round(W*dpr),bh=Math.round(H*dpr);if(cv.width!==bwid||cv.height!==bh){cv.width=bwid;cv.height=bh}
     const o=cv.getContext('2d');o.setTransform(1,0,0,1,0,0);o.clearRect(0,0,cv.width,cv.height);o.setTransform(dpr,0,0,dpr,-r.l*dpr,-r.t*dpr);
     const pad=80,run=PATH.map(p=>p[1]>r.t-pad&&p[1]<r.t+H+pad?p:null);lay(o,run,th);
     /* keep the finished drawing; the reveal below shows it up to the current length */
@@ -925,7 +1290,7 @@ function drawThread(th){
   TH0=th;revealTo(REV,true)}
 
 /* ---- the thread draws itself: on opening it runs down from the eyelet, then its tip stays a little ahead of the reader ---- */
-const NOANIM=matchMedia('(prefers-reduced-motion: reduce)').matches||/[?&]edit\b/.test(location.search);
+const NOANIM=matchMedia('(prefers-reduced-motion: reduce)').matches||EDITING();
 let REV=NOANIM?1e12:0,revRaf=0,revLast=0,TH0=4;
 let HSEG=[],HLEN=0;
 function maskTo(o,pts,cum,L,w){o.lineWidth=w;o.lineCap='round';o.lineJoin='round';o.beginPath();o.moveTo(pts[0][0],pts[0][1]);let k=1;
@@ -934,9 +1299,9 @@ function maskTo(o,pts,cum,L,w){o.lineWidth=w;o.lineCap='round';o.lineJoin='round
 function revealTo(L,force){
   let off=0;for(const S of HSEG){const l=L-off,o=S.cv.getContext('2d'),st=l>=S.len?'full':l<=0?'empty':'part';off+=S.len;
     if(st===S.state&&st!=='part'&&!force)continue;S.state=st;o.setTransform(1,0,0,1,0,0);o.clearRect(0,0,S.cv.width,S.cv.height);
-    if(st!=='empty'){o.drawImage(S.cache,0,0);if(st==='part'){o.globalCompositeOperation='destination-in';o.setTransform(S.dpr,0,0,S.dpr,0,0);maskTo(o,S.pts,S.cum,l,TH0*9);
+    if(st!=='empty'){o.drawImage(S.cache,0,0);if(st==='part'){o.globalCompositeOperation='destination-in';o.setTransform(S.dpr,0,0,S.dpr,S.dpr*HM,S.dpr*HM);maskTo(o,S.pts,S.cum,l,TH0*9);
       if(S.ring){o.fillStyle='#000';o.beginPath();o.arc(S.ring.E[0],S.ring.E[1],S.ring.r,0,6.2832);o.fill()}o.globalCompositeOperation='source-over'}}
-    else if(S.ring){/* the brass eyelet belongs to the card: always visible */o.drawImage(S.cache,0,0);o.globalCompositeOperation='destination-in';o.setTransform(S.dpr,0,0,S.dpr,0,0);o.fillStyle='#000';o.beginPath();o.arc(S.ring.E[0],S.ring.E[1],S.ring.r,0,6.2832);o.fill();o.globalCompositeOperation='source-over'}}
+    else if(S.ring){/* the brass eyelet belongs to the card: always visible */o.drawImage(S.cache,0,0);o.globalCompositeOperation='destination-in';o.setTransform(S.dpr,0,0,S.dpr,S.dpr*HM,S.dpr*HM);o.fillStyle='#000';o.beginPath();o.arc(S.ring.E[0],S.ring.E[1],S.ring.r,0,6.2832);o.fill();o.globalCompositeOperation='source-over'}}
   L-=HLEN;
   for(const S of SECS){if(!S.cache||S.i0<0)continue;const o=S.cv.getContext('2d');
     const st=S.hi<=L?'full':S.lo>=L?'empty':'part';if(st===S.state&&st!=='part'&&!force)continue;S.state=st;
@@ -947,9 +1312,9 @@ function revealTo(L,force){
     if(k<PATH.length&&k>0){const t=(L-CUM[k-1])/((CUM[k]-CUM[k-1])||1);o.lineTo(PATH[k-1][0]+(PATH[k][0]-PATH[k-1][0])*t,PATH[k-1][1]+(PATH[k][1]-PATH[k-1][1])*t)}
     o.stroke();o.globalCompositeOperation='source-over'}
   LV.forEach(d=>{const v=+d.dataset.at||0;d.classList.toggle('shown',v<=L)})}
-function revTarget(){if(!PATH.length)return HLEN;const y=scrollY+innerHeight*1.12;   /* the tip runs just past the bottom of the screen, so it always looks like it leads on */let m=0;for(let i=0;i<PATH.length;i++)if(PATH[i][1]<=y&&CUM[i]>m)m=CUM[i];return HLEN+m}
+function revTarget(){if(!PATH.length)return HLEN;const y=scrollY+innerHeight*1.05;   /* the tip runs just past the bottom of the screen, so it always looks like it leads on */let m=0;for(let i=0;i<PATH.length;i++)if(PATH[i][1]<=y&&CUM[i]>m)m=CUM[i];return HLEN+m}
 function revFrame(now){const dt=Math.min(.05,(now-revLast)/1000)||.016;revLast=now;const T=revTarget();
-  if(REV<T){const intro=REV<HLEN+innerHeight*1.2;REV=Math.min(T,REV+(intro?420*dt:Math.max(520*dt,(T-REV)*2.2*dt)));revealTo(REV)}
+  if(REV<T){const intro=REV<HLEN+innerHeight*1.2;REV=Math.min(T,REV+(intro?420*dt:Math.max(700*dt,(T-REV)*5*dt)));revealTo(REV)}
   revRaf=REV<T?requestAnimationFrame(revFrame):0}
 function revKick(){if(NOANIM||revRaf)return;revLast=performance.now();revRaf=requestAnimationFrame(revFrame)}
 addEventListener('scroll',revKick,{passive:true});
@@ -958,7 +1323,7 @@ const LVBOX=document.createElement('div');LVBOX.className='lvls';LVBOX.id='lvls'
 const LV=LEVELS.map((t,i)=>{const d=document.createElement('div');d.className='lvl';d.style.setProperty('--a',[-6,5,-4,6,-5,4][i]+'deg');
   d.innerHTML='<span class="lvl-p"><span class="lvl-t"><img src="img/kit/tag.png" alt=""><b>'+t+'</b></span><img class="lvl-bow" src="img/bow.webp" alt=""></span>';LVBOX.appendChild(d);return d});
 function atLen(f){const L=CUM[CUM.length-1]*f;let i=1;while(i<CUM.length-1&&CUM[i]<L)i++;return PATH[i]}
-const LVBLOCK='.pc,.rq,.pbox,.pick,h1,h2,.sub,.hint,.btn,.eyebrow,.qa,.more,.pnote,.contacts,.ltoggle,.knot,.dcard,.rnote,.sig,.play';
+const LVBLOCK='.pc,.rq,.pbox,.pick,h1,h2,.sub,.hint,.btn,.eyebrow,.qa,.more,.pnote,.contacts,.ltoggle,.knot,.dcard,.rnote,.sig,.vseal';
 function placeLevels(){LVBOX.style.height=document.documentElement.scrollHeight+'px';const tot=CUM[CUM.length-1]||0;if(!PATH.length){LV.forEach(d=>d.style.display='none');return}
   const own=ROUTE[bucket()].lv,blocks=[...document.querySelectorAll(LVBLOCK)].map(e=>{const r=e.getBoundingClientRect();return[r.left+scrollX-8,r.top+scrollY-8,r.right+scrollX+8,r.bottom+scrollY+8]}).filter(b=>b[2]>b[0]);
   /* how badly a tag at p would cover things (0 = free spot) */
@@ -969,7 +1334,7 @@ function placeLevels(){LVBOX.style.height=document.documentElement.scrollHeight+
     if(!own){let best=Math.max(f,prevF+.06),bc=1e18;const steps=[0];for(let k=1;k<=75;k++)steps.push(k*.004,-k*.004);
       /* levels keep their order along the thread: each one at least a little further on than the one before */
       for(const st of steps){const g=f+st;if(g<.02||g>.98||g<prevF+.06)continue;const c=cost(atLen(g),placed)+Math.abs(st)*2000;if(c<bc){bc=c;best=g}if(c<1)break}f=best}
-    prevF=f;const p=atLen(f);placed.push(p);d.dataset.at=tot*f;d.style.display='';d.style.left=p[0]+'px';d.style.top=p[1]+'px'})}
+    prevF=f;const p=atLen(f);placed.push(p);d.dataset.at=tot*f;d.style.display='';d.style.left=p[0]+'px';d.style.top=p[1]+'px';const LS=ROUTE[bucket()].lvs;d.style.scale=LS&&LS!==1?LS:''})}
 
 /* ---- cards on tape; placed by hand in ?edit ---- */
 const TAPE=['img/kit/tape-1.png','img/kit/tape-2.png'];
@@ -978,13 +1343,24 @@ document.querySelectorAll('.hang .pc,.tcard .pc,.rcard .pc').forEach((pc,i)=>{co
 /* students: a paper note tucked behind each photo, peeking out below it, inviting a tap; the story itself opens on the card's back */
 document.querySelectorAll('#rline .rcard .swing').forEach(sw=>{const n=document.createElement('span');n.className='rnote';n.setAttribute('aria-hidden','true');
   n.innerHTML='<img src="img/kit/back.png" alt=""><span class="rnote-t"><span data-l="ru">её история →</span><span data-l="uk">її історія →</span></span>';sw.prepend(n)});
-const CARDS=()=>[...[['line','.hang'],['tline','.tcard'],['rline','.rcard']].flatMap(([id,sel])=>[...document.querySelectorAll('#'+id+' '+sel)].map((c,i)=>[id+':'+i,c])),['dcard',dc]];
+/* teachers: the same paper note, «about the teacher» — tap opens the card and turns it over */
+document.querySelectorAll('#tline .tcard .swing').forEach(sw=>{const n=document.createElement('span');n.className='rnote';n.setAttribute('aria-hidden','true');
+  n.innerHTML='<img src="img/kit/back.png" alt=""><span class="rnote-t"><span data-l="ru">о преподавателе →</span><span data-l="uk">про викладача →</span></span>';sw.prepend(n)});
+/* the language polaroids get the same paper note underneath: what's inside, tap to see */
+document.querySelectorAll('#line .hang .swing').forEach(sw=>{const de=sw.closest('.hang').classList.contains('de'),n=document.createElement('span');n.className='rnote';n.setAttribute('aria-hidden','true');
+  n.innerHTML='<img src="img/kit/back.png" alt=""><span class="rnote-t"><span data-l="ru">'+(de?'от 15 € · курсы →':'от 12 € · курсы →')+'</span><span data-l="uk">'+(de?'від 15 € · курси →':'від 12 € · курси →')+'</span></span>';sw.prepend(n)});
+const CARDS=()=>[...[['line','.hang']].flatMap(([id,sel])=>[...document.querySelectorAll('#'+id+' '+sel)].map((c,i)=>[id+':'+i,c])),['dcard',dc]];
 const pathOf=el=>{const parts=[];let e=el;while(e&&e!==document.body){if(e.id){parts.unshift('#'+CSS.escape(e.id));return parts.join('>')}
   const p=e.parentElement;parts.unshift(e.tagName.toLowerCase()+':nth-child('+([...p.children].indexOf(e)+1)+')');e=p}return'body>'+parts.join('>')};
 let freed=[];
-function applyFree(){freed.forEach(el=>{el.style.translate='';el.style.rotate='';el.style.scale=''});freed=[];const F=ROUTE[bucket()].free||{},w=innerWidth;
-  for(const k in F){let el;try{el=document.querySelector(k)}catch(e){}if(!el)continue;const v=F[k];
-    el.style.translate=(v.x||0)*w+'px '+(v.y||0)*w+'px';if(v.r)el.style.rotate=v.r+'deg';if(v.s&&v.s!==1)el.style.scale=v.s;freed.push(el)}}
+/* page blocks (sections, main, footer) moved up or down really move: their shift becomes margin, so the page gets shorter
+   or longer and everything after follows; other elements just slide (translate) without touching the layout */
+const FLOW='main>section,main';   /* the footer is left out: it always follows the last section */
+function applyFree(){freed.forEach(el=>{el.style.translate='';el.style.rotate='';el.style.scale='';el.style.marginTop=''});freed=[];const F=ROUTE[bucket()].free||{},w=innerWidth,M=new Map();
+  for(const k in F){let el;try{el=document.querySelector(k)}catch(e){}if(el)M.set(el,F[k])}
+  for(const [el,v] of M){const ty=el.matches('body>footer')?0:(v.y||0)*w,flow=el.matches(FLOW);
+    if(flow){let p=el.previousElementSibling;while(p&&!(p.matches(FLOW)&&M.has(p)))p=p.previousElementSibling;const py=p?(M.get(p).y||0)*w:0,base=parseFloat(getComputedStyle(el).marginTop)||0;el.style.marginTop=(base+ty-py)+'px'}
+    el.style.translate=(v.x||0)*w+'px '+(flow?0:ty)+'px';if(v.r)el.style.rotate=v.r+'deg';if(v.s&&v.s!==1)el.style.scale=v.s;freed.push(el)}}
 function applyCards(){applyFree();const o=(ROUTE[bucket()].cards)||{},B=ROUTE[bucket()].bow;document.querySelectorAll('.bow').forEach(b=>b.style.scale=B&&B.s?B.s:'');
   for(const [k,el] of CARDS()){const v=o[k];el.style.left=v?v.l+'%':'';el.style.top=v?v.t+'%':'';el.style.width=v&&v.w?v.w+'%':'';
     if(k==='dcard')v&&v.r!=null?el.style.setProperty('--drot',v.r+'deg'):el.style.removeProperty('--drot');
@@ -997,13 +1373,13 @@ zoom.innerHTML='<div class="zoom-bg"></div><div class="zoom-card" tabindex="0" r
   +'<button class="zoom-x" type="button" aria-label="Закрыть"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 3l10 10M13 3L3 13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>';
 document.body.appendChild(zoom);
 const zc=zoom.querySelector('.zoom-card');let zFrom=null,zBack=null;
-function fromTo(card){const a=(card.querySelector('.pc')||card.querySelector('.shot')).getBoundingClientRect(),b=zc.getBoundingClientRect(),s=a.width/b.width,
+function fromTo(card){if(card.classList.contains('rq-src'))return'translateY(24px) scale(.94)';const a=(card.querySelector('.pc')||card.querySelector('.shot')).getBoundingClientRect(),b=zc.getBoundingClientRect(),s=a.width/b.width,
   r=parseFloat(getComputedStyle(card).getPropertyValue('--rot'))||0;return`translate(${a.left+a.width/2-b.left-b.width/2}px,${a.top+a.height/2-b.top-b.height/2}px) rotate(${r}deg) scale(${s})`}
-function openZoom(card,flip){if(/[?&]edit\b/.test(location.search))return;zFrom=card;zBack=document.activeElement;zoom.classList.toggle('shot',card.classList.contains('rv-print'));
+function openZoom(card,flip){if(EDITING())return;zFrom=card;zBack=document.activeElement;zoom.classList.toggle('shot',card.classList.contains('rv-print'));
   const f=zoom.querySelector('.zoom-front'),bk=zoom.querySelector('.zoom-back');f.innerHTML='';bk.innerHTML='';
   const pc=(card.querySelector('.pc')||card.querySelector('.shot')).cloneNode(true);pc.querySelectorAll('[loading]').forEach(i=>i.removeAttribute('loading'));f.appendChild(pc);
-  const back=card.classList.contains('tcard')?card.querySelector('.back>span'):document.querySelector('.story.s'+[...document.querySelectorAll('#rline .rcard')].indexOf(card));
-  if(back){const c=back.cloneNode(true);c.className='zoom-text';bk.appendChild(c)}
+  const back=card.dataset.back?document.getElementById(card.dataset.back):card.classList.contains('tcard')?card.querySelector('.back>span'):document.querySelector('.story.s'+[...document.querySelectorAll('#rline .rcard')].indexOf(card));
+  if(back){const c=back.cloneNode(true);c.hidden=false;c.removeAttribute('id');c.className='zoom-text'+(card.dataset.back?' lzt':'');bk.appendChild(c)}
   zc.classList.remove('flipped');zoom.hidden=false;document.documentElement.classList.add('zoomed');
   zc.style.transition='none';zc.style.transform=fromTo(card);card.style.visibility='hidden';
   requestAnimationFrame(()=>requestAnimationFrame(()=>{zc.style.transition='';zc.style.transform='';zoom.classList.add('on');zc.focus({preventScroll:true})}));
@@ -1016,10 +1392,14 @@ zc.addEventListener('click',()=>{if(!zoom.classList.contains('shot'))zc.classLis
 zc.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();zc.classList.toggle('flipped')}});
 zoom.querySelector('.zoom-bg').addEventListener('click',closeZoom);zoom.querySelector('.zoom-x').addEventListener('click',closeZoom);
 addEventListener('keydown',e=>{if(e.key==='Escape')closeZoom()});
-document.querySelectorAll('#tline .tcard').forEach(c=>c.addEventListener('click',()=>openZoom(c)));
+document.querySelectorAll('#tline .tcard').forEach(c=>c.addEventListener('click',e=>openZoom(c,!!(e.target.closest&&e.target.closest('.rnote')))));
 /* quote cards open the original chat screenshot */
 document.querySelectorAll('.rq').forEach(b=>b.addEventListener('click',()=>{let f=b.querySelector('figure.rv-print');
-  if(!f){f=document.createElement('figure');f.className='rv-print rq-src';f.innerHTML='<img class="shot" alt="">';const im=f.firstChild;im.src=b.dataset.shot;im.alt=b.dataset.alt;b.appendChild(f)}openZoom(f)}));
+  if(!f){f=document.createElement('figure');f.className='rv-print rq-src';f.innerHTML='<img class="shot" alt="">';const im=f.firstChild;im.src=b.dataset.shot;im.alt=b.dataset.alt;b.appendChild(f)}const im=f.querySelector('img');(im.decode?im.decode():Promise.resolve()).catch(()=>{}).then(()=>openZoom(f))}));
+document.querySelectorAll('.rq-nav[data-row]').forEach(nv=>{const g=document.querySelector(nv.dataset.row),P=nv.querySelector('.rq-prev'),N=nv.querySelector('.rq-next');if(!g)return;
+  const step=d=>{const c=g.querySelector('.rq,.tcard,.rcard');g.scrollBy({left:d*((c?c.offsetWidth:300)+32),behavior:RMQ?'auto':'smooth'})},
+    upd=()=>{P.disabled=g.scrollLeft<4;N.disabled=g.scrollLeft>g.scrollWidth-g.clientWidth-4};
+  P.addEventListener('click',()=>step(-1));N.addEventListener('click',()=>step(1));g.addEventListener('scroll',upd,{passive:true});addEventListener('resize',upd);upd()})
 const gal=document.getElementById('gallery'),allBtn=document.getElementById('allrev');
 allBtn&&allBtn.addEventListener('click',()=>{gal.hidden=false;document.documentElement.classList.add('zoomed');gal.querySelector('.gallery-x').focus()});
 const galClose=()=>{gal.hidden=true;document.documentElement.classList.remove('zoomed');allBtn.focus()};
@@ -1030,23 +1410,30 @@ document.querySelectorAll('#rline .rcard').forEach(c=>{c.setAttribute('role','bu
   c.addEventListener('click',e=>openZoom(c,!!(e.target.closest&&e.target.closest('.rnote'))));c.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openZoom(c)}})});
 
 /* ---- ?edit: move everything, then copy the numbers and send them over ---- */
-if(/[?&]edit\b/.test(location.search)){
+if(EDITING()){
   document.body.style.webkitUserSelect=document.body.style.userSelect='none';
-  const st=document.createElement('style');st.textContent='.ehov{outline:1px dashed rgba(201,162,75,.9);outline-offset:2px}.bow{pointer-events:auto!important;cursor:pointer}.esel{outline:2px dashed #C9A24B;outline-offset:4px}.dcard{pointer-events:auto;cursor:move}.hang,.tcard,.rcard,.dcard{touch-action:none;cursor:move}.lvl{pointer-events:auto;cursor:grab;touch-action:none}';document.head.appendChild(st);
+  const st=document.createElement('style');st.textContent='.ehov{outline:1px dashed rgba(201,162,75,.9);outline-offset:2px}.bow{pointer-events:auto!important;cursor:pointer}.esel{outline:2px dashed #C9A24B;outline-offset:4px}.dcard{pointer-events:auto;cursor:move}.hang,.tcard,.rcard,.dcard{touch-action:none;cursor:move}.lvl,.lvl *{pointer-events:auto;cursor:grab;touch-action:none}';document.head.appendChild(st);
   const ov=document.createElement('div');ov.style.cssText='position:absolute;left:0;top:0;width:0;height:0;z-index:9999';document.body.appendChild(ov);
-  const panel=document.createElement('div');panel.style.cssText='position:fixed;left:12px;bottom:12px;z-index:10000;background:#fff;color:#707D6C;border-radius:12px;padding:8px 10px;font:13px/1.35 system-ui;box-shadow:0 6px 20px rgba(0,0,0,.25);display:flex;gap:6px 10px;align-items:center;flex-wrap:wrap;max-width:min(760px,calc(100vw - 24px))';
-  panel.innerHTML='<b class="eb"></b><span style="opacity:.75">кликните и тяните что угодно: текст, кнопки, карточки, бирки, бантики · Shift + тянуть бирку: вдоль нити · клик по точке: ручки дуги · Shift + клик: убрать изгиб · двойной клик: добавить точку · ⌥ + клик: удалить · колесо: поворот · Shift + колесо: размер</span>'
+  const panel=document.createElement('div');panel.className='ep';panel.style.cssText='position:fixed;left:12px;bottom:12px;z-index:10000;background:#fff;color:#707D6C;border-radius:12px;padding:8px 10px;font:13px/1.35 system-ui;box-shadow:0 6px 20px rgba(0,0,0,.25);display:flex;gap:6px 10px;align-items:center;flex-wrap:wrap;max-width:min(760px,calc(100vw - 24px))';
+  panel.innerHTML='<button class="ef" type="button" aria-label="Свернуть">▾</button><b class="eb"></b><span class="eh" style="opacity:.75">кликните и тяните что угодно: текст, кнопки, карточки, бирки, бантики · бирки уровней тянутся вдоль нити · клик по точке: ручки дуги · Shift + клик: убрать изгиб · двойной клик: добавить точку · ⌥ + клик: удалить · ⌥ + колесо: поворот · ⌥ + Shift + колесо: размер · сетка 8 px: всё прилипает</span>'
     +'<span>Выбрано: <i class="es">кликните карточку или бант</i></span>'
     +'<span>размер <button data-a="s-">−</button><button data-a="s+">+</button></span><span>поворот <button data-a="r-">⟲</button><button data-a="r+">⟳</button></span>'
-    +'<span>вся нить <button data-a="t-">тоньше</button><button data-a="t+">толще</button></span><span><button data-a="up">выше ↑</button><button data-a="x0">сбросить элемент</button></span><button class="ec" type="button">Скопировать</button><button class="er" type="button">Сбросить всё</button>';document.body.appendChild(panel);
+    +'<span>точка нити <button data-a="p+">+ точка</button><button data-a="p-">− точка</button><button data-a="p0">убрать изгиб</button></span>'
+    +'<span>все бирки <button data-a="L-">меньше</button><button data-a="L+">больше</button></span>'
+    +'<span>вся нить <button data-a="t-">тоньше</button><button data-a="t+">толще</button></span><span><button data-a="up">выше ↑</button><button data-a="x0">сбросить элемент</button></span><button class="eg" type="button">сетка 8 px ✓</button><button class="ec" type="button">Скопировать</button><button class="er" type="button">Сбросить всё</button>';document.body.appendChild(panel);
   const cur=()=>({m:'телефон',t:'планшет',d:'десктоп'})[bucket()],R=()=>ROUTE[bucket()];
+  /* 8px grid: shown on screen, and every move snaps to it (edges of cards and texts, thread points) */
+  let SNAP=true;const GRID=8,g=v=>SNAP?Math.round(v/GRID)*GRID:v;
+  const grid=document.createElement('div');grid.className='egrid';document.body.appendChild(grid);
+  const gst=document.createElement('style');gst.textContent='.egrid{position:fixed;inset:0;z-index:9998;pointer-events:none;background-image:linear-gradient(to right,rgba(112,125,108,.22) 1px,transparent 1px),linear-gradient(to bottom,rgba(112,125,108,.22) 1px,transparent 1px),linear-gradient(to right,rgba(112,125,108,.07) 1px,transparent 1px),linear-gradient(to bottom,rgba(112,125,108,.07) 1px,transparent 1px);background-size:64px 64px,64px 64px,8px 8px,8px 8px}.egrid.off{display:none}';document.head.appendChild(gst);
+  const syncGrid=()=>{grid.style.backgroundPosition=`0 ${-scrollY%64}px,0 ${-scrollY%64}px,0 ${-scrollY%8}px,0 ${-scrollY%8}px`};addEventListener('scroll',syncGrid,{passive:true});syncGrid();
   const dot=(x,y,col,title,size)=>{const d=document.createElement('div'),cx=Math.min(innerWidth-14,Math.max(14,x));d.title=title;
     d.style.cssText=`position:absolute;left:${cx}px;top:${y}px;width:${size}px;height:${size}px;margin:${-size/2}px 0 0 ${-size/2}px;border-radius:50%;border:2px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.45);cursor:grab;touch-action:none;background:${col};opacity:${cx!==x?.55:1}`;ov.appendChild(d);return d};
   const drag=(e,mv)=>{e.preventDefault();e.stopPropagation();const up=()=>{removeEventListener('pointermove',mv);removeEventListener('pointerup',up);removeEventListener('pointercancel',up)};
     addEventListener('pointermove',mv);addEventListener('pointerup',up);addEventListener('pointercancel',up)};
   let busy=0;const redraw=()=>{if(!busy)busy=requestAnimationFrame(()=>{busy=0;relayout()})};
   /* a page point → [section id, fx, fy] */
-  const toSec=(x,y)=>{let best=SECS[0].sec;for(const {sec} of SECS){const r=docRect(sec);if(y>=r.t)best=sec}const r=docRect(best);return[best.id||'hero',(x-r.l)/r.w,(y-r.t)/r.h]};
+  const toSec=(x,y)=>{let best=SECS[0].sec;for(const {sec} of SECS){const r=docRect(sec);if(y>=r.t)best=sec}const r=anchorRect(best);return[best.id||'hero',(x-r.l)/r.w,(y-r.t)/r.h]};
   const ownPath=()=>{const b=R();if(!b.path)b.path=(DEFPATH).map(p=>p.slice());return b.path};
   const own=(k,s)=>{const o=R()[k]=R()[k]||{},w=innerWidth;if(!o.w||!o.w.length)o.w=s.K.slice(1,-1).map(p=>[p[0]/w,p[1]/w]);return o};
   let selPt=-1;
@@ -1055,11 +1442,11 @@ if(/[?&]edit\b/.test(location.search)){
   function draw(){ov.innerHTML='';panel.querySelector('.eb').textContent='Правка · '+cur();const w=innerWidth,mine=!!R().path;
     /* gold dots: the two ends; let go near the eyelet or the bow and they snap back onto it */
     ENDS.forEach((p,j)=>{const key=j?'end':'start',home=()=>j?BOW:EYE,d=dot(p[0],p[1],'#C9A24B',j?'конец нити (к банту)':'начало нити (из люверса)',22);
-      d.addEventListener('pointerdown',e=>drag(e,ev=>{const h=home();if(h&&Math.hypot(ev.pageX-h[0],ev.pageY-h[1])<28)delete R()[key];else R()[key]=toSec(ev.pageX,ev.pageY);redraw()}))});
+      d.addEventListener('pointerdown',e=>drag(e,ev=>{const h=home();if(h&&Math.hypot(ev.pageX-h[0],ev.pageY-h[1])<28)delete R()[key];else R()[key]=toSec(g(ev.pageX),g(ev.pageY));redraw()}))});
     KN.forEach((p,j)=>{const d=dot(p[0],p[1],mine?'#7C8463':'#9AA083','точка нити',20);
       d.addEventListener('pointerdown',e=>{if(e.altKey){e.preventDefault();ownPath().splice(j,1);selPt=-1;redraw();return}
         if(e.shiftKey){e.preventDefault();const q=ownPath()[j];q.length=3;selPt=j;redraw();return}
-        selPt=j;redraw();drag(e,ev=>{const q=ownPath()[j],t=q.slice(3);ownPath()[j]=toSec(ev.pageX,ev.pageY).concat(t);redraw()})});
+        selPt=j;redraw();drag(e,ev=>{const q=ownPath()[j],t=q.slice(3);ownPath()[j]=toSec(g(ev.pageX),g(ev.pageY)).concat(t);redraw()})});
       d.addEventListener('dblclick',e=>{e.preventDefault();const a=KN[j],b=KN[j+1]||a;ownPath().splice(j+1,0,toSec((a[0]+b[0])/2+(b===a?40:0),(a[1]+b[1])/2+(b===a?80:0)));redraw()})});
     /* arc handles of the selected point: drag either one, the other mirrors it */
     if(selPt>=0&&KN[selPt]){const all=[ENDS[0],...KN,ENDS[1]],i=selPt+1,p=all[i],m=p[2]||[(all[i+1][0]-all[i-1][0])/2,(all[i+1][1]-all[i-1][1])/2];
@@ -1072,10 +1459,10 @@ if(/[?&]edit\b/.test(location.search)){
           drag(e,ev=>{const S=SEG[k],o=own(k,S);o.w[j]=[(ev.pageX-S.ox)/w,(ev.pageY-S.oy)/w];redraw()})});
         d.addEventListener('dblclick',e=>{e.preventDefault();const S=SEG[k],o=own(k,S),a=S.K[j+1],b=S.K[j+2];o.w.splice(j+1,0,[(a[0]+b[0])/2/w,(a[1]+b[1])/2/w]);redraw()})})}}
   /* level tags slide along the thread */
-  LV.forEach((d,i)=>d.addEventListener('pointerdown',e=>{if(!e.shiftKey)return;drag(e,ev=>{let bi=0,bd=1e18;for(let k=0;k<PATH.length;k+=2){const q=PATH[k],dd=(q[0]-ev.pageX)**2+(q[1]-ev.pageY)**2;if(dd<bd){bd=dd;bi=k}}
-    const b=R();b.lv=b.lv||DEFLV.slice();b.lv[i]=Math.round(CUM[bi]/CUM[CUM.length-1]*1000)/1000;redraw()})}));
+  LV.forEach((d,i)=>d.addEventListener('pointerdown',e=>{select(d.querySelector('.lvl-p')||d);drag(e,ev=>{let bi=0,bd=1e18;for(let k=0;k<PATH.length;k+=2){const q=PATH[k],dd=(q[0]-ev.pageX)**2+(q[1]-ev.pageY)**2;if(dd<bd){bd=dd;bi=k}}
+    const b=R(),T=CUM[CUM.length-1]||1;b.lv=b.lv||LV.map(x=>Math.round((+x.dataset.at||0)/T*1000)/1000);b.lv[i]=Math.round(CUM[bi]/CUM[CUM.length-1]*1000)/1000;redraw()})}));
   /* cards: drag to move, wheel to tilt / resize; clicks don't open links, zoom or flip while editing */
-  const cardOf=t=>t.closest&&t.closest('.hang,.tcard,.rcard,.dcard');
+  const cardOf=t=>t.closest&&t.closest('.hang,.dcard');
   const keyOf=el=>CARDS().find(([k,c])=>c===el)[0];
   const save=(el,patch)=>{const C=R().cards=R().cards||{},k=keyOf(el),P=el.offsetParent,v=C[k]=C[k]||{l:el.offsetLeft/P.offsetWidth*100,t:el.offsetTop/P.offsetHeight*100};Object.assign(v,patch)};
   let sel=null;const NM={dcard:'карточка Даяны',line:'язык',tline:'учитель',rline:'ученица'};
@@ -1086,6 +1473,12 @@ if(/[?&]edit\b/.test(location.search)){
     if(x&&x!=='bow')x.classList.add('esel')};
   const FREE=el=>{const F=R().free=R().free||{},k=pathOf(el);return F[k]=F[k]||{x:0,y:0}};
   const act=(a,el)=>{const f=a[1]==='+'?1.05:1/1.05;
+    /* thread point buttons (the phone has no ⌥, Shift or double click): act on the point tapped last */
+    if(a[0]==='L'){const b=R();b.lvs=Math.round((b.lvs||1)*f*1000)/1000;redraw();return}
+    if(a[0]==='p'){if(selPt<0||!KN[selPt])return;const P=ownPath();
+      if(a==='p-'){P.splice(selPt,1);selPt=-1}else if(a==='p0'){P[selPt].length=3}
+      else{const A=KN[selPt],B=KN[selPt+1]||ENDS[1];P.splice(selPt+1,0,toSec((A[0]+B[0])/2,(A[1]+B[1])/2));selPt++}
+      redraw();return}
     if(a==='up'){if(el&&el!=='bow'&&el.parentElement&&el.parentElement!==document.body)select(el.parentElement);return}
     if(a==='x0'){if(el&&el!=='bow'&&!isCard(el)){delete(R().free||{})[pathOf(el)];redraw()}return}
     if(el&&el!=='bow'&&!isCard(el)&&a[0]!=='t'){const v=FREE(el);if(a[0]==='s')v.s=Math.round((v.s||1)*f*1000)/1000;if(a[0]==='r')v.r=(v.r||0)+(a[1]==='+'?1:-1);redraw();return}
@@ -1098,33 +1491,43 @@ if(/[?&]edit\b/.test(location.search)){
   panel.addEventListener('click',e=>{const b=e.target.closest('button[data-a]');if(b)act(b.dataset.a,sel)});
   document.addEventListener('pointerdown',e=>{if(e.target.closest&&e.target.closest('.bow')&&!e.target.closest('.btn')){e.preventDefault();select('bow')}},true);
   document.addEventListener('pointerdown',e=>{if(e.target.closest&&e.target.closest('.ec,.er,[data-a]'))return;const el=cardOf(e.target);if(!el||e.button)return;select(el);
-    const P=el.offsetParent,x0=e.clientX,y0=e.clientY,l0=el.offsetLeft,t0=el.offsetTop;
-    drag(e,ev=>{save(el,{l:(l0+ev.clientX-x0)/P.offsetWidth*100,t:(t0+ev.clientY-y0)/P.offsetHeight*100});redraw()})},true);
+    const P=el.offsetParent,x0=e.clientX,y0=e.clientY,l0=el.offsetLeft,t0=el.offsetTop,pr=P.getBoundingClientRect(),px=pr.left+scrollX,py=pr.top+scrollY;
+    drag(e,ev=>{save(el,{l:(g(px+l0+ev.clientX-x0)-px)/P.offsetWidth*100,t:(g(py+t0+ev.clientY-y0)-py)/P.offsetHeight*100});redraw()})},true);
   /* anything else on the page: click to select, drag to move */
   const SKIP=new Set(['SPAN','B','I','SMALL','EM','STRONG','BR','svg','path','g','use','line']);
-  const KEEP='.lvl-p,.rnote,.rq,.pitem,.pick,.btn,.story,.eyebrow,.hint,.more,.pnote,.sig,.play,.ltoggle,.sum,.who,.tag,.pc-nm';
+  const KEEP='.lvl-p,.rnote,.rq,.pitem,.pick,.btn,.story,.eyebrow,.hint,.more,.pnote,.sig,.play,.ltoggle,.sum,.who,.tag,.pc-nm,.vseal';
   const pick=t=>{let e=t;while(e&&e.parentElement&&e!==document.body&&!(e.matches&&e.matches(KEEP))&&(SKIP.has(e.tagName)||(e.tagName==='IMG'&&e.closest('.lvl-p'))))e=e.parentElement;return e};
-  const inUI=t=>t.closest&&(t.closest('.ec,.er,[data-a]')||panel.contains(t)||ov.contains(t)||zoom.contains(t));
+  const inUI=t=>t.closest&&(t.closest('.ec,.er,.eg,[data-a],.btnpick')||panel.contains(t)||ov.contains(t)||zoom.contains(t));
   document.addEventListener('pointerdown',e=>{if(e.button||inUI(e.target)||cardOf(e.target)||(e.target.closest&&e.target.closest('.bow')))return;
-    if(e.shiftKey&&e.target.closest&&e.target.closest('.lvl'))return;
+    if(e.target.closest&&e.target.closest('.lvl'))return;
     const el=pick(e.target);if(!el||el===document.body||el===document.documentElement)return;select(el);
-    const v=FREE(el),x0=e.pageX,y0=e.pageY,vx=v.x,vy=v.y,w=innerWidth;
-    drag(e,ev=>{v.x=vx+(ev.pageX-x0)/w;v.y=vy+(ev.pageY-y0)/w;redraw()})},true);
+    const v=FREE(el),x0=e.pageX,y0=e.pageY,vx=v.x,vy=v.y,w=innerWidth,er=el.getBoundingClientRect(),bx=er.left+scrollX-vx*w,by=er.top+scrollY-vy*w;
+    drag(e,ev=>{v.x=(g(bx+vx*w+ev.pageX-x0)-bx)/w;v.y=(g(by+vy*w+ev.pageY-y0)-by)/w;redraw()})},true);
   document.addEventListener('pointerover',e=>{if(inUI(e.target))return;document.querySelectorAll('.ehov').forEach(n=>n.classList.remove('ehov'));const el=cardOf(e.target)||pick(e.target);if(el&&el!==document.body)el.classList.add('ehov')});
   document.addEventListener('click',e=>{if(!inUI(e.target)){e.preventDefault();e.stopPropagation()}},true);
-  document.addEventListener('wheel',e=>{if(inUI(e.target))return;const bow=e.target.closest&&e.target.closest('.bow'),el=bow?'bow':cardOf(e.target)||(sel&&sel!=='bow'&&sel.contains&&sel.contains(e.target)?sel:null);if(!el)return;e.preventDefault();select(el);
+  document.addEventListener('wheel',e=>{if(inUI(e.target)||!e.altKey)return;const bow=e.target.closest&&e.target.closest('.bow'),el=bow?'bow':cardOf(e.target)||(sel&&sel!=='bow'&&sel.contains&&sel.contains(e.target)?sel:null);if(!el)return;e.preventDefault();select(el);
     act((e.shiftKey?'s':'r')+((e.deltaY||e.deltaX)<0?'+':'-'),el)},{passive:false,capture:true});
   const r4=v=>Math.round(v*1e4)/1e4,dump=()=>JSON.stringify(ROUTE,(k,v)=>typeof v==='number'?r4(v):v);
-  panel.querySelector('.ec').addEventListener('click',async e=>{const t=dump();try{await navigator.clipboard.writeText(t);e.target.textContent='Скопировано ✓'}catch(_){prompt('Скопируйте и пришлите:',t)}setTimeout(()=>e.target.textContent='Скопировать',1800)});
+  panel.querySelector('.ec').addEventListener('click',async e=>{const t=dump();try{await navigator.clipboard.writeText(t);e.target.textContent='Скопировано ✓'}catch(_){const box=document.createElement('div');box.style.cssText='position:fixed;inset:12px;z-index:10001;background:#fff;border-radius:12px;padding:12px;display:flex;flex-direction:column;gap:8px;font:14px system-ui;color:#302D29;box-shadow:0 10px 30px rgba(0,0,0,.3)';
+      box.innerHTML='<b>Выделите всё и скопируйте, потом пришлите мне</b><textarea readonly style="flex:1;font:12px/1.4 ui-monospace,monospace;padding:8px"></textarea><button type="button" style="padding:10px;border-radius:8px;border:0;background:#302D29;color:#fff">Закрыть</button>';
+      const ta=box.querySelector('textarea');ta.value=t;box.querySelector('button').onclick=()=>box.remove();document.body.appendChild(box);ta.focus();ta.select()}setTimeout(()=>e.target.textContent='Скопировать',1800)});
   panel.querySelector('.er').addEventListener('click',()=>{ROUTE[bucket()]={};relayout()});
+  panel.querySelector('.eg').addEventListener('click',e=>{SNAP=!SNAP;grid.classList.toggle('off',!SNAP);e.target.textContent=SNAP?'сетка 8 px ✓':'сетка выкл'});
+  panel.querySelector('.ef').addEventListener('click',e=>{const on=panel.classList.toggle('efold');e.target.textContent=on?'▴ правка':'▾'});
+  const pst=document.createElement('style');pst.textContent='.efold>*:not(.ef){display:none!important}.ep button{min-height:32px;padding:4px 10px;margin:2px;border:1px solid #D9D2C8;border-radius:8px;background:#FBF9F6;color:#302D29;font:13px/1 system-ui;cursor:pointer}.ep .ec{background:#302D29;color:#fff;border-color:#302D29}.ep>span{display:inline-flex;align-items:center;flex-wrap:wrap;gap:2px}.ef{border:0;background:#EFEAE3;border-radius:8px;padding:4px 10px;cursor:pointer}@media (max-width:767px){.ep .eh{display:none}}';document.head.appendChild(pst);
   window.__afterDraw=draw;
 }
 let need=0;
-function relayout(){need=0;if(!strip.complete||!strip.naturalWidth)return;applyCards();const th=TH();drawHero(th);if(thr.classList.contains('landed'))drawThread(th);else SECS.forEach(s=>s.cv.width=s.cv.width);placeLevels();if(window.__afterDraw)__afterDraw()}
+function tieBow(){const k=document.getElementById('knot');if(!k)return;const t=k.querySelector('.bow-top'),l=k.querySelector('.bow-tails'),b=k.querySelector('.btn');if(!t||!b)return;
+  t.style.clipPath=l.style.clipPath='';const T=t.getBoundingClientRect(),B=b.getBoundingClientRect();if(!T.height)return;
+  const p=Math.max(0,Math.min(1,(B.top-7-T.top)/T.height))*100;t.style.clipPath=`inset(0 0 ${100-p}% 0)`;l.style.clipPath=`inset(${p}% 0 0 0)`}
+function relayout(){need=0;if(!strip.complete||!strip.naturalWidth)return;applyCards();tieBow();const th=TH();drawHero(th);if(thr.classList.contains('landed'))drawThread(th);else SECS.forEach(s=>s.cv.width=s.cv.width);placeLevels();if(window.__afterDraw)__afterDraw()}
 function joinCord(){if(!need)need=requestAnimationFrame(()=>{relayout();revKick()})}
 const tieCord=joinCord;
 strip.addEventListener('load',joinCord);
 if('ResizeObserver' in window){let lh=0;new ResizeObserver(()=>{const h=document.body.scrollHeight;if(Math.abs(h-lh)>2){lh=h;joinCord()}}).observe(document.body)}
+/* the bow can shift inside the last block without the page height changing (form, fonts): re-tie the thread then too */
+if('ResizeObserver' in window){const c=document.getElementById('contacts');c&&new ResizeObserver(()=>joinCord()).observe(c)}document.fonts&&document.fonts.ready.then(()=>joinCord());addEventListener('load',()=>joinCord());
 /* teachers: swing on hover, flip on click */
 const tcards=[...document.querySelectorAll('.tcard')];
 tcards.forEach(t=>{
@@ -1135,7 +1538,7 @@ if('IntersectionObserver' in window){const tio=new IntersectionObserver(es=>es.f
 document.getElementById('tscroll')&&0;
 addEventListener('resize',()=>requestAnimationFrame(tieCord));strip.addEventListener('load',()=>requestAnimationFrame(tieCord));setTimeout(()=>requestAnimationFrame(tieCord),1700);
 document.querySelectorAll('.qa details').forEach(d=>d.addEventListener('toggle',()=>requestAnimationFrame(tieCord)));
-if('IntersectionObserver' in window){const kio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){document.getElementById('knot').classList.add('tied');kio.disconnect()}}),{threshold:.6});kio.observe(document.getElementById('knot'))}
+if('IntersectionObserver' in window){const kio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){document.getElementById('knot').classList.add('tied');document.getElementById('bow').addEventListener('animationend',()=>joinCord(),{once:true});kio.disconnect()}}),{threshold:.6});kio.observe(document.getElementById('knot'))}
 
 /* prices: language toggle swings the tags and swaps the prices */
 const pr=document.getElementById('prices'),ptags=[...document.querySelectorAll('.ptag')];
@@ -1155,6 +1558,35 @@ addEventListener('resize',rejoin);addEventListener('load',rejoin);heroImg.addEve
 }
 
 
+
+
+/* ---- application form: builds a message and opens WhatsApp, or copies it and opens Telegram (Telegram cannot prefill a chat) ---- */
+(()=>{const f=document.getElementById('aform');if(!f)return;
+  const T={fmt:[['Группа','Група'],['В паре','У парі'],['Индивидуально','Індивідуально'],['Разговорный клуб','Розмовний клуб'],['Подготовка к экзамену','Підготовка до іспиту'],['Пока не знаю','Поки не знаю']],
+    lvl:[['С нуля','З нуля'],['A1','A1'],['A2','A2'],['B1','B1'],['B2','B2'],['C1','C1'],['Не знаю','Не знаю']]};
+  const uk=()=>document.documentElement.dataset.lang==='uk',fill=()=>f.querySelectorAll('select[data-opts]').forEach(sel=>{const i=sel.selectedIndex;sel.innerHTML=T[sel.dataset.opts].map(o=>'<option>'+o[uk()?1:0]+'</option>').join('');sel.selectedIndex=Math.max(0,i)});
+  fill();new MutationObserver(fill).observe(document.documentElement,{attributes:true,attributeFilter:['data-lang']});
+  const msg=document.getElementById('afmsg'),say=(ru,ukr)=>{msg.textContent=uk()?ukr:ru};
+  let via='wa';document.querySelectorAll('[data-via]').forEach(b=>b.addEventListener('click',()=>{via=b.dataset.via}));
+  f.addEventListener('submit',async e=>{e.preventDefault();const d=new FormData(f),name=(d.get('name')||'').trim(),U=uk();
+    f.name.classList.toggle('bad',!name);if(!name){say('Напишите, пожалуйста, имя.','Напишіть, будь ласка, ім’я.');f.name.focus();return}
+    const lang=d.get('lang')==='de'?(U?'німецька':'немецкий'):(U?'англійська':'английский');
+    const lines=[U?'Вітаю! Хочу записатися на пробне заняття.':'Здравствуйте! Хочу записаться на пробное занятие.',(U?'Ім’я: ':'Имя: ')+name];
+    const c=(d.get('contact')||'').trim();if(c)lines.push((U?'Контакт: ':'Контакт: ')+c);
+    lines.push((U?'Мова: ':'Язык: ')+lang,(U?'Формат: ':'Формат: ')+d.get('format'),(U?'Рівень: ':'Уровень: ')+d.get('level'));
+    const n=(d.get('note')||'').trim();if(n)lines.push((U?'Коментар: ':'Комментарий: ')+n);const text=lines.join('\n');
+    if(via==='wa'){window.open('https://wa.me/4915161730335?text='+encodeURIComponent(text),'_blank','noopener');say('Открываем WhatsApp: осталось нажать «Отправить».','Відкриваємо WhatsApp: залишилося натиснути «Надіслати».');return}
+    let ok=false;try{await navigator.clipboard.writeText(text);ok=true}catch(_){}
+    window.open('https://t.me/Green_Languages','_blank','noopener');
+    say(ok?'Текст заявки скопирован: вставьте его в чат Telegram.':'Откройте чат Telegram и напишите нам, текст ниже можно скопировать.',ok?'Текст заявки скопійовано: вставте його в чат Telegram.':'Відкрийте чат Telegram і напишіть нам.')})})();
+
+/* language polaroids and their notes open the card and turn it straight to the course; «Выбрать» goes to the form with that language set */
+document.querySelectorAll('.hang[data-back],.pick[data-for]').forEach(el=>el.addEventListener('click',e=>{if(EDITING())return;e.preventDefault();
+  const h=el.classList.contains('hang')?el:document.querySelector('.hang[data-pick='+el.dataset.for+']');if(h)openZoom(h,true)}));
+/* (this runs after the main block, so it reaches the zoom layer by selector) */
+const RMQ2=matchMedia('(prefers-reduced-motion: reduce)').matches;document.querySelector('.zoom').addEventListener('click',e=>{const b=e.target.closest&&e.target.closest('[data-pick-lang]');if(!b)return;e.stopPropagation();const lang=b.dataset.pickLang;closeZoom();
+  const r=document.querySelector('#aform input[name=lang][value='+lang+']');if(r)r.checked=true;
+  setTimeout(()=>{const f=document.getElementById('aform');f.scrollIntoView({behavior:RMQ2?'auto':'smooth',block:'center'});setTimeout(()=>f.name&&f.name.focus({preventScroll:true}),600)},RMQ2?0:540)},true);
 </script>
 </body>
 </html>
